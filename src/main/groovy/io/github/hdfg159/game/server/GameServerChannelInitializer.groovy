@@ -48,7 +48,7 @@ class GameServerChannelInitializer extends ChannelInitializer<Channel> {
 				.addLast(new HttpObjectAggregator(65536))
 				
 				.addLast(new WebSocketServerCompressionHandler())
-				.addLast(new WebSocketServerProtocolHandler("/ws"))
+				.addLast(new WebSocketServerProtocolHandler("/ws", null, true, 65536, true))
 				.addLast(new WebSocketServerMessageHandler())
 				
 				.addLast(new ProtobufVarint32FrameDecoder())

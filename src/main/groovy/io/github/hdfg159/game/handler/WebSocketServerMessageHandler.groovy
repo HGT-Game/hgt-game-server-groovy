@@ -1,5 +1,6 @@
 package io.github.hdfg159.game.handler
 
+
 import io.netty.channel.ChannelHandlerContext
 import io.netty.channel.SimpleChannelInboundHandler
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame
@@ -12,6 +13,6 @@ import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame
 class WebSocketServerMessageHandler extends SimpleChannelInboundHandler<BinaryWebSocketFrame> {
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, BinaryWebSocketFrame msg) throws Exception {
-		super.channelRead(ctx, msg.content())
+		super.channelRead(ctx, msg.content().retain())
 	}
 }

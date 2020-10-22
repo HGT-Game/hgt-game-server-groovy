@@ -16,6 +16,7 @@ import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame
 class WebSocketClientMessageHandler extends ChannelOutboundHandlerAdapter {
 	@Override
 	void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
+		log.info("叼你妈${msg.class.name}")
 		if (msg instanceof ByteBuf) {
 			ByteBuf buf = (ByteBuf) msg
 			super.write(ctx, (Object) new BinaryWebSocketFrame(buf), promise)
