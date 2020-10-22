@@ -36,11 +36,11 @@ class GameClientChannelInitializer extends ChannelInitializer<Channel> {
 				.addLast(new HttpClientCodec())
 				.addLast(new HttpObjectAggregator(65536))
 				.addLast(new WebSocketClientProtocolHandler(WebSocketClientHandshakerFactory.newHandshaker(new URI("ws://localhost:9998/ws"), WebSocketVersion.V13, null, true, new DefaultHttpHeaders())))
+				.addLast(new WebSocketClientMessageHandler())
 				.addLast(new ProtobufVarint32FrameDecoder())
 				.addLast(new ProtobufDecoder(GameMessage.Message.getDefaultInstance()))
 				.addLast(new ProtobufVarint32LengthFieldPrepender())
 				.addLast(new ProtobufEncoder())
-				.addLast(new WebSocketClientMessageHandler())
 				.addLast(new LogHandler())
 		// .addLast(new HeartbeatHandler())
 	}
