@@ -82,7 +82,7 @@ class SoupRoom implements TData<String> {
 		 */
 		int type
 		/**
-		 * MC回答 0:无关 1:是 2:不是 3:半对
+		 * MC回答 1:无关 2:是 3:不是 4:半对
 		 */
 		int answer
 		/**
