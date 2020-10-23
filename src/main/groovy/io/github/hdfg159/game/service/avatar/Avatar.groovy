@@ -23,15 +23,11 @@ class Avatar implements TData<String> {
 	 */
 	String password
 	/**
-	 * 注册时间
-	 */
-	Date registerTime
-	/**
 	 * 最后登录时间
 	 */
-	Date lastLoginTime
+	Date loginTime
 	/**
 	 * 最后下线时间
 	 */
-	Date lastOfflineTime
+	Date offlineTime
 }

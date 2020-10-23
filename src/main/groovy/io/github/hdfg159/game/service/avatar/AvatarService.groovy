@@ -170,11 +170,9 @@ class AvatarService extends AbstractService {
 			return GameUtils.resMsg(RES_REGISTER, REGISTER_INFO_ILLEGAL)
 		}
 		
-		def now = new Date()
 		def registerAvatar = new Avatar(
 				username: username,
-				password: password,
-				registerTime: now
+				password: password
 		)
 		// 保存缓存，全局数据加入相关信息
 		avatarData.saveCache(registerAvatar)

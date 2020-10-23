@@ -47,7 +47,7 @@ class AvatarData extends AbstractDataManager<Avatar> {
 			return null
 		}
 		
-		getById(userId)?.lastLoginTime = new Date()
+		getById(userId)?.loginTime = new Date()
 		
 		userChannel.put(userId, channel)
 	}
@@ -64,7 +64,7 @@ class AvatarData extends AbstractDataManager<Avatar> {
 		}
 		if (userId) {
 			def avatar = getById(userId)
-			avatar?.lastOfflineTime = new Date()
+			avatar?.offlineTime = new Date()
 		}
 		userId
 	}
@@ -171,7 +171,7 @@ class AvatarData extends AbstractDataManager<Avatar> {
 		Completable.fromCallable({
 			// 设置所有玩家离线时间
 			allOnlineIds.each {id ->
-				getById(id)?.lastOfflineTime = new Date()
+				getById(id)?.offlineTime = new Date()
 			}
 		}).subscribeOn(io()).concatWith(super.rxStop())
 	}

@@ -49,35 +49,35 @@ class GameClient {
 		
 		// 下面业务代码
 		if (channel.active) {
-			// (1..1000).each {
-			// 	def username = UUID.randomUUID().toString()
-			// 	def password = "admin"
-			// 	def reg = GameUtils.reqMsg(ProtocolEnums.REQ_REGISTER,
-			// 			GameMessage.RegisterReq.newBuilder()
-			// 					.setUsername(username)
-			// 					.setPassword(password)
-			// 					.build())
-			// 	channel.writeAndFlush(reg)
-			
-			def username = "admin"
-			def password = "admin"
-			// def reg = GameUtils.reqMsg(ProtocolEnums.REQ_REGISTER,
-			// 		GameMessage.RegisterReq.newBuilder()
-			// 				.setUsername(username)
-			// 				.setPassword(password)
-			// 				.build())
-			// channel.writeAndFlush(reg)
-			// Thread.sleep(1000L)
-			def login = GameUtils.reqMsg(
-					ProtocolEnums.REQ_LOGIN,
-					GameMessage.LoginReq.newBuilder()
-							.setUsername(username)
-							.setPassword(password)
-							.build()
-			)
-			
-			(1..9).each {
-				channel.writeAndFlush(login)
+			(1..1000).each {
+				def username = UUID.randomUUID().toString()
+				def password = "admin"
+				def reg = GameUtils.reqMsg(ProtocolEnums.REQ_REGISTER,
+						GameMessage.RegisterReq.newBuilder()
+								.setUsername(username)
+								.setPassword(password)
+								.build())
+				channel.writeAndFlush(reg)
+				
+				// def username = "admin"
+				// def password = "admin"
+				// def reg = GameUtils.reqMsg(ProtocolEnums.REQ_REGISTER,
+				// 		GameMessage.RegisterReq.newBuilder()
+				// 				.setUsername(username)
+				// 				.setPassword(password)
+				// 				.build())
+				// channel.writeAndFlush(reg)
+				// Thread.sleep(1000L)
+				// def login = GameUtils.reqMsg(
+				// 		ProtocolEnums.REQ_LOGIN,
+				// 		GameMessage.LoginReq.newBuilder()
+				// 				.setUsername(username)
+				// 				.setPassword(password)
+				// 				.build()
+				// )
+				
+				// (1..9).each {
+				// 	channel.writeAndFlush(login)
 			}
 			
 			// Thread.sleep(3000L)
