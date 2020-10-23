@@ -1,6 +1,6 @@
 package io.github.hdfg159.game.server
 
-import io.github.hdfg159.game.client.WebSocketClientMessageHandler
+
 import io.github.hdfg159.game.config.ServerConfig
 import io.github.hdfg159.game.domain.dto.GameMessage
 import io.github.hdfg159.game.handler.*
@@ -49,8 +49,8 @@ class GameServerChannelInitializer extends ChannelInitializer<Channel> {
 				
 				.addLast(new WebSocketServerCompressionHandler())
 				.addLast(new WebSocketServerProtocolHandler("/ws", null, true, 65536, true))
-				.addLast(new WebSocketClientMessageHandler())
-				.addLast(new WebSocketServerMessageHandler())
+				.addLast(new WebSocketBinaryMessageOutHandler())
+				.addLast(new WebSocketBinaryMessageInHandler())
 				
 				.addLast(new ProtobufVarint32FrameDecoder())
 				.addLast(new ProtobufDecoder(GameMessage.Message.getDefaultInstance()))

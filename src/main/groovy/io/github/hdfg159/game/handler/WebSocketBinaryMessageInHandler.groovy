@@ -1,6 +1,7 @@
 package io.github.hdfg159.game.handler
 
-
+import groovy.util.logging.Slf4j
+import io.netty.channel.ChannelHandler
 import io.netty.channel.ChannelHandlerContext
 import io.netty.channel.SimpleChannelInboundHandler
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame
@@ -10,9 +11,12 @@ import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame
  * Package:io.github.hdfg159.game.handler
  * Created by hdfg159 on 2020/10/22 23:21.
  */
-class WebSocketServerMessageHandler extends SimpleChannelInboundHandler<BinaryWebSocketFrame> {
+@Slf4j
+@ChannelHandler.Sharable
+class WebSocketBinaryMessageInHandler extends SimpleChannelInboundHandler<BinaryWebSocketFrame> {
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, BinaryWebSocketFrame msg) throws Exception {
-		super.channelRead(ctx, msg.content().retain())
+		def buf = msg.content().retain()
+		super.channelRead ctx, buf
 	}
 }
