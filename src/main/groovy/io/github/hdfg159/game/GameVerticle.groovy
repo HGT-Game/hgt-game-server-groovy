@@ -5,6 +5,7 @@ import io.github.hdfg159.game.config.ServerConfig
 import io.github.hdfg159.game.server.GameServer
 import io.github.hdfg159.game.service.avatar.AvatarService
 import io.github.hdfg159.game.service.farm.FarmService
+import io.github.hdfg159.game.service.soup.TurtleSoupService
 import io.reactivex.Completable
 import io.vertx.core.json.Json
 import io.vertx.reactivex.core.AbstractVerticle
@@ -32,16 +33,14 @@ class GameVerticle extends AbstractVerticle {
 					Json.decodeValue(buffer.delegate, ServerConfig.class)
 				})
 				.flatMapCompletable({config ->
-					// 启动服务器耗时，subscribeOn 异步
 					Completable.fromCallable({
 						GameServer.instance.start(this.@vertx, config)
 					}).subscribeOn(io())
 				})
 				.concatWith(
-						// 游戏服务器启动完毕再继续部署其他服务
-						// rx 操作已经异步化，不需要指定 subscribeOn
 						this.@vertx.rxDeployVerticle(AvatarService.getInstance()).ignoreElement()
 								.mergeWith(this.@vertx.rxDeployVerticle(FarmService.getInstance()).ignoreElement())
+								.mergeWith(this.@vertx.rxDeployVerticle(TurtleSoupService.getInstance()).ignoreElement())
 				)
 	}
 	
