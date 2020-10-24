@@ -37,7 +37,7 @@ class TurtleSoupService extends AbstractService {
 	
 	def onlineEvent = {headers, params ->
 		def event = params as EventMessage.Online
-		log.info "${this.class.name} :${event.username} 上线"
+		log.info "${event.username} online"
 		
 		def aid = event.userId
 		if (!memberData.getById(aid)) {
@@ -50,7 +50,7 @@ class TurtleSoupService extends AbstractService {
 	
 	def offlineEvent = {headers, params ->
 		def event = params as EventMessage.Offline
-		log.info "${this.class.name} :${event.username} 下线"
+		log.info "${event.username} offline"
 		
 		def aid = event.userId
 		def member = memberData.getById(aid)
