@@ -3,6 +3,7 @@ package io.github.hdfg159.game.service.soup
 import groovy.transform.Canonical
 import io.github.hdfg159.game.data.TData
 
+import java.time.Duration
 import java.time.LocalDateTime
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -18,6 +19,11 @@ import java.util.concurrent.atomic.AtomicInteger
 @Canonical
 class SoupMember implements TData<String> {
 	/**
+	 * 发言间隔时间
+	 */
+	private static final SPEAK_INTERVAL_SECOND = 6
+	
+	/**
 	 * 目前状态 0:闲置 1:加入房间 2:准备中 3:游戏中
 	 */
 	AtomicInteger status
@@ -29,6 +35,10 @@ class SoupMember implements TData<String> {
 	 * 当前房间 ID
 	 */
 	String roomId
+	/**
+	 * 最后发言时间
+	 */
+	LocalDateTime lastSpeakTime
 	
 	/**
 	 * 参与记录场次
@@ -65,14 +75,26 @@ class SoupMember implements TData<String> {
 		createTime = LocalDateTime.now()
 	}
 	
+	/**
+	 * 上线
+	 */
 	def online() {
 		this.@loginTime = LocalDateTime.now()
 	}
 	
+	/**
+	 * 离线
+	 */
 	def offline() {
 		this.@offlineTime = LocalDateTime.now()
 	}
 	
+	/**
+	 * 加入房间
+	 * @param seat 座位号
+	 * @param roomId 房间 ID
+	 * @return 加入结果
+	 */
 	boolean joinRoom(int seat, String roomId) {
 		if (this.@status.get() != 0) {
 			// 非闲置状态不加入
@@ -83,5 +105,24 @@ class SoupMember implements TData<String> {
 		this.@seat = seat
 		this.@roomId = roomId
 		return true
+	}
+	
+	/**
+	 * 是否可以发言
+	 * @return
+	 */
+	boolean speak() {
+		if (!lastSpeakTime) {
+			this.@lastSpeakTime = LocalDateTime.now()
+			return true
+		}
+		
+		def duration = lastSpeakTime >> LocalDateTime.now() as Duration
+		if (duration.seconds >= SPEAK_INTERVAL_SECOND) {
+			this.@lastSpeakTime = LocalDateTime.now()
+			return true
+		}
+		
+		false
 	}
 }
