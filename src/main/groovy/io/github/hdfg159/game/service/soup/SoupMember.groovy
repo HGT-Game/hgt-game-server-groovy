@@ -109,20 +109,20 @@ class SoupMember implements TData<String> {
 	
 	/**
 	 * 是否可以发言
-	 * @return
+	 * @return long 剩余时间(秒)
 	 */
-	boolean speak() {
+	long speak() {
 		if (!lastSpeakTime) {
 			this.@lastSpeakTime = LocalDateTime.now()
-			return true
+			return 0L
 		}
 		
 		def duration = lastSpeakTime >> LocalDateTime.now() as Duration
-		if (duration.seconds >= SPEAK_INTERVAL_SECOND) {
+		def seconds = Math.max(0, SPEAK_INTERVAL_SECOND - duration.seconds)
+		if (!seconds) {
 			this.@lastSpeakTime = LocalDateTime.now()
-			return true
 		}
 		
-		false
+		seconds
 	}
 }
