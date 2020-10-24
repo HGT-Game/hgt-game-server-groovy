@@ -18,12 +18,16 @@ import io.reactivex.Completable
 @Slf4j
 @Singleton
 class TurtleSoupService extends AbstractService {
+	SoupMemberData memberData = SoupMemberData.getInstance()
+	SoupRecordData recordData = SoupRecordData.getInstance()
+	
 	@Override
 	Completable init() {
-		
 		handleEvent(EventEnums.OFFLINE, offlineEvent)
 		handleEvent(EventEnums.ONLINE, onlineEvent)
-		Completable.complete()
+		
+		this.@vertx.rxDeployVerticle(memberData).ignoreElement()
+				.mergeWith(this.@vertx.rxDeployVerticle(recordData).ignoreElement())
 	}
 	
 	@Override
@@ -33,12 +37,25 @@ class TurtleSoupService extends AbstractService {
 	
 	def onlineEvent = {headers, params ->
 		def event = params as EventMessage.Online
-		log.info "[海龟汤系统]${this.class.name} 收到上线通知:${event.username}"
+		log.info "${this.class.name} :${event.username} 上线"
+		
+		def aid = event.userId
+		if (!memberData.getById(aid)) {
+			memberData.saveCache(new SoupMember())
+		}
+		
+		def member = memberData.getById(aid)
+		member.online()
 	}
 	
 	def offlineEvent = {headers, params ->
 		def event = params as EventMessage.Offline
-		def username = event.username
-		log.info "[海龟汤系统]${this.class.name} 收到下线通知:${username}"
+		log.info "${this.class.name} :${event.username} 下线"
+		
+		def aid = event.userId
+		def member = memberData.getById(aid)
+		member.offline()
+		
+		memberData.updateForceById(aid)
 	}
 }

@@ -55,4 +55,33 @@ class SoupMember implements TData<String> {
 	 * 上线时间
 	 */
 	LocalDateTime loginTime
+	
+	SoupMember() {
+		status = new AtomicInteger(0)
+		
+		recordIds = []
+		questionIds = []
+		
+		createTime = LocalDateTime.now()
+	}
+	
+	def online() {
+		this.@loginTime = LocalDateTime.now()
+	}
+	
+	def offline() {
+		this.@offlineTime = LocalDateTime.now()
+	}
+	
+	boolean joinRoom(int seat, String roomId) {
+		if (this.@status.get() != 0) {
+			// 非闲置状态不加入
+			return false
+		}
+		
+		this.@status.getAndSet(1)
+		this.@seat = seat
+		this.@roomId = roomId
+		return true
+	}
 }

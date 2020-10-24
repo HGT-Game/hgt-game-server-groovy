@@ -34,13 +34,10 @@ class SoupRoomData {
 		)
 		
 		def member = memberData.getById(aid)
-		if (!member || member.status.get() != 0) {
+		def joinRoomSuc = member.joinRoom(0, room.id)
+		if (!member || !joinRoomSuc) {
 			return null
 		}
-		
-		member.status.getAndSet(1)
-		member.seat = 0
-		member.roomId = room.id
 		
 		return roomMap.put(room.id, room)
 	}
