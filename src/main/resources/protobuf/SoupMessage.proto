@@ -1,0 +1,91 @@
+syntax = "proto3";
+option java_package = "io.github.hdfg159.game.domain.dto";
+
+message RoomHallReq {
+
+}
+
+message RoomHallRes {
+
+}
+
+message CreateRoomReq {
+    string password = 1;
+    uint32 max = 2;
+}
+
+message CreateRoomRes {
+    string id = 1;
+}
+
+message JoinRoomReq {
+    string roomId = 1;
+}
+
+message JoinRoomRes {
+
+}
+
+message LeaveRoomReq {
+
+}
+
+message LeaveRoomRes {
+
+}
+
+message PrepareReq {
+
+}
+
+message PrepareRes {
+
+}
+
+message KickReq {
+    string aid = 1;
+    uint32 index = 2;
+}
+
+message KickRes {
+
+}
+
+message ExchangeSeatReq {
+    uint32 index = 1;
+}
+
+message ExchangeSeatRes {
+
+}
+
+message ChatReq {
+    string content = 1;
+}
+
+message ChatRes {
+    uint64 seconds = 1;
+}
+
+message AnswerReq {
+    string id = 1;
+    uint32 answer = 2;
+}
+
+message AnswerRes {
+}
+
+message EndReq {
+}
+
+message EndRes {
+    string content = 1;
+}
+
+message HallPush {
+
+}
+
+message RoomPush {
+
+}

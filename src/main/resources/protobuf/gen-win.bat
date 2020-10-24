@@ -1,0 +1,1 @@
+F:\Tools\protoc-3.12.3-win64\bin\protoc.exe SoupMessage.proto --java_out=..\..\groovy
