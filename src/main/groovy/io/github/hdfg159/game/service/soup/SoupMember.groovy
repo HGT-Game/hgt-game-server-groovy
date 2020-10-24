@@ -21,16 +21,28 @@ class SoupMember implements TData<String> {
 	 * 目前状态 0:闲置 1:加入房间 2:准备中 3:游戏中
 	 */
 	AtomicInteger status
-	
 	/**
 	 * 房间座位号
 	 */
 	int seat
+	/**
+	 * 当前房间 ID
+	 */
+	String roomId
 	
 	/**
-	 * 加入过的房间
+	 * 参与记录场次
 	 */
-	LinkedHashSet<String> roomIds
+	Set<String> recordIds
+	/**
+	 * 参与问题ID
+	 */
+	Set<String> questionIds
+	/**
+	 * mc次数
+	 */
+	int mcTimes
+	
 	/**
 	 * 创建时间
 	 */

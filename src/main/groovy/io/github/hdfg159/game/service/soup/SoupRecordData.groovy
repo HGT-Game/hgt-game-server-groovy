@@ -8,9 +8,9 @@ import io.github.hdfg159.game.data.AbstractDataManager
  * Created by hdfg159 on 2020/10/23 22:55.
  */
 @Singleton
-class SoupMemberData extends AbstractDataManager<SoupMember> {
+class SoupRecordData extends AbstractDataManager<SoupRecord> {
 	@Override
-	Class<SoupMember> clazz() {
-		SoupMember.class
+	Class<SoupRecord> clazz() {
+		SoupRecord.class
 	}
 }

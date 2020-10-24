@@ -15,13 +15,25 @@ import java.time.LocalDateTime
  * @author zhangzhenyu
  */
 @Canonical
-class SoupRoom implements TData<String> {
+class SoupRoom implements TData<String>, Comparable<SoupRoom> {
+	/**
+	 * 目前状态 0:等待加入 1:满人 2:准备中 3:游戏中
+	 */
+	Integer status
+	/**
+	 * 房间密码 null:无密码
+	 */
+	String password
+	/**
+	 * 最大人数
+	 */
+	int max
 	/**
 	 * 房主
 	 */
-	String owner
+	volatile String owner
 	/**
-	 * 房间玩家ID
+	 * 目前在房间玩家ID
 	 */
 	List<String> memberIds
 	/**
@@ -37,61 +49,13 @@ class SoupRoom implements TData<String> {
 	 */
 	LocalDateTime createTime
 	/**
-	 * 记录 map
+	 * 开局记录 [id:记录]
 	 */
 	LinkedHashMap<String, SoupRecord> recordMap
 	
-	static class SoupRecord implements TData<String> {
-		/**
-		 * MC ID
-		 */
-		String mc
-		/**
-		 * 问题 ID
-		 */
-		String questionId
-		/**
-		 * 游戏开始时间
-		 */
-		LocalDateTime startTime
-		/**
-		 * 游戏结束时间
-		 */
-		LocalDateTime endTime
-		/**
-		 * 本次房间玩家ID
-		 */
-		List<String> memberIds
-		/**
-		 * 成员聊天记录
-		 */
-		HashMap<String, LinkedList<String>> memberMsgMap
-		/**
-		 * 聊天记录
-		 */
-		LinkedHashMap<String, SoupChatRecord> chatRecordMap
-	}
-	
-	static class SoupChatRecord implements TData<String> {
-		/**
-		 * 成员 ID
-		 */
-		String mid
-		/**
-		 * 消息类型 0:普通聊天 1:问题
-		 */
-		int type
-		/**
-		 * MC回答 1:无关 2:是 3:不是 4:半对
-		 */
-		int answer
-		/**
-		 * 内容
-		 */
-		String content
-		/**
-		 * 房间创建时间
-		 */
-		LocalDateTime createTime
+	@Override
+	int compareTo(SoupRoom o) {
+		def cct = this.@createTime <=> o.createTime
+		return (!cct) ? (this.@status <=> o.status) : cct
 	}
 }
