@@ -44,3 +44,85 @@ message RegisterRes {
     string id = 1;
     string username = 2;
 }
+
+
+message SoupRoomHallReq {
+
+}
+
+message SoupRoomHallRes {
+
+}
+
+message SoupCreateRoomReq {
+    string password = 1;
+    uint32 max = 2;
+}
+
+message SoupCreateRoomRes {
+    string id = 1;
+}
+
+message SoupJoinRoomReq {
+    string roomId = 1;
+}
+
+message SoupJoinRoomRes {
+
+}
+
+message SoupLeaveRoomReq {
+
+}
+
+message SoupLeaveRoomRes {
+
+}
+
+message SoupPrepareReq {
+
+}
+
+message SoupPrepareRes {
+
+}
+
+message SoupKickReq {
+    string aid = 1;
+    uint32 index = 2;
+}
+
+message SoupKickRes {
+
+}
+
+message SoupExchangeSeatReq {
+    uint32 index = 1;
+}
+
+message SoupExchangeSeatRes {
+
+}
+
+message SoupChatReq {
+    string content = 1;
+}
+
+message SoupChatRes {
+    uint64 seconds = 1;
+}
+
+message SoupAnswerReq {
+    string id = 1;
+    uint32 answer = 2;
+}
+
+message SoupAnswerRes {
+}
+
+message SoupEndReq {
+}
+
+message SoupEndRes {
+    string content = 1;
+}

@@ -40,6 +40,70 @@ enum ProtocolEnums {
 	REQ_REGISTER(1003, GameMessage.RegisterReq.class),
 	RES_REGISTER(-1003, GameMessage.RegisterReq.class),
 	
+	// 2001-3000 海龟汤
+	/**
+	 * 查询大厅房间
+	 */
+	REQ_SOUP_ROOM_HALL(2001, null),
+	RES_SOUP_ROOM_HALL(-2001, null),
+	/**
+	 * 创建房间
+	 */
+	REQ_SOUP_CREATE_ROOM(2002, null),
+	RES_SOUP_CREATE_ROOM(-2002, null),
+	/**
+	 * 加入房间
+	 */
+	REQ_SOUP_JOIN_ROOM(2003, null),
+	RES_SOUP_JOIN_ROOM(-2003, null),
+	/**
+	 * 离开房间
+	 */
+	REQ_SOUP_LEAVE_ROOM(2004, null),
+	RES_SOUP_LEAVE_ROOM(-2004, null),
+	/**
+	 * 准备/开始游戏
+	 */
+	REQ_SOUP_PREPARE(2005, null),
+	RES_SOUP_PREPARE(-2005, null),
+	/**
+	 * 踢人
+	 */
+	REQ_SOUP_KICK(2006, null),
+	RES_SOUP_KICK(-2006, null),
+	/**
+	 * 换位置
+	 */
+	REQ_SOUP_EXCHANGE_SEAT(2007, null),
+	RES_SOUP_EXCHANGE_SEAT(-2007, null),
+	/**
+	 * 聊天或提问
+	 */
+	REQ_SOUP_CHAT(2008, null),
+	RES_SOUP_CHAT(-2008, null),
+	/**
+	 * 回答
+	 */
+	REQ_SOUP_ANSWER(2009, null),
+	RES_SOUP_ANSWER(-2009, null),
+	/**
+	 * 公布汤底(结束游戏)
+	 */
+	REQ_SOUP_END(2010, null),
+	RES_SOUP_END(-2010, null),
+	
+	/**
+	 * 大厅消息推送
+	 */
+	REQ_SOUP_HALL_PUSH(2900, null),
+	RES_SOUP_HALL_PUSH(-2900, null),
+	/**
+	 * 房间消息推送
+	 */
+	REQ_SOUP_ROOM_PUSH(2901, null),
+	RES_SOUP_ROOM_PUSH(-2901, null),
+	
+	// =====================================================
 	/**
 	 * 1000~1099 预留编码
 	 */
