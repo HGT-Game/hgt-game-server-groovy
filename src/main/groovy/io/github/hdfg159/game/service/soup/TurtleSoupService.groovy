@@ -66,8 +66,8 @@ class TurtleSoupService extends AbstractService {
 		
 		roomData.getRooms().collect {
 			def roomRes = SoupMessage.RoomHallRes.RoomRes.newBuilder()
-					.setId()
-					.setName()
+					.setId(it.id)
+					.setName(it.name)
 					.build()
 			builder.addRooms(roomRes)
 		}
