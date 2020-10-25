@@ -120,8 +120,8 @@ class TurtleSoupService extends AbstractService {
 		synchronized (room) {
 			def joinRoomSuc = room.joinRoom(aid)
 			def avaIndex = room.getAvaIndex(aid)
-			// 改变成员状态
 			// todo 是否加锁,后面再想一下
+			// 改变成员状态
 			def memberJoinRoomSuc = member.joinRoom(avaIndex, roomId)
 			if (joinRoomSuc && avaIndex && memberJoinRoomSuc) {
 				// 推送消息
