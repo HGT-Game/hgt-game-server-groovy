@@ -11439,6 +11439,36 @@ public final class SoupMessage {
   public interface RoomPushOrBuilder extends
       // @@protoc_insertion_point(interface_extends:RoomPush)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string aid = 1;</code>
+     * @return The aid.
+     */
+    java.lang.String getAid();
+    /**
+     * <code>string aid = 1;</code>
+     * @return The bytes for aid.
+     */
+    com.google.protobuf.ByteString
+        getAidBytes();
+
+    /**
+     * <code>string avaName = 2;</code>
+     * @return The avaName.
+     */
+    java.lang.String getAvaName();
+    /**
+     * <code>string avaName = 2;</code>
+     * @return The bytes for avaName.
+     */
+    com.google.protobuf.ByteString
+        getAvaNameBytes();
+
+    /**
+     * <code>uint32 index = 3;</code>
+     * @return The index.
+     */
+    int getIndex();
   }
   /**
    * Protobuf type {@code RoomPush}
@@ -11453,6 +11483,8 @@ public final class SoupMessage {
       super(builder);
     }
     private RoomPush() {
+      aid_ = "";
+      avaName_ = "";
     }
 
     @java.lang.Override
@@ -11485,6 +11517,23 @@ public final class SoupMessage {
             case 0:
               done = true;
               break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              aid_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              avaName_ = s;
+              break;
+            }
+            case 24: {
+
+              index_ = input.readUInt32();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -11517,6 +11566,93 @@ public final class SoupMessage {
               io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.class, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder.class);
     }
 
+    public static final int AID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object aid_;
+    /**
+     * <code>string aid = 1;</code>
+     * @return The aid.
+     */
+    @java.lang.Override
+    public java.lang.String getAid() {
+      java.lang.Object ref = aid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        aid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string aid = 1;</code>
+     * @return The bytes for aid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAidBytes() {
+      java.lang.Object ref = aid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        aid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int AVANAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object avaName_;
+    /**
+     * <code>string avaName = 2;</code>
+     * @return The avaName.
+     */
+    @java.lang.Override
+    public java.lang.String getAvaName() {
+      java.lang.Object ref = avaName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        avaName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string avaName = 2;</code>
+     * @return The bytes for avaName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAvaNameBytes() {
+      java.lang.Object ref = avaName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        avaName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int INDEX_FIELD_NUMBER = 3;
+    private int index_;
+    /**
+     * <code>uint32 index = 3;</code>
+     * @return The index.
+     */
+    @java.lang.Override
+    public int getIndex() {
+      return index_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -11531,6 +11667,15 @@ public final class SoupMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!getAidBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, aid_);
+      }
+      if (!getAvaNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, avaName_);
+      }
+      if (index_ != 0) {
+        output.writeUInt32(3, index_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -11540,6 +11685,16 @@ public final class SoupMessage {
       if (size != -1) return size;
 
       size = 0;
+      if (!getAidBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, aid_);
+      }
+      if (!getAvaNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, avaName_);
+      }
+      if (index_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, index_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -11555,6 +11710,12 @@ public final class SoupMessage {
       }
       io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush other = (io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush) obj;
 
+      if (!getAid()
+          .equals(other.getAid())) return false;
+      if (!getAvaName()
+          .equals(other.getAvaName())) return false;
+      if (getIndex()
+          != other.getIndex()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -11566,6 +11727,12 @@ public final class SoupMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + AID_FIELD_NUMBER;
+      hash = (53 * hash) + getAid().hashCode();
+      hash = (37 * hash) + AVANAME_FIELD_NUMBER;
+      hash = (53 * hash) + getAvaName().hashCode();
+      hash = (37 * hash) + INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getIndex();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -11699,6 +11866,12 @@ public final class SoupMessage {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        aid_ = "";
+
+        avaName_ = "";
+
+        index_ = 0;
+
         return this;
       }
 
@@ -11725,6 +11898,9 @@ public final class SoupMessage {
       @java.lang.Override
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush buildPartial() {
         io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush result = new io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush(this);
+        result.aid_ = aid_;
+        result.avaName_ = avaName_;
+        result.index_ = index_;
         onBuilt();
         return result;
       }
@@ -11773,6 +11949,17 @@ public final class SoupMessage {
 
       public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush other) {
         if (other == io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.getDefaultInstance()) return this;
+        if (!other.getAid().isEmpty()) {
+          aid_ = other.aid_;
+          onChanged();
+        }
+        if (!other.getAvaName().isEmpty()) {
+          avaName_ = other.avaName_;
+          onChanged();
+        }
+        if (other.getIndex() != 0) {
+          setIndex(other.getIndex());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -11799,6 +11986,189 @@ public final class SoupMessage {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private java.lang.Object aid_ = "";
+      /**
+       * <code>string aid = 1;</code>
+       * @return The aid.
+       */
+      public java.lang.String getAid() {
+        java.lang.Object ref = aid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          aid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string aid = 1;</code>
+       * @return The bytes for aid.
+       */
+      public com.google.protobuf.ByteString
+          getAidBytes() {
+        java.lang.Object ref = aid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          aid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string aid = 1;</code>
+       * @param value The aid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        aid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string aid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAid() {
+        
+        aid_ = getDefaultInstance().getAid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string aid = 1;</code>
+       * @param value The bytes for aid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        aid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object avaName_ = "";
+      /**
+       * <code>string avaName = 2;</code>
+       * @return The avaName.
+       */
+      public java.lang.String getAvaName() {
+        java.lang.Object ref = avaName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          avaName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string avaName = 2;</code>
+       * @return The bytes for avaName.
+       */
+      public com.google.protobuf.ByteString
+          getAvaNameBytes() {
+        java.lang.Object ref = avaName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          avaName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string avaName = 2;</code>
+       * @param value The avaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAvaName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        avaName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string avaName = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAvaName() {
+        
+        avaName_ = getDefaultInstance().getAvaName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string avaName = 2;</code>
+       * @param value The bytes for avaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAvaNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        avaName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int index_ ;
+      /**
+       * <code>uint32 index = 3;</code>
+       * @return The index.
+       */
+      @java.lang.Override
+      public int getIndex() {
+        return index_;
+      }
+      /**
+       * <code>uint32 index = 3;</code>
+       * @param value The index to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIndex(int value) {
+        
+        index_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 index = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIndex() {
+        
+        index_ = 0;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -11992,8 +12362,10 @@ public final class SoupMessage {
       "ntent\030\001 \001(\t\"\032\n\007ChatRes\022\017\n\007seconds\030\001 \001(\004\"" +
       "\'\n\tAnswerReq\022\n\n\002id\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r" +
       "\"\013\n\tAnswerRes\"\010\n\006EndReq\"\031\n\006EndRes\022\017\n\007con" +
-      "tent\030\001 \001(\t\"\n\n\010HallPush\"\n\n\010RoomPushB#\n!io" +
-      ".github.hdfg159.game.domain.dtob\006proto3"
+      "tent\030\001 \001(\t\"\n\n\010HallPush\"7\n\010RoomPush\022\013\n\003ai" +
+      "d\030\001 \001(\t\022\017\n\007avaName\030\002 \001(\t\022\r\n\005index\030\003 \001(\rB" +
+      "#\n!io.github.hdfg159.game.domain.dtob\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12136,7 +12508,7 @@ public final class SoupMessage {
     internal_static_RoomPush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomPush_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Aid", "AvaName", "Index", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

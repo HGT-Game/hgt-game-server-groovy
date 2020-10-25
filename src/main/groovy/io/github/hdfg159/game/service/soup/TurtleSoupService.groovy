@@ -8,6 +8,7 @@ import io.github.hdfg159.game.enumeration.CodeEnums
 import io.github.hdfg159.game.enumeration.EventEnums
 import io.github.hdfg159.game.enumeration.ProtocolEnums
 import io.github.hdfg159.game.service.AbstractService
+import io.github.hdfg159.game.service.avatar.AvatarService
 import io.github.hdfg159.game.util.GameUtils
 import io.reactivex.Completable
 
@@ -23,6 +24,8 @@ import io.reactivex.Completable
 @Slf4j
 @Singleton
 class TurtleSoupService extends AbstractService {
+	AvatarService avatarService = AvatarService.getInstance()
+	
 	SoupMemberData memberData = SoupMemberData.getInstance()
 	SoupRecordData recordData = SoupRecordData.getInstance()
 	
@@ -81,11 +84,11 @@ class TurtleSoupService extends AbstractService {
 		def roomRes = SoupMessage.CreateRoomRes.newBuilder()
 		
 		if (!req.name || req.name.length() > 5) {
-			return GameUtils.resMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, CodeEnums.ROOM_NAME_ILLEGAL)
+			return GameUtils.resMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_NAME_ILLEGAL)
 		}
 		
 		if (req.max == 0 || req.max > 10) {
-			return GameUtils.resMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, CodeEnums.ROOM_MAX_ILLEGAL)
+			return GameUtils.resMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_MAX_ILLEGAL)
 		}
 		
 		def room = roomData.create(aid, req.name, req.max, req.password)
@@ -99,11 +102,41 @@ class TurtleSoupService extends AbstractService {
 			return GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, roomRes.build())
 		}
 		
-		return GameUtils.resMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, CodeEnums.ROOM_CREATE_FAIL)
+		return GameUtils.resMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_CREATE_FAIL)
 	}
 	
 	def joinRoom = {headers, params ->
+		def aid = getAidFromHeader(headers)
 		def req = params as SoupMessage.JoinRoomReq
+		
+		def member = memberData.getById(aid)
+		
+		def roomId = req.roomId
+		def room = roomData.roomMap.get(roomId)
+		if (!room) {
+			return GameUtils.resMsg(ProtocolEnums.RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_NOT_EXIST)
+		}
+		
+		synchronized (room) {
+			def joinRoomSuc = room.joinRoom(aid)
+			def avaIndex = room.getAvaIndex(aid)
+			// 改变成员状态
+			// todo 是否加锁,后面再想一下
+			def memberJoinRoomSuc = member.joinRoom(avaIndex, roomId)
+			if (joinRoomSuc && avaIndex && memberJoinRoomSuc) {
+				// 推送消息
+				def username = avatarService.getAvatarData()?.getById(aid)?.username
+				def roomPush = SoupMessage.RoomPush.newBuilder()
+						.setAid(aid)
+						.setAvaName(username)
+						.setIndex(avaIndex)
+						.build()
+				def msg = GameUtils.resMsg(ProtocolEnums.RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH_NEW_JOIN, roomPush)
+				avatarService.pushAllMsg(room.roomMemberMap.keySet(), msg)
+			} else {
+				return GameUtils.resMsg(ProtocolEnums.RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_JOIN_FAIL)
+			}
+		}
 	}
 	
 	def leaveRoom = {headers, params ->

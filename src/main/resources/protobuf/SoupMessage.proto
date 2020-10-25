@@ -92,5 +92,7 @@ message HallPush {
 }
 
 message RoomPush {
-
+    string aid = 1;
+    string avaName = 2;
+    uint32 index = 3;
 }

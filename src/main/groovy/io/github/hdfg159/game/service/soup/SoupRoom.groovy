@@ -42,9 +42,9 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 	 */
 	List<String> memberIds
 	/**
-	 * [位置:玩家ID]
+	 * [玩家ID:位置]
 	 */
-	Map<Integer, String> roomMemberMap
+	Map<String, Integer> roomMemberMap
 	/**
 	 * 创建者ID
 	 */
@@ -87,8 +87,42 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 			}
 		}
 		
-		room.roomMemberMap = [0: aid]
+		room.roomMemberMap = [aid: 0]
 		
 		room
+	}
+	
+	boolean joinRoom(String aid) {
+		if (roomMemberMap.size() >= max) {
+			return false
+		}
+		
+		if (roomMemberMap.containsKey(aid)) {
+			return false
+		}
+		
+		if (status == 1) {
+			return false
+		}
+		
+		(0..max - 1).each {
+			def mid = memberIds[it]
+			if (!mid) {
+				memberIds[it] = aid
+				roomMemberMap.put(aid, it)
+				
+				if (roomMemberMap.size() >= max) {
+					// 满人
+					status = 1
+				}
+				return true
+			}
+		}
+		
+		false
+	}
+	
+	Integer getAvaIndex(String aid) {
+		roomMemberMap.get(aid)
 	}
 }
