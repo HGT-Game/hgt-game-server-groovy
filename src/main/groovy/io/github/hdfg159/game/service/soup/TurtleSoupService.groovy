@@ -133,6 +133,8 @@ class TurtleSoupService extends AbstractService {
 						.build()
 				def msg = GameUtils.resMsg(ProtocolEnums.RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH_NEW_JOIN, roomPush)
 				avatarService.pushAllMsg(room.roomMemberMap.keySet(), msg)
+				
+				return GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_JOIN_ROOM, SoupMessage.JoinRoomRes.newBuilder().build())
 			} else {
 				return GameUtils.resMsg(ProtocolEnums.RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_JOIN_FAIL)
 			}
