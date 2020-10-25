@@ -1,9 +1,17 @@
-# vertx-game-server
-Vert.x Game Server
+# hgt-game-server
+海龟汤 游戏服务端
 
 # 简介
 
-Vert.x Game Server 是一个基于 Vert.x 封装的游戏开发框架，核心设计目标是简易使用和学习，基于 Vert.x 优点结合 Netty 可以快速进行游戏开发。
+HGT Game Server 是一个基于海龟汤故事实现的游戏服务端。
+
+# 技术
+
+- Netty
+- Vert.x
+- RxJava
+- MongoDB
+- Caffeine Cache
 
 # 贡献
 
