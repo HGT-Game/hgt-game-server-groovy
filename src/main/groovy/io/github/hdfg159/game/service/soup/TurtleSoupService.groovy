@@ -125,16 +125,19 @@ class TurtleSoupService extends AbstractService {
 			def memberJoinRoomSuc = member.joinRoom(avaIndex, roomId)
 			if (joinRoomSuc && avaIndex && memberJoinRoomSuc) {
 				// 推送消息
-				def username = avatarService.getAvatarData()?.getById(aid)?.username
 				def roomPush = SoupMessage.RoomPush.newBuilder()
-						.setAid(aid)
-						.setAvaName(username)
-						.setIndex(avaIndex)
+						.addSeatsChange(buildSeatRes(aid, avaIndex, room.owner))
 						.build()
 				def msg = GameUtils.resMsg(ProtocolEnums.RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH_NEW_JOIN, roomPush)
-				avatarService.pushAllMsg(room.roomMemberMap.keySet(), msg)
+				avatarService.pushAllMsg(room.roomMemberMap.keySet(), new HashSet<String>([aid]), msg)
 				
-				return GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_JOIN_ROOM, SoupMessage.JoinRoomRes.newBuilder().build())
+				def allSeatRes = room.roomMemberMap.collect {
+					buildSeatRes(it.key, it.value, room.owner)
+				}
+				def sucRes = SoupMessage.JoinRoomRes.newBuilder()
+						.addAllSeatsChange(allSeatRes)
+						.build()
+				return GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_JOIN_ROOM, sucRes)
 			} else {
 				return GameUtils.resMsg(ProtocolEnums.RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_JOIN_FAIL)
 			}
@@ -199,5 +202,19 @@ class TurtleSoupService extends AbstractService {
 		def event = params as SoupEvent.CreateRoom
 		
 		roomData.removeAvaFromHall(event.aid)
+	}
+	
+	// Private
+	
+	private SoupMessage.RoomMemberSeatRes buildSeatRes(String aid, int avaIndex, String owner) {
+		def avatar = avatarService.getAvatarData()?.getById(aid)
+		def seatRes = SoupMessage.RoomMemberSeatRes.newBuilder()
+				.setAid(avatar?.id)
+				.setAvaName(avatar?.username)
+				.setAvaHead("")
+				.setIndex(avaIndex)
+				.setOwner(owner == aid)
+				.build()
+		seatRes
 	}
 }

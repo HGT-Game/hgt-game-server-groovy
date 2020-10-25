@@ -28,7 +28,7 @@ message JoinRoomReq {
 }
 
 message JoinRoomRes {
-
+    repeated RoomMemberSeatRes seatsChange = 1;
 }
 
 message LeaveRoomReq {
@@ -92,7 +92,13 @@ message HallPush {
 }
 
 message RoomPush {
+    repeated RoomMemberSeatRes seatsChange = 1;
+}
+
+message RoomMemberSeatRes {
     string aid = 1;
     string avaName = 2;
-    uint32 index = 3;
+    string avaHead = 3;
+    uint32 index = 4;
+    bool owner = 5;
 }
