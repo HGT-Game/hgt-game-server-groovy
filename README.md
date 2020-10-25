@@ -3,13 +3,14 @@
 
 # 简介
 
-HGT Game Server 是一个基于海龟汤故事实现的游戏服务端。
+HGT Game Server 是一个基于海龟汤故事实现的游戏服务端，主要语言是 Groovy & Java。
 
 # 技术
 
 - Netty
 - Vert.x
 - RxJava
+- Protobuf
 - MongoDB
 - Caffeine Cache
 
