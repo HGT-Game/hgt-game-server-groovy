@@ -15,6 +15,7 @@ import io.vertx.reactivex.core.AbstractVerticle
 import io.vertx.reactivex.core.MultiMap
 import io.vertx.reactivex.core.eventbus.EventBus
 
+import static io.github.hdfg159.game.constant.GameConsts.ATTR_NAME_AVATAR
 import static io.github.hdfg159.game.constant.GameConsts.ATTR_NAME_CHANNEL_ID
 import static io.github.hdfg159.game.enumeration.CodeEnums.ERROR
 import static io.github.hdfg159.game.enumeration.ProtocolEnums.RES_PUSH
@@ -95,6 +96,15 @@ abstract class AbstractService extends AbstractVerticle {
 				}, {
 					log.debug "[${address}] request complete"
 				})
+	}
+	
+	/**
+	 * 获取用户ID
+	 * @param headers 头信息
+	 * @return ID
+	 */
+	protected String getAidFromHeader(headers) {
+		return headers ?[ATTR_NAME_AVATAR] as String
 	}
 	
 	protected static void flushMsg(String channelId, Message it) {

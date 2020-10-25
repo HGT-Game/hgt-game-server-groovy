@@ -39,7 +39,9 @@ enum CodeEnums {
 	 */
 	FORCE_OFFLINE(1006),
 	
-	// 2001-3000 其他模块
+	// 2001-3000 海龟汤
+	ROOM_NAME_ILLEGAL(2001),
+	ROOM_MAX_ILLEGAL(2002),
 	
 	
 	long code

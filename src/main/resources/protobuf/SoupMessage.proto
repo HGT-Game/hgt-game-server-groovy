@@ -12,6 +12,7 @@ message RoomHallRes {
 message CreateRoomReq {
     string password = 1;
     uint32 max = 2;
+    string name = 3;
 }
 
 message CreateRoomRes {

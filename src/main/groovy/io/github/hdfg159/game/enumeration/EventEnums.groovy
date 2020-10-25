@@ -3,6 +3,7 @@ package io.github.hdfg159.game.enumeration
 import com.google.protobuf.Message
 import io.github.hdfg159.game.constant.GameConsts
 import io.github.hdfg159.game.domain.dto.EventMessage
+import io.github.hdfg159.game.domain.dto.SoupEvent
 
 /**
  * Project:starter
@@ -23,6 +24,10 @@ enum EventEnums {
 	 * 上线
 	 */
 	ONLINE(2, EventMessage.Online.class),
+	
+	// 1001-2000 海龟汤
+	SOUP_CREATE_ROOM(1001, SoupEvent.CreateRoom.class),
+	SOUP_JOIN_ROOM(1002, SoupEvent.JoinRoom.class),
 	
 	/**
 	 * 事件值

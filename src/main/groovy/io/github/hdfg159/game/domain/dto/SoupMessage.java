@@ -871,6 +871,18 @@ public final class SoupMessage {
      * @return The max.
      */
     int getMax();
+
+    /**
+     * <code>string name = 3;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 3;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
   }
   /**
    * Protobuf type {@code CreateRoomReq}
@@ -886,6 +898,7 @@ public final class SoupMessage {
     }
     private CreateRoomReq() {
       password_ = "";
+      name_ = "";
     }
 
     @java.lang.Override
@@ -927,6 +940,12 @@ public final class SoupMessage {
             case 16: {
 
               max_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
               break;
             }
             default: {
@@ -1010,6 +1029,44 @@ public final class SoupMessage {
       return max_;
     }
 
+    public static final int NAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 3;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 3;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1030,6 +1087,9 @@ public final class SoupMessage {
       if (max_ != 0) {
         output.writeUInt32(2, max_);
       }
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1045,6 +1105,9 @@ public final class SoupMessage {
       if (max_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, max_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1065,6 +1128,8 @@ public final class SoupMessage {
           .equals(other.getPassword())) return false;
       if (getMax()
           != other.getMax()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1080,6 +1145,8 @@ public final class SoupMessage {
       hash = (53 * hash) + getPassword().hashCode();
       hash = (37 * hash) + MAX_FIELD_NUMBER;
       hash = (53 * hash) + getMax();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1217,6 +1284,8 @@ public final class SoupMessage {
 
         max_ = 0;
 
+        name_ = "";
+
         return this;
       }
 
@@ -1245,6 +1314,7 @@ public final class SoupMessage {
         io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomReq result = new io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomReq(this);
         result.password_ = password_;
         result.max_ = max_;
+        result.name_ = name_;
         onBuilt();
         return result;
       }
@@ -1299,6 +1369,10 @@ public final class SoupMessage {
         }
         if (other.getMax() != 0) {
           setMax(other.getMax());
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1432,6 +1506,82 @@ public final class SoupMessage {
       public Builder clearMax() {
         
         max_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 3;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 3;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 3;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 3;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
         onChanged();
         return this;
       }
@@ -10731,19 +10881,20 @@ public final class SoupMessage {
   static {
     java.lang.String[] descriptorData = {
       "\n\021SoupMessage.proto\"\r\n\013RoomHallReq\"\r\n\013Ro" +
-      "omHallRes\".\n\rCreateRoomReq\022\020\n\010password\030\001" +
-      " \001(\t\022\013\n\003max\030\002 \001(\r\"\033\n\rCreateRoomRes\022\n\n\002id" +
-      "\030\001 \001(\t\"\035\n\013JoinRoomReq\022\016\n\006roomId\030\001 \001(\t\"\r\n" +
-      "\013JoinRoomRes\"\016\n\014LeaveRoomReq\"\016\n\014LeaveRoo" +
-      "mRes\"\014\n\nPrepareReq\"\014\n\nPrepareRes\"%\n\007Kick" +
-      "Req\022\013\n\003aid\030\001 \001(\t\022\r\n\005index\030\002 \001(\r\"\t\n\007KickR" +
-      "es\" \n\017ExchangeSeatReq\022\r\n\005index\030\001 \001(\r\"\021\n\017" +
-      "ExchangeSeatRes\"\032\n\007ChatReq\022\017\n\007content\030\001 " +
-      "\001(\t\"\032\n\007ChatRes\022\017\n\007seconds\030\001 \001(\004\"\'\n\tAnswe" +
-      "rReq\022\n\n\002id\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnsw" +
-      "erRes\"\010\n\006EndReq\"\031\n\006EndRes\022\017\n\007content\030\001 \001" +
-      "(\t\"\n\n\010HallPush\"\n\n\010RoomPushB#\n!io.github." +
-      "hdfg159.game.domain.dtob\006proto3"
+      "omHallRes\"<\n\rCreateRoomReq\022\020\n\010password\030\001" +
+      " \001(\t\022\013\n\003max\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\"\033\n\rCreat" +
+      "eRoomRes\022\n\n\002id\030\001 \001(\t\"\035\n\013JoinRoomReq\022\016\n\006r" +
+      "oomId\030\001 \001(\t\"\r\n\013JoinRoomRes\"\016\n\014LeaveRoomR" +
+      "eq\"\016\n\014LeaveRoomRes\"\014\n\nPrepareReq\"\014\n\nPrep" +
+      "areRes\"%\n\007KickReq\022\013\n\003aid\030\001 \001(\t\022\r\n\005index\030" +
+      "\002 \001(\r\"\t\n\007KickRes\" \n\017ExchangeSeatReq\022\r\n\005i" +
+      "ndex\030\001 \001(\r\"\021\n\017ExchangeSeatRes\"\032\n\007ChatReq" +
+      "\022\017\n\007content\030\001 \001(\t\"\032\n\007ChatRes\022\017\n\007seconds\030" +
+      "\001 \001(\004\"\'\n\tAnswerReq\022\n\n\002id\030\001 \001(\t\022\016\n\006answer" +
+      "\030\002 \001(\r\"\013\n\tAnswerRes\"\010\n\006EndReq\"\031\n\006EndRes\022" +
+      "\017\n\007content\030\001 \001(\t\"\n\n\010HallPush\"\n\n\010RoomPush" +
+      "B#\n!io.github.hdfg159.game.domain.dtob\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10766,7 +10917,7 @@ public final class SoupMessage {
     internal_static_CreateRoomReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateRoomReq_descriptor,
-        new java.lang.String[] { "Password", "Max", });
+        new java.lang.String[] { "Password", "Max", "Name", });
     internal_static_CreateRoomRes_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_CreateRoomRes_fieldAccessorTable = new

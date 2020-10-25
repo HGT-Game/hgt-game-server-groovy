@@ -1,8 +1,8 @@
 package io.github.hdfg159.game.service.soup
 
-import io.github.hdfg159.common.util.IdUtils
 
-import java.time.LocalDateTime
+import io.vertx.core.impl.ConcurrentHashSet
+
 import java.util.concurrent.ConcurrentHashMap
 
 /**
@@ -13,25 +13,17 @@ import java.util.concurrent.ConcurrentHashMap
 @Singleton
 class SoupRoomData {
 	SoupMemberData memberData = SoupMemberData.getInstance()
-	
+	/**
+	 * 在大厅玩家ID
+	 */
+	ConcurrentHashSet<String> hallOnlineAvatars = []
 	/**
 	 * [房间id:房间]
 	 */
-	ConcurrentHashMap<String, SoupRoom> roomMap
+	ConcurrentHashMap<String, SoupRoom> roomMap = new ConcurrentHashMap<>()
 	
-	SoupRoom create(String aid, int max, String password) {
-		def room = new SoupRoom(
-				id: IdUtils.idStr,
-				status: 0,
-				password: password,
-				max: max,
-				owner: aid,
-				memberIds: [aid],
-				roomMemberMap: [0: aid],
-				creator: aid,
-				createTime: LocalDateTime.now(),
-				recordMap: [:] as LinkedHashMap
-		)
+	SoupRoom create(String aid, String name, int max, String password) {
+		def room = SoupRoom.createRoom(aid, name, max, password)
 		
 		def member = memberData.getById(aid)
 		def joinRoomSuc = member.joinRoom(0, room.id)
@@ -46,5 +38,13 @@ class SoupRoomData {
 		def rooms = new TreeSet<SoupRoom>()
 		rooms.addAll(roomMap.values())
 		rooms
+	}
+	
+	boolean removeAvaFromHall(String aid) {
+		hallOnlineAvatars.remove(aid)
+	}
+	
+	boolean addAvaIntoHall(String aid) {
+		hallOnlineAvatars.add(aid)
 	}
 }

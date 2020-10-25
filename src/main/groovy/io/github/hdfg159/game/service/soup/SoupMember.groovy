@@ -24,7 +24,7 @@ class SoupMember implements TData<String> {
 	private static final SPEAK_INTERVAL_SECOND = 6
 	
 	/**
-	 * 目前状态 0:闲置 1:加入房间 2:准备中 3:游戏中
+	 * 目前状态 0:闲置 1:在房间 2:准备中 3:游戏中
 	 */
 	AtomicInteger status
 	/**
