@@ -57,7 +57,22 @@ class TurtleSoupService extends AbstractService {
 	// Request
 	
 	def roomHall = {headers, params ->
+		def aid = getAidFromHeader(headers)
 		def req = params as SoupMessage.RoomHallReq
+		def builder = SoupMessage.RoomHallRes.newBuilder()
+		
+		roomData.getRooms().collect {
+			def roomRes = SoupMessage.RoomHallRes.RoomRes.newBuilder()
+					.setId()
+					.setName()
+					.build()
+			builder.addRooms(roomRes)
+		}
+		
+		// 没事别刷大厅
+		roomData.addAvaIntoHall(aid)
+		
+		GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_ROOM_HALL, builder.build())
 	}
 	
 	def createRoom = {headers, params ->
@@ -81,9 +96,10 @@ class TurtleSoupService extends AbstractService {
 					.setRoomId(room.id)
 					.build()
 			publishEvent(EventEnums.SOUP_CREATE_ROOM, createRoomEvt)
+			return GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, roomRes.build())
 		}
 		
-		return GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, roomRes.build())
+		return GameUtils.resMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, CodeEnums.ROOM_CREATE_FAIL)
 	}
 	
 	def joinRoom = {headers, params ->

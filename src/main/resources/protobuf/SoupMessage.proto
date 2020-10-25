@@ -6,7 +6,11 @@ message RoomHallReq {
 }
 
 message RoomHallRes {
-
+    repeated RoomRes rooms = 1;
+    message RoomRes {
+        string id = 1;
+        string name = 2;
+    }
 }
 
 message CreateRoomReq {

@@ -42,6 +42,7 @@ enum CodeEnums {
 	// 2001-3000 海龟汤
 	ROOM_NAME_ILLEGAL(2001),
 	ROOM_MAX_ILLEGAL(2002),
+	ROOM_CREATE_FAIL(2003),
 	
 	
 	long code
