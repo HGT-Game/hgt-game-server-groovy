@@ -19,4 +19,4 @@ HGT Game Server 是一个基于海龟汤故事实现的游戏服务端。
 
 # License
 
-wechat-work-robot is under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0) - see the [LICENSE](LICENSE) file for details.
+hgt-game-server is under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0) - see the [LICENSE](LICENSE) file for details.
