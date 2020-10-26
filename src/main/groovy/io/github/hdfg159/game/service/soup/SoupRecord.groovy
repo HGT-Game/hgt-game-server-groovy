@@ -60,4 +60,26 @@ class SoupRecord implements TData<String> {
 	 * [用户ID:[笔记ID]]
 	 */
 	Map<String, ConcurrentLinkedQueue<String>> memberNoteMap
+	
+	static SoupRecord createRecord(SoupRoom room) {
+		def record = new SoupRecord()
+		record.roomId = room.id
+		record.startTime = LocalDateTime.now()
+		
+		record.memberIds = new ArrayList<>(room.memberIds)
+		
+		record.chatRecordMap = [:] as LinkedHashMap
+		record.memberMsgMap = [:]
+		
+		record.noteMap = [:]
+		record.memberNoteMap = [:]
+		
+		record.memberIds.each {
+			record.memberMsgMap.put(it, new ConcurrentLinkedQueue<>())
+			
+			record.memberNoteMap.put(it, new ConcurrentLinkedQueue<String>())
+		}
+		
+		record
+	}
 }

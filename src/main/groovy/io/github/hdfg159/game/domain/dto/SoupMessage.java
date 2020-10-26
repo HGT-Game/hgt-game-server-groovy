@@ -5499,6 +5499,12 @@ public final class SoupMessage {
   public interface PrepareReqOrBuilder extends
       // @@protoc_insertion_point(interface_extends:PrepareReq)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool ok = 1;</code>
+     * @return The ok.
+     */
+    boolean getOk();
   }
   /**
    * Protobuf type {@code PrepareReq}
@@ -5545,6 +5551,11 @@ public final class SoupMessage {
             case 0:
               done = true;
               break;
+            case 8: {
+
+              ok_ = input.readBool();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -5577,6 +5588,17 @@ public final class SoupMessage {
               io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq.Builder.class);
     }
 
+    public static final int OK_FIELD_NUMBER = 1;
+    private boolean ok_;
+    /**
+     * <code>bool ok = 1;</code>
+     * @return The ok.
+     */
+    @java.lang.Override
+    public boolean getOk() {
+      return ok_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5591,6 +5613,9 @@ public final class SoupMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (ok_ != false) {
+        output.writeBool(1, ok_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5600,6 +5625,10 @@ public final class SoupMessage {
       if (size != -1) return size;
 
       size = 0;
+      if (ok_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, ok_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5615,6 +5644,8 @@ public final class SoupMessage {
       }
       io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq other = (io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq) obj;
 
+      if (getOk()
+          != other.getOk()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5626,6 +5657,9 @@ public final class SoupMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + OK_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getOk());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5759,6 +5793,8 @@ public final class SoupMessage {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        ok_ = false;
+
         return this;
       }
 
@@ -5785,6 +5821,7 @@ public final class SoupMessage {
       @java.lang.Override
       public io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq buildPartial() {
         io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq result = new io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq(this);
+        result.ok_ = ok_;
         onBuilt();
         return result;
       }
@@ -5833,6 +5870,9 @@ public final class SoupMessage {
 
       public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq other) {
         if (other == io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq.getDefaultInstance()) return this;
+        if (other.getOk() != false) {
+          setOk(other.getOk());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -5859,6 +5899,37 @@ public final class SoupMessage {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private boolean ok_ ;
+      /**
+       * <code>bool ok = 1;</code>
+       * @return The ok.
+       */
+      @java.lang.Override
+      public boolean getOk() {
+        return ok_;
+      }
+      /**
+       * <code>bool ok = 1;</code>
+       * @param value The ok to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOk(boolean value) {
+        
+        ok_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool ok = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOk() {
+        
+        ok_ = false;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -13750,19 +13821,19 @@ public final class SoupMessage {
       "es\022\n\n\002id\030\001 \001(\t\"\035\n\013JoinRoomReq\022\016\n\006roomId\030" +
       "\001 \001(\t\"6\n\013JoinRoomRes\022\'\n\013seatsChange\030\001 \003(" +
       "\0132\022.RoomMemberSeatRes\"\016\n\014LeaveRoomReq\"\016\n" +
-      "\014LeaveRoomRes\"\014\n\nPrepareReq\"\014\n\nPrepareRe" +
-      "s\"%\n\007KickReq\022\013\n\003aid\030\001 \001(\t\022\r\n\005index\030\002 \001(\r" +
-      "\"\t\n\007KickRes\" \n\017ExchangeSeatReq\022\r\n\005index\030" +
-      "\001 \001(\r\"\021\n\017ExchangeSeatRes\"\032\n\007ChatReq\022\017\n\007c" +
-      "ontent\030\001 \001(\t\"\032\n\007ChatRes\022\017\n\007seconds\030\001 \001(\004" +
-      "\"\'\n\tAnswerReq\022\n\n\002id\030\001 \001(\t\022\016\n\006answer\030\002 \001(" +
-      "\r\"\013\n\tAnswerRes\"\010\n\006EndReq\"\031\n\006EndRes\022\017\n\007co" +
-      "ntent\030\001 \001(\t\"\n\n\010HallPush\"3\n\010RoomPush\022\'\n\013s" +
-      "eatsChange\030\001 \003(\0132\022.RoomMemberSeatRes\"`\n\021" +
-      "RoomMemberSeatRes\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaNam" +
-      "e\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022" +
-      "\r\n\005owner\030\005 \001(\010B#\n!io.github.hdfg159.game" +
-      ".domain.dtob\006proto3"
+      "\014LeaveRoomRes\"\030\n\nPrepareReq\022\n\n\002ok\030\001 \001(\010\"" +
+      "\014\n\nPrepareRes\"%\n\007KickReq\022\013\n\003aid\030\001 \001(\t\022\r\n" +
+      "\005index\030\002 \001(\r\"\t\n\007KickRes\" \n\017ExchangeSeatR" +
+      "eq\022\r\n\005index\030\001 \001(\r\"\021\n\017ExchangeSeatRes\"\032\n\007" +
+      "ChatReq\022\017\n\007content\030\001 \001(\t\"\032\n\007ChatRes\022\017\n\007s" +
+      "econds\030\001 \001(\004\"\'\n\tAnswerReq\022\n\n\002id\030\001 \001(\t\022\016\n" +
+      "\006answer\030\002 \001(\r\"\013\n\tAnswerRes\"\010\n\006EndReq\"\031\n\006" +
+      "EndRes\022\017\n\007content\030\001 \001(\t\"\n\n\010HallPush\"3\n\010R" +
+      "oomPush\022\'\n\013seatsChange\030\001 \003(\0132\022.RoomMembe" +
+      "rSeatRes\"`\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001" +
+      "(\t\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005" +
+      "index\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010B#\n!io.github." +
+      "hdfg159.game.domain.dtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13827,7 +13898,7 @@ public final class SoupMessage {
     internal_static_PrepareReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PrepareReq_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Ok", });
     internal_static_PrepareRes_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_PrepareRes_fieldAccessorTable = new

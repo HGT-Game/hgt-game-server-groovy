@@ -135,7 +135,8 @@ class SoupMember implements TData<String> {
 			return false
 		}
 		
-		if (status.get() == 1) {
+		// 只有在房间状态才能退出
+		if (status.get() != 1) {
 			return false
 		}
 		

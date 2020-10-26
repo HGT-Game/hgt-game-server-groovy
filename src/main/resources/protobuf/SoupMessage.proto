@@ -40,7 +40,7 @@ message LeaveRoomRes {
 }
 
 message PrepareReq {
-
+    bool ok = 1;
 }
 
 message PrepareRes {

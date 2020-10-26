@@ -48,7 +48,7 @@ class SoupRoomData {
 		hallOnlineAvatars.add(aid)
 	}
 	
-	boolean leaveRoom(String aid, String roomId) {
+	boolean leaveRoom(SoupMember member, String roomId) {
 		def room = roomMap.get(roomId)
 		// 房间不存在
 		if (!room) {
@@ -56,28 +56,34 @@ class SoupRoomData {
 		}
 		
 		synchronized (room) {
+			// 游戏中不能退出
+			if (room.status == 2) {
+				return false
+			}
+			
 			// 不存在用户
-			if (!room.roomMemberMap.containsKey(aid)) {
+			if (!room.roomMemberMap.containsKey(member.id)) {
 				return false
 			}
 			
 			// 最后一个人
 			if (room.roomMemberMap.size() == 1) {
 				roomMap.remove(roomId)
-				return true
+			} else {
+				// 移除
+				def removeIndex = room.roomMemberMap.remove(member.id)
+				room.memberIds.set(removeIndex, null)
+				
+				// 是房主
+				if (room.owner == aid) {
+					// 随机一个做房主
+					def memberIds = room.roomMemberMap.keySet()
+					room.owner = memberIds[0]
+				}
 			}
 			
-			// 移除
-			def removeIndex = room.roomMemberMap.remove(aid)
-			room.memberIds.set(removeIndex, null)
-			
-			// 是房主
-			if (room.owner == aid) {
-				// 随机一个做房主
-				def memberIds = room.roomMemberMap.keySet()
-				room.owner = memberIds[0]
-			}
-			
+			// 无脑离开
+			member.leaveRoom()
 			return true
 		}
 	}

@@ -18,7 +18,7 @@ import java.time.LocalDateTime
 @Canonical
 class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 	/**
-	 * 目前状态 0:等待加入 1:满人 2:准备中 3:游戏中
+	 * 目前状态 0:等待加入 1:满人 2:游戏中
 	 */
 	Integer status
 	/**
@@ -33,6 +33,10 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 	 * 最大人数
 	 */
 	int max
+	/**
+	 * 准备人数
+	 */
+	int prepare
 	/**
 	 * 房主
 	 */

@@ -120,7 +120,6 @@ class TurtleSoupService extends AbstractService {
 		synchronized (room) {
 			def joinRoomSuc = room.joinRoom(aid)
 			def avaIndex = room.getAvaIndex(aid)
-			// todo 是否加锁,后面再想一下
 			// 改变成员状态
 			def memberJoinRoomSuc = member.joinRoom(avaIndex, roomId)
 			if (joinRoomSuc && avaIndex && memberJoinRoomSuc) {
@@ -150,7 +149,7 @@ class TurtleSoupService extends AbstractService {
 		
 		def member = memberData.getById(aid)
 		def roomId = member.roomId
-		if (roomData.leaveRoom(aid, roomId) && member.leaveRoom()) {
+		if (roomData.leaveRoom(member, roomId)) {
 			return GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_LEAVE_ROOM, SoupMessage.LeaveRoomRes.newBuilder().build())
 		} else {
 			return GameUtils.resMsg(ProtocolEnums.RES_SOUP_LEAVE_ROOM, CodeEnums.SOUP_ROOM_LEAVE_ROOM_FAIL)
@@ -159,6 +158,56 @@ class TurtleSoupService extends AbstractService {
 	
 	def prepare = {headers, params ->
 		def req = params as SoupMessage.PrepareReq
+		def aid = getAidFromHeader(headers)
+		
+		def member = memberData.getById(aid)
+		def roomId = member.roomId
+		if (!roomId) {
+			// todo 错误
+		}
+		
+		def room = roomData.roomMap.get(roomId)
+		synchronized (room) {
+			if (req.ok) {
+				if (room.owner == aid) {
+					// 更改玩家状态成功 && 准备人数足够
+					if (room.max == room.prepare + 1
+							&& member.status.compareAndSet(1, 3)) {
+						
+						// 更改房间状态
+						room.status = 2
+						
+						// 更改其他玩家状态数据
+						room.memberIds.findAll {it != aid}
+								.each {
+									memberData.getById(it)?.status?.compareAndSet(2, 3)
+								}
+						
+						// 开始游戏记录
+						def record = SoupRecord.createRecord(room)
+						def cache = recordData.saveCache(record)
+						room.recordMap.put(cache.id, cache)
+						// todo success
+					} else {
+						// todo 失败
+					}
+				} else {
+					if (member.status.compareAndSet(1, 2)) {
+						room.prepare += 1
+						// todo success
+					} else {
+						// todo 失败
+					}
+				}
+			} else {
+				if (room.owner != aid && member.status.compareAndSet(2, 1)) {
+					room.prepare -= 1
+					// todo suc
+				} else {
+					// todo 失败
+				}
+			}
+		}
 	}
 	
 	def kick = {headers, params ->
