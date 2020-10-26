@@ -146,6 +146,15 @@ class TurtleSoupService extends AbstractService {
 	
 	def leaveRoom = {headers, params ->
 		def req = params as SoupMessage.LeaveRoomReq
+		def aid = getAidFromHeader(headers)
+		
+		def member = memberData.getById(aid)
+		def roomId = member.roomId
+		if (roomData.leaveRoom(aid, roomId) && member.leaveRoom()) {
+			return GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_LEAVE_ROOM, SoupMessage.LeaveRoomRes.newBuilder().build())
+		} else {
+			return GameUtils.resMsg(ProtocolEnums.RES_SOUP_LEAVE_ROOM, CodeEnums.SOUP_ROOM_LEAVE_ROOM_FAIL)
+		}
 	}
 	
 	def prepare = {headers, params ->

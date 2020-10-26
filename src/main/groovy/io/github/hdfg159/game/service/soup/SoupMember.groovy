@@ -129,4 +129,19 @@ class SoupMember implements TData<String> {
 		
 		seconds
 	}
+	
+	boolean leaveRoom() {
+		if (!roomId) {
+			return false
+		}
+		
+		if (status.get() == 1) {
+			return false
+		}
+		
+		this.@status.getAndSet(0)
+		this.@roomId = null
+		
+		true
+	}
 }

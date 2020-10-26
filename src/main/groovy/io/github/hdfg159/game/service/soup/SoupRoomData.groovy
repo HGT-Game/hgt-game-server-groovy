@@ -47,4 +47,38 @@ class SoupRoomData {
 	boolean addAvaIntoHall(String aid) {
 		hallOnlineAvatars.add(aid)
 	}
+	
+	boolean leaveRoom(String aid, String roomId) {
+		def room = roomMap.get(roomId)
+		// 房间不存在
+		if (!room) {
+			return false
+		}
+		
+		synchronized (room) {
+			// 不存在用户
+			if (!room.roomMemberMap.containsKey(aid)) {
+				return false
+			}
+			
+			// 最后一个人
+			if (room.roomMemberMap.size() == 1) {
+				roomMap.remove(roomId)
+				return true
+			}
+			
+			// 移除
+			def removeIndex = room.roomMemberMap.remove(aid)
+			room.memberIds.set(removeIndex, null)
+			
+			// 是房主
+			if (room.owner == aid) {
+				// 随机一个做房主
+				def memberIds = room.roomMemberMap.keySet()
+				room.owner = memberIds[0]
+			}
+			
+			return true
+		}
+	}
 }
