@@ -53,12 +53,13 @@ class GameClient {
 		
 		// 下面业务代码
 		if (channel.active) {
-			register(channel)
+			login(channel)
 		}
 	}
 	
 	def static register(Channel channel) {
-		def username = UUID.randomUUID().toString()
+		// def username = UUID.randomUUID().toString()
+		def username = "admin"
 		def password = "admin"
 		def registerReq = GameMessage.RegisterReq.newBuilder()
 				.setUsername(username)

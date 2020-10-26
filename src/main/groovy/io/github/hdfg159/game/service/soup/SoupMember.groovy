@@ -66,7 +66,8 @@ class SoupMember implements TData<String> {
 	 */
 	LocalDateTime loginTime
 	
-	SoupMember() {
+	SoupMember(String aid) {
+		id = aid
 		status = new AtomicInteger(0)
 		
 		recordIds = []

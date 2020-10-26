@@ -180,7 +180,7 @@ class TurtleSoupService extends AbstractService {
 		
 		def aid = event.userId
 		if (!memberData.getById(aid)) {
-			memberData.saveCache(new SoupMember())
+			memberData.saveCache(new SoupMember(aid))
 		}
 		
 		def member = memberData.getById(aid)

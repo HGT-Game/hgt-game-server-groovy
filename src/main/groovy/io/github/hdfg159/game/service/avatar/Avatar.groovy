@@ -1,7 +1,10 @@
 package io.github.hdfg159.game.service.avatar
 
+
 import groovy.transform.Canonical
 import io.github.hdfg159.game.data.TData
+
+import java.time.LocalDateTime
 
 /**
  * Project:starter
@@ -25,9 +28,13 @@ class Avatar implements TData<String> {
 	/**
 	 * 最后登录时间
 	 */
-	Date loginTime
+	LocalDateTime loginTime
 	/**
 	 * 最后下线时间
 	 */
-	Date offlineTime
+	LocalDateTime offlineTime
+	/**
+	 * 是否在线
+	 */
+	boolean online
 }
