@@ -147,14 +147,14 @@ class AvatarService extends AbstractService {
 		def userId = event.userId
 		def username = event.username
 		def channel = avatarData.getChannel(userId)
-		log.info "收到上线通知:[${userId}][${username}]上线,channel:${channel}"
+		log.info "[${userId}][${username}]上线,channel:${channel}"
 	}
 	
 	def offlineEvent = {headers, params ->
 		def event = params as EventMessage.Offline
 		def username = event.username
 		def userId = event.userId
-		log.info "收到下线通知:[${userId}][${username}]下线"
+		log.info "[${userId}][${username}]下线"
 	}
 	
 	def register = {headers, params ->
@@ -237,8 +237,8 @@ class AvatarService extends AbstractService {
 	/**
 	 * 全部在线推送消息
 	 * @param userIds 用户 ID 列表
+	 * @param excludeUserIds 排除的用户 ID
 	 * @param message 消息
-	 * @return
 	 */
 	def pushAllMsg(Collection<String> userIds, Collection<String> excludeUserIds, Message message) {
 		userIds.findAll {!excludeUserIds.contains(it)}

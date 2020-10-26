@@ -129,7 +129,7 @@ class TurtleSoupService extends AbstractService {
 						.addSeatsChange(buildSeatRes(aid, avaIndex, room.owner))
 						.build()
 				def msg = GameUtils.resMsg(ProtocolEnums.RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH_NEW_JOIN, roomPush)
-				avatarService.pushAllMsg(room.roomMemberMap.keySet(), new HashSet<String>([aid]), msg)
+				avatarService.pushAllMsg(room.roomMemberMap.keySet(), [aid].toSet(), msg)
 				
 				def allSeatRes = room.roomMemberMap.collect {
 					buildSeatRes(it.key, it.value, room.owner)
@@ -176,7 +176,7 @@ class TurtleSoupService extends AbstractService {
 	
 	def onlineEvent = {headers, params ->
 		def event = params as EventMessage.Online
-		log.info "${event.username} online"
+		log.info "[${event.userId}][${event.username}] online"
 		
 		def aid = event.userId
 		if (!memberData.getById(aid)) {
@@ -189,7 +189,7 @@ class TurtleSoupService extends AbstractService {
 	
 	def offlineEvent = {headers, params ->
 		def event = params as EventMessage.Offline
-		log.info "${event.username} offline"
+		log.info "[${event.userId}][${event.username}] offline"
 		
 		def aid = event.userId
 		def member = memberData.getById(aid)
