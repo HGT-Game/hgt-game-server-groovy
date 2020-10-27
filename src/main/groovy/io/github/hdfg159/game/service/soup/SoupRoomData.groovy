@@ -114,4 +114,23 @@ class SoupRoomData {
 		
 		true
 	}
+	
+	boolean exchangeSeat(SoupRoom room, SoupMember member, int index) {
+		// 游戏中不能换位置
+		if (room.status == 2) {
+			return false
+		}
+		
+		// 换位置
+		def removeIndex = room.roomMemberMap.remove(member.id)
+		room.memberIds.set(removeIndex, null)
+		
+		room.roomMemberMap.put(member.id, index)
+		room.memberIds.set(index, member.id)
+		
+		// 记录个人数据
+		member.seat = index
+		
+		true
+	}
 }

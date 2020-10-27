@@ -12726,6 +12726,12 @@ public final class SoupMessage {
      * @return The owner.
      */
     boolean getOwner();
+
+    /**
+     * <code>uint32 status = 6;</code>
+     * @return The status.
+     */
+    int getStatus();
   }
   /**
    * Protobuf type {@code RoomMemberSeatRes}
@@ -12801,6 +12807,11 @@ public final class SoupMessage {
             case 40: {
 
               owner_ = input.readBool();
+              break;
+            }
+            case 48: {
+
+              status_ = input.readUInt32();
               break;
             }
             default: {
@@ -12971,6 +12982,17 @@ public final class SoupMessage {
       return owner_;
     }
 
+    public static final int STATUS_FIELD_NUMBER = 6;
+    private int status_;
+    /**
+     * <code>uint32 status = 6;</code>
+     * @return The status.
+     */
+    @java.lang.Override
+    public int getStatus() {
+      return status_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -13000,6 +13022,9 @@ public final class SoupMessage {
       if (owner_ != false) {
         output.writeBool(5, owner_);
       }
+      if (status_ != 0) {
+        output.writeUInt32(6, status_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -13026,6 +13051,10 @@ public final class SoupMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(5, owner_);
       }
+      if (status_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(6, status_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -13051,6 +13080,8 @@ public final class SoupMessage {
           != other.getIndex()) return false;
       if (getOwner()
           != other.getOwner()) return false;
+      if (getStatus()
+          != other.getStatus()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -13073,6 +13104,8 @@ public final class SoupMessage {
       hash = (37 * hash) + OWNER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getOwner());
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getStatus();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -13216,6 +13249,8 @@ public final class SoupMessage {
 
         owner_ = false;
 
+        status_ = 0;
+
         return this;
       }
 
@@ -13247,6 +13282,7 @@ public final class SoupMessage {
         result.avaHead_ = avaHead_;
         result.index_ = index_;
         result.owner_ = owner_;
+        result.status_ = status_;
         onBuilt();
         return result;
       }
@@ -13312,6 +13348,9 @@ public final class SoupMessage {
         }
         if (other.getOwner() != false) {
           setOwner(other.getOwner());
+        }
+        if (other.getStatus() != 0) {
+          setStatus(other.getStatus());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -13631,6 +13670,37 @@ public final class SoupMessage {
         onChanged();
         return this;
       }
+
+      private int status_ ;
+      /**
+       * <code>uint32 status = 6;</code>
+       * @return The status.
+       */
+      @java.lang.Override
+      public int getStatus() {
+        return status_;
+      }
+      /**
+       * <code>uint32 status = 6;</code>
+       * @param value The status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatus(int value) {
+        
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 status = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStatus() {
+        
+        status_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -13830,10 +13900,11 @@ public final class SoupMessage {
       "\006answer\030\002 \001(\r\"\013\n\tAnswerRes\"\010\n\006EndReq\"\031\n\006" +
       "EndRes\022\017\n\007content\030\001 \001(\t\"\n\n\010HallPush\"3\n\010R" +
       "oomPush\022\'\n\013seatsChange\030\001 \003(\0132\022.RoomMembe" +
-      "rSeatRes\"`\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001" +
+      "rSeatRes\"p\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001" +
       "(\t\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005" +
-      "index\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010B#\n!io.github." +
-      "hdfg159.game.domain.dtob\006proto3"
+      "index\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001" +
+      "(\rB#\n!io.github.hdfg159.game.domain.dtob" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13982,7 +14053,7 @@ public final class SoupMessage {
     internal_static_RoomMemberSeatRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomMemberSeatRes_descriptor,
-        new java.lang.String[] { "Aid", "AvaName", "AvaHead", "Index", "Owner", });
+        new java.lang.String[] { "Aid", "AvaName", "AvaHead", "Index", "Owner", "Status", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

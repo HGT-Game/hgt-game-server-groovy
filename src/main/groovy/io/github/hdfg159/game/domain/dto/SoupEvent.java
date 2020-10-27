@@ -14,8 +14,8 @@ public final class SoupEvent {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface CreateRoomOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:CreateRoom)
+  public interface SeatChangeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SeatChange)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -43,18 +43,18 @@ public final class SoupEvent {
         getAidBytes();
   }
   /**
-   * Protobuf type {@code CreateRoom}
+   * Protobuf type {@code SeatChange}
    */
-  public static final class CreateRoom extends
+  public static final class SeatChange extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:CreateRoom)
-      CreateRoomOrBuilder {
+      // @@protoc_insertion_point(message_implements:SeatChange)
+      SeatChangeOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use CreateRoom.newBuilder() to construct.
-    private CreateRoom(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use SeatChange.newBuilder() to construct.
+    private SeatChange(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private CreateRoom() {
+    private SeatChange() {
       roomId_ = "";
       aid_ = "";
     }
@@ -63,7 +63,7 @@ public final class SoupEvent {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new CreateRoom();
+      return new SeatChange();
     }
 
     @java.lang.Override
@@ -71,7 +71,7 @@ public final class SoupEvent {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CreateRoom(
+    private SeatChange(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -122,15 +122,15 @@ public final class SoupEvent {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_CreateRoom_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_SeatChange_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_CreateRoom_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_SeatChange_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom.class, io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom.Builder.class);
+              io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange.class, io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange.Builder.class);
     }
 
     public static final int ROOMID_FIELD_NUMBER = 1;
@@ -254,10 +254,10 @@ public final class SoupEvent {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom)) {
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange)) {
         return super.equals(obj);
       }
-      io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom other = (io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom) obj;
+      io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange other = (io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange) obj;
 
       if (!getRoomId()
           .equals(other.getRoomId())) return false;
@@ -283,69 +283,69 @@ public final class SoupEvent {
       return hash;
     }
 
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parseFrom(
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parseFrom(
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parseFrom(
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parseFrom(
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parseFrom(byte[] data)
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parseFrom(
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parseFrom(java.io.InputStream input)
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parseFrom(
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parseDelimitedFrom(java.io.InputStream input)
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parseDelimitedFrom(
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parseFrom(
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parseFrom(
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -358,7 +358,7 @@ public final class SoupEvent {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom prototype) {
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -374,26 +374,26 @@ public final class SoupEvent {
       return builder;
     }
     /**
-     * Protobuf type {@code CreateRoom}
+     * Protobuf type {@code SeatChange}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:CreateRoom)
-        io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoomOrBuilder {
+        // @@protoc_insertion_point(builder_implements:SeatChange)
+        io.github.hdfg159.game.domain.dto.SoupEvent.SeatChangeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_CreateRoom_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_SeatChange_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_CreateRoom_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_SeatChange_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom.class, io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom.Builder.class);
+                io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange.class, io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange.Builder.class);
       }
 
-      // Construct using io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom.newBuilder()
+      // Construct using io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -421,17 +421,17 @@ public final class SoupEvent {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_CreateRoom_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_SeatChange_descriptor;
       }
 
       @java.lang.Override
-      public io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom getDefaultInstanceForType() {
-        return io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom.getDefaultInstance();
+      public io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom build() {
-        io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom result = buildPartial();
+      public io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange build() {
+        io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -439,8 +439,8 @@ public final class SoupEvent {
       }
 
       @java.lang.Override
-      public io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom buildPartial() {
-        io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom result = new io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom(this);
+      public io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange result = new io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange(this);
         result.roomId_ = roomId_;
         result.aid_ = aid_;
         onBuilt();
@@ -481,16 +481,16 @@ public final class SoupEvent {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom) {
-          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom)other);
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom other) {
-        if (other == io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange.getDefaultInstance()) return this;
         if (!other.getRoomId().isEmpty()) {
           roomId_ = other.roomId_;
           onChanged();
@@ -514,11 +514,11 @@ public final class SoupEvent {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom parsedMessage = null;
+        io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom) e.getUnfinishedMessage();
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -692,774 +692,51 @@ public final class SoupEvent {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:CreateRoom)
+      // @@protoc_insertion_point(builder_scope:SeatChange)
     }
 
-    // @@protoc_insertion_point(class_scope:CreateRoom)
-    private static final io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:SeatChange)
+    private static final io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom();
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange();
     }
 
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom getDefaultInstance() {
+    public static io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<CreateRoom>
-        PARSER = new com.google.protobuf.AbstractParser<CreateRoom>() {
+    private static final com.google.protobuf.Parser<SeatChange>
+        PARSER = new com.google.protobuf.AbstractParser<SeatChange>() {
       @java.lang.Override
-      public CreateRoom parsePartialFrom(
+      public SeatChange parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CreateRoom(input, extensionRegistry);
+        return new SeatChange(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<CreateRoom> parser() {
+    public static com.google.protobuf.Parser<SeatChange> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<CreateRoom> getParserForType() {
+    public com.google.protobuf.Parser<SeatChange> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupEvent.CreateRoom getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface JoinRoomOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:JoinRoom)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string roomId = 1;</code>
-     * @return The roomId.
-     */
-    java.lang.String getRoomId();
-    /**
-     * <code>string roomId = 1;</code>
-     * @return The bytes for roomId.
-     */
-    com.google.protobuf.ByteString
-        getRoomIdBytes();
-
-    /**
-     * <code>string aid = 2;</code>
-     * @return The aid.
-     */
-    java.lang.String getAid();
-    /**
-     * <code>string aid = 2;</code>
-     * @return The bytes for aid.
-     */
-    com.google.protobuf.ByteString
-        getAidBytes();
-  }
-  /**
-   * Protobuf type {@code JoinRoom}
-   */
-  public static final class JoinRoom extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:JoinRoom)
-      JoinRoomOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use JoinRoom.newBuilder() to construct.
-    private JoinRoom(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private JoinRoom() {
-      roomId_ = "";
-      aid_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new JoinRoom();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private JoinRoom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              roomId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              aid_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_JoinRoom_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_JoinRoom_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom.class, io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom.Builder.class);
-    }
-
-    public static final int ROOMID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object roomId_;
-    /**
-     * <code>string roomId = 1;</code>
-     * @return The roomId.
-     */
-    @java.lang.Override
-    public java.lang.String getRoomId() {
-      java.lang.Object ref = roomId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        roomId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string roomId = 1;</code>
-     * @return The bytes for roomId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getRoomIdBytes() {
-      java.lang.Object ref = roomId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        roomId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int AID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object aid_;
-    /**
-     * <code>string aid = 2;</code>
-     * @return The aid.
-     */
-    @java.lang.Override
-    public java.lang.String getAid() {
-      java.lang.Object ref = aid_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        aid_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string aid = 2;</code>
-     * @return The bytes for aid.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getAidBytes() {
-      java.lang.Object ref = aid_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        aid_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getRoomIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, roomId_);
-      }
-      if (!getAidBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, aid_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getRoomIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, roomId_);
-      }
-      if (!getAidBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, aid_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom)) {
-        return super.equals(obj);
-      }
-      io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom other = (io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom) obj;
-
-      if (!getRoomId()
-          .equals(other.getRoomId())) return false;
-      if (!getAid()
-          .equals(other.getAid())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ROOMID_FIELD_NUMBER;
-      hash = (53 * hash) + getRoomId().hashCode();
-      hash = (37 * hash) + AID_FIELD_NUMBER;
-      hash = (53 * hash) + getAid().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code JoinRoom}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:JoinRoom)
-        io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoomOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_JoinRoom_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_JoinRoom_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom.class, io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom.Builder.class);
-      }
-
-      // Construct using io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        roomId_ = "";
-
-        aid_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupEvent.internal_static_JoinRoom_descriptor;
-      }
-
-      @java.lang.Override
-      public io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom getDefaultInstanceForType() {
-        return io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom build() {
-        io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom buildPartial() {
-        io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom result = new io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom(this);
-        result.roomId_ = roomId_;
-        result.aid_ = aid_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom) {
-          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom other) {
-        if (other == io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom.getDefaultInstance()) return this;
-        if (!other.getRoomId().isEmpty()) {
-          roomId_ = other.roomId_;
-          onChanged();
-        }
-        if (!other.getAid().isEmpty()) {
-          aid_ = other.aid_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object roomId_ = "";
-      /**
-       * <code>string roomId = 1;</code>
-       * @return The roomId.
-       */
-      public java.lang.String getRoomId() {
-        java.lang.Object ref = roomId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          roomId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string roomId = 1;</code>
-       * @return The bytes for roomId.
-       */
-      public com.google.protobuf.ByteString
-          getRoomIdBytes() {
-        java.lang.Object ref = roomId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          roomId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string roomId = 1;</code>
-       * @param value The roomId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRoomId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        roomId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string roomId = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRoomId() {
-        
-        roomId_ = getDefaultInstance().getRoomId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string roomId = 1;</code>
-       * @param value The bytes for roomId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRoomIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        roomId_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object aid_ = "";
-      /**
-       * <code>string aid = 2;</code>
-       * @return The aid.
-       */
-      public java.lang.String getAid() {
-        java.lang.Object ref = aid_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          aid_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string aid = 2;</code>
-       * @return The bytes for aid.
-       */
-      public com.google.protobuf.ByteString
-          getAidBytes() {
-        java.lang.Object ref = aid_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          aid_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string aid = 2;</code>
-       * @param value The aid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAid(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        aid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string aid = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearAid() {
-        
-        aid_ = getDefaultInstance().getAid();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string aid = 2;</code>
-       * @param value The bytes for aid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAidBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        aid_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:JoinRoom)
-    }
-
-    // @@protoc_insertion_point(class_scope:JoinRoom)
-    private static final io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom();
-    }
-
-    public static io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<JoinRoom>
-        PARSER = new com.google.protobuf.AbstractParser<JoinRoom>() {
-      @java.lang.Override
-      public JoinRoom parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new JoinRoom(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<JoinRoom> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<JoinRoom> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupEvent.JoinRoom getDefaultInstanceForType() {
+    public io.github.hdfg159.game.domain.dto.SoupEvent.SeatChange getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_CreateRoom_descriptor;
+    internal_static_SeatChange_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_CreateRoom_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_JoinRoom_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_JoinRoom_fieldAccessorTable;
+      internal_static_SeatChange_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1469,26 +746,19 @@ public final class SoupEvent {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017SoupEvent.proto\")\n\nCreateRoom\022\016\n\006roomI" +
-      "d\030\001 \001(\t\022\013\n\003aid\030\002 \001(\t\"\'\n\010JoinRoom\022\016\n\006room" +
-      "Id\030\001 \001(\t\022\013\n\003aid\030\002 \001(\tB#\n!io.github.hdfg1" +
-      "59.game.domain.dtob\006proto3"
+      "\n\017SoupEvent.proto\")\n\nSeatChange\022\016\n\006roomI" +
+      "d\030\001 \001(\t\022\013\n\003aid\030\002 \001(\tB#\n!io.github.hdfg15" +
+      "9.game.domain.dtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_CreateRoom_descriptor =
+    internal_static_SeatChange_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_CreateRoom_fieldAccessorTable = new
+    internal_static_SeatChange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_CreateRoom_descriptor,
-        new java.lang.String[] { "RoomId", "Aid", });
-    internal_static_JoinRoom_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_JoinRoom_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_JoinRoom_descriptor,
+        internal_static_SeatChange_descriptor,
         new java.lang.String[] { "RoomId", "Aid", });
   }
 

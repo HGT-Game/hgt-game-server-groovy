@@ -26,8 +26,7 @@ enum EventEnums {
 	ONLINE(2, EventMessage.Online.class),
 	
 	// 1001-2000 海龟汤
-	SOUP_CREATE_ROOM(1001, SoupEvent.CreateRoom.class),
-	SOUP_JOIN_ROOM(1002, SoupEvent.JoinRoom.class),
+	SOUP_SEAT_CHANGE(1001, SoupEvent.SeatChange.class),
 	
 	/**
 	 * 事件值

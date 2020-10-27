@@ -101,4 +101,5 @@ message RoomMemberSeatRes {
     string avaHead = 3;
     uint32 index = 4;
     bool owner = 5;
+    uint32 status = 6;
 }

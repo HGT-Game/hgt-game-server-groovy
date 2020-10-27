@@ -46,7 +46,7 @@ class TurtleSoupService extends AbstractService {
 		
 		handleEvent(EventEnums.OFFLINE, offlineEvent)
 		handleEvent(EventEnums.ONLINE, onlineEvent)
-		handleEvent(EventEnums.SOUP_CREATE_ROOM, createRoomEvent)
+		handleEvent(EventEnums.SOUP_SEAT_CHANGE, seatChangeEvent)
 		
 		this.@vertx.rxDeployVerticle(memberData).ignoreElement()
 				.mergeWith(this.@vertx.rxDeployVerticle(recordData).ignoreElement())
@@ -95,14 +95,12 @@ class TurtleSoupService extends AbstractService {
 		
 		if (room) {
 			roomRes.setId(room.id)
-			def createRoomEvt = SoupEvent.CreateRoom.newBuilder()
-					.setRoomId(room.id)
-					.build()
-			publishEvent(EventEnums.SOUP_CREATE_ROOM, createRoomEvt)
+			
+			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
 			return GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, roomRes.build())
 		}
 		
-		return GameUtils.resMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_CREATE_FAIL)
+		GameUtils.resMsg(ProtocolEnums.RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_CREATE_FAIL)
 	}
 	
 	def joinRoom = {headers, params ->
@@ -123,15 +121,12 @@ class TurtleSoupService extends AbstractService {
 			// 改变成员状态
 			def memberJoinRoomSuc = member.joinRoom(avaIndex, roomId)
 			if (joinRoomSuc && avaIndex && memberJoinRoomSuc) {
-				// 推送消息
-				def roomPush = SoupMessage.RoomPush.newBuilder()
-						.addSeatsChange(buildSeatRes(aid, avaIndex, room.owner))
-						.build()
-				def msg = GameUtils.resMsg(ProtocolEnums.RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH_NEW_JOIN, roomPush)
-				avatarService.pushAllMsg(room.roomMemberMap.keySet(), [aid].toSet(), msg)
+				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
+				
+				pushSeatChange([aid], [], roomId)
 				
 				def allSeatRes = room.roomMemberMap.collect {
-					buildSeatRes(it.key, it.value, room.owner)
+					buildSeatRes(memberData.getById(it.key), room.owner)
 				}
 				def sucRes = SoupMessage.JoinRoomRes.newBuilder()
 						.addAllSeatsChange(allSeatRes)
@@ -150,6 +145,8 @@ class TurtleSoupService extends AbstractService {
 		def member = memberData.getById(aid)
 		def roomId = member.roomId
 		if (roomData.leaveRoom(member, roomId)) {
+			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(roomId).build())
+			pushSeatChange([aid], [], roomId)
 			return GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_LEAVE_ROOM, SoupMessage.LeaveRoomRes.newBuilder().build())
 		} else {
 			return GameUtils.resMsg(ProtocolEnums.RES_SOUP_LEAVE_ROOM, CodeEnums.SOUP_ROOM_LEAVE_ROOM_FAIL)
@@ -182,16 +179,16 @@ class TurtleSoupService extends AbstractService {
 						room.status = 2
 						
 						// 更改其他玩家状态数据
-						room.memberIds.findAll {it != aid}
-								.each {
-									memberData.getById(it)?.status?.compareAndSet(2, 3)
-								}
+						room.memberIds
+								.findAll {it != aid}
+								.each {memberData.getById(it)?.status?.compareAndSet(2, 3)}
 						
 						// 开始游戏记录
 						def record = SoupRecord.createRecord(room)
 						def cache = recordData.saveCache(record)
 						room.recordMap.put(cache.id, cache)
 						
+						pushSeatChange([aid], [], roomId)
 						return sucResMsg
 					} else {
 						return errRes
@@ -199,6 +196,8 @@ class TurtleSoupService extends AbstractService {
 				} else {
 					if (member.status.compareAndSet(1, 2)) {
 						room.prepare.add(aid)
+						
+						pushSeatChange([aid], [], roomId)
 						return sucResMsg
 					} else {
 						return errRes
@@ -208,6 +207,8 @@ class TurtleSoupService extends AbstractService {
 				// 取消准备
 				if (room.owner != aid && member.status.compareAndSet(2, 1)) {
 					room.prepare.remove(aid)
+					
+					pushSeatChange([aid], [], roomId)
 					return sucResMsg
 				} else {
 					return errRes
@@ -228,7 +229,7 @@ class TurtleSoupService extends AbstractService {
 			return errRes
 		}
 		
-		// 主动踢人成员信息
+		// 主动踢人 成员信息
 		def member = memberData.getById(aid)
 		def roomId = member.roomId
 		if (!roomId) {
@@ -250,7 +251,13 @@ class TurtleSoupService extends AbstractService {
 				kickMember = memberData.getById(kickMid)
 			}
 			
+			if (!kickMember) {
+				return errRes
+			}
+			
 			if (roomData.kick(aid, kickMember, room)) {
+				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
+				pushSeatChange([kickMember.id], [], roomId)
 				return GameUtils.sucResMsg(ProtocolEnums.REQ_SOUP_KICK, SoupMessage.KickRes.newBuilder().build())
 			} else {
 				return errRes
@@ -260,6 +267,35 @@ class TurtleSoupService extends AbstractService {
 	
 	def exchangeSeat = {headers, params ->
 		def req = params as SoupMessage.ExchangeSeatReq
+		def aid = getHeaderAvatarId(headers)
+		def index = req.index
+		
+		def errRes = GameUtils.resMsg(ProtocolEnums.REQ_SOUP_EXCHANGE_SEAT, CodeEnums.SOUP_EXCHANGE_SEAT_FAIL)
+		
+		def member = memberData.getById(aid)
+		if (member.seat == index) {
+			return errRes
+		}
+		
+		def roomId = member.roomId
+		if (!roomId) {
+			return errRes
+		}
+		
+		def room = roomData.roomMap.get(roomId)
+		if (!room) {
+			return errRes
+		}
+		
+		synchronized (room) {
+			if (roomData.exchangeSeat(room, member, index)) {
+				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
+				pushSeatChange([aid], [], roomId)
+				return GameUtils.sucResMsg(ProtocolEnums.REQ_SOUP_EXCHANGE_SEAT, SoupMessage.ExchangeSeatRes.newBuilder().build())
+			} else {
+				return errRes
+			}
+		}
 	}
 	
 	def chat = {headers, params ->
@@ -300,23 +336,50 @@ class TurtleSoupService extends AbstractService {
 		memberData.updateForceById(aid)
 	}
 	
-	def createRoomEvent = {headers, params ->
-		def event = params as SoupEvent.CreateRoom
+	def seatChangeEvent = {headers, params ->
+		def event = params as SoupEvent.SeatChange
 		
-		roomData.removeAvaFromHall(event.aid)
+		def aid = event.aid
+		log.info "[${event.roomId}]${aid} seat change"
+		
+		// 大厅在线玩家数据修改
+		def member = memberData.getById(aid)
+		if (member.status.get() == 0) {
+			roomData.addAvaIntoHall(aid)
+		} else {
+			roomData.removeAvaFromHall(aid)
+		}
 	}
 	
 	// Private
 	
-	private SoupMessage.RoomMemberSeatRes buildSeatRes(String aid, int avaIndex, String owner) {
-		def avatar = avatarService.getAvatarData()?.getById(aid)
-		def seatRes = SoupMessage.RoomMemberSeatRes.newBuilder()
+	private SoupMessage.RoomMemberSeatRes buildSeatRes(SoupMember member, String owner) {
+		def avatar = avatarService.getAvatarData()?.getById(member.id)
+		
+		SoupMessage.RoomMemberSeatRes.newBuilder()
 				.setAid(avatar?.id)
 				.setAvaName(avatar?.username)
 				.setAvaHead("")
-				.setIndex(avaIndex)
-				.setOwner(owner == aid)
+				.setStatus(member?.status?.get())
+				.setIndex(member?.seat)
+				.setOwner(owner == member?.id)
 				.build()
-		seatRes
+	}
+	
+	private void pushSeatChange(Collection<String> changeMemberIds, Collection<String> excludePushMemberIds, String roomId) {
+		def room = roomData.roomMap.get(roomId)
+		if (!room) {
+			return
+		}
+		
+		def seatRes = (changeMemberIds ?: room.roomMemberMap.keySet()).collect {
+			def member = memberData.getById(it)
+			buildSeatRes(member, room.owner)
+		}
+		
+		def push = SoupMessage.RoomPush.newBuilder().addAllSeatsChange(seatRes).build()
+		def msg = GameUtils.resMsg(ProtocolEnums.RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH_SEAT_CHANGE, push)
+		
+		avatarService.pushAllMsg(room.roomMemberMap.keySet(), excludePushMemberIds, msg)
 	}
 }
