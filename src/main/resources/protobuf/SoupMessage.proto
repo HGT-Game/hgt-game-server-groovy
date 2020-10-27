@@ -93,6 +93,8 @@ message HallPush {
 
 message RoomPush {
     repeated RoomMemberSeatRes seatsChange = 1;
+    string content = 2;
+    uint32 status = 3;
 }
 
 message RoomMemberSeatRes {

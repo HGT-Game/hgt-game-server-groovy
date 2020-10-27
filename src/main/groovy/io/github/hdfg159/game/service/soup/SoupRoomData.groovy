@@ -57,7 +57,7 @@ class SoupRoomData {
 		
 		synchronized (room) {
 			// 游戏中不能退出
-			if (room.status == 2) {
+			if (room.status == 1) {
 				return false
 			}
 			
@@ -95,7 +95,7 @@ class SoupRoomData {
 		}
 		
 		// 游戏中不能踢人
-		if (room.status == 2) {
+		if (room.status == 1) {
 			return false
 		}
 		
@@ -117,7 +117,7 @@ class SoupRoomData {
 	
 	boolean exchangeSeat(SoupRoom room, SoupMember member, int index) {
 		// 游戏中不能换位置
-		if (room.status == 2) {
+		if (room.status == 1) {
 			return false
 		}
 		

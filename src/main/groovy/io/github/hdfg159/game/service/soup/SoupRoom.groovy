@@ -18,7 +18,7 @@ import java.time.LocalDateTime
 @Canonical
 class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 	/**
-	 * 目前状态 0:等待加入 1:满人 2:游戏中
+	 * 目前状态 0:等待加入 1:游戏中
 	 */
 	Integer status
 	/**
@@ -57,6 +57,10 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 	 * 房间创建时间
 	 */
 	LocalDateTime createTime
+	/**
+	 * 当前开局记录 ID
+	 */
+	String recordId
 	/**
 	 * 开局记录 [id:记录]
 	 */
@@ -105,20 +109,11 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 			return false
 		}
 		
-		if (status == 1) {
-			return false
-		}
-		
 		(0..max - 1).each {
 			def mid = memberIds[it]
 			if (!mid) {
 				memberIds[it] = aid
 				roomMemberMap.put(aid, it)
-				
-				if (roomMemberMap.size() >= max) {
-					// 满人
-					status = 1
-				}
 				return true
 			}
 		}

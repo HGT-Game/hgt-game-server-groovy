@@ -11909,6 +11909,24 @@ public final class SoupMessage {
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
         int index);
+
+    /**
+     * <code>string content = 2;</code>
+     * @return The content.
+     */
+    java.lang.String getContent();
+    /**
+     * <code>string content = 2;</code>
+     * @return The bytes for content.
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+
+    /**
+     * <code>uint32 status = 3;</code>
+     * @return The status.
+     */
+    int getStatus();
   }
   /**
    * Protobuf type {@code RoomPush}
@@ -11924,6 +11942,7 @@ public final class SoupMessage {
     }
     private RoomPush() {
       seatsChange_ = java.util.Collections.emptyList();
+      content_ = "";
     }
 
     @java.lang.Override
@@ -11964,6 +11983,17 @@ public final class SoupMessage {
               }
               seatsChange_.add(
                   input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              content_ = s;
+              break;
+            }
+            case 24: {
+
+              status_ = input.readUInt32();
               break;
             }
             default: {
@@ -12041,6 +12071,55 @@ public final class SoupMessage {
       return seatsChange_.get(index);
     }
 
+    public static final int CONTENT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object content_;
+    /**
+     * <code>string content = 2;</code>
+     * @return The content.
+     */
+    @java.lang.Override
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string content = 2;</code>
+     * @return The bytes for content.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 3;
+    private int status_;
+    /**
+     * <code>uint32 status = 3;</code>
+     * @return The status.
+     */
+    @java.lang.Override
+    public int getStatus() {
+      return status_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -12058,6 +12137,12 @@ public final class SoupMessage {
       for (int i = 0; i < seatsChange_.size(); i++) {
         output.writeMessage(1, seatsChange_.get(i));
       }
+      if (!getContentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, content_);
+      }
+      if (status_ != 0) {
+        output.writeUInt32(3, status_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -12070,6 +12155,13 @@ public final class SoupMessage {
       for (int i = 0; i < seatsChange_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, seatsChange_.get(i));
+      }
+      if (!getContentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, content_);
+      }
+      if (status_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, status_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12088,6 +12180,10 @@ public final class SoupMessage {
 
       if (!getSeatsChangeList()
           .equals(other.getSeatsChangeList())) return false;
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (getStatus()
+          != other.getStatus()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -12103,6 +12199,10 @@ public final class SoupMessage {
         hash = (37 * hash) + SEATSCHANGE_FIELD_NUMBER;
         hash = (53 * hash) + getSeatsChangeList().hashCode();
       }
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getStatus();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -12243,6 +12343,10 @@ public final class SoupMessage {
         } else {
           seatsChangeBuilder_.clear();
         }
+        content_ = "";
+
+        status_ = 0;
+
         return this;
       }
 
@@ -12279,6 +12383,8 @@ public final class SoupMessage {
         } else {
           result.seatsChange_ = seatsChangeBuilder_.build();
         }
+        result.content_ = content_;
+        result.status_ = status_;
         onBuilt();
         return result;
       }
@@ -12352,6 +12458,13 @@ public final class SoupMessage {
               seatsChangeBuilder_.addAllMessages(other.seatsChange_);
             }
           }
+        }
+        if (!other.getContent().isEmpty()) {
+          content_ = other.content_;
+          onChanged();
+        }
+        if (other.getStatus() != 0) {
+          setStatus(other.getStatus());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -12621,6 +12734,113 @@ public final class SoupMessage {
           seatsChange_ = null;
         }
         return seatsChangeBuilder_;
+      }
+
+      private java.lang.Object content_ = "";
+      /**
+       * <code>string content = 2;</code>
+       * @return The content.
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string content = 2;</code>
+       * @return The bytes for content.
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string content = 2;</code>
+       * @param value The content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearContent() {
+        
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 2;</code>
+       * @param value The bytes for content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int status_ ;
+      /**
+       * <code>uint32 status = 3;</code>
+       * @return The status.
+       */
+      @java.lang.Override
+      public int getStatus() {
+        return status_;
+      }
+      /**
+       * <code>uint32 status = 3;</code>
+       * @param value The status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatus(int value) {
+        
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 status = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStatus() {
+        
+        status_ = 0;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -13898,13 +14118,13 @@ public final class SoupMessage {
       "ChatReq\022\017\n\007content\030\001 \001(\t\"\032\n\007ChatRes\022\017\n\007s" +
       "econds\030\001 \001(\004\"\'\n\tAnswerReq\022\n\n\002id\030\001 \001(\t\022\016\n" +
       "\006answer\030\002 \001(\r\"\013\n\tAnswerRes\"\010\n\006EndReq\"\031\n\006" +
-      "EndRes\022\017\n\007content\030\001 \001(\t\"\n\n\010HallPush\"3\n\010R" +
+      "EndRes\022\017\n\007content\030\001 \001(\t\"\n\n\010HallPush\"T\n\010R" +
       "oomPush\022\'\n\013seatsChange\030\001 \003(\0132\022.RoomMembe" +
-      "rSeatRes\"p\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001" +
-      "(\t\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005" +
-      "index\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001" +
-      "(\rB#\n!io.github.hdfg159.game.domain.dtob" +
-      "\006proto3"
+      "rSeatRes\022\017\n\007content\030\002 \001(\t\022\016\n\006status\030\003 \001(" +
+      "\r\"p\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001(\t\022\017\n\007a" +
+      "vaName\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005index\030\004" +
+      " \001(\r\022\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001(\rB#\n!i" +
+      "o.github.hdfg159.game.domain.dtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -14047,7 +14267,7 @@ public final class SoupMessage {
     internal_static_RoomPush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomPush_descriptor,
-        new java.lang.String[] { "SeatsChange", });
+        new java.lang.String[] { "SeatsChange", "Content", "Status", });
     internal_static_RoomMemberSeatRes_descriptor =
       getDescriptor().getMessageTypes().get(22);
     internal_static_RoomMemberSeatRes_fieldAccessorTable = new

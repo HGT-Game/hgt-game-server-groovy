@@ -12,6 +12,8 @@ import io.github.hdfg159.game.service.avatar.AvatarService
 import io.github.hdfg159.game.util.GameUtils
 import io.reactivex.Completable
 
+import java.time.LocalDateTime
+
 /**
  * Project:starter
  * <p>
@@ -123,7 +125,7 @@ class TurtleSoupService extends AbstractService {
 			if (joinRoomSuc && avaIndex && memberJoinRoomSuc) {
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
 				
-				pushSeatChange([aid], [], roomId)
+				roomPush([aid], [], roomId, null)
 				
 				def allSeatRes = room.roomMemberMap.collect {
 					buildSeatRes(memberData.getById(it.key), room.owner)
@@ -146,7 +148,7 @@ class TurtleSoupService extends AbstractService {
 		def roomId = member.roomId
 		if (roomData.leaveRoom(member, roomId)) {
 			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(roomId).build())
-			pushSeatChange([aid], [], roomId)
+			roomPush([aid], [], roomId, null)
 			return GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_LEAVE_ROOM, SoupMessage.LeaveRoomRes.newBuilder().build())
 		} else {
 			return GameUtils.resMsg(ProtocolEnums.RES_SOUP_LEAVE_ROOM, CodeEnums.SOUP_ROOM_LEAVE_ROOM_FAIL)
@@ -174,21 +176,29 @@ class TurtleSoupService extends AbstractService {
 					// 更改玩家状态成功 && 准备人数足够
 					if (room.max == room.prepare.size() + 1
 							&& member.status.compareAndSet(1, 3)) {
-						
 						// 更改房间状态
-						room.status = 2
-						
-						// 更改其他玩家状态数据
-						room.memberIds
-								.findAll {it != aid}
-								.each {memberData.getById(it)?.status?.compareAndSet(2, 3)}
+						room.status = 1
 						
 						// 开始游戏记录
 						def record = SoupRecord.createRecord(room)
 						def cache = recordData.saveCache(record)
 						room.recordMap.put(cache.id, cache)
+						room.recordId = cache.id
 						
-						pushSeatChange([aid], [], roomId)
+						// 更改其他玩家状态数据
+						room.memberIds
+								.findAll {it != aid}
+								.each {
+									def m = memberData.getById(it)
+									if (m) {
+										m.status.compareAndSet(2, 3)
+										m.recordIds.add(cache.id)
+										// todo 选题 mc time
+									}
+								}
+						// todo 推送游戏开始 初始化相关定时器
+						roomPush([], [], roomId, null)
+						
 						return sucResMsg
 					} else {
 						return errRes
@@ -197,7 +207,7 @@ class TurtleSoupService extends AbstractService {
 					if (member.status.compareAndSet(1, 2)) {
 						room.prepare.add(aid)
 						
-						pushSeatChange([aid], [], roomId)
+						roomPush([aid], [], roomId, null)
 						return sucResMsg
 					} else {
 						return errRes
@@ -208,7 +218,7 @@ class TurtleSoupService extends AbstractService {
 				if (room.owner != aid && member.status.compareAndSet(2, 1)) {
 					room.prepare.remove(aid)
 					
-					pushSeatChange([aid], [], roomId)
+					roomPush([aid], [], roomId, null)
 					return sucResMsg
 				} else {
 					return errRes
@@ -257,7 +267,7 @@ class TurtleSoupService extends AbstractService {
 			
 			if (roomData.kick(aid, kickMember, room)) {
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-				pushSeatChange([kickMember.id], [], roomId)
+				roomPush([kickMember.id], [], roomId, null)
 				return GameUtils.sucResMsg(ProtocolEnums.REQ_SOUP_KICK, SoupMessage.KickRes.newBuilder().build())
 			} else {
 				return errRes
@@ -290,7 +300,7 @@ class TurtleSoupService extends AbstractService {
 		synchronized (room) {
 			if (roomData.exchangeSeat(room, member, index)) {
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-				pushSeatChange([aid], [], roomId)
+				roomPush([aid], [], roomId, null)
 				return GameUtils.sucResMsg(ProtocolEnums.REQ_SOUP_EXCHANGE_SEAT, SoupMessage.ExchangeSeatRes.newBuilder().build())
 			} else {
 				return errRes
@@ -307,7 +317,51 @@ class TurtleSoupService extends AbstractService {
 	}
 	
 	def end = {headers, params ->
+		def aid = getHeaderAvatarId(headers)
 		def req = params as SoupMessage.EndReq
+		
+		def errRes = GameUtils.resMsg(ProtocolEnums.REQ_SOUP_END, CodeEnums.SOUP_END_FAIL)
+		
+		def member = memberData.getById(aid)
+		def roomId = member.roomId
+		if (!roomId) {
+			return errRes
+		}
+		
+		def room = roomData.roomMap.get(roomId)
+		if (!room) {
+			return errRes
+		}
+		
+		synchronized (room) {
+			if (room.status != 1) {
+				return errRes
+			}
+			
+			def recordId = room.recordId
+			def record = room.recordMap.get(recordId)
+			if (!record) {
+				return errRes
+			}
+			
+			// 记录结束时间
+			record.endTime = LocalDateTime.now()
+			room.recordId = null
+			room.status = 0
+			
+			// 重置玩家状态
+			room.roomMemberMap.keySet().each {
+				def m = memberData.getById(it)
+				if (m) {
+					m.status.compareAndSet(3, 2)
+				}
+			}
+			
+			// 推送汤底答案和所有位置信息
+			roomPush(room.roomMemberMap.keySet(), [], roomId, "汤底")
+			
+			return GameUtils.sucResMsg(ProtocolEnums.REQ_SOUP_END, SoupMessage.EndRes.newBuilder().build())
+		}
 	}
 	
 	// Event
@@ -366,18 +420,22 @@ class TurtleSoupService extends AbstractService {
 				.build()
 	}
 	
-	private void pushSeatChange(Collection<String> changeMemberIds, Collection<String> excludePushMemberIds, String roomId) {
+	private void roomPush(Collection<String> changeMemberIds, Collection<String> excludePushMemberIds, String roomId, String content) {
 		def room = roomData.roomMap.get(roomId)
 		if (!room) {
 			return
 		}
 		
-		def seatRes = (changeMemberIds ?: room.roomMemberMap.keySet()).collect {
+		def seatRes = changeMemberIds ? [] : room.roomMemberMap.keySet().collect {
 			def member = memberData.getById(it)
 			buildSeatRes(member, room.owner)
 		}
 		
-		def push = SoupMessage.RoomPush.newBuilder().addAllSeatsChange(seatRes).build()
+		def push = SoupMessage.RoomPush.newBuilder()
+				.addAllSeatsChange(seatRes)
+				.setStatus(room.status)
+				.setContent(content)
+				.build()
 		def msg = GameUtils.resMsg(ProtocolEnums.RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH_SEAT_CHANGE, push)
 		
 		avatarService.pushAllMsg(room.roomMemberMap.keySet(), excludePushMemberIds, msg)
