@@ -8,6 +8,7 @@ import io.github.hdfg159.game.enumeration.CodeEnums
 import io.github.hdfg159.game.enumeration.EventEnums
 import io.github.hdfg159.game.service.AbstractService
 import io.github.hdfg159.game.service.avatar.AvatarService
+import io.github.hdfg159.game.service.soup.enums.MemberStatus
 import io.github.hdfg159.game.util.GameUtils
 import io.reactivex.Completable
 
@@ -177,7 +178,7 @@ class TurtleSoupService extends AbstractService {
 				if (room.owner == aid) {
 					// 更改玩家状态成功 && 准备人数足够
 					if (room.max == room.prepare.size() + 1
-							&& member.status.compareAndSet(1, 3)) {
+							&& member.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PLAYING.status)) {
 						// 更改房间状态
 						room.status = 1
 						
@@ -193,7 +194,7 @@ class TurtleSoupService extends AbstractService {
 								.each {
 									def m = memberData.getById(it)
 									if (m) {
-										m.status.compareAndSet(2, 3)
+										m.status.compareAndSet(MemberStatus.PREPARE.status, MemberStatus.PLAYING.status)
 										m.recordIds.add(cache.id)
 										// todo 选题 mc time
 									}
@@ -206,7 +207,7 @@ class TurtleSoupService extends AbstractService {
 						return errRes
 					}
 				} else {
-					if (member.status.compareAndSet(1, 2)) {
+					if (member.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PREPARE.status)) {
 						room.prepare.add(aid)
 						
 						roomPush([aid], [], roomId, {it})
@@ -217,7 +218,7 @@ class TurtleSoupService extends AbstractService {
 				}
 			} else {
 				// 取消准备
-				if (room.owner != aid && member.status.compareAndSet(2, 1)) {
+				if (room.owner != aid && member.status.compareAndSet(MemberStatus.PREPARE.status, MemberStatus.ROOM.status)) {
 					room.prepare.remove(aid)
 					
 					roomPush([aid], [], roomId, {it})
@@ -348,6 +349,7 @@ class TurtleSoupService extends AbstractService {
 			
 			// 记录结束时间
 			record.endTime = LocalDateTime.now()
+			// 更改房间状态
 			room.recordId = null
 			room.status = 0
 			
@@ -355,7 +357,7 @@ class TurtleSoupService extends AbstractService {
 			room.roomMemberMap.keySet().each {
 				def m = memberData.getById(it)
 				if (m) {
-					m.status.compareAndSet(3, 2)
+					m.status.compareAndSet(MemberStatus.PLAYING.status, MemberStatus.PREPARE.status)
 				}
 			}
 			
@@ -402,7 +404,7 @@ class TurtleSoupService extends AbstractService {
 		
 		// 大厅在线玩家数据修改
 		def member = memberData.getById(aid)
-		if (member.status.get() == 0) {
+		if (member.status.get() == MemberStatus.FREE.status) {
 			roomData.addAvaIntoHall(aid)
 		} else {
 			roomData.removeAvaFromHall(aid)

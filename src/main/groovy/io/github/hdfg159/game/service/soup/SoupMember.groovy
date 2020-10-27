@@ -2,6 +2,7 @@ package io.github.hdfg159.game.service.soup
 
 import groovy.transform.Canonical
 import io.github.hdfg159.game.data.TData
+import io.github.hdfg159.game.service.soup.enums.MemberStatus
 
 import java.time.Duration
 import java.time.LocalDateTime
@@ -24,21 +25,22 @@ class SoupMember implements TData<String> {
 	private static final SPEAK_INTERVAL_SECOND = 6
 	
 	/**
+	 * io.github.hdfg159.game.service.soup.enums.MemberStatus#status
 	 * 目前状态 0:闲置 1:在房间 2:准备中 3:游戏中
 	 */
 	AtomicInteger status
 	/**
 	 * 房间座位号
 	 */
-	int seat
+	volatile int seat
 	/**
 	 * 当前房间 ID
 	 */
-	String roomId
+	volatile String roomId
 	/**
 	 * 最后发言时间
 	 */
-	LocalDateTime lastSpeakTime
+	volatile LocalDateTime lastSpeakTime
 	
 	/**
 	 * 参与记录场次
@@ -71,7 +73,7 @@ class SoupMember implements TData<String> {
 	
 	SoupMember(String aid) {
 		id = aid
-		status = new AtomicInteger(0)
+		status = new AtomicInteger(MemberStatus.FREE.status)
 		
 		recordIds = []
 		questionIds = []
@@ -100,12 +102,12 @@ class SoupMember implements TData<String> {
 	 * @return 加入结果
 	 */
 	boolean joinRoom(int seat, String roomId) {
-		if (this.@status.get() != 0) {
+		if (status.get() != MemberStatus.FREE.status) {
 			// 非闲置状态不加入
 			return false
 		}
 		
-		this.@status.getAndSet(1)
+		status.getAndSet(MemberStatus.ROOM.status)
 		this.@seat = seat
 		this.@roomId = roomId
 		return true
@@ -136,11 +138,11 @@ class SoupMember implements TData<String> {
 		}
 		
 		// 只有在房间状态才能退出
-		if (status.get() != 1) {
+		if (status.get() != MemberStatus.ROOM.status) {
 			return false
 		}
 		
-		this.@status.getAndSet(0)
+		this.@status.getAndSet(MemberStatus.FREE.status)
 		this.@roomId = null
 		
 		true
