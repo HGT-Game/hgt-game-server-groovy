@@ -13,6 +13,7 @@ import io.github.hdfg159.game.util.GameUtils
 import io.reactivex.Completable
 
 import java.time.LocalDateTime
+import java.util.function.Function
 
 /**
  * Project:starter
@@ -125,7 +126,7 @@ class TurtleSoupService extends AbstractService {
 			if (joinRoomSuc && avaIndex && memberJoinRoomSuc) {
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
 				
-				roomPush([aid], [], roomId, null)
+				roomPush([aid], [], roomId, {it})
 				
 				def allSeatRes = room.roomMemberMap.collect {
 					buildSeatRes(memberData.getById(it.key), room.owner)
@@ -148,7 +149,7 @@ class TurtleSoupService extends AbstractService {
 		def roomId = member.roomId
 		if (roomData.leaveRoom(member, roomId)) {
 			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(roomId).build())
-			roomPush([aid], [], roomId, null)
+			roomPush([aid], [], roomId, {it})
 			return GameUtils.sucResMsg(ProtocolEnums.RES_SOUP_LEAVE_ROOM, SoupMessage.LeaveRoomRes.newBuilder().build())
 		} else {
 			return GameUtils.resMsg(ProtocolEnums.RES_SOUP_LEAVE_ROOM, CodeEnums.SOUP_ROOM_LEAVE_ROOM_FAIL)
@@ -197,7 +198,7 @@ class TurtleSoupService extends AbstractService {
 									}
 								}
 						// todo 推送游戏开始 初始化相关定时器
-						roomPush([], [], roomId, null)
+						roomPush([], [], roomId, {it})
 						
 						return sucResMsg
 					} else {
@@ -207,7 +208,7 @@ class TurtleSoupService extends AbstractService {
 					if (member.status.compareAndSet(1, 2)) {
 						room.prepare.add(aid)
 						
-						roomPush([aid], [], roomId, null)
+						roomPush([aid], [], roomId, {it})
 						return sucResMsg
 					} else {
 						return errRes
@@ -218,7 +219,7 @@ class TurtleSoupService extends AbstractService {
 				if (room.owner != aid && member.status.compareAndSet(2, 1)) {
 					room.prepare.remove(aid)
 					
-					roomPush([aid], [], roomId, null)
+					roomPush([aid], [], roomId, {it})
 					return sucResMsg
 				} else {
 					return errRes
@@ -267,7 +268,7 @@ class TurtleSoupService extends AbstractService {
 			
 			if (roomData.kick(aid, kickMember, room)) {
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-				roomPush([kickMember.id], [], roomId, null)
+				roomPush([kickMember.id], [], roomId, {it})
 				return GameUtils.sucResMsg(ProtocolEnums.REQ_SOUP_KICK, SoupMessage.KickRes.newBuilder().build())
 			} else {
 				return errRes
@@ -300,7 +301,7 @@ class TurtleSoupService extends AbstractService {
 		synchronized (room) {
 			if (roomData.exchangeSeat(room, member, index)) {
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-				roomPush([aid], [], roomId, null)
+				roomPush([aid], [], roomId, {it})
 				return GameUtils.sucResMsg(ProtocolEnums.REQ_SOUP_EXCHANGE_SEAT, SoupMessage.ExchangeSeatRes.newBuilder().build())
 			} else {
 				return errRes
@@ -357,8 +358,10 @@ class TurtleSoupService extends AbstractService {
 				}
 			}
 			
-			// 推送汤底答案和所有位置信息
-			roomPush(room.roomMemberMap.keySet(), [], roomId, "汤底")
+			// todo 推送汤底答案和所有位置信息
+			roomPush(room.roomMemberMap.keySet(), [], roomId, {
+				it.setContent("汤底")
+			})
 			
 			return GameUtils.sucResMsg(ProtocolEnums.REQ_SOUP_END, SoupMessage.EndRes.newBuilder().build())
 		}
@@ -420,7 +423,10 @@ class TurtleSoupService extends AbstractService {
 				.build()
 	}
 	
-	private void roomPush(Collection<String> changeMemberIds, Collection<String> excludePushMemberIds, String roomId, String content) {
+	private void roomPush(Collection<String> changeMemberIds,
+						  Collection<String> excludePushMemberIds,
+						  String roomId,
+						  Function<SoupMessage.RoomPush.Builder, SoupMessage.RoomPush.Builder> mapping) {
 		def room = roomData.roomMap.get(roomId)
 		if (!room) {
 			return
@@ -431,11 +437,10 @@ class TurtleSoupService extends AbstractService {
 			buildSeatRes(member, room.owner)
 		}
 		
-		def push = SoupMessage.RoomPush.newBuilder()
+		def builder = SoupMessage.RoomPush.newBuilder()
 				.addAllSeatsChange(seatRes)
 				.setStatus(room.status)
-				.setContent(content)
-				.build()
+		def push = mapping.apply(builder).build()
 		def msg = GameUtils.resMsg(ProtocolEnums.RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH_SEAT_CHANGE, push)
 		
 		avatarService.pushAllMsg(room.roomMemberMap.keySet(), excludePushMemberIds, msg)
