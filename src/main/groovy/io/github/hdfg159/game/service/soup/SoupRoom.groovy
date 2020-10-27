@@ -3,6 +3,7 @@ package io.github.hdfg159.game.service.soup
 import groovy.transform.Canonical
 import io.github.hdfg159.common.util.IdUtils
 import io.github.hdfg159.game.data.TData
+import io.github.hdfg159.game.service.soup.enums.RoomStatus
 
 import java.time.LocalDateTime
 
@@ -18,6 +19,8 @@ import java.time.LocalDateTime
 @Canonical
 class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 	/**
+	 * io.github.hdfg159.game.service.soup.enums.RoomStatus
+	 *
 	 * 目前状态 0:等待加入 1:游戏中
 	 */
 	Integer status
@@ -75,7 +78,7 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 	static SoupRoom createRoom(String aid, String name, int max, String password) {
 		def room = new SoupRoom(
 				id: IdUtils.idStr,
-				status: 0,
+				status: RoomStatus.WAIT.status,
 				name: name,
 				password: password,
 				max: max,

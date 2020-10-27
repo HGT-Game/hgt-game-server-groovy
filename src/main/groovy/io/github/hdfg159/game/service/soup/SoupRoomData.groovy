@@ -1,6 +1,6 @@
 package io.github.hdfg159.game.service.soup
 
-
+import io.github.hdfg159.game.service.soup.enums.RoomStatus
 import io.vertx.core.impl.ConcurrentHashSet
 
 import java.util.concurrent.ConcurrentHashMap
@@ -57,7 +57,7 @@ class SoupRoomData {
 		
 		synchronized (room) {
 			// 游戏中不能退出
-			if (room.status == 1) {
+			if (room.status == RoomStatus.PLAYING.status) {
 				return false
 			}
 			
@@ -95,7 +95,7 @@ class SoupRoomData {
 		}
 		
 		// 游戏中不能踢人
-		if (room.status == 1) {
+		if (room.status == RoomStatus.PLAYING.status) {
 			return false
 		}
 		
@@ -117,7 +117,7 @@ class SoupRoomData {
 	
 	boolean exchangeSeat(SoupRoom room, SoupMember member, int index) {
 		// 游戏中不能换位置
-		if (room.status == 1) {
+		if (room.status == RoomStatus.PLAYING.status) {
 			return false
 		}
 		

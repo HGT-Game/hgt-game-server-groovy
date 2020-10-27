@@ -25,7 +25,8 @@ class SoupMember implements TData<String> {
 	private static final SPEAK_INTERVAL_SECOND = 6
 	
 	/**
-	 * io.github.hdfg159.game.service.soup.enums.MemberStatus#status
+	 * io.github.hdfg159.game.service.soup.enums.MemberStatus
+	 *
 	 * 目前状态 0:闲置 1:在房间 2:准备中 3:游戏中
 	 */
 	AtomicInteger status

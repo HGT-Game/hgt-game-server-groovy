@@ -9,6 +9,7 @@ import io.github.hdfg159.game.enumeration.EventEnums
 import io.github.hdfg159.game.service.AbstractService
 import io.github.hdfg159.game.service.avatar.AvatarService
 import io.github.hdfg159.game.service.soup.enums.MemberStatus
+import io.github.hdfg159.game.service.soup.enums.RoomStatus
 import io.github.hdfg159.game.util.GameUtils
 import io.reactivex.Completable
 
@@ -180,7 +181,7 @@ class TurtleSoupService extends AbstractService {
 					if (room.max == room.prepare.size() + 1
 							&& member.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PLAYING.status)) {
 						// 更改房间状态
-						room.status = 1
+						room.status = RoomStatus.PLAYING.status
 						
 						// 开始游戏记录
 						def record = SoupRecord.createRecord(room)
@@ -337,7 +338,7 @@ class TurtleSoupService extends AbstractService {
 		}
 		
 		synchronized (room) {
-			if (room.status != 1) {
+			if (room.status != RoomStatus.PLAYING.status) {
 				return errRes
 			}
 			
@@ -351,7 +352,7 @@ class TurtleSoupService extends AbstractService {
 			record.endTime = LocalDateTime.now()
 			// 更改房间状态
 			room.recordId = null
-			room.status = 0
+			room.status = RoomStatus.WAIT.status
 			
 			// 重置玩家状态
 			room.roomMemberMap.keySet().each {
