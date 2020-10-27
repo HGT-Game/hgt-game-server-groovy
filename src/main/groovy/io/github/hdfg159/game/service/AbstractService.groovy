@@ -103,7 +103,7 @@ abstract class AbstractService extends AbstractVerticle {
 	 * @param headers 头信息
 	 * @return ID
 	 */
-	protected static String getAidFromHeader(headers) {
+	protected static String getHeaderAvatarId(headers) {
 		return headers ?[ATTR_NAME_AVATAR] as String
 	}
 	

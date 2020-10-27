@@ -106,7 +106,7 @@ class AvatarService extends AbstractService {
 				.setUsername(username)
 				.setUserId(id)
 				.build()
-		return GameUtils.resMsg(RES_LOGIN, LOGIN_SUCCESS, res)
+		return GameUtils.sucResMsg(RES_LOGIN, res)
 	}
 	
 	def offline = {headers, params ->
@@ -181,7 +181,7 @@ class AvatarService extends AbstractService {
 				.setId(registerAvatar.id)
 				.setUsername(registerAvatar.username)
 				.build()
-		return GameUtils.resMsg(RES_REGISTER, REGISTER_SUCCESS, res)
+		return GameUtils.sucResMsg(RES_REGISTER, res)
 	}
 	
 	/**

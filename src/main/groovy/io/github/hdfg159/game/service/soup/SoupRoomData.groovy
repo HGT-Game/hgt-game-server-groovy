@@ -75,10 +75,10 @@ class SoupRoomData {
 				room.memberIds.set(removeIndex, null)
 				
 				// 是房主
-				if (room.owner == aid) {
-					// 随机一个做房主
+				if (room.owner == member.id) {
+					// 选第一个做房主，暂时不做随机逻辑
 					def memberIds = room.roomMemberMap.keySet()
-					room.owner = memberIds[0]
+					room.owner = (memberIds.toList())[0]
 				}
 			}
 			
@@ -86,5 +86,32 @@ class SoupRoomData {
 			member.leaveRoom()
 			return true
 		}
+	}
+	
+	boolean kick(String aid, SoupMember member, SoupRoom room) {
+		// 不是房主不能踢人
+		if (aid != room.owner) {
+			return false
+		}
+		
+		// 游戏中不能踢人
+		if (room.status == 2) {
+			return false
+		}
+		
+		// 不存在用户
+		if (!room.roomMemberMap.containsKey(member.id)) {
+			return false
+		}
+		
+		// 移除位置相关数据
+		def index = room.roomMemberMap.remove(member.id)
+		room.memberIds.set(index, null)
+		// 移除准备玩家数据
+		room.prepare.remove(member.id)
+		
+		member.leaveRoom()
+		
+		true
 	}
 }

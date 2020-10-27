@@ -34,9 +34,9 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 	 */
 	int max
 	/**
-	 * 准备人数
+	 * 已经准备的玩家ID
 	 */
-	int prepare
+	Set<String> prepare
 	/**
 	 * 房主
 	 */
