@@ -48,44 +48,36 @@ class SoupRoomData {
 		hallOnlineAvatars.add(aid)
 	}
 	
-	boolean leaveRoom(SoupMember member, String roomId) {
-		def room = getRoom(roomId)
-		// 房间不存在
-		if (!room) {
+	boolean leaveRoom(SoupMember member, SoupRoom room) {
+		// 游戏中不能退出
+		if (room.status == RoomStatus.PLAYING.status) {
 			return false
 		}
 		
-		synchronized (room) {
-			// 游戏中不能退出
-			if (room.status == RoomStatus.PLAYING.status) {
-				return false
-			}
-			
-			// 不存在用户
-			if (!room.roomMemberMap.containsKey(member.id)) {
-				return false
-			}
-			
-			// 最后一个人
-			if (room.roomMemberMap.size() == 1) {
-				roomMap.remove(roomId)
-			} else {
-				// 移除
-				def removeIndex = room.roomMemberMap.remove(member.id)
-				room.memberIds.set(removeIndex, null)
-				
-				// 是房主
-				if (room.owner == member.id) {
-					// 选第一个做房主，暂时不做随机逻辑
-					def memberIds = room.roomMemberMap.keySet()
-					room.owner = (memberIds.toList())[0]
-				}
-			}
-			
-			// 无脑离开
-			member.leaveRoom()
-			return true
+		// 不存在用户
+		if (!room.roomMemberMap.containsKey(member.id)) {
+			return false
 		}
+		
+		// 最后一个人
+		if (room.roomMemberMap.size() == 1) {
+			roomMap.remove(room.id)
+		} else {
+			// 移除
+			def removeIndex = room.roomMemberMap.remove(member.id)
+			room.memberIds.set(removeIndex, null)
+			
+			// 是房主
+			if (room.owner == member.id) {
+				// 选第一个做房主，暂时不做随机逻辑
+				def memberIds = room.roomMemberMap.keySet()
+				room.owner = (memberIds.toList())[0]
+			}
+		}
+		
+		// 无脑离开
+		member.leaveRoom()
+		return true
 	}
 	
 	boolean kick(String aid, SoupMember member, SoupRoom room) {
@@ -140,5 +132,9 @@ class SoupRoomData {
 		}
 		
 		roomMap.get(roomId)
+	}
+	
+	boolean existRoom(String roomId) {
+		roomMap.containsKey(roomId)
 	}
 }

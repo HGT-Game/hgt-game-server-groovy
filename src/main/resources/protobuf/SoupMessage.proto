@@ -21,6 +21,7 @@ message CreateRoomReq {
 
 message CreateRoomRes {
     string id = 1;
+    repeated RoomMemberSeatRes seatsChange = 2;
 }
 
 message JoinRoomReq {

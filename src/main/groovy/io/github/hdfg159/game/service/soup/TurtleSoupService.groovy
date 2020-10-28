@@ -100,10 +100,14 @@ class TurtleSoupService extends AbstractService {
 		def room = roomData.create(aid, req.name, req.max, req.password)
 		
 		if (room) {
-			roomRes.setId(room.id)
-			
 			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-			return GameUtils.sucResMsg(RES_SOUP_CREATE_ROOM, roomRes.build())
+			
+			def seatRes = room.roomMemberMap.keySet().collect {
+				def member = memberData.getById(it)
+				buildSeatRes(member, room.owner)
+			}
+			def res = roomRes.setId(room.id).addAllSeatsChange(seatRes).build()
+			return GameUtils.sucResMsg(RES_SOUP_CREATE_ROOM, res)
 		}
 		
 		GameUtils.resMsg(RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_CREATE_FAIL)
@@ -150,12 +154,20 @@ class TurtleSoupService extends AbstractService {
 		
 		def member = memberData.getById(aid)
 		def roomId = member.roomId
-		if (roomData.leaveRoom(member, roomId)) {
-			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(roomId).build())
-			roomPush([aid], [], roomId, {it})
-			return GameUtils.sucResMsg(RES_SOUP_LEAVE_ROOM, SoupMessage.LeaveRoomRes.newBuilder().build())
-		} else {
+		def room = roomData.getRoom(roomId)
+		if (!room) {
 			return GameUtils.resMsg(RES_SOUP_LEAVE_ROOM, CodeEnums.SOUP_ROOM_LEAVE_ROOM_FAIL)
+		}
+		
+		synchronized (room) {
+			if (roomData.leaveRoom(member, room)) {
+				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(roomId).build())
+				
+				roomPush([aid], [], roomId, {it})
+				return GameUtils.sucResMsg(RES_SOUP_LEAVE_ROOM, SoupMessage.LeaveRoomRes.newBuilder().build())
+			} else {
+				return GameUtils.resMsg(RES_SOUP_LEAVE_ROOM, CodeEnums.SOUP_ROOM_LEAVE_ROOM_FAIL)
+			}
 		}
 	}
 	
