@@ -137,7 +137,7 @@ class TurtleSoupService extends AbstractService {
 			if (joinRoomSuc && avaIndex && memberJoinRoomSuc) {
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
 				
-				roomPush([aid], [], roomId, {it})
+				roomPush([aid], [aid], roomId, {it})
 				
 				def allSeatRes = room.roomMemberMap.collect {
 					buildSeatRes(memberData.getById(it.key), room.owner)
@@ -451,6 +451,6 @@ class TurtleSoupService extends AbstractService {
 		def push = mapping.apply(builder).build()
 		def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH_SEAT_CHANGE, push)
 		
-		avatarService.pushAllMsg(room.roomMemberMap.keySet(), excludePushMemberIds, msg)
+		avatarService.pushAllMsg(room.roomMemberMap.keySet(), excludePushMemberIds.toSet(), msg)
 	}
 }
