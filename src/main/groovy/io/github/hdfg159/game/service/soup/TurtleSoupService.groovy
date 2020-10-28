@@ -116,7 +116,7 @@ class TurtleSoupService extends AbstractService {
 		def member = memberData.getById(aid)
 		
 		def roomId = req.roomId
-		def room = roomData.roomMap.get(roomId)
+		def room = roomData.getRoom(roomId)
 		if (!room) {
 			return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_NOT_EXIST)
 		}
@@ -168,11 +168,11 @@ class TurtleSoupService extends AbstractService {
 		
 		def member = memberData.getById(aid)
 		def roomId = member.roomId
-		if (!roomId) {
+		def room = roomData.getRoom(roomId)
+		if (!room) {
 			return errRes
 		}
 		
-		def room = roomData.roomMap.get(roomId)
 		synchronized (room) {
 			if (req.ok) {
 				// 准备或开始
@@ -246,11 +246,7 @@ class TurtleSoupService extends AbstractService {
 		// 主动踢人 成员信息
 		def member = memberData.getById(aid)
 		def roomId = member.roomId
-		if (!roomId) {
-			return errRes
-		}
-		
-		def room = roomData.roomMap.get(roomId)
+		def room = roomData.getRoom(roomId)
 		if (!room) {
 			return errRes
 		}
@@ -292,11 +288,7 @@ class TurtleSoupService extends AbstractService {
 		}
 		
 		def roomId = member.roomId
-		if (!roomId) {
-			return errRes
-		}
-		
-		def room = roomData.roomMap.get(roomId)
+		def room = roomData.getRoom(roomId)
 		if (!room) {
 			return errRes
 		}
@@ -328,11 +320,7 @@ class TurtleSoupService extends AbstractService {
 		
 		def member = memberData.getById(aid)
 		def roomId = member.roomId
-		if (!roomId) {
-			return errRes
-		}
-		
-		def room = roomData.roomMap.get(roomId)
+		def room = roomData.getRoom(roomId)
 		if (!room) {
 			return errRes
 		}
@@ -431,7 +419,7 @@ class TurtleSoupService extends AbstractService {
 						  Collection<String> excludePushMemberIds,
 						  String roomId,
 						  Function<SoupMessage.RoomPush.Builder, SoupMessage.RoomPush.Builder> mapping) {
-		def room = roomData.roomMap.get(roomId)
+		def room = roomData.getRoom(roomId)
 		if (!room) {
 			return
 		}

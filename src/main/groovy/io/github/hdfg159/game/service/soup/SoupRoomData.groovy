@@ -49,7 +49,7 @@ class SoupRoomData {
 	}
 	
 	boolean leaveRoom(SoupMember member, String roomId) {
-		def room = roomMap.get(roomId)
+		def room = getRoom(roomId)
 		// 房间不存在
 		if (!room) {
 			return false
@@ -132,5 +132,13 @@ class SoupRoomData {
 		member.seat = index
 		
 		true
+	}
+	
+	SoupRoom getRoom(String roomId) {
+		if (!roomId) {
+			return null
+		}
+		
+		roomMap.get(roomId)
 	}
 }
