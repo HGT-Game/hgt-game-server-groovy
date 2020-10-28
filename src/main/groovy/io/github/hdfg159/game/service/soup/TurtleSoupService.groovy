@@ -445,11 +445,8 @@ class TurtleSoupService extends AbstractService {
 			buildSeatRes(member, room.owner)
 		}
 		
-		def builder = SoupMessage.RoomPush.newBuilder()
-				.addAllSeatsChange(seatRes)
-				.setStatus(room.status)
-		def push = mapping.apply(builder).build()
-		def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH_SEAT_CHANGE, push)
+		def builder = SoupMessage.RoomPush.newBuilder().addAllSeatsChange(seatRes).setStatus(room.status)
+		def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH, mapping.apply(builder).build())
 		
 		avatarService.pushAllMsg(room.roomMemberMap.keySet(), excludePushMemberIds.toSet(), msg)
 	}
