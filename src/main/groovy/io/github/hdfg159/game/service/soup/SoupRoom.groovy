@@ -82,10 +82,11 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 				name: name,
 				password: password,
 				max: max,
+				prepare: [aid].toSet(),
 				owner: aid,
 				creator: aid,
 				createTime: LocalDateTime.now(),
-				recordMap: [:] as LinkedHashMap
+				recordMap: new LinkedHashMap<String, SoupRecord>()
 		)
 		
 		// 初始化用户位置相关信息
@@ -98,8 +99,8 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 			}
 		}
 		
-		room.roomMemberMap = [aid: 0]
-		
+		room.roomMemberMap = [:]
+		room.roomMemberMap.put(aid, 0)
 		room
 	}
 	

@@ -77,6 +77,12 @@ class GameClient {
 					case "2002":
 						createSoupRoom()
 						break
+					case "2004":
+						leaveSoupRoom()
+						break
+					case "2005":
+						prepareSoupRoom()
+						break
 					default:
 						break
 				}
@@ -92,6 +98,24 @@ class GameClient {
 	def static createSoupRoom() {
 		def req = SoupMessage.CreateRoomReq.newBuilder().setName(IdUtils.idStr.substring(0, 5)).setMax(10).build()
 		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_CREATE_ROOM, req)
+		channel.writeAndFlush(reg)
+	}
+	
+	def static joinSoupRoom() {
+		def req = SoupMessage.JoinRoomReq.newBuilder().setRoomId("ads").build()
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_JOIN_ROOM, req)
+		channel.writeAndFlush(reg)
+	}
+	
+	def static leaveSoupRoom() {
+		def req = SoupMessage.LeaveRoomReq.newBuilder().build()
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_LEAVE_ROOM, req)
+		channel.writeAndFlush(reg)
+	}
+	
+	def static prepareSoupRoom() {
+		def req = SoupMessage.PrepareReq.newBuilder().setOk(true).build()
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_PREPARE, req)
 		channel.writeAndFlush(reg)
 	}
 	
