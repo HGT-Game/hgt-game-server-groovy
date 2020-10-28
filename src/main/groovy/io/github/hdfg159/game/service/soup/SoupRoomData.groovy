@@ -31,7 +31,8 @@ class SoupRoomData {
 			return null
 		}
 		
-		return roomMap.put(room.id, room)
+		roomMap.put(room.id, room)
+		room
 	}
 	
 	TreeSet<SoupRoom> getRooms() {
@@ -135,6 +136,6 @@ class SoupRoomData {
 	}
 	
 	boolean existRoom(String roomId) {
-		roomMap.containsKey(roomId)
+		!roomId ? false : roomMap.containsKey(roomId)
 	}
 }

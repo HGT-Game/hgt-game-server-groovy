@@ -92,9 +92,9 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 		room.memberIds = new ArrayList<>(max)
 		(0..<max).each {
 			if (it) {
-				room.memberIds.set(it, null)
+				room.memberIds.add(null)
 			} else {
-				room.memberIds.set(it, aid)
+				room.memberIds.add(aid)
 			}
 		}
 		

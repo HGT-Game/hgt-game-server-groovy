@@ -33,7 +33,7 @@ class SoupMember implements TData<String> {
 	/**
 	 * 房间座位号
 	 */
-	volatile int seat
+	volatile Integer seat
 	/**
 	 * 当前房间 ID
 	 */
@@ -147,5 +147,11 @@ class SoupMember implements TData<String> {
 		this.@roomId = null
 		
 		true
+	}
+	
+	def resetRoomInfo() {
+		status.getAndSet(MemberStatus.FREE.status)
+		seat = null
+		roomId = null
 	}
 }

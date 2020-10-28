@@ -3,10 +3,10 @@ package io.github.hdfg159.game.client
 import groovy.util.logging.Slf4j
 import io.github.hdfg159.common.util.IdUtils
 import io.github.hdfg159.game.domain.dto.GameMessage
+import io.github.hdfg159.game.domain.dto.SoupMessage
 import io.github.hdfg159.game.enumeration.ProtocolEnums
 import io.github.hdfg159.game.util.GameUtils
 import io.netty.bootstrap.Bootstrap
-import io.netty.channel.Channel
 import io.netty.channel.ChannelFuture
 import io.netty.channel.EventLoopGroup
 import io.netty.channel.nio.NioEventLoopGroup
@@ -28,6 +28,7 @@ class GameClient {
 	EventLoopGroup group
 	def port = 9998
 	def host = "127.0.0.1"
+	def static channel
 	
 	void start() {
 		group = new NioEventLoopGroup()
@@ -47,7 +48,7 @@ class GameClient {
 			log.info "shutdown client success"
 		}
 		
-		def channel = startFuture.channel()
+		channel = startFuture.channel()
 		for (; ;) {
 			def cmd = System.in.newReader().readLine()
 			log.info " CMD:${cmd} ".center(100, "=")
@@ -56,13 +57,25 @@ class GameClient {
 			if (channel.active) {
 				switch (cmd) {
 					case "1002":
-						login(channel)
+						login("admin", "admin")
+						break
+					case "10021":
+						login("admin123", "admin123")
 						break
 					case "1003":
-						register(channel)
+						register("admin", "admin")
+						break
+					case "10031":
+						register("admin123", "admin123")
 						break
 					case "9999999":
-						test(channel)
+						test()
+						break
+					case "2001":
+						soupRoomHall()
+						break
+					case "2002":
+						createSoupRoom()
 						break
 					default:
 						break
@@ -71,10 +84,18 @@ class GameClient {
 		}
 	}
 	
-	def static register(Channel channel) {
-		// def username = UUID.randomUUID().toString()
-		def username = "admin"
-		def password = "admin"
+	def static soupRoomHall() {
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_ROOM_HALL, null)
+		channel.writeAndFlush(reg)
+	}
+	
+	def static createSoupRoom() {
+		def req = SoupMessage.CreateRoomReq.newBuilder().setName(IdUtils.idStr.substring(0, 5)).setMax(10).build()
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_CREATE_ROOM, req)
+		channel.writeAndFlush(reg)
+	}
+	
+	def static register(username, password) {
 		def registerReq = GameMessage.RegisterReq.newBuilder()
 				.setUsername(username)
 				.setPassword(password)
@@ -83,18 +104,18 @@ class GameClient {
 		channel.writeAndFlush(reg)
 	}
 	
-	def static login(Channel channel) {
+	def static login(username, password) {
 		def login = GameUtils.reqMsg(
 				ProtocolEnums.REQ_LOGIN,
 				GameMessage.LoginReq.newBuilder()
-						.setUsername("admin")
-						.setPassword("admin")
+						.setUsername(username)
+						.setPassword(password)
 						.build()
 		)
 		channel.writeAndFlush(login)
 	}
 	
-	def static test(Channel channel) {
+	def static test() {
 		def testReq = GameMessage.TestReq.newBuilder()
 				.setStr(IdUtils.idStr)
 				.build()
