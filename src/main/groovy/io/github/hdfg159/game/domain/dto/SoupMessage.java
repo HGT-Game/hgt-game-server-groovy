@@ -3689,6 +3689,18 @@ public final class SoupMessage {
      */
     com.google.protobuf.ByteString
         getRoomIdBytes();
+
+    /**
+     * <code>string password = 2;</code>
+     * @return The password.
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>string password = 2;</code>
+     * @return The bytes for password.
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
   }
   /**
    * Protobuf type {@code JoinRoomReq}
@@ -3704,6 +3716,7 @@ public final class SoupMessage {
     }
     private JoinRoomReq() {
       roomId_ = "";
+      password_ = "";
     }
 
     @java.lang.Override
@@ -3740,6 +3753,12 @@ public final class SoupMessage {
               java.lang.String s = input.readStringRequireUtf8();
 
               roomId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              password_ = s;
               break;
             }
             default: {
@@ -3812,6 +3831,44 @@ public final class SoupMessage {
       }
     }
 
+    public static final int PASSWORD_FIELD_NUMBER = 2;
+    private volatile java.lang.Object password_;
+    /**
+     * <code>string password = 2;</code>
+     * @return The password.
+     */
+    @java.lang.Override
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string password = 2;</code>
+     * @return The bytes for password.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3829,6 +3886,9 @@ public final class SoupMessage {
       if (!getRoomIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, roomId_);
       }
+      if (!getPasswordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3840,6 +3900,9 @@ public final class SoupMessage {
       size = 0;
       if (!getRoomIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, roomId_);
+      }
+      if (!getPasswordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3858,6 +3921,8 @@ public final class SoupMessage {
 
       if (!getRoomId()
           .equals(other.getRoomId())) return false;
+      if (!getPassword()
+          .equals(other.getPassword())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3871,6 +3936,8 @@ public final class SoupMessage {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ROOMID_FIELD_NUMBER;
       hash = (53 * hash) + getRoomId().hashCode();
+      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getPassword().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4006,6 +4073,8 @@ public final class SoupMessage {
         super.clear();
         roomId_ = "";
 
+        password_ = "";
+
         return this;
       }
 
@@ -4033,6 +4102,7 @@ public final class SoupMessage {
       public io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomReq buildPartial() {
         io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomReq result = new io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomReq(this);
         result.roomId_ = roomId_;
+        result.password_ = password_;
         onBuilt();
         return result;
       }
@@ -4083,6 +4153,10 @@ public final class SoupMessage {
         if (other == io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomReq.getDefaultInstance()) return this;
         if (!other.getRoomId().isEmpty()) {
           roomId_ = other.roomId_;
+          onChanged();
+        }
+        if (!other.getPassword().isEmpty()) {
+          password_ = other.password_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -4186,6 +4260,82 @@ public final class SoupMessage {
   checkByteStringIsUtf8(value);
         
         roomId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object password_ = "";
+      /**
+       * <code>string password = 2;</code>
+       * @return The password.
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string password = 2;</code>
+       * @return The bytes for password.
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string password = 2;</code>
+       * @param value The password to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPassword() {
+        
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 2;</code>
+       * @param value The bytes for password to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        password_ = value;
         onChanged();
         return this;
       }
@@ -14484,24 +14634,24 @@ public final class SoupMessage {
       "\001(\t\"<\n\rCreateRoomReq\022\020\n\010password\030\001 \001(\t\022\013" +
       "\n\003max\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\"D\n\rCreateRoomR" +
       "es\022\n\n\002id\030\001 \001(\t\022\'\n\013seatsChange\030\002 \003(\0132\022.Ro" +
-      "omMemberSeatRes\"\035\n\013JoinRoomReq\022\016\n\006roomId" +
-      "\030\001 \001(\t\"6\n\013JoinRoomRes\022\'\n\013seatsChange\030\001 \003" +
-      "(\0132\022.RoomMemberSeatRes\"\016\n\014LeaveRoomReq\"\016" +
-      "\n\014LeaveRoomRes\"\030\n\nPrepareReq\022\n\n\002ok\030\001 \001(\010" +
-      "\"\014\n\nPrepareRes\"%\n\007KickReq\022\013\n\003aid\030\001 \001(\t\022\r" +
-      "\n\005index\030\002 \001(\r\"\t\n\007KickRes\" \n\017ExchangeSeat" +
-      "Req\022\r\n\005index\030\001 \001(\r\"\021\n\017ExchangeSeatRes\"\032\n" +
-      "\007ChatReq\022\017\n\007content\030\001 \001(\t\"\032\n\007ChatRes\022\017\n\007" +
-      "seconds\030\001 \001(\004\"\'\n\tAnswerReq\022\n\n\002id\030\001 \001(\t\022\016" +
-      "\n\006answer\030\002 \001(\r\"\013\n\tAnswerRes\"\010\n\006EndReq\"\031\n" +
-      "\006EndRes\022\017\n\007content\030\001 \001(\t\"\n\n\010HallPush\"T\n\010" +
-      "RoomPush\022\'\n\013seatsChange\030\001 \003(\0132\022.RoomMemb" +
-      "erSeatRes\022\017\n\007content\030\002 \001(\t\022\016\n\006status\030\003 \001" +
-      "(\r\"p\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001(\t\022\017\n\007" +
-      "avaName\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005index\030" +
-      "\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001(\rB#\n!" +
-      "io.github.hdfg159.game.domain.dtob\006proto" +
-      "3"
+      "omMemberSeatRes\"/\n\013JoinRoomReq\022\016\n\006roomId" +
+      "\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"6\n\013JoinRoomRes\022" +
+      "\'\n\013seatsChange\030\001 \003(\0132\022.RoomMemberSeatRes" +
+      "\"\016\n\014LeaveRoomReq\"\016\n\014LeaveRoomRes\"\030\n\nPrep" +
+      "areReq\022\n\n\002ok\030\001 \001(\010\"\014\n\nPrepareRes\"%\n\007Kick" +
+      "Req\022\013\n\003aid\030\001 \001(\t\022\r\n\005index\030\002 \001(\r\"\t\n\007KickR" +
+      "es\" \n\017ExchangeSeatReq\022\r\n\005index\030\001 \001(\r\"\021\n\017" +
+      "ExchangeSeatRes\"\032\n\007ChatReq\022\017\n\007content\030\001 " +
+      "\001(\t\"\032\n\007ChatRes\022\017\n\007seconds\030\001 \001(\004\"\'\n\tAnswe" +
+      "rReq\022\n\n\002id\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnsw" +
+      "erRes\"\010\n\006EndReq\"\031\n\006EndRes\022\017\n\007content\030\001 \001" +
+      "(\t\"\n\n\010HallPush\"T\n\010RoomPush\022\'\n\013seatsChang" +
+      "e\030\001 \003(\0132\022.RoomMemberSeatRes\022\017\n\007content\030\002" +
+      " \001(\t\022\016\n\006status\030\003 \001(\r\"p\n\021RoomMemberSeatRe" +
+      "s\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaHe" +
+      "ad\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022\016" +
+      "\n\006status\030\006 \001(\rB#\n!io.github.hdfg159.game" +
+      ".domain.dtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -14542,7 +14692,7 @@ public final class SoupMessage {
     internal_static_JoinRoomReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_JoinRoomReq_descriptor,
-        new java.lang.String[] { "RoomId", });
+        new java.lang.String[] { "RoomId", "Password", });
     internal_static_JoinRoomRes_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_JoinRoomRes_fieldAccessorTable = new

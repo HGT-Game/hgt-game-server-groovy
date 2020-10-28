@@ -125,6 +125,10 @@ class TurtleSoupService extends AbstractService {
 			return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_NOT_EXIST)
 		}
 		
+		if (room.password != req.password) {
+			return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_JOIN_FAIL)
+		}
+		
 		synchronized (room) {
 			def joinRoomSuc = room.joinRoom(aid)
 			def avaIndex = room.getAvaIndex(aid)
