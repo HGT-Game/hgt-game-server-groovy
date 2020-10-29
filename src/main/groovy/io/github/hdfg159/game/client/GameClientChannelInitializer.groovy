@@ -59,6 +59,6 @@ class GameClientChannelInitializer extends ChannelInitializer<Channel> {
 				
 				.addLast(new LogHandler())
 				
-				// .addLast(new HeartbeatHandler())
+				.addLast(new HeartbeatHandler())
 	}
 }

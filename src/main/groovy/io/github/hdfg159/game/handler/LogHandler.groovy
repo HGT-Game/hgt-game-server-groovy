@@ -48,10 +48,10 @@ class LogHandler extends LoggingHandler {
 		def data = msg.data
 		if (data.toByteArray() && protocol && protocol.requestClass) {
 			def unpackData = data.unpack(protocol.requestClass)
-			return "${ctx.channel()} [${eventName}][${msg.protocol}][${msg.code}]:\n${TextFormat.printer().escapingNonAscii(false).printToString(unpackData)}"
+			return "${ctx.channel()} [${eventName}] [${protocol.name()}][${msg.protocol}][${msg.code}]:\n${TextFormat.printer().escapingNonAscii(false).printToString(unpackData)}"
 		}
 		
-		return "${ctx.channel()} ${eventName} [${msg.protocol}][${msg.code}]: not support data"
+		return "${ctx.channel()} [${eventName}] [${protocol.name()}][${msg.protocol}][${msg.code}]: not support data"
 	}
 	
 }
