@@ -114,6 +114,12 @@ class SoupRoomData {
 			return false
 		}
 		
+		// 座位有人不换
+		def mid = room.memberIds.get(index)
+		if (mid) {
+			return false
+		}
+		
 		// 换位置
 		def removeIndex = room.roomMemberMap.remove(member.id)
 		room.memberIds.set(removeIndex, null)
