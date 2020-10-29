@@ -20,8 +20,7 @@ message CreateRoomReq {
 }
 
 message CreateRoomRes {
-    string id = 1;
-    repeated RoomMemberSeatRes seatsChange = 2;
+    RoomPush room = 1;
 }
 
 message JoinRoomReq {
@@ -30,7 +29,7 @@ message JoinRoomReq {
 }
 
 message JoinRoomRes {
-    repeated RoomMemberSeatRes seatsChange = 1;
+    RoomPush room = 1;
 }
 
 message LeaveRoomReq {
@@ -97,6 +96,7 @@ message RoomPush {
     repeated RoomMemberSeatRes seatsChange = 1;
     uint32 status = 2;
     QuestionRes question = 3;
+    string roomId = 4;
 }
 
 message RoomMemberSeatRes {
@@ -107,6 +107,7 @@ message RoomMemberSeatRes {
     bool owner = 5;
     uint32 status = 6;
     bool mc = 7;
+    bool leave = 8;
 }
 
 message QuestionRes {

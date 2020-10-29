@@ -2736,40 +2736,19 @@ public final class SoupMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
-     * @return The id.
+     * <code>.RoomPush room = 1;</code>
+     * @return Whether the room field is set.
      */
-    java.lang.String getId();
+    boolean hasRoom();
     /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
+     * <code>.RoomPush room = 1;</code>
+     * @return The room.
      */
-    com.google.protobuf.ByteString
-        getIdBytes();
-
+    io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRoom();
     /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
+     * <code>.RoomPush room = 1;</code>
      */
-    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> 
-        getSeatsChangeList();
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index);
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-     */
-    int getSeatsChangeCount();
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-     */
-    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
-        getSeatsChangeOrBuilderList();
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
-        int index);
+    io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomOrBuilder();
   }
   /**
    * Protobuf type {@code CreateRoomRes}
@@ -2784,8 +2763,6 @@ public final class SoupMessage {
       super(builder);
     }
     private CreateRoomRes() {
-      id_ = "";
-      seatsChange_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -2808,7 +2785,6 @@ public final class SoupMessage {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2820,18 +2796,16 @@ public final class SoupMessage {
               done = true;
               break;
             case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              id_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                seatsChange_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes>();
-                mutable_bitField0_ |= 0x00000001;
+              io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder subBuilder = null;
+              if (room_ != null) {
+                subBuilder = room_.toBuilder();
               }
-              seatsChange_.add(
-                  input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.parser(), extensionRegistry));
+              room_ = input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(room_);
+                room_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -2849,9 +2823,6 @@ public final class SoupMessage {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          seatsChange_ = java.util.Collections.unmodifiableList(seatsChange_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -2869,82 +2840,30 @@ public final class SoupMessage {
               io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes.Builder.class);
     }
 
-    public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    public static final int ROOM_FIELD_NUMBER = 1;
+    private io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush room_;
     /**
-     * <code>string id = 1;</code>
-     * @return The id.
+     * <code>.RoomPush room = 1;</code>
+     * @return Whether the room field is set.
      */
     @java.lang.Override
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
+    public boolean hasRoom() {
+      return room_ != null;
     }
     /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
+     * <code>.RoomPush room = 1;</code>
+     * @return The room.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SEATSCHANGE_FIELD_NUMBER = 2;
-    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> seatsChange_;
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-     */
-    @java.lang.Override
-    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> getSeatsChangeList() {
-      return seatsChange_;
+    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRoom() {
+      return room_ == null ? io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.getDefaultInstance() : room_;
     }
     /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
+     * <code>.RoomPush room = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
-        getSeatsChangeOrBuilderList() {
-      return seatsChange_;
-    }
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-     */
-    @java.lang.Override
-    public int getSeatsChangeCount() {
-      return seatsChange_.size();
-    }
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index) {
-      return seatsChange_.get(index);
-    }
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
-        int index) {
-      return seatsChange_.get(index);
+    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomOrBuilder() {
+      return getRoom();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2961,11 +2880,8 @@ public final class SoupMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
-      }
-      for (int i = 0; i < seatsChange_.size(); i++) {
-        output.writeMessage(2, seatsChange_.get(i));
+      if (room_ != null) {
+        output.writeMessage(1, getRoom());
       }
       unknownFields.writeTo(output);
     }
@@ -2976,12 +2892,9 @@ public final class SoupMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
-      }
-      for (int i = 0; i < seatsChange_.size(); i++) {
+      if (room_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, seatsChange_.get(i));
+          .computeMessageSize(1, getRoom());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2998,10 +2911,11 @@ public final class SoupMessage {
       }
       io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes other = (io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
-      if (!getSeatsChangeList()
-          .equals(other.getSeatsChangeList())) return false;
+      if (hasRoom() != other.hasRoom()) return false;
+      if (hasRoom()) {
+        if (!getRoom()
+            .equals(other.getRoom())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3013,11 +2927,9 @@ public final class SoupMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
-      if (getSeatsChangeCount() > 0) {
-        hash = (37 * hash) + SEATSCHANGE_FIELD_NUMBER;
-        hash = (53 * hash) + getSeatsChangeList().hashCode();
+      if (hasRoom()) {
+        hash = (37 * hash) + ROOM_FIELD_NUMBER;
+        hash = (53 * hash) + getRoom().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3147,19 +3059,16 @@ public final class SoupMessage {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getSeatsChangeFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = "";
-
-        if (seatsChangeBuilder_ == null) {
-          seatsChange_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+        if (roomBuilder_ == null) {
+          room_ = null;
         } else {
-          seatsChangeBuilder_.clear();
+          room_ = null;
+          roomBuilder_ = null;
         }
         return this;
       }
@@ -3187,16 +3096,10 @@ public final class SoupMessage {
       @java.lang.Override
       public io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes buildPartial() {
         io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes result = new io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes(this);
-        int from_bitField0_ = bitField0_;
-        result.id_ = id_;
-        if (seatsChangeBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            seatsChange_ = java.util.Collections.unmodifiableList(seatsChange_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.seatsChange_ = seatsChange_;
+        if (roomBuilder_ == null) {
+          result.room_ = room_;
         } else {
-          result.seatsChange_ = seatsChangeBuilder_.build();
+          result.room_ = roomBuilder_.build();
         }
         onBuilt();
         return result;
@@ -3246,35 +3149,8 @@ public final class SoupMessage {
 
       public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes other) {
         if (other == io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
-        }
-        if (seatsChangeBuilder_ == null) {
-          if (!other.seatsChange_.isEmpty()) {
-            if (seatsChange_.isEmpty()) {
-              seatsChange_ = other.seatsChange_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureSeatsChangeIsMutable();
-              seatsChange_.addAll(other.seatsChange_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.seatsChange_.isEmpty()) {
-            if (seatsChangeBuilder_.isEmpty()) {
-              seatsChangeBuilder_.dispose();
-              seatsChangeBuilder_ = null;
-              seatsChange_ = other.seatsChange_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              seatsChangeBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getSeatsChangeFieldBuilder() : null;
-            } else {
-              seatsChangeBuilder_.addAllMessages(other.seatsChange_);
-            }
-          }
+        if (other.hasRoom()) {
+          mergeRoom(other.getRoom());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3304,322 +3180,124 @@ public final class SoupMessage {
         }
         return this;
       }
-      private int bitField0_;
 
-      private java.lang.Object id_ = "";
+      private io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush room_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> roomBuilder_;
       /**
-       * <code>string id = 1;</code>
-       * @return The id.
+       * <code>.RoomPush room = 1;</code>
+       * @return Whether the room field is set.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
+      public boolean hasRoom() {
+        return roomBuilder_ != null || room_ != null;
+      }
+      /**
+       * <code>.RoomPush room = 1;</code>
+       * @return The room.
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRoom() {
+        if (roomBuilder_ == null) {
+          return room_ == null ? io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.getDefaultInstance() : room_;
         } else {
-          return (java.lang.String) ref;
+          return roomBuilder_.getMessage();
         }
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
+       * <code>.RoomPush room = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
+      public Builder setRoom(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush value) {
+        if (roomBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          room_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          roomBuilder_.setMessage(value);
         }
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        id_ = value;
-        onChanged();
+
         return this;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return This builder for chaining.
+       * <code>.RoomPush room = 1;</code>
        */
-      public Builder clearId() {
+      public Builder setRoom(
+          io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder builderForValue) {
+        if (roomBuilder_ == null) {
+          room_ = builderForValue.build();
+          onChanged();
+        } else {
+          roomBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.RoomPush room = 1;</code>
+       */
+      public Builder mergeRoom(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush value) {
+        if (roomBuilder_ == null) {
+          if (room_ != null) {
+            room_ =
+              io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.newBuilder(room_).mergeFrom(value).buildPartial();
+          } else {
+            room_ = value;
+          }
+          onChanged();
+        } else {
+          roomBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.RoomPush room = 1;</code>
+       */
+      public Builder clearRoom() {
+        if (roomBuilder_ == null) {
+          room_ = null;
+          onChanged();
+        } else {
+          room_ = null;
+          roomBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.RoomPush room = 1;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder getRoomBuilder() {
         
-        id_ = getDefaultInstance().getId();
         onChanged();
-        return this;
+        return getRoomFieldBuilder().getBuilder();
       }
       /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
+       * <code>.RoomPush room = 1;</code>
        */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> seatsChange_ =
-        java.util.Collections.emptyList();
-      private void ensureSeatsChangeIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          seatsChange_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes>(seatsChange_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> seatsChangeBuilder_;
-
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> getSeatsChangeList() {
-        if (seatsChangeBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(seatsChange_);
+      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomOrBuilder() {
+        if (roomBuilder_ != null) {
+          return roomBuilder_.getMessageOrBuilder();
         } else {
-          return seatsChangeBuilder_.getMessageList();
+          return room_ == null ?
+              io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.getDefaultInstance() : room_;
         }
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
+       * <code>.RoomPush room = 1;</code>
        */
-      public int getSeatsChangeCount() {
-        if (seatsChangeBuilder_ == null) {
-          return seatsChange_.size();
-        } else {
-          return seatsChangeBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index) {
-        if (seatsChangeBuilder_ == null) {
-          return seatsChange_.get(index);
-        } else {
-          return seatsChangeBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public Builder setSeatsChange(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes value) {
-        if (seatsChangeBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSeatsChangeIsMutable();
-          seatsChange_.set(index, value);
-          onChanged();
-        } else {
-          seatsChangeBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public Builder setSeatsChange(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder builderForValue) {
-        if (seatsChangeBuilder_ == null) {
-          ensureSeatsChangeIsMutable();
-          seatsChange_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          seatsChangeBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public Builder addSeatsChange(io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes value) {
-        if (seatsChangeBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSeatsChangeIsMutable();
-          seatsChange_.add(value);
-          onChanged();
-        } else {
-          seatsChangeBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public Builder addSeatsChange(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes value) {
-        if (seatsChangeBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSeatsChangeIsMutable();
-          seatsChange_.add(index, value);
-          onChanged();
-        } else {
-          seatsChangeBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public Builder addSeatsChange(
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder builderForValue) {
-        if (seatsChangeBuilder_ == null) {
-          ensureSeatsChangeIsMutable();
-          seatsChange_.add(builderForValue.build());
-          onChanged();
-        } else {
-          seatsChangeBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public Builder addSeatsChange(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder builderForValue) {
-        if (seatsChangeBuilder_ == null) {
-          ensureSeatsChangeIsMutable();
-          seatsChange_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          seatsChangeBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public Builder addAllSeatsChange(
-          java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> values) {
-        if (seatsChangeBuilder_ == null) {
-          ensureSeatsChangeIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, seatsChange_);
-          onChanged();
-        } else {
-          seatsChangeBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public Builder clearSeatsChange() {
-        if (seatsChangeBuilder_ == null) {
-          seatsChange_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          seatsChangeBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public Builder removeSeatsChange(int index) {
-        if (seatsChangeBuilder_ == null) {
-          ensureSeatsChangeIsMutable();
-          seatsChange_.remove(index);
-          onChanged();
-        } else {
-          seatsChangeBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder getSeatsChangeBuilder(
-          int index) {
-        return getSeatsChangeFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
-          int index) {
-        if (seatsChangeBuilder_ == null) {
-          return seatsChange_.get(index);  } else {
-          return seatsChangeBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
-           getSeatsChangeOrBuilderList() {
-        if (seatsChangeBuilder_ != null) {
-          return seatsChangeBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(seatsChange_);
-        }
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder addSeatsChangeBuilder() {
-        return getSeatsChangeFieldBuilder().addBuilder(
-            io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder addSeatsChangeBuilder(
-          int index) {
-        return getSeatsChangeFieldBuilder().addBuilder(
-            index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 2;</code>
-       */
-      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder> 
-           getSeatsChangeBuilderList() {
-        return getSeatsChangeFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
-          getSeatsChangeFieldBuilder() {
-        if (seatsChangeBuilder_ == null) {
-          seatsChangeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder>(
-                  seatsChange_,
-                  ((bitField0_ & 0x00000001) != 0),
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> 
+          getRoomFieldBuilder() {
+        if (roomBuilder_ == null) {
+          roomBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder>(
+                  getRoom(),
                   getParentForChildren(),
                   isClean());
-          seatsChange_ = null;
+          room_ = null;
         }
-        return seatsChangeBuilder_;
+        return roomBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -4397,28 +4075,19 @@ public final class SoupMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+     * <code>.RoomPush room = 1;</code>
+     * @return Whether the room field is set.
      */
-    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> 
-        getSeatsChangeList();
+    boolean hasRoom();
     /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+     * <code>.RoomPush room = 1;</code>
+     * @return The room.
      */
-    io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index);
+    io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRoom();
     /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+     * <code>.RoomPush room = 1;</code>
      */
-    int getSeatsChangeCount();
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
-        getSeatsChangeOrBuilderList();
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
-        int index);
+    io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomOrBuilder();
   }
   /**
    * Protobuf type {@code JoinRoomRes}
@@ -4433,7 +4102,6 @@ public final class SoupMessage {
       super(builder);
     }
     private JoinRoomRes() {
-      seatsChange_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -4456,7 +4124,6 @@ public final class SoupMessage {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -4468,12 +4135,16 @@ public final class SoupMessage {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                seatsChange_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes>();
-                mutable_bitField0_ |= 0x00000001;
+              io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder subBuilder = null;
+              if (room_ != null) {
+                subBuilder = room_.toBuilder();
               }
-              seatsChange_.add(
-                  input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.parser(), extensionRegistry));
+              room_ = input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(room_);
+                room_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -4491,9 +4162,6 @@ public final class SoupMessage {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          seatsChange_ = java.util.Collections.unmodifiableList(seatsChange_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -4511,44 +4179,30 @@ public final class SoupMessage {
               io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes.Builder.class);
     }
 
-    public static final int SEATSCHANGE_FIELD_NUMBER = 1;
-    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> seatsChange_;
+    public static final int ROOM_FIELD_NUMBER = 1;
+    private io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush room_;
     /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+     * <code>.RoomPush room = 1;</code>
+     * @return Whether the room field is set.
      */
     @java.lang.Override
-    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> getSeatsChangeList() {
-      return seatsChange_;
+    public boolean hasRoom() {
+      return room_ != null;
     }
     /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+     * <code>.RoomPush room = 1;</code>
+     * @return The room.
      */
     @java.lang.Override
-    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
-        getSeatsChangeOrBuilderList() {
-      return seatsChange_;
+    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRoom() {
+      return room_ == null ? io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.getDefaultInstance() : room_;
     }
     /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+     * <code>.RoomPush room = 1;</code>
      */
     @java.lang.Override
-    public int getSeatsChangeCount() {
-      return seatsChange_.size();
-    }
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index) {
-      return seatsChange_.get(index);
-    }
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
-        int index) {
-      return seatsChange_.get(index);
+    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomOrBuilder() {
+      return getRoom();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4565,8 +4219,8 @@ public final class SoupMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < seatsChange_.size(); i++) {
-        output.writeMessage(1, seatsChange_.get(i));
+      if (room_ != null) {
+        output.writeMessage(1, getRoom());
       }
       unknownFields.writeTo(output);
     }
@@ -4577,9 +4231,9 @@ public final class SoupMessage {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < seatsChange_.size(); i++) {
+      if (room_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, seatsChange_.get(i));
+          .computeMessageSize(1, getRoom());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4596,8 +4250,11 @@ public final class SoupMessage {
       }
       io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes other = (io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes) obj;
 
-      if (!getSeatsChangeList()
-          .equals(other.getSeatsChangeList())) return false;
+      if (hasRoom() != other.hasRoom()) return false;
+      if (hasRoom()) {
+        if (!getRoom()
+            .equals(other.getRoom())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4609,9 +4266,9 @@ public final class SoupMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getSeatsChangeCount() > 0) {
-        hash = (37 * hash) + SEATSCHANGE_FIELD_NUMBER;
-        hash = (53 * hash) + getSeatsChangeList().hashCode();
+      if (hasRoom()) {
+        hash = (37 * hash) + ROOM_FIELD_NUMBER;
+        hash = (53 * hash) + getRoom().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4741,17 +4398,16 @@ public final class SoupMessage {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getSeatsChangeFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (seatsChangeBuilder_ == null) {
-          seatsChange_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+        if (roomBuilder_ == null) {
+          room_ = null;
         } else {
-          seatsChangeBuilder_.clear();
+          room_ = null;
+          roomBuilder_ = null;
         }
         return this;
       }
@@ -4779,15 +4435,10 @@ public final class SoupMessage {
       @java.lang.Override
       public io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes buildPartial() {
         io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes result = new io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes(this);
-        int from_bitField0_ = bitField0_;
-        if (seatsChangeBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            seatsChange_ = java.util.Collections.unmodifiableList(seatsChange_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.seatsChange_ = seatsChange_;
+        if (roomBuilder_ == null) {
+          result.room_ = room_;
         } else {
-          result.seatsChange_ = seatsChangeBuilder_.build();
+          result.room_ = roomBuilder_.build();
         }
         onBuilt();
         return result;
@@ -4837,31 +4488,8 @@ public final class SoupMessage {
 
       public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes other) {
         if (other == io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes.getDefaultInstance()) return this;
-        if (seatsChangeBuilder_ == null) {
-          if (!other.seatsChange_.isEmpty()) {
-            if (seatsChange_.isEmpty()) {
-              seatsChange_ = other.seatsChange_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureSeatsChangeIsMutable();
-              seatsChange_.addAll(other.seatsChange_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.seatsChange_.isEmpty()) {
-            if (seatsChangeBuilder_.isEmpty()) {
-              seatsChangeBuilder_.dispose();
-              seatsChangeBuilder_ = null;
-              seatsChange_ = other.seatsChange_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              seatsChangeBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getSeatsChangeFieldBuilder() : null;
-            } else {
-              seatsChangeBuilder_.addAllMessages(other.seatsChange_);
-            }
-          }
+        if (other.hasRoom()) {
+          mergeRoom(other.getRoom());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4891,246 +4519,124 @@ public final class SoupMessage {
         }
         return this;
       }
-      private int bitField0_;
 
-      private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> seatsChange_ =
-        java.util.Collections.emptyList();
-      private void ensureSeatsChangeIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          seatsChange_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes>(seatsChange_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> seatsChangeBuilder_;
-
+      private io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush room_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> roomBuilder_;
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <code>.RoomPush room = 1;</code>
+       * @return Whether the room field is set.
        */
-      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> getSeatsChangeList() {
-        if (seatsChangeBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(seatsChange_);
+      public boolean hasRoom() {
+        return roomBuilder_ != null || room_ != null;
+      }
+      /**
+       * <code>.RoomPush room = 1;</code>
+       * @return The room.
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRoom() {
+        if (roomBuilder_ == null) {
+          return room_ == null ? io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.getDefaultInstance() : room_;
         } else {
-          return seatsChangeBuilder_.getMessageList();
+          return roomBuilder_.getMessage();
         }
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <code>.RoomPush room = 1;</code>
        */
-      public int getSeatsChangeCount() {
-        if (seatsChangeBuilder_ == null) {
-          return seatsChange_.size();
-        } else {
-          return seatsChangeBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index) {
-        if (seatsChangeBuilder_ == null) {
-          return seatsChange_.get(index);
-        } else {
-          return seatsChangeBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-       */
-      public Builder setSeatsChange(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes value) {
-        if (seatsChangeBuilder_ == null) {
+      public Builder setRoom(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush value) {
+        if (roomBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureSeatsChangeIsMutable();
-          seatsChange_.set(index, value);
+          room_ = value;
           onChanged();
         } else {
-          seatsChangeBuilder_.setMessage(index, value);
+          roomBuilder_.setMessage(value);
         }
+
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <code>.RoomPush room = 1;</code>
        */
-      public Builder setSeatsChange(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder builderForValue) {
-        if (seatsChangeBuilder_ == null) {
-          ensureSeatsChangeIsMutable();
-          seatsChange_.set(index, builderForValue.build());
+      public Builder setRoom(
+          io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder builderForValue) {
+        if (roomBuilder_ == null) {
+          room_ = builderForValue.build();
           onChanged();
         } else {
-          seatsChangeBuilder_.setMessage(index, builderForValue.build());
+          roomBuilder_.setMessage(builderForValue.build());
         }
+
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <code>.RoomPush room = 1;</code>
        */
-      public Builder addSeatsChange(io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes value) {
-        if (seatsChangeBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
+      public Builder mergeRoom(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush value) {
+        if (roomBuilder_ == null) {
+          if (room_ != null) {
+            room_ =
+              io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.newBuilder(room_).mergeFrom(value).buildPartial();
+          } else {
+            room_ = value;
           }
-          ensureSeatsChangeIsMutable();
-          seatsChange_.add(value);
           onChanged();
         } else {
-          seatsChangeBuilder_.addMessage(value);
+          roomBuilder_.mergeFrom(value);
         }
+
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <code>.RoomPush room = 1;</code>
        */
-      public Builder addSeatsChange(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes value) {
-        if (seatsChangeBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSeatsChangeIsMutable();
-          seatsChange_.add(index, value);
+      public Builder clearRoom() {
+        if (roomBuilder_ == null) {
+          room_ = null;
           onChanged();
         } else {
-          seatsChangeBuilder_.addMessage(index, value);
+          room_ = null;
+          roomBuilder_ = null;
         }
+
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <code>.RoomPush room = 1;</code>
        */
-      public Builder addSeatsChange(
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder builderForValue) {
-        if (seatsChangeBuilder_ == null) {
-          ensureSeatsChangeIsMutable();
-          seatsChange_.add(builderForValue.build());
-          onChanged();
+      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder getRoomBuilder() {
+        
+        onChanged();
+        return getRoomFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.RoomPush room = 1;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomOrBuilder() {
+        if (roomBuilder_ != null) {
+          return roomBuilder_.getMessageOrBuilder();
         } else {
-          seatsChangeBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-       */
-      public Builder addSeatsChange(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder builderForValue) {
-        if (seatsChangeBuilder_ == null) {
-          ensureSeatsChangeIsMutable();
-          seatsChange_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          seatsChangeBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-       */
-      public Builder addAllSeatsChange(
-          java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> values) {
-        if (seatsChangeBuilder_ == null) {
-          ensureSeatsChangeIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, seatsChange_);
-          onChanged();
-        } else {
-          seatsChangeBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-       */
-      public Builder clearSeatsChange() {
-        if (seatsChangeBuilder_ == null) {
-          seatsChange_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          seatsChangeBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-       */
-      public Builder removeSeatsChange(int index) {
-        if (seatsChangeBuilder_ == null) {
-          ensureSeatsChangeIsMutable();
-          seatsChange_.remove(index);
-          onChanged();
-        } else {
-          seatsChangeBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder getSeatsChangeBuilder(
-          int index) {
-        return getSeatsChangeFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
-          int index) {
-        if (seatsChangeBuilder_ == null) {
-          return seatsChange_.get(index);  } else {
-          return seatsChangeBuilder_.getMessageOrBuilder(index);
+          return room_ == null ?
+              io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.getDefaultInstance() : room_;
         }
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <code>.RoomPush room = 1;</code>
        */
-      public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
-           getSeatsChangeOrBuilderList() {
-        if (seatsChangeBuilder_ != null) {
-          return seatsChangeBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(seatsChange_);
-        }
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder addSeatsChangeBuilder() {
-        return getSeatsChangeFieldBuilder().addBuilder(
-            io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder addSeatsChangeBuilder(
-          int index) {
-        return getSeatsChangeFieldBuilder().addBuilder(
-            index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-       */
-      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder> 
-           getSeatsChangeBuilderList() {
-        return getSeatsChangeFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
-          getSeatsChangeFieldBuilder() {
-        if (seatsChangeBuilder_ == null) {
-          seatsChangeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder>(
-                  seatsChange_,
-                  ((bitField0_ & 0x00000001) != 0),
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> 
+          getRoomFieldBuilder() {
+        if (roomBuilder_ == null) {
+          roomBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder>(
+                  getRoom(),
                   getParentForChildren(),
                   isClean());
-          seatsChange_ = null;
+          room_ = null;
         }
-        return seatsChangeBuilder_;
+        return roomBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -12455,6 +11961,18 @@ public final class SoupMessage {
      * <code>.QuestionRes question = 3;</code>
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getQuestionOrBuilder();
+
+    /**
+     * <code>string roomId = 4;</code>
+     * @return The roomId.
+     */
+    java.lang.String getRoomId();
+    /**
+     * <code>string roomId = 4;</code>
+     * @return The bytes for roomId.
+     */
+    com.google.protobuf.ByteString
+        getRoomIdBytes();
   }
   /**
    * Protobuf type {@code RoomPush}
@@ -12470,6 +11988,7 @@ public final class SoupMessage {
     }
     private RoomPush() {
       seatsChange_ = java.util.Collections.emptyList();
+      roomId_ = "";
     }
 
     @java.lang.Override
@@ -12528,6 +12047,12 @@ public final class SoupMessage {
                 question_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              roomId_ = s;
               break;
             }
             default: {
@@ -12642,6 +12167,44 @@ public final class SoupMessage {
       return getQuestion();
     }
 
+    public static final int ROOMID_FIELD_NUMBER = 4;
+    private volatile java.lang.Object roomId_;
+    /**
+     * <code>string roomId = 4;</code>
+     * @return The roomId.
+     */
+    @java.lang.Override
+    public java.lang.String getRoomId() {
+      java.lang.Object ref = roomId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        roomId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string roomId = 4;</code>
+     * @return The bytes for roomId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRoomIdBytes() {
+      java.lang.Object ref = roomId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        roomId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -12665,6 +12228,9 @@ public final class SoupMessage {
       if (question_ != null) {
         output.writeMessage(3, getQuestion());
       }
+      if (!getRoomIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, roomId_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -12685,6 +12251,9 @@ public final class SoupMessage {
       if (question_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getQuestion());
+      }
+      if (!getRoomIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, roomId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12710,6 +12279,8 @@ public final class SoupMessage {
         if (!getQuestion()
             .equals(other.getQuestion())) return false;
       }
+      if (!getRoomId()
+          .equals(other.getRoomId())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -12731,6 +12302,8 @@ public final class SoupMessage {
         hash = (37 * hash) + QUESTION_FIELD_NUMBER;
         hash = (53 * hash) + getQuestion().hashCode();
       }
+      hash = (37 * hash) + ROOMID_FIELD_NUMBER;
+      hash = (53 * hash) + getRoomId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -12879,6 +12452,8 @@ public final class SoupMessage {
           question_ = null;
           questionBuilder_ = null;
         }
+        roomId_ = "";
+
         return this;
       }
 
@@ -12921,6 +12496,7 @@ public final class SoupMessage {
         } else {
           result.question_ = questionBuilder_.build();
         }
+        result.roomId_ = roomId_;
         onBuilt();
         return result;
       }
@@ -13000,6 +12576,10 @@ public final class SoupMessage {
         }
         if (other.hasQuestion()) {
           mergeQuestion(other.getQuestion());
+        }
+        if (!other.getRoomId().isEmpty()) {
+          roomId_ = other.roomId_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -13420,6 +13000,82 @@ public final class SoupMessage {
         }
         return questionBuilder_;
       }
+
+      private java.lang.Object roomId_ = "";
+      /**
+       * <code>string roomId = 4;</code>
+       * @return The roomId.
+       */
+      public java.lang.String getRoomId() {
+        java.lang.Object ref = roomId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          roomId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string roomId = 4;</code>
+       * @return The bytes for roomId.
+       */
+      public com.google.protobuf.ByteString
+          getRoomIdBytes() {
+        java.lang.Object ref = roomId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          roomId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string roomId = 4;</code>
+       * @param value The roomId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoomId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        roomId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string roomId = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRoomId() {
+        
+        roomId_ = getDefaultInstance().getRoomId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string roomId = 4;</code>
+       * @param value The bytes for roomId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoomIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        roomId_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -13536,6 +13192,12 @@ public final class SoupMessage {
      * @return The mc.
      */
     boolean getMc();
+
+    /**
+     * <code>bool leave = 8;</code>
+     * @return The leave.
+     */
+    boolean getLeave();
   }
   /**
    * Protobuf type {@code RoomMemberSeatRes}
@@ -13621,6 +13283,11 @@ public final class SoupMessage {
             case 56: {
 
               mc_ = input.readBool();
+              break;
+            }
+            case 64: {
+
+              leave_ = input.readBool();
               break;
             }
             default: {
@@ -13813,6 +13480,17 @@ public final class SoupMessage {
       return mc_;
     }
 
+    public static final int LEAVE_FIELD_NUMBER = 8;
+    private boolean leave_;
+    /**
+     * <code>bool leave = 8;</code>
+     * @return The leave.
+     */
+    @java.lang.Override
+    public boolean getLeave() {
+      return leave_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -13848,6 +13526,9 @@ public final class SoupMessage {
       if (mc_ != false) {
         output.writeBool(7, mc_);
       }
+      if (leave_ != false) {
+        output.writeBool(8, leave_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -13882,6 +13563,10 @@ public final class SoupMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(7, mc_);
       }
+      if (leave_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(8, leave_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -13911,6 +13596,8 @@ public final class SoupMessage {
           != other.getStatus()) return false;
       if (getMc()
           != other.getMc()) return false;
+      if (getLeave()
+          != other.getLeave()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -13938,6 +13625,9 @@ public final class SoupMessage {
       hash = (37 * hash) + MC_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getMc());
+      hash = (37 * hash) + LEAVE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getLeave());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14085,6 +13775,8 @@ public final class SoupMessage {
 
         mc_ = false;
 
+        leave_ = false;
+
         return this;
       }
 
@@ -14118,6 +13810,7 @@ public final class SoupMessage {
         result.owner_ = owner_;
         result.status_ = status_;
         result.mc_ = mc_;
+        result.leave_ = leave_;
         onBuilt();
         return result;
       }
@@ -14189,6 +13882,9 @@ public final class SoupMessage {
         }
         if (other.getMc() != false) {
           setMc(other.getMc());
+        }
+        if (other.getLeave() != false) {
+          setLeave(other.getLeave());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -14567,6 +14263,37 @@ public final class SoupMessage {
       public Builder clearMc() {
         
         mc_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean leave_ ;
+      /**
+       * <code>bool leave = 8;</code>
+       * @return The leave.
+       */
+      @java.lang.Override
+      public boolean getLeave() {
+        return leave_;
+      }
+      /**
+       * <code>bool leave = 8;</code>
+       * @param value The leave to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLeave(boolean value) {
+        
+        leave_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool leave = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLeave() {
+        
+        leave_ = false;
         onChanged();
         return this;
       }
@@ -15629,28 +15356,28 @@ public final class SoupMessage {
       "omHallRes\022#\n\005rooms\030\001 \003(\0132\024.RoomHallRes.R" +
       "oomRes\032#\n\007RoomRes\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 " +
       "\001(\t\"<\n\rCreateRoomReq\022\020\n\010password\030\001 \001(\t\022\013" +
-      "\n\003max\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\"D\n\rCreateRoomR" +
-      "es\022\n\n\002id\030\001 \001(\t\022\'\n\013seatsChange\030\002 \003(\0132\022.Ro" +
-      "omMemberSeatRes\"/\n\013JoinRoomReq\022\016\n\006roomId" +
-      "\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"6\n\013JoinRoomRes\022" +
-      "\'\n\013seatsChange\030\001 \003(\0132\022.RoomMemberSeatRes" +
-      "\"\016\n\014LeaveRoomReq\"\016\n\014LeaveRoomRes\"\030\n\nPrep" +
-      "areReq\022\n\n\002ok\030\001 \001(\010\"\014\n\nPrepareRes\"%\n\007Kick" +
-      "Req\022\013\n\003aid\030\001 \001(\t\022\r\n\005index\030\002 \001(\r\"\t\n\007KickR" +
-      "es\" \n\017ExchangeSeatReq\022\r\n\005index\030\001 \001(\r\"\021\n\017" +
-      "ExchangeSeatRes\"\032\n\007ChatReq\022\017\n\007content\030\001 " +
-      "\001(\t\"\032\n\007ChatRes\022\017\n\007seconds\030\001 \001(\004\"\'\n\tAnswe" +
-      "rReq\022\n\n\002id\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnsw" +
-      "erRes\"\010\n\006EndReq\"\031\n\006EndRes\022\017\n\007content\030\001 \001" +
-      "(\t\"\n\n\010HallPush\"c\n\010RoomPush\022\'\n\013seatsChang" +
-      "e\030\001 \003(\0132\022.RoomMemberSeatRes\022\016\n\006status\030\002 " +
-      "\001(\r\022\036\n\010question\030\003 \001(\0132\014.QuestionRes\"|\n\021R" +
-      "oomMemberSeatRes\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaName" +
-      "\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022\r" +
-      "\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001(\r\022\n\n\002mc\030\007 \001(" +
-      "\010\"<\n\013QuestionRes\022\n\n\002id\030\001 \001(\t\022\020\n\010question" +
-      "\030\002 \001(\t\022\017\n\007content\030\003 \001(\tB#\n!io.github.hdf" +
-      "g159.game.domain.dtob\006proto3"
+      "\n\003max\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\"(\n\rCreateRoomR" +
+      "es\022\027\n\004room\030\001 \001(\0132\t.RoomPush\"/\n\013JoinRoomR" +
+      "eq\022\016\n\006roomId\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"&\n\013" +
+      "JoinRoomRes\022\027\n\004room\030\001 \001(\0132\t.RoomPush\"\016\n\014" +
+      "LeaveRoomReq\"\016\n\014LeaveRoomRes\"\030\n\nPrepareR" +
+      "eq\022\n\n\002ok\030\001 \001(\010\"\014\n\nPrepareRes\"%\n\007KickReq\022" +
+      "\013\n\003aid\030\001 \001(\t\022\r\n\005index\030\002 \001(\r\"\t\n\007KickRes\" " +
+      "\n\017ExchangeSeatReq\022\r\n\005index\030\001 \001(\r\"\021\n\017Exch" +
+      "angeSeatRes\"\032\n\007ChatReq\022\017\n\007content\030\001 \001(\t\"" +
+      "\032\n\007ChatRes\022\017\n\007seconds\030\001 \001(\004\"\'\n\tAnswerReq" +
+      "\022\n\n\002id\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnswerRe" +
+      "s\"\010\n\006EndReq\"\031\n\006EndRes\022\017\n\007content\030\001 \001(\t\"\n" +
+      "\n\010HallPush\"s\n\010RoomPush\022\'\n\013seatsChange\030\001 " +
+      "\003(\0132\022.RoomMemberSeatRes\022\016\n\006status\030\002 \001(\r\022" +
+      "\036\n\010question\030\003 \001(\0132\014.QuestionRes\022\016\n\006roomI" +
+      "d\030\004 \001(\t\"\213\001\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001" +
+      "(\t\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005" +
+      "index\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001" +
+      "(\r\022\n\n\002mc\030\007 \001(\010\022\r\n\005leave\030\010 \001(\010\"<\n\013Questio" +
+      "nRes\022\n\n\002id\030\001 \001(\t\022\020\n\010question\030\002 \001(\t\022\017\n\007co" +
+      "ntent\030\003 \001(\tB#\n!io.github.hdfg159.game.do" +
+      "main.dtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15685,7 +15412,7 @@ public final class SoupMessage {
     internal_static_CreateRoomRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateRoomRes_descriptor,
-        new java.lang.String[] { "Id", "SeatsChange", });
+        new java.lang.String[] { "Room", });
     internal_static_JoinRoomReq_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_JoinRoomReq_fieldAccessorTable = new
@@ -15697,7 +15424,7 @@ public final class SoupMessage {
     internal_static_JoinRoomRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_JoinRoomRes_descriptor,
-        new java.lang.String[] { "SeatsChange", });
+        new java.lang.String[] { "Room", });
     internal_static_LeaveRoomReq_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_LeaveRoomReq_fieldAccessorTable = new
@@ -15793,13 +15520,13 @@ public final class SoupMessage {
     internal_static_RoomPush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomPush_descriptor,
-        new java.lang.String[] { "SeatsChange", "Status", "Question", });
+        new java.lang.String[] { "SeatsChange", "Status", "Question", "RoomId", });
     internal_static_RoomMemberSeatRes_descriptor =
       getDescriptor().getMessageTypes().get(22);
     internal_static_RoomMemberSeatRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomMemberSeatRes_descriptor,
-        new java.lang.String[] { "Aid", "AvaName", "AvaHead", "Index", "Owner", "Status", "Mc", });
+        new java.lang.String[] { "Aid", "AvaName", "AvaHead", "Index", "Owner", "Status", "Mc", "Leave", });
     internal_static_QuestionRes_descriptor =
       getDescriptor().getMessageTypes().get(23);
     internal_static_QuestionRes_fieldAccessorTable = new

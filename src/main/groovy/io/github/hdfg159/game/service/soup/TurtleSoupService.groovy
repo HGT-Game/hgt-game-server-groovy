@@ -1,9 +1,11 @@
 package io.github.hdfg159.game.service.soup
 
+
 import groovy.util.logging.Slf4j
 import io.github.hdfg159.game.domain.dto.EventMessage
 import io.github.hdfg159.game.domain.dto.SoupEvent
 import io.github.hdfg159.game.domain.dto.SoupMessage
+import io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush
 import io.github.hdfg159.game.enumeration.CodeEnums
 import io.github.hdfg159.game.enumeration.EventEnums
 import io.github.hdfg159.game.service.AbstractService
@@ -106,14 +108,8 @@ class TurtleSoupService extends AbstractService {
 				def record = room.recordMap.get(room.recordId)
 				record.mcId
 			}
-			def seatRes = room.roomMemberMap
-					.keySet()
-					.collect {
-						def member = memberData.getById(it)
-						buildSeatRes(member, room.owner, room.owner)
-					}
-					.findAll {it}
-			def res = roomRes.setId(room.id).addAllSeatsChange(seatRes).build()
+			
+			def res = roomRes.setRoom(buildRoomPush([aid], room.id, {it})).build()
 			return GameUtils.sucResMsg(RES_SOUP_CREATE_ROOM, res)
 		}
 		
@@ -146,11 +142,8 @@ class TurtleSoupService extends AbstractService {
 				
 				roomPush([aid], [aid], roomId, {it})
 				
-				def allSeatRes = room.roomMemberMap.collect {
-					buildSeatRes(memberData.getById(it.key), room.owner, room.owner)
-				}
 				def sucRes = SoupMessage.JoinRoomRes.newBuilder()
-						.addAllSeatsChange(allSeatRes)
+						.setRoom(buildRoomPush([aid], roomId, {it}))
 						.build()
 				return GameUtils.sucResMsg(RES_SOUP_JOIN_ROOM, sucRes)
 			} else {
@@ -463,26 +456,43 @@ class TurtleSoupService extends AbstractService {
 				.setIndex(member?.seat)
 				.setOwner(owner == member?.id)
 				.setMc(mc == member?.id)
+				.setLeave(member?.roomId == null)
 				.build()
 	}
 	
 	private void roomPush(Collection<String> changeMemberIds,
 						  Collection<String> excludePushMemberIds,
 						  String roomId,
-						  Function<SoupMessage.RoomPush.Builder, SoupMessage.RoomPush.Builder> mapping) {
+						  Function<RoomPush.Builder, RoomPush.Builder> mapping) {
+		
+		def push = buildRoomPush(changeMemberIds, roomId, mapping)
+		if (push) {
+			def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH, push)
+			avatarService.pushAllMsg(roomData.getRoom(roomId).roomMemberMap.keySet(), excludePushMemberIds.toSet(), msg)
+		}
+	}
+	
+	private RoomPush buildRoomPush(Collection<String> changeMemberIds,
+								   String roomId,
+								   Function<RoomPush.Builder, RoomPush.Builder> mapping) {
 		def room = roomData.getRoom(roomId)
 		if (!room) {
-			return
+			return null
 		}
 		
-		def seatRes = changeMemberIds ? [] : room.roomMemberMap.keySet().collect {
+		def seatRes = changeMemberIds ? changeMemberIds.collect {
+			def member = memberData.getById(it)
+			buildSeatRes(member, room.owner, room.owner)
+		} : room.roomMemberMap.keySet().collect {
 			def member = memberData.getById(it)
 			buildSeatRes(member, room.owner, room.owner)
 		}
 		
-		def builder = SoupMessage.RoomPush.newBuilder().addAllSeatsChange(seatRes).setStatus(room.status)
-		def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH, mapping.apply(builder).build())
+		def builder = RoomPush.newBuilder()
+				.setRoomId(room.id)
+				.setStatus(room.status)
+				.addAllSeatsChange(seatRes)
 		
-		avatarService.pushAllMsg(room.roomMemberMap.keySet(), excludePushMemberIds.toSet(), msg)
+		mapping.apply(builder).build()
 	}
 }
