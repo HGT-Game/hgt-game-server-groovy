@@ -3,6 +3,7 @@ package io.github.hdfg159.game.service.soup
 import groovy.transform.Canonical
 import io.github.hdfg159.common.util.IdUtils
 import io.github.hdfg159.game.data.TData
+import io.github.hdfg159.game.enumeration.CodeEnums
 import io.github.hdfg159.game.service.soup.enums.RoomStatus
 
 import java.time.LocalDateTime
@@ -104,13 +105,13 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 		room
 	}
 	
-	boolean joinRoom(String aid) {
+	CodeEnums joinRoom(String aid) {
 		if (roomMemberMap.size() >= max) {
-			return false
+			return CodeEnums.SOUP_ROOM_JOIN_MAX_LIMIT
 		}
 		
 		if (roomMemberMap.containsKey(aid)) {
-			return false
+			return CodeEnums.SOUP_ROOM_JOIN_EXIST
 		}
 		
 		(0..max - 1).each {
@@ -118,14 +119,22 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 			if (!mid) {
 				memberIds[it] = aid
 				roomMemberMap.put(aid, it)
-				return true
+				return CodeEnums.SUCCESS
 			}
 		}
 		
-		false
+		return CodeEnums.SOUP_ROOM_JOIN_MAX_LIMIT
 	}
 	
 	Integer getAvaIndex(String aid) {
 		roomMemberMap.get(aid)
+	}
+	
+	SoupRecord getRecord(String recordId) {
+		if (!recordId) {
+			return null
+		}
+		
+		recordMap.get(recordId)
 	}
 }

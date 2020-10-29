@@ -1,5 +1,7 @@
 package io.github.hdfg159.game.service.soup
 
+import groovyjarjarantlr4.v4.runtime.misc.Tuple2
+import io.github.hdfg159.game.enumeration.CodeEnums
 import io.github.hdfg159.game.service.soup.enums.RoomStatus
 import io.vertx.core.impl.ConcurrentHashSet
 
@@ -22,17 +24,21 @@ class SoupRoomData {
 	 */
 	ConcurrentHashMap<String, SoupRoom> roomMap = new ConcurrentHashMap<>()
 	
-	SoupRoom create(String aid, String name, int max, String password) {
+	Tuple2<CodeEnums, SoupRoom> create(String aid, String name, int max, String password) {
 		def room = SoupRoom.createRoom(aid, name, max, password)
 		
 		def member = memberData.getById(aid)
+		if (!member) {
+			return new Tuple2<>(CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST, null)
+		}
+		
 		def joinRoomSuc = member.joinRoom(0, room.id)
-		if (!member || !joinRoomSuc) {
-			return null
+		if (!joinRoomSuc.success()) {
+			return new Tuple2<>(joinRoomSuc, null)
 		}
 		
 		roomMap.put(room.id, room)
-		room
+		return new Tuple2<CodeEnums, SoupRoom>(CodeEnums.SUCCESS, room)
 	}
 	
 	TreeSet<SoupRoom> getRooms() {
@@ -49,15 +55,15 @@ class SoupRoomData {
 		hallOnlineAvatars.add(aid)
 	}
 	
-	boolean leaveRoom(SoupMember member, SoupRoom room) {
+	CodeEnums leaveRoom(SoupMember member, SoupRoom room) {
 		// 游戏中不能退出
 		if (room.status == RoomStatus.PLAYING.status) {
-			return false
+			return CodeEnums.SOUP_ROOM_PLAYING
 		}
 		
 		// 不存在用户
 		if (!room.roomMemberMap.containsKey(member.id)) {
-			return false
+			return CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST
 		}
 		
 		// 最后一个人
@@ -78,23 +84,23 @@ class SoupRoomData {
 		
 		// 无脑离开
 		member.leaveRoom()
-		return true
+		return CodeEnums.SUCCESS
 	}
 	
-	boolean kick(String aid, SoupMember member, SoupRoom room) {
+	static CodeEnums kick(String aid, SoupMember member, SoupRoom room) {
 		// 不是房主不能踢人
 		if (aid != room.owner) {
-			return false
+			return CodeEnums.SOUP_ROOM_NOT_OWNER
 		}
 		
 		// 游戏中不能踢人
 		if (room.status == RoomStatus.PLAYING.status) {
-			return false
+			return CodeEnums.SOUP_ROOM_PLAYING
 		}
 		
 		// 不存在用户
 		if (!room.roomMemberMap.containsKey(member.id)) {
-			return false
+			return CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST
 		}
 		
 		// 移除位置相关数据
@@ -105,19 +111,19 @@ class SoupRoomData {
 		
 		member.leaveRoom()
 		
-		true
+		return CodeEnums.SUCCESS
 	}
 	
-	boolean exchangeSeat(SoupRoom room, SoupMember member, int index) {
+	static CodeEnums exchangeSeat(SoupRoom room, SoupMember member, int index) {
 		// 游戏中不能换位置
 		if (room.status == RoomStatus.PLAYING.status) {
-			return false
+			return CodeEnums.SOUP_ROOM_PLAYING
 		}
 		
 		// 座位有人不换
 		def mid = room.memberIds.get(index)
 		if (mid) {
-			return false
+			return CodeEnums.SOUP_SEAT_EXIST
 		}
 		
 		// 换位置
@@ -130,7 +136,7 @@ class SoupRoomData {
 		// 记录个人数据
 		member.seat = index
 		
-		true
+		return CodeEnums.SUCCESS
 	}
 	
 	SoupRoom getRoom(String roomId) {

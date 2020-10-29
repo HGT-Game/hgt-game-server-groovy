@@ -2,6 +2,7 @@ package io.github.hdfg159.game.service.soup
 
 import groovy.transform.Canonical
 import io.github.hdfg159.game.data.TData
+import io.github.hdfg159.game.enumeration.CodeEnums
 import io.github.hdfg159.game.service.soup.enums.MemberStatus
 
 import java.time.Duration
@@ -102,16 +103,16 @@ class SoupMember implements TData<String> {
 	 * @param roomId 房间 ID
 	 * @return 加入结果
 	 */
-	boolean joinRoom(int seat, String roomId) {
+	CodeEnums joinRoom(int seat, String roomId) {
 		if (status.get() != MemberStatus.FREE.status) {
 			// 非闲置状态不加入
-			return false
+			return CodeEnums.SOUP_MEMBER_NOT_FREE
 		}
 		
 		status.getAndSet(MemberStatus.ROOM.status)
 		this.@seat = seat
 		this.@roomId = roomId
-		return true
+		return CodeEnums.SUCCESS
 	}
 	
 	/**

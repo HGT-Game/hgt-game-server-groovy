@@ -1,7 +1,7 @@
 package io.github.hdfg159.game.service.soup
 
-
 import groovy.util.logging.Slf4j
+import io.github.hdfg159.common.util.IdUtils
 import io.github.hdfg159.game.domain.dto.EventMessage
 import io.github.hdfg159.game.domain.dto.SoupEvent
 import io.github.hdfg159.game.domain.dto.SoupMessage
@@ -10,6 +10,7 @@ import io.github.hdfg159.game.enumeration.CodeEnums
 import io.github.hdfg159.game.enumeration.EventEnums
 import io.github.hdfg159.game.service.AbstractService
 import io.github.hdfg159.game.service.avatar.AvatarService
+import io.github.hdfg159.game.service.soup.enums.AnswerType
 import io.github.hdfg159.game.service.soup.enums.MemberStatus
 import io.github.hdfg159.game.service.soup.enums.RoomStatus
 import io.github.hdfg159.game.util.GameUtils
@@ -68,10 +69,10 @@ class TurtleSoupService extends AbstractService {
 	// Request
 	
 	def roomHall = {headers, params ->
-		def aid = getHeaderAvatarId(headers)
+		// def aid = getHeaderAvatarId(headers)
 		// def req = params as SoupMessage.RoomHallReq
-		def builder = SoupMessage.RoomHallRes.newBuilder()
 		
+		def builder = SoupMessage.RoomHallRes.newBuilder()
 		roomData.getRooms().collect {
 			def roomRes = SoupMessage.RoomHallRes.RoomRes.newBuilder()
 					.setId(it.id)
@@ -79,9 +80,6 @@ class TurtleSoupService extends AbstractService {
 					.build()
 			builder.addRooms(roomRes)
 		}
-		
-		// 没事别刷大厅
-		roomData.addAvaIntoHall(aid)
 		
 		GameUtils.sucResMsg(RES_SOUP_ROOM_HALL, builder.build())
 	}
@@ -95,13 +93,17 @@ class TurtleSoupService extends AbstractService {
 			return GameUtils.resMsg(RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_NAME_ILLEGAL)
 		}
 		
-		if (req.max == 0 || req.max > 10) {
+		if (req.max <= 0 || req.max > 10) {
 			return GameUtils.resMsg(RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_MAX_ILLEGAL)
 		}
 		
-		def room = roomData.create(aid, req.name, req.max, req.password)
+		def tuple2 = roomData.create(aid, req.name, req.max, req.password)
+		def room = tuple2.item2
+		def resultCode = tuple2.item1
 		
-		if (room) {
+		if (!resultCode.success()) {
+			return GameUtils.resMsg(RES_SOUP_CREATE_ROOM, resultCode)
+		} else {
 			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
 			
 			if (room.recordId) {
@@ -112,8 +114,6 @@ class TurtleSoupService extends AbstractService {
 			def res = roomRes.setRoom(buildRoomPush([aid], room.id, {it})).build()
 			return GameUtils.sucResMsg(RES_SOUP_CREATE_ROOM, res)
 		}
-		
-		return GameUtils.resMsg(RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_CREATE_FAIL)
 	}
 	
 	def joinRoom = {headers, params ->
@@ -134,21 +134,29 @@ class TurtleSoupService extends AbstractService {
 		
 		synchronized (room) {
 			def joinRoomSuc = room.joinRoom(aid)
-			def avaIndex = room.getAvaIndex(aid)
-			// 改变成员状态
-			def memberJoinRoomSuc = member.joinRoom(avaIndex, roomId)
-			if (joinRoomSuc && avaIndex && memberJoinRoomSuc) {
-				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-				
-				roomPush([aid], [aid], roomId, {it})
-				
-				def sucRes = SoupMessage.JoinRoomRes.newBuilder()
-						.setRoom(buildRoomPush([aid], roomId, {it}))
-						.build()
-				return GameUtils.sucResMsg(RES_SOUP_JOIN_ROOM, sucRes)
-			} else {
-				return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_JOIN_FAIL)
+			if (!joinRoomSuc.success()) {
+				return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, joinRoomSuc)
 			}
+			
+			// 改变成员状态
+			def avaIndex = room.getAvaIndex(aid)
+			if (!avaIndex) {
+				return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST)
+			}
+			
+			def memberJoinRoomSuc = member.joinRoom(avaIndex, roomId)
+			if (!memberJoinRoomSuc) {
+				return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, memberJoinRoomSuc)
+			}
+			
+			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
+			
+			roomPush([aid], [aid], roomId, {it})
+			
+			def sucRes = SoupMessage.JoinRoomRes.newBuilder()
+					.setRoom(buildRoomPush([aid], roomId, {it}))
+					.build()
+			return GameUtils.sucResMsg(RES_SOUP_JOIN_ROOM, sucRes)
 		}
 	}
 	
@@ -160,17 +168,19 @@ class TurtleSoupService extends AbstractService {
 		def roomId = member.roomId
 		def room = roomData.getRoom(roomId)
 		if (!room) {
-			return GameUtils.resMsg(RES_SOUP_LEAVE_ROOM, CodeEnums.SOUP_ROOM_LEAVE_ROOM_FAIL)
+			return GameUtils.resMsg(RES_SOUP_LEAVE_ROOM, CodeEnums.SOUP_ROOM_NOT_EXIST)
 		}
 		
 		synchronized (room) {
-			if (roomData.leaveRoom(member, room)) {
-				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(roomId).build())
+			def resultCode = roomData.leaveRoom(member, room)
+			if (resultCode.success()) {
 				
+				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(roomId).build())
 				roomPush([aid], [], roomId, {it})
+				
 				return GameUtils.sucResMsg(RES_SOUP_LEAVE_ROOM, SoupMessage.LeaveRoomRes.newBuilder().build())
 			} else {
-				return GameUtils.resMsg(RES_SOUP_LEAVE_ROOM, CodeEnums.SOUP_ROOM_LEAVE_ROOM_FAIL)
+				return GameUtils.resMsg(RES_SOUP_LEAVE_ROOM, resultCode)
 			}
 		}
 	}
@@ -186,7 +196,7 @@ class TurtleSoupService extends AbstractService {
 		def roomId = member.roomId
 		def room = roomData.getRoom(roomId)
 		if (!room) {
-			return errRes
+			return GameUtils.resMsg(RES_SOUP_PREPARE, CodeEnums.SOUP_ROOM_NOT_EXIST)
 		}
 		
 		synchronized (room) {
@@ -194,7 +204,7 @@ class TurtleSoupService extends AbstractService {
 				// 准备或开始
 				if (room.owner == aid) {
 					// 更改玩家状态成功 && 准备人数足够
-					if (room.max == room.prepare.size() + 1
+					if ((room.max <= room.prepare.size() + 1)
 							&& member.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PLAYING.status)) {
 						// 更改房间状态
 						room.status = RoomStatus.PLAYING.status
@@ -264,12 +274,11 @@ class TurtleSoupService extends AbstractService {
 		def req = params as SoupMessage.KickReq
 		def aid = getHeaderAvatarId(headers)
 		
-		def errRes = GameUtils.resMsg(REQ_SOUP_KICK, CodeEnums.SOUP_KICK_FAIL)
 		
 		def kickAid = req.aid
 		def kickIndex = req.index
 		if (!kickAid || !kickIndex) {
-			return errRes
+			return GameUtils.resMsg(RES_SOUP_KICK, CodeEnums.SOUP_KICK_PARAM_ERROR)
 		}
 		
 		// 主动踢人 成员信息
@@ -277,7 +286,7 @@ class TurtleSoupService extends AbstractService {
 		def roomId = member.roomId
 		def room = roomData.getRoom(roomId)
 		if (!room) {
-			return errRes
+			return GameUtils.resMsg(RES_SOUP_KICK, CodeEnums.SOUP_ROOM_NOT_EXIST)
 		}
 		
 		synchronized (room) {
@@ -291,15 +300,18 @@ class TurtleSoupService extends AbstractService {
 			}
 			
 			if (!kickMember) {
-				return errRes
+				return GameUtils.resMsg(RES_SOUP_KICK, CodeEnums.SOUP_KICK_MEMBER_NOT_EXIST)
 			}
 			
-			if (roomData.kick(aid, kickMember, room)) {
+			def kickResult = roomData.kick(aid, kickMember, room)
+			if (kickResult.success()) {
+				
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
 				roomPush([kickMember.id], [], roomId, {it})
-				return GameUtils.sucResMsg(REQ_SOUP_KICK, SoupMessage.KickRes.newBuilder().build())
+				
+				return GameUtils.sucResMsg(RES_SOUP_KICK, SoupMessage.KickRes.newBuilder().build())
 			} else {
-				return errRes
+				return GameUtils.resMsg(RES_SOUP_KICK, kickResult)
 			}
 		}
 	}
@@ -309,35 +321,83 @@ class TurtleSoupService extends AbstractService {
 		def aid = getHeaderAvatarId(headers)
 		def index = req.index
 		
-		def errRes = GameUtils.resMsg(REQ_SOUP_EXCHANGE_SEAT, CodeEnums.SOUP_EXCHANGE_SEAT_FAIL)
-		
 		def member = memberData.getById(aid)
 		if (member.seat == index) {
-			return errRes
+			return GameUtils.resMsg(RES_SOUP_EXCHANGE_SEAT, CodeEnums.SOUP_SEAT_EXIST)
 		}
 		
 		def roomId = member.roomId
 		def room = roomData.getRoom(roomId)
 		if (!room) {
-			return errRes
+			return GameUtils.resMsg(RES_SOUP_EXCHANGE_SEAT, CodeEnums.SOUP_ROOM_NOT_EXIST)
 		}
 		
 		synchronized (room) {
-			if (roomData.exchangeSeat(room, member, index)) {
+			def result = roomData.exchangeSeat(room, member, index)
+			if (result.success()) {
+				
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
 				roomPush([aid], [], roomId, {it})
-				return GameUtils.sucResMsg(REQ_SOUP_EXCHANGE_SEAT, SoupMessage.ExchangeSeatRes.newBuilder().build())
+				
+				return GameUtils.sucResMsg(RES_SOUP_EXCHANGE_SEAT, SoupMessage.ExchangeSeatRes.newBuilder().build())
 			} else {
-				return errRes
+				return GameUtils.resMsg(RES_SOUP_EXCHANGE_SEAT, result)
 			}
 		}
 	}
 	
 	def chat = {headers, params ->
+		def aid = getHeaderAvatarId(headers)
 		def req = params as SoupMessage.ChatReq
+		def builder = SoupMessage.ChatRes.newBuilder()
+		
+		def content = req.content
+		if (!content || content.length() > 20) {
+			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_CHAT_CONTENT_ILLEGAL)
+		}
+		
+		def member = memberData.getById(aid)
+		def speak = member.speak()
+		if (speak > 0) {
+			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_CHAT_LIMIT, builder.setSeconds(speak).build())
+		}
+		
+		def room = roomData.getRoom(member.roomId)
+		if (!room) {
+			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_ROOM_NOT_EXIST)
+		}
+		
+		if (room.status != RoomStatus.PLAYING.status) {
+			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_ROOM_NOT_PLAYING)
+		}
+		
+		def recordId = room.recordId
+		if (!recordId) {
+			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_RECORD_NOT_EXIST)
+		}
+		
+		def record = room.getRecord(recordId)
+		if (!record) {
+			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_RECORD_NOT_EXIST)
+		}
+		
+		SoupChatRecord chat = new SoupChatRecord(
+				id: IdUtils.idStr,
+				mid: aid,
+				answer: AnswerType.NON.type,
+				content: content,
+				createTime: LocalDateTime.now()
+		)
+		record.chatRecordIds.add(chat.id)
+		record.chatRecordMap.put(chat.id, chat)
+		record.memberMsgMap.get(aid).add(chat.id)
+		
+		// todo 推送
+		return GameUtils.sucResMsg(RES_SOUP_CHAT, builder.build())
 	}
 	
 	def answer = {headers, params ->
+		def aid = getHeaderAvatarId(headers)
 		def req = params as SoupMessage.AnswerReq
 	}
 	
@@ -345,24 +405,22 @@ class TurtleSoupService extends AbstractService {
 		def aid = getHeaderAvatarId(headers)
 		// def req = params as SoupMessage.EndReq
 		
-		def errRes = GameUtils.resMsg(REQ_SOUP_END, CodeEnums.SOUP_END_FAIL)
-		
 		def member = memberData.getById(aid)
 		def roomId = member.roomId
 		def room = roomData.getRoom(roomId)
 		if (!room) {
-			return errRes
+			return GameUtils.resMsg(RES_SOUP_END, CodeEnums.SOUP_ROOM_NOT_EXIST)
 		}
 		
 		synchronized (room) {
 			if (room.status != RoomStatus.PLAYING.status) {
-				return errRes
+				return GameUtils.resMsg(RES_SOUP_END, CodeEnums.SOUP_ROOM_NOT_PLAYING)
 			}
 			
 			def recordId = room.recordId
 			def record = room.recordMap.get(recordId)
 			if (!record) {
-				return errRes
+				return GameUtils.resMsg(RES_SOUP_END, CodeEnums.SOUP_RECORD_NOT_EXIST)
 			}
 			
 			// 记录结束时间
@@ -390,7 +448,7 @@ class TurtleSoupService extends AbstractService {
 			// 强制刷缓存
 			recordData.updateForceById(recordId)
 			
-			return GameUtils.sucResMsg(REQ_SOUP_END, SoupMessage.EndRes.newBuilder().build())
+			return GameUtils.sucResMsg(RES_SOUP_END, SoupMessage.EndRes.newBuilder().build())
 		}
 	}
 	

@@ -7,43 +7,131 @@ package io.github.hdfg159.game.enumeration
  * Created by hdfg159 on 2020/7/15 22:53.
  */
 enum CodeEnums {
-	// 1~1000 预留编码
+	// 1~10000 预留编码
 	SUCCESS(200),
 	ERROR(500),
 	REQUEST(1),
 	MAX_CONNECTION_LIMIT(2),
 	HEART_BEAT(3),
 	
-	// 1001-2000 玩家
+	// 10001-20000 玩家
 	/**
 	 * 注册信息不合法
 	 */
-	REGISTER_INFO_ILLEGAL(1001),
+	REGISTER_INFO_ILLEGAL(10001),
 	/**
 	 * 已经有账号登录成功
 	 */
-	EXIST_LOGIN(1002),
+	EXIST_LOGIN(10002),
 	/**
 	 * 登录失败
 	 */
-	LOGIN_FAIL(1003),
+	LOGIN_FAIL(10003),
 	/**
 	 * 强制下线
 	 */
-	FORCE_OFFLINE(1004),
+	FORCE_OFFLINE(10004),
 	
-	// 2001-3000 海龟汤
-	SOUP_ROOM_NAME_ILLEGAL(2001),
-	SOUP_ROOM_MAX_ILLEGAL(2002),
-	SOUP_ROOM_CREATE_FAIL(2003),
-	SOUP_ROOM_NOT_EXIST(2004),
-	SOUP_ROOM_JOIN_FAIL(2005),
-	SOUP_ROOM_PUSH(2006),
-	SOUP_ROOM_LEAVE_ROOM_FAIL(2007),
-	SOUP_PREPARE_FAIL(2008),
-	SOUP_KICK_FAIL(2009),
-	SOUP_EXCHANGE_SEAT_FAIL(2010),
-	SOUP_END_FAIL(2011),
+	// 20001-30000 海龟汤
+	/**
+	 * 房间名字不合法
+	 */
+	SOUP_ROOM_NAME_ILLEGAL(20001),
+	/**
+	 * 房间最大人数不合法
+	 */
+	SOUP_ROOM_MAX_ILLEGAL(20002),
+	/**
+	 * 创建房间失败
+	 */
+	SOUP_ROOM_CREATE_FAIL(20003),
+	
+	/**
+	 * 房间不存在
+	 */
+	SOUP_ROOM_NOT_EXIST(20101),
+	/**
+	 * 房间不在游戏中
+	 */
+	SOUP_ROOM_NOT_PLAYING(20102),
+	/**
+	 * 房间在游戏中
+	 */
+	SOUP_ROOM_PLAYING(20103),
+	/**
+	 * 房间成员不存在
+	 */
+	SOUP_ROOM_MEMBER_NOT_EXIST(20104),
+	/**
+	 * 不是当前房间房主
+	 */
+	SOUP_ROOM_NOT_OWNER(20105),
+	
+	/**
+	 * 加入房间失败
+	 */
+	SOUP_ROOM_JOIN_FAIL(20200),
+	SOUP_ROOM_JOIN_MAX_LIMIT(20201),
+	SOUP_ROOM_JOIN_EXIST(20202),
+	
+	/**
+	 * 房间推送
+	 */
+	SOUP_ROOM_PUSH(20300),
+	
+	/**
+	 * 离开房间失败
+	 */
+	SOUP_ROOM_LEAVE_ROOM_FAIL(20400),
+	
+	/**
+	 * 准备失败
+	 */
+	SOUP_PREPARE_FAIL(20500),
+	
+	/**
+	 * 踢人失败
+	 */
+	SOUP_KICK_FAIL(20600),
+	/**
+	 * 踢人参数错误
+	 */
+	SOUP_KICK_PARAM_ERROR(20601),
+	/**
+	 * 此人不存在
+	 */
+	SOUP_KICK_MEMBER_NOT_EXIST(20602),
+	
+	
+	/**
+	 * 交换位置失败
+	 */
+	SOUP_EXCHANGE_SEAT_FAIL(20700),
+	/**
+	 * 当前座位已经有人
+	 */
+	SOUP_SEAT_EXIST(20701),
+	
+	/**
+	 * 结束游戏失败
+	 */
+	SOUP_END_FAIL(20800),
+	
+	
+	/**
+	 * 聊天被限制
+	 */
+	SOUP_CHAT_LIMIT(20900),
+	/**
+	 * 聊天内容不合法
+	 */
+	SOUP_CHAT_CONTENT_ILLEGAL(20901),
+	/**
+	 * 场次记录不存在
+	 */
+	SOUP_RECORD_NOT_EXIST(20902),
+	
+	SOUP_MEMBER_NOT_FREE(21000)
 	
 	
 	long code

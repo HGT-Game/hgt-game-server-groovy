@@ -4,6 +4,7 @@ import groovy.transform.Canonical
 import io.github.hdfg159.game.data.TData
 
 import java.time.LocalDateTime
+import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.ConcurrentLinkedQueue
 
 /**
@@ -42,15 +43,15 @@ class SoupRecord implements TData<String> {
 	 */
 	List<String> memberIds
 	
+	ConcurrentLinkedQueue<String> chatRecordIds
 	/**
 	 * 聊天记录
 	 */
-	LinkedHashMap<String, SoupChatRecord> chatRecordMap
+	ConcurrentHashMap<String, SoupChatRecord> chatRecordMap
 	/**
 	 * 成员聊天记录 [用户ID:[聊天ID]]
 	 */
 	Map<String, ConcurrentLinkedQueue<String>> memberMsgMap
-	
 	
 	/**
 	 * 笔记本数据 [笔记ID:笔记]
@@ -71,7 +72,8 @@ class SoupRecord implements TData<String> {
 		record.mcId = room.owner
 		record.questionId = questionId
 		
-		record.chatRecordMap = [:] as LinkedHashMap
+		record.chatRecordIds = new ConcurrentLinkedQueue<>()
+		record.chatRecordMap = new ConcurrentHashMap<>()
 		record.memberMsgMap = [:]
 		
 		record.noteMap = [:]
