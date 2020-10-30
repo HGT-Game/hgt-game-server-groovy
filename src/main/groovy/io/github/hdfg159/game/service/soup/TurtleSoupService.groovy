@@ -466,6 +466,10 @@ class TurtleSoupService extends AbstractService {
 				return GameUtils.resMsg(RES_SOUP_END, CodeEnums.SOUP_RECORD_NOT_EXIST)
 			}
 			
+			if (record.mcId != aid) {
+				return GameUtils.resMsg(RES_SOUP_END, CodeEnums.SOUP_MEMBER_NOT_MC)
+			}
+			
 			// 记录结束时间
 			record.endTime = LocalDateTime.now()
 			// 更改房间状态
@@ -585,10 +589,7 @@ class TurtleSoupService extends AbstractService {
 		def seatRes = changeMemberIds ? changeMemberIds.collect {
 			def member = memberData.getById(it)
 			buildSeatRes(member, room.owner, room.owner)
-		} : room.getAllMemberIds().collect {
-			def member = memberData.getById(it)
-			buildSeatRes(member, room.owner, room.owner)
-		}
+		} : []
 		
 		def builder = RoomPush.newBuilder()
 				.setRoomId(room.id)

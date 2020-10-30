@@ -50,48 +50,75 @@ class GameClient {
 		
 		channel = startFuture.channel()
 		for (; ;) {
-			log.info " 请输入命令 ".center(100, "=")
-			def cmd = System.in.newReader().readLine()
-			log.info " CMD:${cmd} ".center(100, "=")
-			def args = cmd.split(" ")
-			// 下面业务代码
-			if (channel.active) {
-				switch (args[0]) {
-					case "1002":
-						login("admin", "admin")
-						break
-					case "10021":
-						login("admin123", "admin123")
-						break
-					case "1003":
-						register("admin", "admin")
-						break
-					case "10031":
-						register("admin123", "admin123")
-						break
-					case "9999999":
-						test()
-						break
-					case "2001":
-						soupRoomHall()
-						break
-					case "2002":
-						createSoupRoom(args[1].toInteger())
-						break
-					case "2003":
-						joinSoupRoom(args[1])
-						break
-					case "2004":
-						leaveSoupRoom()
-						break
-					case "2005":
-						prepareSoupRoom()
-						break
-					default:
-						break
+			try {
+				log.info " 请输入命令 ".center(100, "=")
+				def cmd = System.in.newReader().readLine()
+				log.info " CMD:${cmd} ".center(100, "=")
+				def args = cmd.split(" ")
+				// 下面业务代码
+				if (channel.active) {
+					switch (args[0]) {
+						case "1002":
+							login("admin", "admin")
+							break
+						case "10021":
+							login("admin123", "admin123")
+							break
+						case "1003":
+							register("admin", "admin")
+							break
+						case "10031":
+							register("admin123", "admin123")
+							break
+						case "9999999":
+							test()
+							break
+						case "2001":
+							soupRoomHall()
+							break
+						case "2002":
+							createSoupRoom(args[1].toInteger())
+							break
+						case "2003":
+							joinSoupRoom(args[1])
+							break
+						case "2004":
+							leaveSoupRoom()
+							break
+						case "2005":
+							prepareSoupRoom()
+							break
+						case "2008":
+							chat()
+							break
+						case "2009":
+							answer(args[1], args[2].toInteger())
+							break
+						case "2010":
+							end()
+							break
+						default:
+							break
+					}
 				}
+			} catch (Exception ignored) {
 			}
 		}
+	}
+	
+	static def end() {
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_END, null)
+		channel.writeAndFlush(reg)
+	}
+	
+	static def answer(id, answer) {
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_ANSWER, SoupMessage.AnswerReq.newBuilder().setId(id).setAnswer(answer).build())
+		channel.writeAndFlush(reg)
+	}
+	
+	static def chat() {
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_CHAT, SoupMessage.ChatReq.newBuilder().setContent("牛逼").build())
+		channel.writeAndFlush(reg)
 	}
 	
 	def static soupRoomHall() {
