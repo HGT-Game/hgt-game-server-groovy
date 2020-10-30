@@ -10930,18 +10930,6 @@ public final class SoupMessage {
   public interface EndResOrBuilder extends
       // @@protoc_insertion_point(interface_extends:EndRes)
       com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string content = 1;</code>
-     * @return The content.
-     */
-    java.lang.String getContent();
-    /**
-     * <code>string content = 1;</code>
-     * @return The bytes for content.
-     */
-    com.google.protobuf.ByteString
-        getContentBytes();
   }
   /**
    * Protobuf type {@code EndRes}
@@ -10956,7 +10944,6 @@ public final class SoupMessage {
       super(builder);
     }
     private EndRes() {
-      content_ = "";
     }
 
     @java.lang.Override
@@ -10989,12 +10976,6 @@ public final class SoupMessage {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              content_ = s;
-              break;
-            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -11027,44 +11008,6 @@ public final class SoupMessage {
               io.github.hdfg159.game.domain.dto.SoupMessage.EndRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.EndRes.Builder.class);
     }
 
-    public static final int CONTENT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object content_;
-    /**
-     * <code>string content = 1;</code>
-     * @return The content.
-     */
-    @java.lang.Override
-    public java.lang.String getContent() {
-      java.lang.Object ref = content_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        content_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string content = 1;</code>
-     * @return The bytes for content.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getContentBytes() {
-      java.lang.Object ref = content_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        content_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -11079,9 +11022,6 @@ public final class SoupMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getContentBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, content_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -11091,9 +11031,6 @@ public final class SoupMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (!getContentBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, content_);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -11109,8 +11046,6 @@ public final class SoupMessage {
       }
       io.github.hdfg159.game.domain.dto.SoupMessage.EndRes other = (io.github.hdfg159.game.domain.dto.SoupMessage.EndRes) obj;
 
-      if (!getContent()
-          .equals(other.getContent())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -11122,8 +11057,6 @@ public final class SoupMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
-      hash = (53 * hash) + getContent().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -11257,8 +11190,6 @@ public final class SoupMessage {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        content_ = "";
-
         return this;
       }
 
@@ -11285,7 +11216,6 @@ public final class SoupMessage {
       @java.lang.Override
       public io.github.hdfg159.game.domain.dto.SoupMessage.EndRes buildPartial() {
         io.github.hdfg159.game.domain.dto.SoupMessage.EndRes result = new io.github.hdfg159.game.domain.dto.SoupMessage.EndRes(this);
-        result.content_ = content_;
         onBuilt();
         return result;
       }
@@ -11334,10 +11264,6 @@ public final class SoupMessage {
 
       public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.EndRes other) {
         if (other == io.github.hdfg159.game.domain.dto.SoupMessage.EndRes.getDefaultInstance()) return this;
-        if (!other.getContent().isEmpty()) {
-          content_ = other.content_;
-          onChanged();
-        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -11364,82 +11290,6 @@ public final class SoupMessage {
             mergeFrom(parsedMessage);
           }
         }
-        return this;
-      }
-
-      private java.lang.Object content_ = "";
-      /**
-       * <code>string content = 1;</code>
-       * @return The content.
-       */
-      public java.lang.String getContent() {
-        java.lang.Object ref = content_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          content_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string content = 1;</code>
-       * @return The bytes for content.
-       */
-      public com.google.protobuf.ByteString
-          getContentBytes() {
-        java.lang.Object ref = content_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          content_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string content = 1;</code>
-       * @param value The content to set.
-       * @return This builder for chaining.
-       */
-      public Builder setContent(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        content_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string content = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearContent() {
-        
-        content_ = getDefaultInstance().getContent();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string content = 1;</code>
-       * @param value The bytes for content to set.
-       * @return This builder for chaining.
-       */
-      public Builder setContentBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        content_ = value;
-        onChanged();
         return this;
       }
       @java.lang.Override
@@ -17425,22 +17275,21 @@ public final class SoupMessage {
       "angeSeatRes\"\032\n\007ChatReq\022\017\n\007content\030\001 \001(\t\"" +
       "\032\n\007ChatRes\022\017\n\007seconds\030\001 \001(\004\"\'\n\tAnswerReq" +
       "\022\n\n\002id\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnswerRe" +
-      "s\"\010\n\006EndReq\"\031\n\006EndRes\022\017\n\007content\030\001 \001(\t\"\n" +
-      "\n\010HallPush\"\266\001\n\010RoomPush\022\'\n\013seatsChange\030\001" +
-      " \003(\0132\022.RoomMemberSeatRes\022\016\n\006status\030\002 \001(\r" +
-      "\022\036\n\010question\030\003 \001(\0132\014.QuestionRes\022\016\n\006room" +
-      "Id\030\004 \001(\t\022#\n\nchangedMsg\030\005 \003(\0132\017.ChatMessa" +
-      "geRes\022\034\n\003msg\030\006 \003(\0132\017.ChatMessageRes\"\213\001\n\021" +
-      "RoomMemberSeatRes\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaNam" +
-      "e\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022" +
-      "\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001(\r\022\n\n\002mc\030\007 \001" +
-      "(\010\022\r\n\005leave\030\010 \001(\010\"<\n\013QuestionRes\022\n\n\002id\030\001" +
-      " \001(\t\022\020\n\010question\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\"" +
-      "x\n\016ChatMessageRes\022\n\n\002id\030\001 \001(\t\022\017\n\007content" +
-      "\030\002 \001(\t\022\016\n\006answer\030\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007a" +
-      "vaName\030\005 \001(\t\022\017\n\007avaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001(" +
-      "\010B#\n!io.github.hdfg159.game.domain.dtob\006" +
-      "proto3"
+      "s\"\010\n\006EndReq\"\010\n\006EndRes\"\n\n\010HallPush\"\266\001\n\010Ro" +
+      "omPush\022\'\n\013seatsChange\030\001 \003(\0132\022.RoomMember" +
+      "SeatRes\022\016\n\006status\030\002 \001(\r\022\036\n\010question\030\003 \001(" +
+      "\0132\014.QuestionRes\022\016\n\006roomId\030\004 \001(\t\022#\n\nchang" +
+      "edMsg\030\005 \003(\0132\017.ChatMessageRes\022\034\n\003msg\030\006 \003(" +
+      "\0132\017.ChatMessageRes\"\213\001\n\021RoomMemberSeatRes" +
+      "\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaHea" +
+      "d\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022\016\n" +
+      "\006status\030\006 \001(\r\022\n\n\002mc\030\007 \001(\010\022\r\n\005leave\030\010 \001(\010" +
+      "\"<\n\013QuestionRes\022\n\n\002id\030\001 \001(\t\022\020\n\010question\030" +
+      "\002 \001(\t\022\017\n\007content\030\003 \001(\t\"x\n\016ChatMessageRes" +
+      "\022\n\n\002id\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\022\016\n\006answer\030" +
+      "\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007avaName\030\005 \001(\t\022\017\n\007a" +
+      "vaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001(\010B#\n!io.github.hd" +
+      "fg159.game.domain.dtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -17571,7 +17420,7 @@ public final class SoupMessage {
     internal_static_EndRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EndRes_descriptor,
-        new java.lang.String[] { "Content", });
+        new java.lang.String[] { });
     internal_static_HallPush_descriptor =
       getDescriptor().getMessageTypes().get(20);
     internal_static_HallPush_fieldAccessorTable = new

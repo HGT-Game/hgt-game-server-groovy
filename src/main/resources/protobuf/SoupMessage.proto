@@ -85,7 +85,6 @@ message EndReq {
 }
 
 message EndRes {
-    string content = 1;
 }
 
 message HallPush {
