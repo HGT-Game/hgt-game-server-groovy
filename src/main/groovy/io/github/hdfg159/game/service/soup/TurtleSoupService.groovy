@@ -223,18 +223,17 @@ class TurtleSoupService extends AbstractService {
 						
 						// 更改其他玩家状态数据
 						room.memberIds
-								.findAll {it != aid}
 								.each {
 									def m = memberData.getById(it)
-									
-									m.status.compareAndSet(MemberStatus.PREPARE.status, MemberStatus.PLAYING.status)
-									m.questionIds.add(questionId)
-									m.recordIds.add(cache.id)
-									
 									// todo 现在默认房主就是mc
 									if (it == room.owner) {
+										m.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PLAYING.status)
 										m.mcTimes += 1
+									} else {
+										m.status.compareAndSet(MemberStatus.PREPARE.status, MemberStatus.PLAYING.status)
 									}
+									m.questionIds.add(questionId)
+									m.recordIds.add(cache.id)
 								}
 						
 						roomPush(CodeEnums.SOUP_ROOM_PUSH, [], [], roomId, {
