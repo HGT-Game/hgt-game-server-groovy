@@ -6,8 +6,8 @@ package io.github.hdfg159.game.service.soup.enums
  * Created by hdfg159 on 2020/10/29 22:14.
  */
 enum ChatType {
-	CHAT(0),
-	QUESTION(1)
+	CHAT(1),
+	QUESTION(2)
 	
 	int type
 	
