@@ -6,10 +6,10 @@ package io.github.hdfg159.game.service.soup.enums
  */
 enum AnswerType {
 	NON(1),
-	UNRELATED(1),
-	YES(2),
-	NO(3),
-	HALF(4),
+	UNRELATED(2),
+	YES(3),
+	NO(4),
+	HALF(5),
 	
 	int type
 	
