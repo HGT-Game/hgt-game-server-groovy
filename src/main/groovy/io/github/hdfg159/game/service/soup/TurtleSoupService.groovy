@@ -153,7 +153,7 @@ class TurtleSoupService extends AbstractService {
 			roomPush(CodeEnums.SOUP_ROOM_PUSH, [aid], [aid], roomId, {it})
 			
 			def sucRes = SoupMessage.JoinRoomRes.newBuilder()
-					.setRoom(buildRoomPush(room.roomMemberMap.keySet(), roomId, {it}))
+					.setRoom(buildRoomPush(room.getAllMemberIds(), roomId, {it}))
 					.build()
 			return GameUtils.sucResMsg(RES_SOUP_JOIN_ROOM, sucRes)
 		}
@@ -237,7 +237,7 @@ class TurtleSoupService extends AbstractService {
 									}
 								}
 						
-						roomPush(CodeEnums.SOUP_ROOM_PUSH, [room.owner], [], roomId, {
+						roomPush(CodeEnums.SOUP_ROOM_PUSH, [], [], roomId, {
 							def questionRes = SoupMessage.QuestionRes.newBuilder()
 									.setId(questionId)
 									.setQuestion(question)
@@ -473,7 +473,7 @@ class TurtleSoupService extends AbstractService {
 			room.status = RoomStatus.WAIT.status
 			
 			// 重置玩家状态
-			room.roomMemberMap.keySet().each {
+			room.getAllMemberIds().each {
 				def m = memberData.getById(it)
 				if (m) {
 					m.status.compareAndSet(MemberStatus.PLAYING.status, MemberStatus.PREPARE.status)
@@ -481,7 +481,7 @@ class TurtleSoupService extends AbstractService {
 			}
 			
 			// todo 推送汤底答案和所有位置信息
-			roomPush(CodeEnums.SOUP_ROOM_PUSH, room.roomMemberMap.keySet(), [], roomId, {
+			roomPush(CodeEnums.SOUP_ROOM_PUSH, room.getAllMemberIds(), [], roomId, {
 				def questionRes = SoupMessage.QuestionRes.newBuilder()
 						.setContent("我是答案")
 						.build()
@@ -570,7 +570,7 @@ class TurtleSoupService extends AbstractService {
 		def push = buildRoomPush(changeMemberIds, roomId, mapping)
 		if (push) {
 			def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, code, push)
-			avatarService.pushAllMsg(roomData.getRoom(roomId).roomMemberMap.keySet(), excludePushMemberIds.toSet(), msg)
+			avatarService.pushAllMsg(roomData.getRoom(roomId).getAllMemberIds(), excludePushMemberIds.toSet(), msg)
 		}
 	}
 	
@@ -585,7 +585,7 @@ class TurtleSoupService extends AbstractService {
 		def seatRes = changeMemberIds ? changeMemberIds.collect {
 			def member = memberData.getById(it)
 			buildSeatRes(member, room.owner, room.owner)
-		} : room.roomMemberMap.keySet().collect {
+		} : room.getAllMemberIds().collect {
 			def member = memberData.getById(it)
 			buildSeatRes(member, room.owner, room.owner)
 		}

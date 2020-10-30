@@ -133,4 +133,8 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 	SoupRecord getRecord() {
 		recordMap.get(recordId)
 	}
+	
+	def getAllMemberIds() {
+		roomMemberMap.keySet()
+	}
 }
