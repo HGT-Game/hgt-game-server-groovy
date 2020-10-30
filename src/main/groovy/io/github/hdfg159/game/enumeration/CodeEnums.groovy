@@ -13,6 +13,7 @@ enum CodeEnums {
 	REQUEST(1),
 	MAX_CONNECTION_LIMIT(2),
 	HEART_BEAT(3),
+	PARAM_ERROR(4),
 	
 	// 10001-20000 玩家
 	/**
@@ -66,6 +67,10 @@ enum CodeEnums {
 	 * 不是当前房间房主
 	 */
 	SOUP_ROOM_NOT_OWNER(20105),
+	/**
+	 * 房间不在选题状态
+	 */
+	SOUP_ROOM_NOT_SELECT(20104),
 	
 	/**
 	 * 加入房间失败
@@ -79,6 +84,7 @@ enum CodeEnums {
 	 * 已经加入房间
 	 */
 	SOUP_ROOM_JOIN_EXIST(20202),
+	
 	
 	/**
 	 * 房间推送

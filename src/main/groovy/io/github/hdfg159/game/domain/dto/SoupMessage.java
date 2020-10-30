@@ -11345,6 +11345,992 @@ public final class SoupMessage {
 
   }
 
+  public interface SelectQuestionReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SelectQuestionReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+  }
+  /**
+   * Protobuf type {@code SelectQuestionReq}
+   */
+  public static final class SelectQuestionReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SelectQuestionReq)
+      SelectQuestionReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SelectQuestionReq.newBuilder() to construct.
+    private SelectQuestionReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SelectQuestionReq() {
+      id_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SelectQuestionReq();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SelectQuestionReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionReq_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq)) {
+        return super.equals(obj);
+      }
+      io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq other = (io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SelectQuestionReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SelectQuestionReq)
+        io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionReq_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq.Builder.class);
+      }
+
+      // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionReq_descriptor;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq build() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq result = new io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq(this);
+        result.id_ = id_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SelectQuestionReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:SelectQuestionReq)
+    private static final io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq();
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SelectQuestionReq>
+        PARSER = new com.google.protobuf.AbstractParser<SelectQuestionReq>() {
+      @java.lang.Override
+      public SelectQuestionReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SelectQuestionReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SelectQuestionReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SelectQuestionReq> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SelectQuestionResOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SelectQuestionRes)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code SelectQuestionRes}
+   */
+  public static final class SelectQuestionRes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SelectQuestionRes)
+      SelectQuestionResOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SelectQuestionRes.newBuilder() to construct.
+    private SelectQuestionRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SelectQuestionRes() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SelectQuestionRes();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SelectQuestionRes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionRes_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionRes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes)) {
+        return super.equals(obj);
+      }
+      io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes other = (io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SelectQuestionRes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SelectQuestionRes)
+        io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionResOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionRes_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionRes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes.Builder.class);
+      }
+
+      // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionRes_descriptor;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes build() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes result = new io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SelectQuestionRes)
+    }
+
+    // @@protoc_insertion_point(class_scope:SelectQuestionRes)
+    private static final io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes();
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SelectQuestionRes>
+        PARSER = new com.google.protobuf.AbstractParser<SelectQuestionRes>() {
+      @java.lang.Override
+      public SelectQuestionRes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SelectQuestionRes(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SelectQuestionRes> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SelectQuestionRes> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface HallPushOrBuilder extends
       // @@protoc_insertion_point(interface_extends:HallPush)
       com.google.protobuf.MessageOrBuilder {
@@ -11871,6 +12857,30 @@ public final class SoupMessage {
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getMsgOrBuilder(
         int index);
+
+    /**
+     * <code>repeated .QuestionRes selectQuestions = 7;</code>
+     */
+    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> 
+        getSelectQuestionsList();
+    /**
+     * <code>repeated .QuestionRes selectQuestions = 7;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getSelectQuestions(int index);
+    /**
+     * <code>repeated .QuestionRes selectQuestions = 7;</code>
+     */
+    int getSelectQuestionsCount();
+    /**
+     * <code>repeated .QuestionRes selectQuestions = 7;</code>
+     */
+    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
+        getSelectQuestionsOrBuilderList();
+    /**
+     * <code>repeated .QuestionRes selectQuestions = 7;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getSelectQuestionsOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code RoomPush}
@@ -11889,6 +12899,7 @@ public final class SoupMessage {
       roomId_ = "";
       changedMsg_ = java.util.Collections.emptyList();
       msg_ = java.util.Collections.emptyList();
+      selectQuestions_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -11973,6 +12984,15 @@ public final class SoupMessage {
                   input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.parser(), extensionRegistry));
               break;
             }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+                selectQuestions_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              selectQuestions_.add(
+                  input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.parser(), extensionRegistry));
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -11996,6 +13016,9 @@ public final class SoupMessage {
         }
         if (((mutable_bitField0_ & 0x00000004) != 0)) {
           msg_ = java.util.Collections.unmodifiableList(msg_);
+        }
+        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+          selectQuestions_ = java.util.Collections.unmodifiableList(selectQuestions_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -12209,6 +13232,46 @@ public final class SoupMessage {
       return msg_.get(index);
     }
 
+    public static final int SELECTQUESTIONS_FIELD_NUMBER = 7;
+    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> selectQuestions_;
+    /**
+     * <code>repeated .QuestionRes selectQuestions = 7;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> getSelectQuestionsList() {
+      return selectQuestions_;
+    }
+    /**
+     * <code>repeated .QuestionRes selectQuestions = 7;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
+        getSelectQuestionsOrBuilderList() {
+      return selectQuestions_;
+    }
+    /**
+     * <code>repeated .QuestionRes selectQuestions = 7;</code>
+     */
+    @java.lang.Override
+    public int getSelectQuestionsCount() {
+      return selectQuestions_.size();
+    }
+    /**
+     * <code>repeated .QuestionRes selectQuestions = 7;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getSelectQuestions(int index) {
+      return selectQuestions_.get(index);
+    }
+    /**
+     * <code>repeated .QuestionRes selectQuestions = 7;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getSelectQuestionsOrBuilder(
+        int index) {
+      return selectQuestions_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -12240,6 +13303,9 @@ public final class SoupMessage {
       }
       for (int i = 0; i < msg_.size(); i++) {
         output.writeMessage(6, msg_.get(i));
+      }
+      for (int i = 0; i < selectQuestions_.size(); i++) {
+        output.writeMessage(7, selectQuestions_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -12273,6 +13339,10 @@ public final class SoupMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, msg_.get(i));
       }
+      for (int i = 0; i < selectQuestions_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, selectQuestions_.get(i));
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -12303,6 +13373,8 @@ public final class SoupMessage {
           .equals(other.getChangedMsgList())) return false;
       if (!getMsgList()
           .equals(other.getMsgList())) return false;
+      if (!getSelectQuestionsList()
+          .equals(other.getSelectQuestionsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -12333,6 +13405,10 @@ public final class SoupMessage {
       if (getMsgCount() > 0) {
         hash = (37 * hash) + MSG_FIELD_NUMBER;
         hash = (53 * hash) + getMsgList().hashCode();
+      }
+      if (getSelectQuestionsCount() > 0) {
+        hash = (37 * hash) + SELECTQUESTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getSelectQuestionsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -12465,6 +13541,7 @@ public final class SoupMessage {
           getSeatsChangeFieldBuilder();
           getChangedMsgFieldBuilder();
           getMsgFieldBuilder();
+          getSelectQuestionsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -12497,6 +13574,12 @@ public final class SoupMessage {
           bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           msgBuilder_.clear();
+        }
+        if (selectQuestionsBuilder_ == null) {
+          selectQuestions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          selectQuestionsBuilder_.clear();
         }
         return this;
       }
@@ -12558,6 +13641,15 @@ public final class SoupMessage {
           result.msg_ = msg_;
         } else {
           result.msg_ = msgBuilder_.build();
+        }
+        if (selectQuestionsBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0)) {
+            selectQuestions_ = java.util.Collections.unmodifiableList(selectQuestions_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.selectQuestions_ = selectQuestions_;
+        } else {
+          result.selectQuestions_ = selectQuestionsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -12692,6 +13784,32 @@ public final class SoupMessage {
                    getMsgFieldBuilder() : null;
             } else {
               msgBuilder_.addAllMessages(other.msg_);
+            }
+          }
+        }
+        if (selectQuestionsBuilder_ == null) {
+          if (!other.selectQuestions_.isEmpty()) {
+            if (selectQuestions_.isEmpty()) {
+              selectQuestions_ = other.selectQuestions_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensureSelectQuestionsIsMutable();
+              selectQuestions_.addAll(other.selectQuestions_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.selectQuestions_.isEmpty()) {
+            if (selectQuestionsBuilder_.isEmpty()) {
+              selectQuestionsBuilder_.dispose();
+              selectQuestionsBuilder_ = null;
+              selectQuestions_ = other.selectQuestions_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              selectQuestionsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getSelectQuestionsFieldBuilder() : null;
+            } else {
+              selectQuestionsBuilder_.addAllMessages(other.selectQuestions_);
             }
           }
         }
@@ -13669,6 +14787,246 @@ public final class SoupMessage {
           msg_ = null;
         }
         return msgBuilder_;
+      }
+
+      private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> selectQuestions_ =
+        java.util.Collections.emptyList();
+      private void ensureSelectQuestionsIsMutable() {
+        if (!((bitField0_ & 0x00000008) != 0)) {
+          selectQuestions_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes>(selectQuestions_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> selectQuestionsBuilder_;
+
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> getSelectQuestionsList() {
+        if (selectQuestionsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(selectQuestions_);
+        } else {
+          return selectQuestionsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public int getSelectQuestionsCount() {
+        if (selectQuestionsBuilder_ == null) {
+          return selectQuestions_.size();
+        } else {
+          return selectQuestionsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getSelectQuestions(int index) {
+        if (selectQuestionsBuilder_ == null) {
+          return selectQuestions_.get(index);
+        } else {
+          return selectQuestionsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder setSelectQuestions(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
+        if (selectQuestionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.set(index, value);
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder setSelectQuestions(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
+        if (selectQuestionsBuilder_ == null) {
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder addSelectQuestions(io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
+        if (selectQuestionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.add(value);
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder addSelectQuestions(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
+        if (selectQuestionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.add(index, value);
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder addSelectQuestions(
+          io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
+        if (selectQuestionsBuilder_ == null) {
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.add(builderForValue.build());
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder addSelectQuestions(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
+        if (selectQuestionsBuilder_ == null) {
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder addAllSelectQuestions(
+          java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> values) {
+        if (selectQuestionsBuilder_ == null) {
+          ensureSelectQuestionsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, selectQuestions_);
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder clearSelectQuestions() {
+        if (selectQuestionsBuilder_ == null) {
+          selectQuestions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder removeSelectQuestions(int index) {
+        if (selectQuestionsBuilder_ == null) {
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.remove(index);
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder getSelectQuestionsBuilder(
+          int index) {
+        return getSelectQuestionsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getSelectQuestionsOrBuilder(
+          int index) {
+        if (selectQuestionsBuilder_ == null) {
+          return selectQuestions_.get(index);  } else {
+          return selectQuestionsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
+           getSelectQuestionsOrBuilderList() {
+        if (selectQuestionsBuilder_ != null) {
+          return selectQuestionsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(selectQuestions_);
+        }
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder addSelectQuestionsBuilder() {
+        return getSelectQuestionsFieldBuilder().addBuilder(
+            io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder addSelectQuestionsBuilder(
+          int index) {
+        return getSelectQuestionsFieldBuilder().addBuilder(
+            index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .QuestionRes selectQuestions = 7;</code>
+       */
+      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder> 
+           getSelectQuestionsBuilderList() {
+        return getSelectQuestionsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
+          getSelectQuestionsFieldBuilder() {
+        if (selectQuestionsBuilder_ == null) {
+          selectQuestionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder>(
+                  selectQuestions_,
+                  ((bitField0_ & 0x00000008) != 0),
+                  getParentForChildren(),
+                  isClean());
+          selectQuestions_ = null;
+        }
+        return selectQuestionsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -17227,6 +18585,16 @@ public final class SoupMessage {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_EndRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SelectQuestionReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SelectQuestionReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SelectQuestionRes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SelectQuestionRes_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_HallPush_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -17275,21 +18643,24 @@ public final class SoupMessage {
       "angeSeatRes\"\032\n\007ChatReq\022\017\n\007content\030\001 \001(\t\"" +
       "\032\n\007ChatRes\022\017\n\007seconds\030\001 \001(\004\"\'\n\tAnswerReq" +
       "\022\n\n\002id\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnswerRe" +
-      "s\"\010\n\006EndReq\"\010\n\006EndRes\"\n\n\010HallPush\"\266\001\n\010Ro" +
-      "omPush\022\'\n\013seatsChange\030\001 \003(\0132\022.RoomMember" +
-      "SeatRes\022\016\n\006status\030\002 \001(\r\022\036\n\010question\030\003 \001(" +
-      "\0132\014.QuestionRes\022\016\n\006roomId\030\004 \001(\t\022#\n\nchang" +
-      "edMsg\030\005 \003(\0132\017.ChatMessageRes\022\034\n\003msg\030\006 \003(" +
-      "\0132\017.ChatMessageRes\"\213\001\n\021RoomMemberSeatRes" +
-      "\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaHea" +
-      "d\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022\016\n" +
-      "\006status\030\006 \001(\r\022\n\n\002mc\030\007 \001(\010\022\r\n\005leave\030\010 \001(\010" +
-      "\"<\n\013QuestionRes\022\n\n\002id\030\001 \001(\t\022\020\n\010question\030" +
-      "\002 \001(\t\022\017\n\007content\030\003 \001(\t\"x\n\016ChatMessageRes" +
-      "\022\n\n\002id\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\022\016\n\006answer\030" +
-      "\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007avaName\030\005 \001(\t\022\017\n\007a" +
-      "vaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001(\010B#\n!io.github.hd" +
-      "fg159.game.domain.dtob\006proto3"
+      "s\"\010\n\006EndReq\"\010\n\006EndRes\"\037\n\021SelectQuestionR" +
+      "eq\022\n\n\002id\030\001 \001(\t\"\023\n\021SelectQuestionRes\"\n\n\010H" +
+      "allPush\"\335\001\n\010RoomPush\022\'\n\013seatsChange\030\001 \003(" +
+      "\0132\022.RoomMemberSeatRes\022\016\n\006status\030\002 \001(\r\022\036\n" +
+      "\010question\030\003 \001(\0132\014.QuestionRes\022\016\n\006roomId\030" +
+      "\004 \001(\t\022#\n\nchangedMsg\030\005 \003(\0132\017.ChatMessageR" +
+      "es\022\034\n\003msg\030\006 \003(\0132\017.ChatMessageRes\022%\n\017sele" +
+      "ctQuestions\030\007 \003(\0132\014.QuestionRes\"\213\001\n\021Room" +
+      "MemberSeatRes\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaName\030\002 " +
+      "\001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022\r\n\005o" +
+      "wner\030\005 \001(\010\022\016\n\006status\030\006 \001(\r\022\n\n\002mc\030\007 \001(\010\022\r" +
+      "\n\005leave\030\010 \001(\010\"<\n\013QuestionRes\022\n\n\002id\030\001 \001(\t" +
+      "\022\020\n\010question\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\"x\n\016C" +
+      "hatMessageRes\022\n\n\002id\030\001 \001(\t\022\017\n\007content\030\002 \001" +
+      "(\t\022\016\n\006answer\030\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007avaNa" +
+      "me\030\005 \001(\t\022\017\n\007avaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001(\010B#\n" +
+      "!io.github.hdfg159.game.domain.dtob\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -17421,32 +18792,44 @@ public final class SoupMessage {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EndRes_descriptor,
         new java.lang.String[] { });
-    internal_static_HallPush_descriptor =
+    internal_static_SelectQuestionReq_descriptor =
       getDescriptor().getMessageTypes().get(20);
+    internal_static_SelectQuestionReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SelectQuestionReq_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_SelectQuestionRes_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_SelectQuestionRes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SelectQuestionRes_descriptor,
+        new java.lang.String[] { });
+    internal_static_HallPush_descriptor =
+      getDescriptor().getMessageTypes().get(22);
     internal_static_HallPush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_HallPush_descriptor,
         new java.lang.String[] { });
     internal_static_RoomPush_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_RoomPush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomPush_descriptor,
-        new java.lang.String[] { "SeatsChange", "Status", "Question", "RoomId", "ChangedMsg", "Msg", });
+        new java.lang.String[] { "SeatsChange", "Status", "Question", "RoomId", "ChangedMsg", "Msg", "SelectQuestions", });
     internal_static_RoomMemberSeatRes_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_RoomMemberSeatRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomMemberSeatRes_descriptor,
         new java.lang.String[] { "Aid", "AvaName", "AvaHead", "Index", "Owner", "Status", "Mc", "Leave", });
     internal_static_QuestionRes_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_QuestionRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_QuestionRes_descriptor,
         new java.lang.String[] { "Id", "Question", "Content", });
     internal_static_ChatMessageRes_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_ChatMessageRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChatMessageRes_descriptor,

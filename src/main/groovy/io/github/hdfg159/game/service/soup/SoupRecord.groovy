@@ -30,6 +30,11 @@ class SoupRecord implements TData<String> {
 	String questionId
 	
 	/**
+	 * 提供选择的问题 ID
+	 */
+	List<String> selectQuestionIds
+	
+	/**
 	 * 游戏开始时间
 	 */
 	LocalDateTime startTime
@@ -62,7 +67,7 @@ class SoupRecord implements TData<String> {
 	 */
 	Map<String, ConcurrentLinkedQueue<String>> memberNoteMap
 	
-	static SoupRecord createRecord(SoupRoom room, String questionId) {
+	static SoupRecord createRecord(SoupRoom room, List<String> selectQuestionIds) {
 		def record = new SoupRecord()
 		record.roomId = room.id
 		record.startTime = LocalDateTime.now()
@@ -70,7 +75,7 @@ class SoupRecord implements TData<String> {
 		record.memberIds = new ArrayList<>(room.memberIds)
 		
 		record.mcId = room.owner
-		record.questionId = questionId
+		record.selectQuestionIds = selectQuestionIds
 		
 		record.chatRecordIds = new ConcurrentLinkedQueue<>()
 		record.chatRecordMap = new ConcurrentHashMap<>()

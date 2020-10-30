@@ -7,7 +7,8 @@ package io.github.hdfg159.game.service.soup.enums
  */
 enum RoomStatus {
 	WAIT(1),
-	PLAYING(2)
+	SELECT(2),
+	PLAYING(3)
 	
 	private int status
 	

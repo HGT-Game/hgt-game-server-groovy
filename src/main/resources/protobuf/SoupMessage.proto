@@ -87,6 +87,14 @@ message EndReq {
 message EndRes {
 }
 
+message SelectQuestionReq {
+    string id = 1;
+}
+
+message SelectQuestionRes {
+
+}
+
 message HallPush {
 
 }
@@ -98,6 +106,7 @@ message RoomPush {
     string roomId = 4;
     repeated ChatMessageRes changedMsg = 5;
     repeated ChatMessageRes msg = 6;
+    repeated QuestionRes selectQuestions = 7;
 }
 
 message RoomMemberSeatRes {

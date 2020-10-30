@@ -94,6 +94,12 @@ enum ProtocolEnums {
 	RES_SOUP_END(-2010, SoupMessage.EndRes.class),
 	
 	/**
+	 * 公布汤底(结束游戏)
+	 */
+	REQ_SOUP_SELECT_QUESTION(2011, SoupMessage.SelectQuestionReq.class),
+	RES_SOUP_SELECT_QUESTION(-2011, SoupMessage.SelectQuestionRes.class),
+	
+	/**
 	 * 大厅消息推送
 	 */
 	REQ_SOUP_HALL_PUSH(2900, SoupMessage.HallPush.class),

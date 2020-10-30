@@ -14,6 +14,8 @@ import io.github.hdfg159.game.service.soup.enums.AnswerType
 import io.github.hdfg159.game.service.soup.enums.MemberStatus
 import io.github.hdfg159.game.service.soup.enums.RoomStatus
 import io.github.hdfg159.game.util.GameUtils
+import io.github.hdfg159.scheduler.SchedulerManager
+import io.github.hdfg159.scheduler.factory.Triggers
 import io.reactivex.Completable
 
 import java.time.LocalDateTime
@@ -40,6 +42,8 @@ class TurtleSoupService extends AbstractService {
 	
 	SoupRoomData roomData = SoupRoomData.getInstance()
 	
+	SchedulerManager scheduler = SchedulerManager.INSTANCE
+	
 	@Override
 	Completable init() {
 		response(REQ_SOUP_ROOM_HALL, roomHall)
@@ -52,6 +56,7 @@ class TurtleSoupService extends AbstractService {
 		response(REQ_SOUP_CHAT, chat)
 		response(REQ_SOUP_ANSWER, answer)
 		response(REQ_SOUP_END, end)
+		response(REQ_SOUP_SELECT_QUESTION, selectQuestion)
 		
 		handleEvent(EventEnums.OFFLINE, offlineEvent)
 		handleEvent(EventEnums.ONLINE, onlineEvent)
@@ -209,14 +214,24 @@ class TurtleSoupService extends AbstractService {
 					
 					if (member.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PLAYING.status)) {
 						// 更改房间状态
-						room.status = RoomStatus.PLAYING.status
+						room.status = RoomStatus.SELECT.status
 						
 						// todo 获取问题
-						def questionId = "111"
-						def question = "问题"
+						def selectQuestions = (1..10).collect {
+							def idStr = IdUtils.idStr
+							new Tuple3<>(idStr, "Q-${idStr}", "A-${idStr}")
+						}
+						
+						def questionRes = selectQuestions.collect {
+							SoupMessage.QuestionRes.newBuilder()
+									.setId(it.getV1())
+									.setQuestion(it.getV2())
+									.setContent(it.getV3())
+									.build()
+						}
 						
 						// 开始游戏记录
-						def record = SoupRecord.createRecord(room, questionId)
+						def record = SoupRecord.createRecord(room, selectQuestions.collect {it.getV1()})
 						def cache = recordData.saveCache(record)
 						room.recordMap.put(cache.id, cache)
 						room.recordId = cache.id
@@ -225,24 +240,30 @@ class TurtleSoupService extends AbstractService {
 						room.memberIds
 								.each {
 									def m = memberData.getById(it)
-									// todo 现在默认房主就是mc
+									def push = RoomPush.newBuilder()
+											.setRoomId(room.id)
+											.setStatus(room.status)
 									if (it == room.owner) {
 										m.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PLAYING.status)
 										m.mcTimes += 1
+										
+										push.addAllSelectQuestions(questionRes)
 									} else {
 										m.status.compareAndSet(MemberStatus.PREPARE.status, MemberStatus.PLAYING.status)
 									}
-									m.questionIds.add(questionId)
 									m.recordIds.add(cache.id)
+									
+									// 消息推送
+									def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH, push.build())
+									avatarService.pushMsg(it, msg)
 								}
 						
-						roomPush(CodeEnums.SOUP_ROOM_PUSH, [], [], roomId, {
-							def questionRes = SoupMessage.QuestionRes.newBuilder()
-									.setId(questionId)
-									.setQuestion(question)
-									.build()
-							it.setQuestion(questionRes)
-						})
+						// 定时任务
+						Triggers.once("${roomId}::SELECT", LocalDateTime.now().plusSeconds(10), {
+							// 自动选择一题并推送
+							autoSelectQuestion(roomId)
+						}).schedule()
+						
 						return sucResMsg
 					} else {
 						return errRes
@@ -486,7 +507,7 @@ class TurtleSoupService extends AbstractService {
 			// todo 推送汤底答案和所有位置信息
 			roomPush(CodeEnums.SOUP_ROOM_PUSH, room.getAllMemberIds(), [], roomId, {
 				def questionRes = SoupMessage.QuestionRes.newBuilder()
-						.setContent("我是答案")
+						.setContent("A-${record.questionId}")
 						.build()
 				it.setQuestion(questionRes)
 			})
@@ -495,6 +516,54 @@ class TurtleSoupService extends AbstractService {
 			recordData.updateForceById(recordId)
 			
 			return GameUtils.sucResMsg(RES_SOUP_END, SoupMessage.EndRes.newBuilder().build())
+		}
+	}
+	
+	def selectQuestion = {headers, params ->
+		def aid = getHeaderAvatarId(headers)
+		def req = params as SoupMessage.SelectQuestionReq
+		
+		if (!req.id) {
+			return GameUtils.resMsg(RES_SOUP_SELECT_QUESTION, CodeEnums.PARAM_ERROR)
+		}
+		
+		def member = memberData.getById(aid)
+		def roomId = member.roomId
+		def room = roomData.getRoom(roomId)
+		if (!room) {
+			return GameUtils.resMsg(RES_SOUP_SELECT_QUESTION, CodeEnums.SOUP_ROOM_NOT_EXIST)
+		}
+		
+		synchronized (room) {
+			if (room.status != RoomStatus.SELECT.status) {
+				return GameUtils.resMsg(RES_SOUP_SELECT_QUESTION, CodeEnums.SOUP_ROOM_NOT_SELECT)
+			}
+			
+			def record = room.getRecord()
+			if (!record) {
+				return GameUtils.resMsg(RES_SOUP_SELECT_QUESTION, CodeEnums.SOUP_RECORD_NOT_EXIST)
+			}
+			
+			if (record.mcId != aid) {
+				return GameUtils.resMsg(RES_SOUP_SELECT_QUESTION, CodeEnums.SOUP_MEMBER_NOT_MC)
+			}
+			
+			// 取消定时器
+			scheduler.cancel("${roomId}::SELECT")
+			
+			// 选题推送
+			room.status = RoomStatus.PLAYING.status
+			record.questionId = req.id
+			record.memberIds.each {
+				memberData.getById(it).questionIds.add(req.id)
+			}
+			
+			// 推送房间状态和题目
+			roomPush(CodeEnums.SOUP_ROOM_PUSH, [], [], roomId, {
+				it.setQuestion(SoupMessage.QuestionRes.newBuilder().setId(req.id).setQuestion("A-${req.id}").build())
+			})
+			
+			return GameUtils.sucResMsg(RES_SOUP_SELECT_QUESTION, SoupMessage.SelectQuestionRes.newBuilder().build())
 		}
 	}
 	
@@ -617,5 +686,37 @@ class TurtleSoupService extends AbstractService {
 					.setMc(mcId == avatar.id)
 		}
 		msgResBuilder.build()
+	}
+	
+	def autoSelectQuestion(String roomId) {
+		def room = roomData.getRoom(roomId)
+		if (!room) {
+			return
+		}
+		
+		synchronized (room) {
+			if (room.status != RoomStatus.SELECT.status) {
+				return
+			}
+			
+			def record = room.getRecord()
+			if (!record) {
+				return
+			}
+			
+			// 选题推送
+			room.status = RoomStatus.PLAYING.status
+			
+			def questionId = record.selectQuestionIds.shuffled()[0]
+			record.questionId = questionId
+			record.memberIds.each {
+				memberData.getById(it).questionIds.add(questionId)
+			}
+			
+			// 推送房间状态和题目
+			roomPush(CodeEnums.SOUP_ROOM_PUSH, [], [], roomId, {
+				it.setQuestion(SoupMessage.QuestionRes.newBuilder().setId(questionId).setQuestion("A-${questionId}").build())
+			})
+		}
 	}
 }

@@ -3,7 +3,7 @@
   "host": "127.0.0.1",
   "port": 27017,
   "minPoolSize": 10,
-  "maxPoolSize": 50,
+  "maxPoolSize": 20,
   "maxIdleTimeMS": 300000,
   "maxLifeTimeMS": 3600000
 }

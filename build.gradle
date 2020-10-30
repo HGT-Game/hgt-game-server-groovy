@@ -46,6 +46,10 @@ dependencies {
 	
 	implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}"
 	implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+	
+	compile("io.github.hdfg159:scheduler:1.1") {
+		exclude group: 'org.slf4j'
+	}
 }
 
 java {

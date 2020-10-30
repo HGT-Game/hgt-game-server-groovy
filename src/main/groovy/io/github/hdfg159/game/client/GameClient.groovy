@@ -101,7 +101,8 @@ class GameClient {
 							break
 					}
 				}
-			} catch (Exception ignored) {
+			} catch (Exception e) {
+				log.error "命令执行错误:${e.message}"
 			}
 		}
 	}
