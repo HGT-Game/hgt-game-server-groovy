@@ -133,9 +133,9 @@ class TurtleSoupService extends AbstractService {
 		}
 		
 		synchronized (room) {
-			def joinRoomSuc = room.joinRoom(aid)
-			if (!joinRoomSuc.success()) {
-				return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, joinRoomSuc)
+			def joinRoomResCode = room.joinRoom(aid)
+			if (!joinRoomResCode.success()) {
+				return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, joinRoomResCode)
 			}
 			
 			// 改变成员状态
@@ -144,13 +144,12 @@ class TurtleSoupService extends AbstractService {
 				return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST)
 			}
 			
-			def memberJoinRoomSuc = member.joinRoom(avaIndex, roomId)
-			if (!memberJoinRoomSuc) {
-				return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, memberJoinRoomSuc)
+			def memberJoinResCode = member.joinRoom(avaIndex, roomId)
+			if (!memberJoinResCode.success()) {
+				return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, memberJoinResCode)
 			}
 			
 			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-			
 			roomPush([aid], [aid], roomId, {it})
 			
 			def sucRes = SoupMessage.JoinRoomRes.newBuilder()
