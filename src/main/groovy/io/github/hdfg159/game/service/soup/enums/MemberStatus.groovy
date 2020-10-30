@@ -6,10 +6,10 @@ package io.github.hdfg159.game.service.soup.enums
  * Created by hdfg159 on 2020/10/27 22:37.
  */
 enum MemberStatus {
-	FREE(0),
-	ROOM(1),
-	PREPARE(2),
-	PLAYING(3)
+	FREE(1),
+	ROOM(2),
+	PREPARE(3),
+	PLAYING(4)
 	
 	private int status
 	
