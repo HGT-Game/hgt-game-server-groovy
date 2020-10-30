@@ -1,6 +1,6 @@
 package io.github.hdfg159.game.util
 
-import com.google.protobuf.Any
+
 import com.google.protobuf.Message
 import groovy.util.logging.Slf4j
 import io.github.hdfg159.game.domain.dto.EventMessage
@@ -32,7 +32,7 @@ abstract class GameUtils {
 		builder.setProtocol(protocolEnums.protocol)
 				.setCode(CodeEnums.SUCCESS.code)
 		if (data) {
-			builder.setData(Any.pack(data))
+			builder.setData(data.toByteString())
 		}
 		builder.build()
 	}
@@ -47,7 +47,7 @@ abstract class GameUtils {
 		def builder = GameMessage.Message.newBuilder()
 		builder.setProtocol(protocolEnums.protocol)
 		if (data) {
-			builder.setData(Any.pack(data))
+			builder.setData(data.toByteString())
 		}
 		builder.build()
 	}
@@ -65,7 +65,7 @@ abstract class GameUtils {
 		builder.setProtocol(protocolEnums.protocol)
 				.setCode(codeEnums.code)
 		if (data) {
-			builder.setData(Any.pack(data))
+			builder.setData(data.toByteString())
 		}
 		builder.build()
 	}
@@ -92,7 +92,7 @@ abstract class GameUtils {
 		def builder = EventMessage.Event.newBuilder()
 		builder.setEvent(enums.event)
 		if (data) {
-			builder.setData(Any.pack(data))
+			builder.setData(data.toByteString())
 		}
 		def event = builder.build()
 		def address = enums.address()

@@ -25,19 +25,10 @@ public final class EventMessage {
     long getEvent();
 
     /**
-     * <code>.google.protobuf.Any data = 2;</code>
-     * @return Whether the data field is set.
-     */
-    boolean hasData();
-    /**
-     * <code>.google.protobuf.Any data = 2;</code>
+     * <code>bytes data = 2;</code>
      * @return The data.
      */
-    com.google.protobuf.Any getData();
-    /**
-     * <code>.google.protobuf.Any data = 2;</code>
-     */
-    com.google.protobuf.AnyOrBuilder getDataOrBuilder();
+    com.google.protobuf.ByteString getData();
   }
   /**
    * Protobuf type {@code Event}
@@ -52,6 +43,7 @@ public final class EventMessage {
       super(builder);
     }
     private Event() {
+      data_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -90,16 +82,8 @@ public final class EventMessage {
               break;
             }
             case 18: {
-              com.google.protobuf.Any.Builder subBuilder = null;
-              if (data_ != null) {
-                subBuilder = data_.toBuilder();
-              }
-              data_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(data_);
-                data_ = subBuilder.buildPartial();
-              }
 
+              data_ = input.readBytes();
               break;
             }
             default: {
@@ -146,29 +130,14 @@ public final class EventMessage {
     }
 
     public static final int DATA_FIELD_NUMBER = 2;
-    private com.google.protobuf.Any data_;
+    private com.google.protobuf.ByteString data_;
     /**
-     * <code>.google.protobuf.Any data = 2;</code>
-     * @return Whether the data field is set.
-     */
-    @java.lang.Override
-    public boolean hasData() {
-      return data_ != null;
-    }
-    /**
-     * <code>.google.protobuf.Any data = 2;</code>
+     * <code>bytes data = 2;</code>
      * @return The data.
      */
     @java.lang.Override
-    public com.google.protobuf.Any getData() {
-      return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
-    }
-    /**
-     * <code>.google.protobuf.Any data = 2;</code>
-     */
-    @java.lang.Override
-    public com.google.protobuf.AnyOrBuilder getDataOrBuilder() {
-      return getData();
+    public com.google.protobuf.ByteString getData() {
+      return data_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -188,8 +157,8 @@ public final class EventMessage {
       if (event_ != 0L) {
         output.writeInt64(1, event_);
       }
-      if (data_ != null) {
-        output.writeMessage(2, getData());
+      if (!data_.isEmpty()) {
+        output.writeBytes(2, data_);
       }
       unknownFields.writeTo(output);
     }
@@ -204,9 +173,9 @@ public final class EventMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, event_);
       }
-      if (data_ != null) {
+      if (!data_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getData());
+          .computeBytesSize(2, data_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -225,11 +194,8 @@ public final class EventMessage {
 
       if (getEvent()
           != other.getEvent()) return false;
-      if (hasData() != other.hasData()) return false;
-      if (hasData()) {
-        if (!getData()
-            .equals(other.getData())) return false;
-      }
+      if (!getData()
+          .equals(other.getData())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -244,10 +210,8 @@ public final class EventMessage {
       hash = (37 * hash) + EVENT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getEvent());
-      if (hasData()) {
-        hash = (37 * hash) + DATA_FIELD_NUMBER;
-        hash = (53 * hash) + getData().hashCode();
-      }
+      hash = (37 * hash) + DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getData().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -383,12 +347,8 @@ public final class EventMessage {
         super.clear();
         event_ = 0L;
 
-        if (dataBuilder_ == null) {
-          data_ = null;
-        } else {
-          data_ = null;
-          dataBuilder_ = null;
-        }
+        data_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -416,11 +376,7 @@ public final class EventMessage {
       public io.github.hdfg159.game.domain.dto.EventMessage.Event buildPartial() {
         io.github.hdfg159.game.domain.dto.EventMessage.Event result = new io.github.hdfg159.game.domain.dto.EventMessage.Event(this);
         result.event_ = event_;
-        if (dataBuilder_ == null) {
-          result.data_ = data_;
-        } else {
-          result.data_ = dataBuilder_.build();
-        }
+        result.data_ = data_;
         onBuilt();
         return result;
       }
@@ -472,8 +428,8 @@ public final class EventMessage {
         if (other.getEvent() != 0L) {
           setEvent(other.getEvent());
         }
-        if (other.hasData()) {
-          mergeData(other.getData());
+        if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
+          setData(other.getData());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -535,123 +491,38 @@ public final class EventMessage {
         return this;
       }
 
-      private com.google.protobuf.Any data_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> dataBuilder_;
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>.google.protobuf.Any data = 2;</code>
-       * @return Whether the data field is set.
-       */
-      public boolean hasData() {
-        return dataBuilder_ != null || data_ != null;
-      }
-      /**
-       * <code>.google.protobuf.Any data = 2;</code>
+       * <code>bytes data = 2;</code>
        * @return The data.
        */
-      public com.google.protobuf.Any getData() {
-        if (dataBuilder_ == null) {
-          return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
-        } else {
-          return dataBuilder_.getMessage();
-        }
+      @java.lang.Override
+      public com.google.protobuf.ByteString getData() {
+        return data_;
       }
       /**
-       * <code>.google.protobuf.Any data = 2;</code>
+       * <code>bytes data = 2;</code>
+       * @param value The data to set.
+       * @return This builder for chaining.
        */
-      public Builder setData(com.google.protobuf.Any value) {
-        if (dataBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          data_ = value;
-          onChanged();
-        } else {
-          dataBuilder_.setMessage(value);
-        }
-
+      public Builder setData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        data_ = value;
+        onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Any data = 2;</code>
-       */
-      public Builder setData(
-          com.google.protobuf.Any.Builder builderForValue) {
-        if (dataBuilder_ == null) {
-          data_ = builderForValue.build();
-          onChanged();
-        } else {
-          dataBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.Any data = 2;</code>
-       */
-      public Builder mergeData(com.google.protobuf.Any value) {
-        if (dataBuilder_ == null) {
-          if (data_ != null) {
-            data_ =
-              com.google.protobuf.Any.newBuilder(data_).mergeFrom(value).buildPartial();
-          } else {
-            data_ = value;
-          }
-          onChanged();
-        } else {
-          dataBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.Any data = 2;</code>
+       * <code>bytes data = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearData() {
-        if (dataBuilder_ == null) {
-          data_ = null;
-          onChanged();
-        } else {
-          data_ = null;
-          dataBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.Any data = 2;</code>
-       */
-      public com.google.protobuf.Any.Builder getDataBuilder() {
         
+        data_ = getDefaultInstance().getData();
         onChanged();
-        return getDataFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.google.protobuf.Any data = 2;</code>
-       */
-      public com.google.protobuf.AnyOrBuilder getDataOrBuilder() {
-        if (dataBuilder_ != null) {
-          return dataBuilder_.getMessageOrBuilder();
-        } else {
-          return data_ == null ?
-              com.google.protobuf.Any.getDefaultInstance() : data_;
-        }
-      }
-      /**
-       * <code>.google.protobuf.Any data = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
-          getDataFieldBuilder() {
-        if (dataBuilder_ == null) {
-          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
-                  getData(),
-                  getParentForChildren(),
-                  isClean());
-          data_ = null;
-        }
-        return dataBuilder_;
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2166,18 +2037,15 @@ public final class EventMessage {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022EventMessage.proto\032\031google/protobuf/an" +
-      "y.proto\":\n\005Event\022\r\n\005event\030\001 \001(\003\022\"\n\004data\030" +
-      "\002 \001(\0132\024.google.protobuf.Any\"+\n\007Offline\022\016" +
-      "\n\006userId\030\001 \001(\t\022\020\n\010username\030\002 \001(\t\"*\n\006Onli" +
-      "ne\022\016\n\006userId\030\001 \001(\t\022\020\n\010username\030\002 \001(\tB#\n!" +
-      "io.github.hdfg159.game.domain.dtob\006proto" +
-      "3"
+      "\n\022EventMessage.proto\"$\n\005Event\022\r\n\005event\030\001" +
+      " \001(\003\022\014\n\004data\030\002 \001(\014\"+\n\007Offline\022\016\n\006userId\030" +
+      "\001 \001(\t\022\020\n\010username\030\002 \001(\t\"*\n\006Online\022\016\n\006use" +
+      "rId\030\001 \001(\t\022\020\n\010username\030\002 \001(\tB#\n!io.github" +
+      ".hdfg159.game.domain.dtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.AnyProto.getDescriptor(),
         });
     internal_static_Event_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2197,7 +2065,6 @@ public final class EventMessage {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Online_descriptor,
         new java.lang.String[] { "UserId", "Username", });
-    com.google.protobuf.AnyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

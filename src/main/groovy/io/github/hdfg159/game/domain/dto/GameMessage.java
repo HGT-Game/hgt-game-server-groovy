@@ -31,19 +31,10 @@ public final class GameMessage {
     long getCode();
 
     /**
-     * <code>.google.protobuf.Any data = 3;</code>
-     * @return Whether the data field is set.
-     */
-    boolean hasData();
-    /**
-     * <code>.google.protobuf.Any data = 3;</code>
+     * <code>bytes data = 3;</code>
      * @return The data.
      */
-    com.google.protobuf.Any getData();
-    /**
-     * <code>.google.protobuf.Any data = 3;</code>
-     */
-    com.google.protobuf.AnyOrBuilder getDataOrBuilder();
+    com.google.protobuf.ByteString getData();
   }
   /**
    * Protobuf type {@code Message}
@@ -58,6 +49,7 @@ public final class GameMessage {
       super(builder);
     }
     private Message() {
+      data_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -101,16 +93,8 @@ public final class GameMessage {
               break;
             }
             case 26: {
-              com.google.protobuf.Any.Builder subBuilder = null;
-              if (data_ != null) {
-                subBuilder = data_.toBuilder();
-              }
-              data_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(data_);
-                data_ = subBuilder.buildPartial();
-              }
 
+              data_ = input.readBytes();
               break;
             }
             default: {
@@ -168,29 +152,14 @@ public final class GameMessage {
     }
 
     public static final int DATA_FIELD_NUMBER = 3;
-    private com.google.protobuf.Any data_;
+    private com.google.protobuf.ByteString data_;
     /**
-     * <code>.google.protobuf.Any data = 3;</code>
-     * @return Whether the data field is set.
-     */
-    @java.lang.Override
-    public boolean hasData() {
-      return data_ != null;
-    }
-    /**
-     * <code>.google.protobuf.Any data = 3;</code>
+     * <code>bytes data = 3;</code>
      * @return The data.
      */
     @java.lang.Override
-    public com.google.protobuf.Any getData() {
-      return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
-    }
-    /**
-     * <code>.google.protobuf.Any data = 3;</code>
-     */
-    @java.lang.Override
-    public com.google.protobuf.AnyOrBuilder getDataOrBuilder() {
-      return getData();
+    public com.google.protobuf.ByteString getData() {
+      return data_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -213,8 +182,8 @@ public final class GameMessage {
       if (code_ != 0L) {
         output.writeInt64(2, code_);
       }
-      if (data_ != null) {
-        output.writeMessage(3, getData());
+      if (!data_.isEmpty()) {
+        output.writeBytes(3, data_);
       }
       unknownFields.writeTo(output);
     }
@@ -233,9 +202,9 @@ public final class GameMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, code_);
       }
-      if (data_ != null) {
+      if (!data_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getData());
+          .computeBytesSize(3, data_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -256,11 +225,8 @@ public final class GameMessage {
           != other.getProtocol()) return false;
       if (getCode()
           != other.getCode()) return false;
-      if (hasData() != other.hasData()) return false;
-      if (hasData()) {
-        if (!getData()
-            .equals(other.getData())) return false;
-      }
+      if (!getData()
+          .equals(other.getData())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -278,10 +244,8 @@ public final class GameMessage {
       hash = (37 * hash) + CODE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCode());
-      if (hasData()) {
-        hash = (37 * hash) + DATA_FIELD_NUMBER;
-        hash = (53 * hash) + getData().hashCode();
-      }
+      hash = (37 * hash) + DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getData().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -419,12 +383,8 @@ public final class GameMessage {
 
         code_ = 0L;
 
-        if (dataBuilder_ == null) {
-          data_ = null;
-        } else {
-          data_ = null;
-          dataBuilder_ = null;
-        }
+        data_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -453,11 +413,7 @@ public final class GameMessage {
         io.github.hdfg159.game.domain.dto.GameMessage.Message result = new io.github.hdfg159.game.domain.dto.GameMessage.Message(this);
         result.protocol_ = protocol_;
         result.code_ = code_;
-        if (dataBuilder_ == null) {
-          result.data_ = data_;
-        } else {
-          result.data_ = dataBuilder_.build();
-        }
+        result.data_ = data_;
         onBuilt();
         return result;
       }
@@ -512,8 +468,8 @@ public final class GameMessage {
         if (other.getCode() != 0L) {
           setCode(other.getCode());
         }
-        if (other.hasData()) {
-          mergeData(other.getData());
+        if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
+          setData(other.getData());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -606,123 +562,38 @@ public final class GameMessage {
         return this;
       }
 
-      private com.google.protobuf.Any data_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> dataBuilder_;
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>.google.protobuf.Any data = 3;</code>
-       * @return Whether the data field is set.
-       */
-      public boolean hasData() {
-        return dataBuilder_ != null || data_ != null;
-      }
-      /**
-       * <code>.google.protobuf.Any data = 3;</code>
+       * <code>bytes data = 3;</code>
        * @return The data.
        */
-      public com.google.protobuf.Any getData() {
-        if (dataBuilder_ == null) {
-          return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
-        } else {
-          return dataBuilder_.getMessage();
-        }
+      @java.lang.Override
+      public com.google.protobuf.ByteString getData() {
+        return data_;
       }
       /**
-       * <code>.google.protobuf.Any data = 3;</code>
+       * <code>bytes data = 3;</code>
+       * @param value The data to set.
+       * @return This builder for chaining.
        */
-      public Builder setData(com.google.protobuf.Any value) {
-        if (dataBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          data_ = value;
-          onChanged();
-        } else {
-          dataBuilder_.setMessage(value);
-        }
-
+      public Builder setData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        data_ = value;
+        onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Any data = 3;</code>
-       */
-      public Builder setData(
-          com.google.protobuf.Any.Builder builderForValue) {
-        if (dataBuilder_ == null) {
-          data_ = builderForValue.build();
-          onChanged();
-        } else {
-          dataBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.Any data = 3;</code>
-       */
-      public Builder mergeData(com.google.protobuf.Any value) {
-        if (dataBuilder_ == null) {
-          if (data_ != null) {
-            data_ =
-              com.google.protobuf.Any.newBuilder(data_).mergeFrom(value).buildPartial();
-          } else {
-            data_ = value;
-          }
-          onChanged();
-        } else {
-          dataBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.Any data = 3;</code>
+       * <code>bytes data = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearData() {
-        if (dataBuilder_ == null) {
-          data_ = null;
-          onChanged();
-        } else {
-          data_ = null;
-          dataBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.Any data = 3;</code>
-       */
-      public com.google.protobuf.Any.Builder getDataBuilder() {
         
+        data_ = getDefaultInstance().getData();
         onChanged();
-        return getDataFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.google.protobuf.Any data = 3;</code>
-       */
-      public com.google.protobuf.AnyOrBuilder getDataOrBuilder() {
-        if (dataBuilder_ != null) {
-          return dataBuilder_.getMessageOrBuilder();
-        } else {
-          return data_ == null ?
-              com.google.protobuf.Any.getDefaultInstance() : data_;
-        }
-      }
-      /**
-       * <code>.google.protobuf.Any data = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
-          getDataFieldBuilder() {
-        if (dataBuilder_ == null) {
-          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
-                  getData(),
-                  getParentForChildren(),
-                  isClean());
-          data_ = null;
-        }
-        return dataBuilder_;
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -6671,24 +6542,21 @@ public final class GameMessage {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021GameMessage.proto\032\031google/protobuf/any" +
-      ".proto\"M\n\007Message\022\020\n\010protocol\030\001 \001(\003\022\014\n\004c" +
-      "ode\030\002 \001(\003\022\"\n\004data\030\003 \001(\0132\024.google.protobu" +
-      "f.Any\"\026\n\007TestReq\022\013\n\003str\030\001 \001(\t\"\026\n\007TestRes" +
-      "\022\013\n\003str\030\001 \001(\t\".\n\010LoginReq\022\020\n\010username\030\001 " +
-      "\001(\t\022\020\n\010password\030\002 \001(\t\",\n\010LoginRes\022\020\n\010use" +
-      "rname\030\001 \001(\t\022\016\n\006userId\030\002 \001(\t\"\034\n\nOfflineRe" +
-      "q\022\016\n\006userId\030\001 \001(\t\"\014\n\nOfflineRes\"\016\n\014Heart" +
-      "BeatReq\"\016\n\014HeartBeatRes\"1\n\013RegisterReq\022\020" +
-      "\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"+\n\013Re" +
-      "gisterRes\022\n\n\002id\030\001 \001(\t\022\020\n\010username\030\002 \001(\tB" +
-      "#\n!io.github.hdfg159.game.domain.dtob\006pr" +
-      "oto3"
+      "\n\021GameMessage.proto\"7\n\007Message\022\020\n\010protoc" +
+      "ol\030\001 \001(\003\022\014\n\004code\030\002 \001(\003\022\014\n\004data\030\003 \001(\014\"\026\n\007" +
+      "TestReq\022\013\n\003str\030\001 \001(\t\"\026\n\007TestRes\022\013\n\003str\030\001" +
+      " \001(\t\".\n\010LoginReq\022\020\n\010username\030\001 \001(\t\022\020\n\010pa" +
+      "ssword\030\002 \001(\t\",\n\010LoginRes\022\020\n\010username\030\001 \001" +
+      "(\t\022\016\n\006userId\030\002 \001(\t\"\034\n\nOfflineReq\022\016\n\006user" +
+      "Id\030\001 \001(\t\"\014\n\nOfflineRes\"\016\n\014HeartBeatReq\"\016" +
+      "\n\014HeartBeatRes\"1\n\013RegisterReq\022\020\n\010usernam" +
+      "e\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"+\n\013RegisterRes" +
+      "\022\n\n\002id\030\001 \001(\t\022\020\n\010username\030\002 \001(\tB#\n!io.git" +
+      "hub.hdfg159.game.domain.dtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.AnyProto.getDescriptor(),
         });
     internal_static_Message_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -6756,7 +6624,6 @@ public final class GameMessage {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RegisterRes_descriptor,
         new java.lang.String[] { "Id", "Username", });
-    com.google.protobuf.AnyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

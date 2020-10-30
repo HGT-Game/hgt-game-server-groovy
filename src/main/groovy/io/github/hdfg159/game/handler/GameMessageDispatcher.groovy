@@ -33,12 +33,6 @@ class GameMessageDispatcher {
 		// 事件地址
 		def address = "${ADDRESS_PROTOCOL}${message.protocol}"
 		
-		// 抽取data数据请求
-		def data = message.data
-		def dataBytes = data.toByteArray()
-		
-		log.trace "request address:[${address}],data:${data}"
-		
 		// 填充头部信息
 		def option = new DeliveryOptions()
 		def attrAvatar = channel.attr(ATTR_AVATAR)
@@ -48,6 +42,6 @@ class GameMessageDispatcher {
 		}
 		option.addHeader(ATTR_NAME_CHANNEL_ID, channelId)
 		
-		eventBus.send(address, dataBytes, option)
+		eventBus.send(address, message.data.toByteArray(), option)
 	}
 }

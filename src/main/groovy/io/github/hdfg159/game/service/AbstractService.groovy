@@ -1,6 +1,5 @@
 package io.github.hdfg159.game.service
 
-import com.google.protobuf.Any
 import com.google.protobuf.Message
 import com.google.protobuf.TextFormat
 import groovy.util.logging.Slf4j
@@ -77,7 +76,8 @@ abstract class AbstractService extends AbstractVerticle {
 				.flatMapMaybe({message ->
 					def body = message.body()
 					def headers = message.headers()
-					def data = body ? Any.parseFrom(body as byte[]).unpack(protocol.requestClass) : null
+					
+					def data = body ? protocol.requestClass.getDefaultInstance().parserForType.parseFrom(body as byte[]) : null
 					def channelId = (headers as MultiMap) ?[ATTR_NAME_CHANNEL_ID] as String
 					
 					Maybe.fromCallable({closure.call(headers, data) as GameMessage.Message})
@@ -140,7 +140,7 @@ abstract class AbstractService extends AbstractVerticle {
 					Completable.fromRunnable({
 						def bytes = message.body() as byte[]
 						def event = EventMessage.Event.parseFrom(bytes)
-						def data = event.data.unpack(eventEnums.clazz)
+						def data = eventEnums.clazz.getDefaultInstance().parserForType.parseFrom(event.data.toByteArray())
 						def headers = message.headers()
 						
 						log.info "[${address}] handle event:\n${TextFormat.printer().escapingNonAscii(false).printToString(data)}"

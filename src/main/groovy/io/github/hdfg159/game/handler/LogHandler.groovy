@@ -1,6 +1,5 @@
 package io.github.hdfg159.game.handler
 
-
 import com.google.protobuf.TextFormat
 import groovy.util.logging.Slf4j
 import io.github.hdfg159.game.domain.dto.GameMessage
@@ -50,7 +49,7 @@ class LogHandler extends LoggingHandler {
 		def data = msg.data
 		
 		if (data.toByteArray() && protocol && protocol.requestClass) {
-			def unpackData = data.unpack(protocol.requestClass)
+			def unpackData = protocol.requestClass.getDefaultInstance().parserForType.parseFrom(data.toByteArray())
 			return "${ctx.channel()} ${eventName} [${protocol?.name()}][${msg.protocol}] [${code?.name()}][${msg.code}]:\n${TextFormat.printer().escapingNonAscii(false).printToString(unpackData)}"
 		}
 		
