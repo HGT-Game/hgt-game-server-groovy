@@ -87,4 +87,12 @@ class SoupRecord implements TData<String> {
 		
 		record
 	}
+	
+	def getMsg(String msgId) {
+		if (!msgId) {
+			return null
+		}
+		
+		chatRecordMap.get(msgId)
+	}
 }

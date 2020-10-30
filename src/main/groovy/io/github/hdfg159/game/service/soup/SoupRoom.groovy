@@ -130,11 +130,7 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 		roomMemberMap.get(aid)
 	}
 	
-	SoupRecord getRecord(String recordId) {
-		if (!recordId) {
-			return null
-		}
-		
+	SoupRecord getRecord() {
 		recordMap.get(recordId)
 	}
 }

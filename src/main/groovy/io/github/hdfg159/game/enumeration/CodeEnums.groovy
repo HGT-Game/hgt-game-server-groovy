@@ -71,13 +71,23 @@ enum CodeEnums {
 	 * 加入房间失败
 	 */
 	SOUP_ROOM_JOIN_FAIL(20200),
+	/**
+	 * 房间已经满人
+	 */
 	SOUP_ROOM_JOIN_MAX_LIMIT(20201),
+	/**
+	 * 已经加入房间
+	 */
 	SOUP_ROOM_JOIN_EXIST(20202),
 	
 	/**
 	 * 房间推送
 	 */
 	SOUP_ROOM_PUSH(20300),
+	/**
+	 * 变更聊天消息推送
+	 */
+	SOUP_ROOM_MSG_PUSH(20301),
 	
 	/**
 	 * 离开房间失败
@@ -117,7 +127,6 @@ enum CodeEnums {
 	 */
 	SOUP_END_FAIL(20800),
 	
-	
 	/**
 	 * 聊天被限制
 	 */
@@ -130,8 +139,24 @@ enum CodeEnums {
 	 * 场次记录不存在
 	 */
 	SOUP_RECORD_NOT_EXIST(20902),
+	/**
+	 * 聊天记录不存在
+	 */
+	SOUP_MESSAGE_NOT_EXIST(20903),
 	
-	SOUP_MEMBER_NOT_FREE(21000)
+	/**
+	 * 成员不是闲置状态
+	 */
+	SOUP_MEMBER_NOT_FREE(21000),
+	/**
+	 * 成员不是MC
+	 */
+	SOUP_MEMBER_NOT_MC(21001),
+	
+	/**
+	 * 答案类型不存在
+	 */
+	SOUP_ANSWER_TYPE_NOT_EXIST(21100),
 	
 	
 	long code

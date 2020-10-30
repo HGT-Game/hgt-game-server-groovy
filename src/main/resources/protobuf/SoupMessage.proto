@@ -97,6 +97,8 @@ message RoomPush {
     uint32 status = 2;
     QuestionRes question = 3;
     string roomId = 4;
+    repeated ChatMessageRes changedMsg = 5;
+    repeated ChatMessageRes msg = 6;
 }
 
 message RoomMemberSeatRes {
@@ -114,4 +116,15 @@ message QuestionRes {
     string id = 1;
     string question = 2;
     string content = 3;
+}
+
+message ChatMessageRes {
+    string id = 1;
+    string content = 2;
+    uint32 answer = 3;
+
+    string aid = 4;
+    string avaName = 5;
+    string avaHead = 6;
+    bool mc = 7;
 }

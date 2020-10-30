@@ -150,7 +150,7 @@ class TurtleSoupService extends AbstractService {
 			}
 			
 			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-			roomPush([aid], [aid], roomId, {it})
+			roomPush(CodeEnums.SOUP_ROOM_PUSH, [aid], [aid], roomId, {it})
 			
 			def sucRes = SoupMessage.JoinRoomRes.newBuilder()
 					.setRoom(buildRoomPush([aid], roomId, {it}))
@@ -175,7 +175,7 @@ class TurtleSoupService extends AbstractService {
 			if (resultCode.success()) {
 				
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(roomId).build())
-				roomPush([aid], [], roomId, {it})
+				roomPush(CodeEnums.SOUP_ROOM_PUSH, [aid], [], roomId, {it})
 				
 				return GameUtils.sucResMsg(RES_SOUP_LEAVE_ROOM, SoupMessage.LeaveRoomRes.newBuilder().build())
 			} else {
@@ -234,7 +234,7 @@ class TurtleSoupService extends AbstractService {
 									}
 								}
 						
-						roomPush([room.owner], [], roomId, {
+						roomPush(CodeEnums.SOUP_ROOM_PUSH, [room.owner], [], roomId, {
 							def questionRes = SoupMessage.QuestionRes.newBuilder()
 									.setId(questionId)
 									.setQuestion(question)
@@ -249,7 +249,7 @@ class TurtleSoupService extends AbstractService {
 					if (member.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PREPARE.status)) {
 						room.prepare.add(aid)
 						
-						roomPush([aid], [], roomId, {it})
+						roomPush(CodeEnums.SOUP_ROOM_PUSH, [aid], [], roomId, {it})
 						return sucResMsg
 					} else {
 						return errRes
@@ -260,7 +260,7 @@ class TurtleSoupService extends AbstractService {
 				if (room.owner != aid && member.status.compareAndSet(MemberStatus.PREPARE.status, MemberStatus.ROOM.status)) {
 					room.prepare.remove(aid)
 					
-					roomPush([aid], [], roomId, {it})
+					roomPush(CodeEnums.SOUP_ROOM_PUSH, [aid], [], roomId, {it})
 					return sucResMsg
 				} else {
 					return errRes
@@ -306,7 +306,7 @@ class TurtleSoupService extends AbstractService {
 			if (kickResult.success()) {
 				
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-				roomPush([kickMember.id], [], roomId, {it})
+				roomPush(CodeEnums.SOUP_ROOM_PUSH, [kickMember.id], [], roomId, {it})
 				
 				return GameUtils.sucResMsg(RES_SOUP_KICK, SoupMessage.KickRes.newBuilder().build())
 			} else {
@@ -336,7 +336,7 @@ class TurtleSoupService extends AbstractService {
 			if (result.success()) {
 				
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-				roomPush([aid], [], roomId, {it})
+				roomPush(CodeEnums.SOUP_ROOM_PUSH, [aid], [], roomId, {it})
 				
 				return GameUtils.sucResMsg(RES_SOUP_EXCHANGE_SEAT, SoupMessage.ExchangeSeatRes.newBuilder().build())
 			} else {
@@ -370,12 +370,7 @@ class TurtleSoupService extends AbstractService {
 			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_ROOM_NOT_PLAYING)
 		}
 		
-		def recordId = room.recordId
-		if (!recordId) {
-			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_RECORD_NOT_EXIST)
-		}
-		
-		def record = room.getRecord(recordId)
+		def record = room.getRecord()
 		if (!record) {
 			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_RECORD_NOT_EXIST)
 		}
@@ -391,13 +386,59 @@ class TurtleSoupService extends AbstractService {
 		record.chatRecordMap.put(chat.id, chat)
 		record.memberMsgMap.get(aid).add(chat.id)
 		
-		// todo 推送
+		roomPush(CodeEnums.SOUP_ROOM_MSG_PUSH, [], [], room.id, {
+			def res = buildMessageRes(chat, aid, record.mcId)
+			if (res) {
+				it.addChangedMsg(res)
+			}
+		})
 		return GameUtils.sucResMsg(RES_SOUP_CHAT, builder.build())
 	}
 	
 	def answer = {headers, params ->
 		def aid = getHeaderAvatarId(headers)
 		def req = params as SoupMessage.AnswerReq
+		
+		def member = memberData.getById(aid)
+		def room = roomData.getRoom(member.roomId)
+		if (!room) {
+			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_ROOM_NOT_EXIST)
+		}
+		
+		if (room.status != RoomStatus.PLAYING.status) {
+			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_ROOM_NOT_PLAYING)
+		}
+		
+		def record = room.getRecord()
+		if (!record) {
+			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_RECORD_NOT_EXIST)
+		}
+		
+		if (record.mcId != aid) {
+			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_MEMBER_NOT_MC)
+		}
+		
+		def chat = record.getMsg(req.id)
+		if (!chat) {
+			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_MESSAGE_NOT_EXIST)
+		}
+		
+		def answerType = AnswerType.valOf(req.answer)
+		if (!answerType) {
+			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_ANSWER_TYPE_NOT_EXIST)
+		}
+		
+		// 改变数据设置答案
+		chat.setAnswer(answerType.type)
+		
+		roomPush(CodeEnums.SOUP_ROOM_MSG_PUSH, [], [], room.id, {
+			def res = buildMessageRes(chat, aid, record.mcId)
+			if (res) {
+				it.addChangedMsg(res)
+			}
+		})
+		
+		GameUtils.sucResMsg(RES_SOUP_ANSWER, SoupMessage.AnswerRes.newBuilder().build())
 	}
 	
 	def end = {headers, params ->
@@ -437,7 +478,7 @@ class TurtleSoupService extends AbstractService {
 			}
 			
 			// todo 推送汤底答案和所有位置信息
-			roomPush(room.roomMemberMap.keySet(), [], roomId, {
+			roomPush(CodeEnums.SOUP_ROOM_PUSH, room.roomMemberMap.keySet(), [], roomId, {
 				def questionRes = SoupMessage.QuestionRes.newBuilder()
 						.setContent("我是答案")
 						.build()
@@ -498,12 +539,12 @@ class TurtleSoupService extends AbstractService {
 	
 	// Private
 	
-	private SoupMessage.RoomMemberSeatRes buildSeatRes(SoupMember member, String owner, String mc) {
+	def buildSeatRes(SoupMember member, String owner, String mc) {
 		if (!member) {
 			return null
 		}
 		
-		def avatar = avatarService.getAvatarData()?.getById(member.id)
+		def avatar = avatarService.getAvatarById(member.id)
 		
 		SoupMessage.RoomMemberSeatRes.newBuilder()
 				.setAid(avatar?.id)
@@ -517,21 +558,22 @@ class TurtleSoupService extends AbstractService {
 				.build()
 	}
 	
-	private void roomPush(Collection<String> changeMemberIds,
-						  Collection<String> excludePushMemberIds,
-						  String roomId,
-						  Function<RoomPush.Builder, RoomPush.Builder> mapping) {
+	def roomPush(CodeEnums code,
+				 Collection<String> changeMemberIds,
+				 Collection<String> excludePushMemberIds,
+				 String roomId,
+				 Function<RoomPush.Builder, RoomPush.Builder> mapping) {
 		
 		def push = buildRoomPush(changeMemberIds, roomId, mapping)
 		if (push) {
-			def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH, push)
+			def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, code, push)
 			avatarService.pushAllMsg(roomData.getRoom(roomId).roomMemberMap.keySet(), excludePushMemberIds.toSet(), msg)
 		}
 	}
 	
-	private RoomPush buildRoomPush(Collection<String> changeMemberIds,
-								   String roomId,
-								   Function<RoomPush.Builder, RoomPush.Builder> mapping) {
+	def buildRoomPush(Collection<String> changeMemberIds,
+					  String roomId,
+					  Function<RoomPush.Builder, RoomPush.Builder> mapping) {
 		def room = roomData.getRoom(roomId)
 		if (!room) {
 			return null
@@ -551,5 +593,26 @@ class TurtleSoupService extends AbstractService {
 				.addAllSeatsChange(seatRes)
 		
 		mapping.apply(builder).build()
+	}
+	
+	def buildMessageRes(SoupChatRecord chat, String aid, String mcId) {
+		if (!chat) {
+			return null
+		}
+		
+		def msgResBuilder = SoupMessage.ChatMessageRes.newBuilder()
+				.setId(chat.id)
+				.setContent(chat.content)
+				.setAnswer(chat.answer)
+		
+		def avatar = avatarService.getAvatarById(aid)
+		if (avatar) {
+			msgResBuilder
+					.setAid(avatar.id)
+					.setAvaName(avatar.username)
+					.setAvaHead("")
+					.setMc(mcId == avatar.id)
+		}
+		msgResBuilder.build()
 	}
 }

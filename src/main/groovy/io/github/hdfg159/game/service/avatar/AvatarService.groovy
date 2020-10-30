@@ -246,4 +246,12 @@ class AvatarService extends AbstractService {
 				.findAll {it && it.isActive()}
 				.each {it.writeAndFlush(message)}
 	}
+	
+	def getAvatarById(String id) {
+		avatarData.getById(id)
+	}
+	
+	def getAvatarByName(String name) {
+		avatarData.getByUsername(name)
+	}
 }

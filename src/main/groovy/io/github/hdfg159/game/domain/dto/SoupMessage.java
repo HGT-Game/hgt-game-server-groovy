@@ -11973,6 +11973,54 @@ public final class SoupMessage {
      */
     com.google.protobuf.ByteString
         getRoomIdBytes();
+
+    /**
+     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+     */
+    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> 
+        getChangedMsgList();
+    /**
+     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChangedMsg(int index);
+    /**
+     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+     */
+    int getChangedMsgCount();
+    /**
+     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+     */
+    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+        getChangedMsgOrBuilderList();
+    /**
+     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChangedMsgOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .ChatMessageRes msg = 6;</code>
+     */
+    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> 
+        getMsgList();
+    /**
+     * <code>repeated .ChatMessageRes msg = 6;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getMsg(int index);
+    /**
+     * <code>repeated .ChatMessageRes msg = 6;</code>
+     */
+    int getMsgCount();
+    /**
+     * <code>repeated .ChatMessageRes msg = 6;</code>
+     */
+    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+        getMsgOrBuilderList();
+    /**
+     * <code>repeated .ChatMessageRes msg = 6;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getMsgOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code RoomPush}
@@ -11989,6 +12037,8 @@ public final class SoupMessage {
     private RoomPush() {
       seatsChange_ = java.util.Collections.emptyList();
       roomId_ = "";
+      changedMsg_ = java.util.Collections.emptyList();
+      msg_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -12055,6 +12105,24 @@ public final class SoupMessage {
               roomId_ = s;
               break;
             }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                changedMsg_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              changedMsg_.add(
+                  input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.parser(), extensionRegistry));
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                msg_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              msg_.add(
+                  input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.parser(), extensionRegistry));
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -12072,6 +12140,12 @@ public final class SoupMessage {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
           seatsChange_ = java.util.Collections.unmodifiableList(seatsChange_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          changedMsg_ = java.util.Collections.unmodifiableList(changedMsg_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          msg_ = java.util.Collections.unmodifiableList(msg_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -12205,6 +12279,86 @@ public final class SoupMessage {
       }
     }
 
+    public static final int CHANGEDMSG_FIELD_NUMBER = 5;
+    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> changedMsg_;
+    /**
+     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getChangedMsgList() {
+      return changedMsg_;
+    }
+    /**
+     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+        getChangedMsgOrBuilderList() {
+      return changedMsg_;
+    }
+    /**
+     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+     */
+    @java.lang.Override
+    public int getChangedMsgCount() {
+      return changedMsg_.size();
+    }
+    /**
+     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChangedMsg(int index) {
+      return changedMsg_.get(index);
+    }
+    /**
+     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChangedMsgOrBuilder(
+        int index) {
+      return changedMsg_.get(index);
+    }
+
+    public static final int MSG_FIELD_NUMBER = 6;
+    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> msg_;
+    /**
+     * <code>repeated .ChatMessageRes msg = 6;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getMsgList() {
+      return msg_;
+    }
+    /**
+     * <code>repeated .ChatMessageRes msg = 6;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+        getMsgOrBuilderList() {
+      return msg_;
+    }
+    /**
+     * <code>repeated .ChatMessageRes msg = 6;</code>
+     */
+    @java.lang.Override
+    public int getMsgCount() {
+      return msg_.size();
+    }
+    /**
+     * <code>repeated .ChatMessageRes msg = 6;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getMsg(int index) {
+      return msg_.get(index);
+    }
+    /**
+     * <code>repeated .ChatMessageRes msg = 6;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getMsgOrBuilder(
+        int index) {
+      return msg_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -12231,6 +12385,12 @@ public final class SoupMessage {
       if (!getRoomIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, roomId_);
       }
+      for (int i = 0; i < changedMsg_.size(); i++) {
+        output.writeMessage(5, changedMsg_.get(i));
+      }
+      for (int i = 0; i < msg_.size(); i++) {
+        output.writeMessage(6, msg_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -12254,6 +12414,14 @@ public final class SoupMessage {
       }
       if (!getRoomIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, roomId_);
+      }
+      for (int i = 0; i < changedMsg_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, changedMsg_.get(i));
+      }
+      for (int i = 0; i < msg_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, msg_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12281,6 +12449,10 @@ public final class SoupMessage {
       }
       if (!getRoomId()
           .equals(other.getRoomId())) return false;
+      if (!getChangedMsgList()
+          .equals(other.getChangedMsgList())) return false;
+      if (!getMsgList()
+          .equals(other.getMsgList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -12304,6 +12476,14 @@ public final class SoupMessage {
       }
       hash = (37 * hash) + ROOMID_FIELD_NUMBER;
       hash = (53 * hash) + getRoomId().hashCode();
+      if (getChangedMsgCount() > 0) {
+        hash = (37 * hash) + CHANGEDMSG_FIELD_NUMBER;
+        hash = (53 * hash) + getChangedMsgList().hashCode();
+      }
+      if (getMsgCount() > 0) {
+        hash = (37 * hash) + MSG_FIELD_NUMBER;
+        hash = (53 * hash) + getMsgList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -12433,6 +12613,8 @@ public final class SoupMessage {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getSeatsChangeFieldBuilder();
+          getChangedMsgFieldBuilder();
+          getMsgFieldBuilder();
         }
       }
       @java.lang.Override
@@ -12454,6 +12636,18 @@ public final class SoupMessage {
         }
         roomId_ = "";
 
+        if (changedMsgBuilder_ == null) {
+          changedMsg_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          changedMsgBuilder_.clear();
+        }
+        if (msgBuilder_ == null) {
+          msg_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          msgBuilder_.clear();
+        }
         return this;
       }
 
@@ -12497,6 +12691,24 @@ public final class SoupMessage {
           result.question_ = questionBuilder_.build();
         }
         result.roomId_ = roomId_;
+        if (changedMsgBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            changedMsg_ = java.util.Collections.unmodifiableList(changedMsg_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.changedMsg_ = changedMsg_;
+        } else {
+          result.changedMsg_ = changedMsgBuilder_.build();
+        }
+        if (msgBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0)) {
+            msg_ = java.util.Collections.unmodifiableList(msg_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.msg_ = msg_;
+        } else {
+          result.msg_ = msgBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -12580,6 +12792,58 @@ public final class SoupMessage {
         if (!other.getRoomId().isEmpty()) {
           roomId_ = other.roomId_;
           onChanged();
+        }
+        if (changedMsgBuilder_ == null) {
+          if (!other.changedMsg_.isEmpty()) {
+            if (changedMsg_.isEmpty()) {
+              changedMsg_ = other.changedMsg_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureChangedMsgIsMutable();
+              changedMsg_.addAll(other.changedMsg_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.changedMsg_.isEmpty()) {
+            if (changedMsgBuilder_.isEmpty()) {
+              changedMsgBuilder_.dispose();
+              changedMsgBuilder_ = null;
+              changedMsg_ = other.changedMsg_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              changedMsgBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getChangedMsgFieldBuilder() : null;
+            } else {
+              changedMsgBuilder_.addAllMessages(other.changedMsg_);
+            }
+          }
+        }
+        if (msgBuilder_ == null) {
+          if (!other.msg_.isEmpty()) {
+            if (msg_.isEmpty()) {
+              msg_ = other.msg_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureMsgIsMutable();
+              msg_.addAll(other.msg_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.msg_.isEmpty()) {
+            if (msgBuilder_.isEmpty()) {
+              msgBuilder_.dispose();
+              msgBuilder_ = null;
+              msg_ = other.msg_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              msgBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getMsgFieldBuilder() : null;
+            } else {
+              msgBuilder_.addAllMessages(other.msg_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -13075,6 +13339,486 @@ public final class SoupMessage {
         roomId_ = value;
         onChanged();
         return this;
+      }
+
+      private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> changedMsg_ =
+        java.util.Collections.emptyList();
+      private void ensureChangedMsgIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          changedMsg_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes>(changedMsg_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> changedMsgBuilder_;
+
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getChangedMsgList() {
+        if (changedMsgBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(changedMsg_);
+        } else {
+          return changedMsgBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public int getChangedMsgCount() {
+        if (changedMsgBuilder_ == null) {
+          return changedMsg_.size();
+        } else {
+          return changedMsgBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChangedMsg(int index) {
+        if (changedMsgBuilder_ == null) {
+          return changedMsg_.get(index);
+        } else {
+          return changedMsgBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public Builder setChangedMsg(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
+        if (changedMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureChangedMsgIsMutable();
+          changedMsg_.set(index, value);
+          onChanged();
+        } else {
+          changedMsgBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public Builder setChangedMsg(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
+        if (changedMsgBuilder_ == null) {
+          ensureChangedMsgIsMutable();
+          changedMsg_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          changedMsgBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public Builder addChangedMsg(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
+        if (changedMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureChangedMsgIsMutable();
+          changedMsg_.add(value);
+          onChanged();
+        } else {
+          changedMsgBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public Builder addChangedMsg(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
+        if (changedMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureChangedMsgIsMutable();
+          changedMsg_.add(index, value);
+          onChanged();
+        } else {
+          changedMsgBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public Builder addChangedMsg(
+          io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
+        if (changedMsgBuilder_ == null) {
+          ensureChangedMsgIsMutable();
+          changedMsg_.add(builderForValue.build());
+          onChanged();
+        } else {
+          changedMsgBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public Builder addChangedMsg(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
+        if (changedMsgBuilder_ == null) {
+          ensureChangedMsgIsMutable();
+          changedMsg_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          changedMsgBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public Builder addAllChangedMsg(
+          java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> values) {
+        if (changedMsgBuilder_ == null) {
+          ensureChangedMsgIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, changedMsg_);
+          onChanged();
+        } else {
+          changedMsgBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public Builder clearChangedMsg() {
+        if (changedMsgBuilder_ == null) {
+          changedMsg_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          changedMsgBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public Builder removeChangedMsg(int index) {
+        if (changedMsgBuilder_ == null) {
+          ensureChangedMsgIsMutable();
+          changedMsg_.remove(index);
+          onChanged();
+        } else {
+          changedMsgBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder getChangedMsgBuilder(
+          int index) {
+        return getChangedMsgFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChangedMsgOrBuilder(
+          int index) {
+        if (changedMsgBuilder_ == null) {
+          return changedMsg_.get(index);  } else {
+          return changedMsgBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+           getChangedMsgOrBuilderList() {
+        if (changedMsgBuilder_ != null) {
+          return changedMsgBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(changedMsg_);
+        }
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder addChangedMsgBuilder() {
+        return getChangedMsgFieldBuilder().addBuilder(
+            io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder addChangedMsgBuilder(
+          int index) {
+        return getChangedMsgFieldBuilder().addBuilder(
+            index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       */
+      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder> 
+           getChangedMsgBuilderList() {
+        return getChangedMsgFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+          getChangedMsgFieldBuilder() {
+        if (changedMsgBuilder_ == null) {
+          changedMsgBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder>(
+                  changedMsg_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          changedMsg_ = null;
+        }
+        return changedMsgBuilder_;
+      }
+
+      private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> msg_ =
+        java.util.Collections.emptyList();
+      private void ensureMsgIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          msg_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes>(msg_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> msgBuilder_;
+
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getMsgList() {
+        if (msgBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(msg_);
+        } else {
+          return msgBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public int getMsgCount() {
+        if (msgBuilder_ == null) {
+          return msg_.size();
+        } else {
+          return msgBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getMsg(int index) {
+        if (msgBuilder_ == null) {
+          return msg_.get(index);
+        } else {
+          return msgBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public Builder setMsg(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
+        if (msgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMsgIsMutable();
+          msg_.set(index, value);
+          onChanged();
+        } else {
+          msgBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public Builder setMsg(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
+        if (msgBuilder_ == null) {
+          ensureMsgIsMutable();
+          msg_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          msgBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public Builder addMsg(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
+        if (msgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMsgIsMutable();
+          msg_.add(value);
+          onChanged();
+        } else {
+          msgBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public Builder addMsg(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
+        if (msgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMsgIsMutable();
+          msg_.add(index, value);
+          onChanged();
+        } else {
+          msgBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public Builder addMsg(
+          io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
+        if (msgBuilder_ == null) {
+          ensureMsgIsMutable();
+          msg_.add(builderForValue.build());
+          onChanged();
+        } else {
+          msgBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public Builder addMsg(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
+        if (msgBuilder_ == null) {
+          ensureMsgIsMutable();
+          msg_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          msgBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public Builder addAllMsg(
+          java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> values) {
+        if (msgBuilder_ == null) {
+          ensureMsgIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, msg_);
+          onChanged();
+        } else {
+          msgBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public Builder clearMsg() {
+        if (msgBuilder_ == null) {
+          msg_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          msgBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public Builder removeMsg(int index) {
+        if (msgBuilder_ == null) {
+          ensureMsgIsMutable();
+          msg_.remove(index);
+          onChanged();
+        } else {
+          msgBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder getMsgBuilder(
+          int index) {
+        return getMsgFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getMsgOrBuilder(
+          int index) {
+        if (msgBuilder_ == null) {
+          return msg_.get(index);  } else {
+          return msgBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+           getMsgOrBuilderList() {
+        if (msgBuilder_ != null) {
+          return msgBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(msg_);
+        }
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder addMsgBuilder() {
+        return getMsgFieldBuilder().addBuilder(
+            io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder addMsgBuilder(
+          int index) {
+        return getMsgFieldBuilder().addBuilder(
+            index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ChatMessageRes msg = 6;</code>
+       */
+      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder> 
+           getMsgBuilderList() {
+        return getMsgFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+          getMsgFieldBuilder() {
+        if (msgBuilder_ == null) {
+          msgBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder>(
+                  msg_,
+                  ((bitField0_ & 0x00000004) != 0),
+                  getParentForChildren(),
+                  isClean());
+          msg_ = null;
+        }
+        return msgBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -15218,6 +15962,1315 @@ public final class SoupMessage {
 
   }
 
+  public interface ChatMessageResOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ChatMessageRes)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>string content = 2;</code>
+     * @return The content.
+     */
+    java.lang.String getContent();
+    /**
+     * <code>string content = 2;</code>
+     * @return The bytes for content.
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+
+    /**
+     * <code>uint32 answer = 3;</code>
+     * @return The answer.
+     */
+    int getAnswer();
+
+    /**
+     * <code>string aid = 4;</code>
+     * @return The aid.
+     */
+    java.lang.String getAid();
+    /**
+     * <code>string aid = 4;</code>
+     * @return The bytes for aid.
+     */
+    com.google.protobuf.ByteString
+        getAidBytes();
+
+    /**
+     * <code>string avaName = 5;</code>
+     * @return The avaName.
+     */
+    java.lang.String getAvaName();
+    /**
+     * <code>string avaName = 5;</code>
+     * @return The bytes for avaName.
+     */
+    com.google.protobuf.ByteString
+        getAvaNameBytes();
+
+    /**
+     * <code>string avaHead = 6;</code>
+     * @return The avaHead.
+     */
+    java.lang.String getAvaHead();
+    /**
+     * <code>string avaHead = 6;</code>
+     * @return The bytes for avaHead.
+     */
+    com.google.protobuf.ByteString
+        getAvaHeadBytes();
+
+    /**
+     * <code>bool mc = 7;</code>
+     * @return The mc.
+     */
+    boolean getMc();
+  }
+  /**
+   * Protobuf type {@code ChatMessageRes}
+   */
+  public static final class ChatMessageRes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ChatMessageRes)
+      ChatMessageResOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ChatMessageRes.newBuilder() to construct.
+    private ChatMessageRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ChatMessageRes() {
+      id_ = "";
+      content_ = "";
+      aid_ = "";
+      avaName_ = "";
+      avaHead_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ChatMessageRes();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ChatMessageRes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              content_ = s;
+              break;
+            }
+            case 24: {
+
+              answer_ = input.readUInt32();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              aid_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              avaName_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              avaHead_ = s;
+              break;
+            }
+            case 56: {
+
+              mc_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatMessageRes_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatMessageRes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONTENT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object content_;
+    /**
+     * <code>string content = 2;</code>
+     * @return The content.
+     */
+    @java.lang.Override
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string content = 2;</code>
+     * @return The bytes for content.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ANSWER_FIELD_NUMBER = 3;
+    private int answer_;
+    /**
+     * <code>uint32 answer = 3;</code>
+     * @return The answer.
+     */
+    @java.lang.Override
+    public int getAnswer() {
+      return answer_;
+    }
+
+    public static final int AID_FIELD_NUMBER = 4;
+    private volatile java.lang.Object aid_;
+    /**
+     * <code>string aid = 4;</code>
+     * @return The aid.
+     */
+    @java.lang.Override
+    public java.lang.String getAid() {
+      java.lang.Object ref = aid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        aid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string aid = 4;</code>
+     * @return The bytes for aid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAidBytes() {
+      java.lang.Object ref = aid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        aid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int AVANAME_FIELD_NUMBER = 5;
+    private volatile java.lang.Object avaName_;
+    /**
+     * <code>string avaName = 5;</code>
+     * @return The avaName.
+     */
+    @java.lang.Override
+    public java.lang.String getAvaName() {
+      java.lang.Object ref = avaName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        avaName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string avaName = 5;</code>
+     * @return The bytes for avaName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAvaNameBytes() {
+      java.lang.Object ref = avaName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        avaName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int AVAHEAD_FIELD_NUMBER = 6;
+    private volatile java.lang.Object avaHead_;
+    /**
+     * <code>string avaHead = 6;</code>
+     * @return The avaHead.
+     */
+    @java.lang.Override
+    public java.lang.String getAvaHead() {
+      java.lang.Object ref = avaHead_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        avaHead_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string avaHead = 6;</code>
+     * @return The bytes for avaHead.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAvaHeadBytes() {
+      java.lang.Object ref = avaHead_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        avaHead_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MC_FIELD_NUMBER = 7;
+    private boolean mc_;
+    /**
+     * <code>bool mc = 7;</code>
+     * @return The mc.
+     */
+    @java.lang.Override
+    public boolean getMc() {
+      return mc_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, content_);
+      }
+      if (answer_ != 0) {
+        output.writeUInt32(3, answer_);
+      }
+      if (!getAidBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, aid_);
+      }
+      if (!getAvaNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, avaName_);
+      }
+      if (!getAvaHeadBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, avaHead_);
+      }
+      if (mc_ != false) {
+        output.writeBool(7, mc_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, content_);
+      }
+      if (answer_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, answer_);
+      }
+      if (!getAidBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, aid_);
+      }
+      if (!getAvaNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, avaName_);
+      }
+      if (!getAvaHeadBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, avaHead_);
+      }
+      if (mc_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(7, mc_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes)) {
+        return super.equals(obj);
+      }
+      io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes other = (io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (getAnswer()
+          != other.getAnswer()) return false;
+      if (!getAid()
+          .equals(other.getAid())) return false;
+      if (!getAvaName()
+          .equals(other.getAvaName())) return false;
+      if (!getAvaHead()
+          .equals(other.getAvaHead())) return false;
+      if (getMc()
+          != other.getMc()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      hash = (37 * hash) + ANSWER_FIELD_NUMBER;
+      hash = (53 * hash) + getAnswer();
+      hash = (37 * hash) + AID_FIELD_NUMBER;
+      hash = (53 * hash) + getAid().hashCode();
+      hash = (37 * hash) + AVANAME_FIELD_NUMBER;
+      hash = (53 * hash) + getAvaName().hashCode();
+      hash = (37 * hash) + AVAHEAD_FIELD_NUMBER;
+      hash = (53 * hash) + getAvaHead().hashCode();
+      hash = (37 * hash) + MC_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getMc());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ChatMessageRes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ChatMessageRes)
+        io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatMessageRes_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatMessageRes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder.class);
+      }
+
+      // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        content_ = "";
+
+        answer_ = 0;
+
+        aid_ = "";
+
+        avaName_ = "";
+
+        avaHead_ = "";
+
+        mc_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatMessageRes_descriptor;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes build() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes result = new io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes(this);
+        result.id_ = id_;
+        result.content_ = content_;
+        result.answer_ = answer_;
+        result.aid_ = aid_;
+        result.avaName_ = avaName_;
+        result.avaHead_ = avaHead_;
+        result.mc_ = mc_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        if (!other.getContent().isEmpty()) {
+          content_ = other.content_;
+          onChanged();
+        }
+        if (other.getAnswer() != 0) {
+          setAnswer(other.getAnswer());
+        }
+        if (!other.getAid().isEmpty()) {
+          aid_ = other.aid_;
+          onChanged();
+        }
+        if (!other.getAvaName().isEmpty()) {
+          avaName_ = other.avaName_;
+          onChanged();
+        }
+        if (!other.getAvaHead().isEmpty()) {
+          avaHead_ = other.avaHead_;
+          onChanged();
+        }
+        if (other.getMc() != false) {
+          setMc(other.getMc());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object content_ = "";
+      /**
+       * <code>string content = 2;</code>
+       * @return The content.
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string content = 2;</code>
+       * @return The bytes for content.
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string content = 2;</code>
+       * @param value The content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearContent() {
+        
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 2;</code>
+       * @param value The bytes for content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int answer_ ;
+      /**
+       * <code>uint32 answer = 3;</code>
+       * @return The answer.
+       */
+      @java.lang.Override
+      public int getAnswer() {
+        return answer_;
+      }
+      /**
+       * <code>uint32 answer = 3;</code>
+       * @param value The answer to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAnswer(int value) {
+        
+        answer_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 answer = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAnswer() {
+        
+        answer_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object aid_ = "";
+      /**
+       * <code>string aid = 4;</code>
+       * @return The aid.
+       */
+      public java.lang.String getAid() {
+        java.lang.Object ref = aid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          aid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string aid = 4;</code>
+       * @return The bytes for aid.
+       */
+      public com.google.protobuf.ByteString
+          getAidBytes() {
+        java.lang.Object ref = aid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          aid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string aid = 4;</code>
+       * @param value The aid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        aid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string aid = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAid() {
+        
+        aid_ = getDefaultInstance().getAid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string aid = 4;</code>
+       * @param value The bytes for aid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        aid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object avaName_ = "";
+      /**
+       * <code>string avaName = 5;</code>
+       * @return The avaName.
+       */
+      public java.lang.String getAvaName() {
+        java.lang.Object ref = avaName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          avaName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string avaName = 5;</code>
+       * @return The bytes for avaName.
+       */
+      public com.google.protobuf.ByteString
+          getAvaNameBytes() {
+        java.lang.Object ref = avaName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          avaName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string avaName = 5;</code>
+       * @param value The avaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAvaName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        avaName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string avaName = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAvaName() {
+        
+        avaName_ = getDefaultInstance().getAvaName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string avaName = 5;</code>
+       * @param value The bytes for avaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAvaNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        avaName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object avaHead_ = "";
+      /**
+       * <code>string avaHead = 6;</code>
+       * @return The avaHead.
+       */
+      public java.lang.String getAvaHead() {
+        java.lang.Object ref = avaHead_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          avaHead_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string avaHead = 6;</code>
+       * @return The bytes for avaHead.
+       */
+      public com.google.protobuf.ByteString
+          getAvaHeadBytes() {
+        java.lang.Object ref = avaHead_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          avaHead_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string avaHead = 6;</code>
+       * @param value The avaHead to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAvaHead(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        avaHead_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string avaHead = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAvaHead() {
+        
+        avaHead_ = getDefaultInstance().getAvaHead();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string avaHead = 6;</code>
+       * @param value The bytes for avaHead to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAvaHeadBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        avaHead_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean mc_ ;
+      /**
+       * <code>bool mc = 7;</code>
+       * @return The mc.
+       */
+      @java.lang.Override
+      public boolean getMc() {
+        return mc_;
+      }
+      /**
+       * <code>bool mc = 7;</code>
+       * @param value The mc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMc(boolean value) {
+        
+        mc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool mc = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMc() {
+        
+        mc_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ChatMessageRes)
+    }
+
+    // @@protoc_insertion_point(class_scope:ChatMessageRes)
+    private static final io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes();
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ChatMessageRes>
+        PARSER = new com.google.protobuf.AbstractParser<ChatMessageRes>() {
+      @java.lang.Override
+      public ChatMessageRes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ChatMessageRes(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ChatMessageRes> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ChatMessageRes> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_RoomHallReq_descriptor;
   private static final 
@@ -15343,6 +17396,11 @@ public final class SoupMessage {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_QuestionRes_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ChatMessageRes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ChatMessageRes_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -15368,16 +17426,21 @@ public final class SoupMessage {
       "\032\n\007ChatRes\022\017\n\007seconds\030\001 \001(\004\"\'\n\tAnswerReq" +
       "\022\n\n\002id\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnswerRe" +
       "s\"\010\n\006EndReq\"\031\n\006EndRes\022\017\n\007content\030\001 \001(\t\"\n" +
-      "\n\010HallPush\"s\n\010RoomPush\022\'\n\013seatsChange\030\001 " +
-      "\003(\0132\022.RoomMemberSeatRes\022\016\n\006status\030\002 \001(\r\022" +
-      "\036\n\010question\030\003 \001(\0132\014.QuestionRes\022\016\n\006roomI" +
-      "d\030\004 \001(\t\"\213\001\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001" +
-      "(\t\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005" +
-      "index\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001" +
-      "(\r\022\n\n\002mc\030\007 \001(\010\022\r\n\005leave\030\010 \001(\010\"<\n\013Questio" +
-      "nRes\022\n\n\002id\030\001 \001(\t\022\020\n\010question\030\002 \001(\t\022\017\n\007co" +
-      "ntent\030\003 \001(\tB#\n!io.github.hdfg159.game.do" +
-      "main.dtob\006proto3"
+      "\n\010HallPush\"\266\001\n\010RoomPush\022\'\n\013seatsChange\030\001" +
+      " \003(\0132\022.RoomMemberSeatRes\022\016\n\006status\030\002 \001(\r" +
+      "\022\036\n\010question\030\003 \001(\0132\014.QuestionRes\022\016\n\006room" +
+      "Id\030\004 \001(\t\022#\n\nchangedMsg\030\005 \003(\0132\017.ChatMessa" +
+      "geRes\022\034\n\003msg\030\006 \003(\0132\017.ChatMessageRes\"\213\001\n\021" +
+      "RoomMemberSeatRes\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaNam" +
+      "e\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022" +
+      "\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001(\r\022\n\n\002mc\030\007 \001" +
+      "(\010\022\r\n\005leave\030\010 \001(\010\"<\n\013QuestionRes\022\n\n\002id\030\001" +
+      " \001(\t\022\020\n\010question\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\"" +
+      "x\n\016ChatMessageRes\022\n\n\002id\030\001 \001(\t\022\017\n\007content" +
+      "\030\002 \001(\t\022\016\n\006answer\030\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007a" +
+      "vaName\030\005 \001(\t\022\017\n\007avaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001(" +
+      "\010B#\n!io.github.hdfg159.game.domain.dtob\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15520,7 +17583,7 @@ public final class SoupMessage {
     internal_static_RoomPush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomPush_descriptor,
-        new java.lang.String[] { "SeatsChange", "Status", "Question", "RoomId", });
+        new java.lang.String[] { "SeatsChange", "Status", "Question", "RoomId", "ChangedMsg", "Msg", });
     internal_static_RoomMemberSeatRes_descriptor =
       getDescriptor().getMessageTypes().get(22);
     internal_static_RoomMemberSeatRes_fieldAccessorTable = new
@@ -15533,6 +17596,12 @@ public final class SoupMessage {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_QuestionRes_descriptor,
         new java.lang.String[] { "Id", "Question", "Content", });
+    internal_static_ChatMessageRes_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_ChatMessageRes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ChatMessageRes_descriptor,
+        new java.lang.String[] { "Id", "Content", "Answer", "Aid", "AvaName", "AvaHead", "Mc", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
