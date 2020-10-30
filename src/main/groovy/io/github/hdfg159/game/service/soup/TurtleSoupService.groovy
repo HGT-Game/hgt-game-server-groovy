@@ -153,7 +153,7 @@ class TurtleSoupService extends AbstractService {
 			roomPush(CodeEnums.SOUP_ROOM_PUSH, [aid], [aid], roomId, {it})
 			
 			def sucRes = SoupMessage.JoinRoomRes.newBuilder()
-					.setRoom(buildRoomPush([aid], roomId, {it}))
+					.setRoom(buildRoomPush(room.roomMemberMap.keySet(), roomId, {it}))
 					.build()
 			return GameUtils.sucResMsg(RES_SOUP_JOIN_ROOM, sucRes)
 		}
@@ -203,8 +203,11 @@ class TurtleSoupService extends AbstractService {
 				// 准备或开始
 				if (room.owner == aid) {
 					// 更改玩家状态成功 && 准备人数足够
-					if ((room.max <= room.prepare.size() + 1)
-							&& member.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PLAYING.status)) {
+					if (room.max > room.prepare.size()) {
+						return GameUtils.resMsg(RES_SOUP_PREPARE, CodeEnums.SOUP_PREPARE_MAX_NOT_REACH)
+					}
+					
+					if (member.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PLAYING.status)) {
 						// 更改房间状态
 						room.status = RoomStatus.PLAYING.status
 						

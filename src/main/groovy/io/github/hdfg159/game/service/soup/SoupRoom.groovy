@@ -114,7 +114,7 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 			return CodeEnums.SOUP_ROOM_JOIN_EXIST
 		}
 		
-		(0..max - 1).each {
+		for (it in (0..max - 1)) {
 			def mid = memberIds[it]
 			if (!mid) {
 				memberIds[it] = aid
@@ -123,7 +123,7 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 			}
 		}
 		
-		return CodeEnums.SOUP_ROOM_JOIN_MAX_LIMIT
+		return CodeEnums.SOUP_ROOM_JOIN_FAIL
 	}
 	
 	Integer getAvaIndex(String aid) {

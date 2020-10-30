@@ -50,12 +50,13 @@ class GameClient {
 		
 		channel = startFuture.channel()
 		for (; ;) {
+			log.info " 请输入命令 ".center(100, "=")
 			def cmd = System.in.newReader().readLine()
 			log.info " CMD:${cmd} ".center(100, "=")
-			
+			def args = cmd.split(" ")
 			// 下面业务代码
 			if (channel.active) {
-				switch (cmd) {
+				switch (args[0]) {
 					case "1002":
 						login("admin", "admin")
 						break
@@ -75,7 +76,10 @@ class GameClient {
 						soupRoomHall()
 						break
 					case "2002":
-						createSoupRoom()
+						createSoupRoom(args[1].toInteger())
+						break
+					case "2003":
+						joinSoupRoom(args[1])
 						break
 					case "2004":
 						leaveSoupRoom()
@@ -95,14 +99,14 @@ class GameClient {
 		channel.writeAndFlush(reg)
 	}
 	
-	def static createSoupRoom() {
-		def req = SoupMessage.CreateRoomReq.newBuilder().setName(IdUtils.idStr.substring(0, 5)).setMax(10).build()
+	def static createSoupRoom(int max) {
+		def req = SoupMessage.CreateRoomReq.newBuilder().setName(IdUtils.idStr.substring(0, 5)).setMax(max).build()
 		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_CREATE_ROOM, req)
 		channel.writeAndFlush(reg)
 	}
 	
-	def static joinSoupRoom() {
-		def req = SoupMessage.JoinRoomReq.newBuilder().setRoomId("ads").build()
+	def static joinSoupRoom(roomId) {
+		def req = SoupMessage.JoinRoomReq.newBuilder().setRoomId(roomId).build()
 		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_JOIN_ROOM, req)
 		channel.writeAndFlush(reg)
 	}

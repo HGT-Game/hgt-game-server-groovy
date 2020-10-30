@@ -98,6 +98,10 @@ enum CodeEnums {
 	 * 准备失败
 	 */
 	SOUP_PREPARE_FAIL(20500),
+	/**
+	 * 未达到最大人数，不能开始游戏
+	 */
+	SOUP_PREPARE_MAX_NOT_REACH(20501),
 	
 	/**
 	 * 踢人失败
