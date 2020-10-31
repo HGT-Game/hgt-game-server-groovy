@@ -35,14 +35,14 @@ import static io.github.hdfg159.game.enumeration.ProtocolEnums.*
 @Slf4j
 @Singleton
 class TurtleSoupService extends AbstractService {
-	AvatarService avatarService = AvatarService.getInstance()
+	def avatarService = AvatarService.getInstance()
 	
-	SoupMemberData memberData = SoupMemberData.getInstance()
-	SoupRecordData recordData = SoupRecordData.getInstance()
+	def memberData = SoupMemberData.getInstance()
+	def recordData = SoupRecordData.getInstance()
 	
-	SoupRoomData roomData = SoupRoomData.getInstance()
+	def roomData = SoupRoomData.getInstance()
 	
-	SchedulerManager scheduler = SchedulerManager.INSTANCE
+	def scheduler = SchedulerManager.INSTANCE
 	
 	@Override
 	Completable init() {
@@ -102,9 +102,9 @@ class TurtleSoupService extends AbstractService {
 			return GameUtils.resMsg(RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_MAX_ILLEGAL)
 		}
 		
-		def tuple2 = roomData.create(aid, req.name, req.max, req.password)
-		def room = tuple2.item2
-		def resultCode = tuple2.item1
+		def pair = roomData.create(aid, req.name, req.max, req.password)
+		def room = pair.item2
+		def resultCode = pair.item1
 		
 		if (!resultCode.success()) {
 			return GameUtils.resMsg(RES_SOUP_CREATE_ROOM, resultCode)
@@ -240,9 +240,7 @@ class TurtleSoupService extends AbstractService {
 						room.memberIds
 								.each {
 									def m = memberData.getById(it)
-									def push = RoomPush.newBuilder()
-											.setRoomId(room.id)
-											.setStatus(room.status)
+									def push = RoomPush.newBuilder().setRoomId(room.id).setStatus(room.status)
 									if (it == room.owner) {
 										m.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PLAYING.status)
 										m.mcTimes += 1
@@ -499,8 +497,11 @@ class TurtleSoupService extends AbstractService {
 			// 重置玩家状态
 			room.getAllMemberIds().each {
 				def m = memberData.getById(it)
-				if (m) {
-					m.status.compareAndSet(MemberStatus.PLAYING.status, MemberStatus.PREPARE.status)
+				// 改成在房间
+				m.status.compareAndSet(MemberStatus.PLAYING.status, MemberStatus.ROOM.status)
+				// 非房主移除准备数据
+				if (m.id != room.owner) {
+					room.prepare.remove(m.id)
 				}
 			}
 			

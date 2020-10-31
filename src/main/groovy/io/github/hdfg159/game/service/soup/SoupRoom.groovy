@@ -76,14 +76,14 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 		return (!cct) ? (this.@status <=> o.status) : cct
 	}
 	
-	static SoupRoom createRoom(String aid, String name, int max, String password) {
+	static def createRoom(String aid, String name, int max, String password) {
 		def room = new SoupRoom(
 				id: IdUtils.idStr,
 				status: RoomStatus.WAIT.status,
 				name: name,
 				password: password,
 				max: max,
-				prepare: [aid].toSet(),
+				prepare: [aid],
 				owner: aid,
 				creator: aid,
 				createTime: LocalDateTime.now(),
@@ -105,7 +105,7 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 		room
 	}
 	
-	CodeEnums joinRoom(String aid) {
+	def joinRoom(String aid) {
 		if (roomMemberMap.size() >= max) {
 			return CodeEnums.SOUP_ROOM_JOIN_MAX_LIMIT
 		}
@@ -123,15 +123,15 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 			}
 		}
 		
-		return CodeEnums.SOUP_ROOM_JOIN_FAIL
+		CodeEnums.SOUP_ROOM_JOIN_FAIL
 	}
 	
-	Integer getAvaIndex(String aid) {
-		roomMemberMap.get(aid)
+	def getAvaIndex(String aid) {
+		roomMemberMap[aid]
 	}
 	
-	SoupRecord getRecord() {
-		recordMap.get(recordId)
+	def getRecord() {
+		recordMap[recordId]
 	}
 	
 	def getAllMemberIds() {

@@ -15,6 +15,7 @@ import java.util.concurrent.ConcurrentHashMap
 @Singleton
 class SoupRoomData {
 	SoupMemberData memberData = SoupMemberData.getInstance()
+	
 	/**
 	 * 在大厅玩家ID
 	 */
@@ -38,24 +39,26 @@ class SoupRoomData {
 		}
 		
 		roomMap.put(room.id, room)
-		return new Tuple2<CodeEnums, SoupRoom>(CodeEnums.SUCCESS, room)
+		
+		new Tuple2<CodeEnums, SoupRoom>(CodeEnums.SUCCESS, room)
 	}
 	
-	TreeSet<SoupRoom> getRooms() {
+	def getRooms() {
 		def rooms = new TreeSet<SoupRoom>()
 		rooms.addAll(roomMap.values())
+		
 		rooms
 	}
 	
-	boolean removeAvaFromHall(String aid) {
+	def removeAvaFromHall(String aid) {
 		hallOnlineAvatars.remove(aid)
 	}
 	
-	boolean addAvaIntoHall(String aid) {
+	def addAvaIntoHall(String aid) {
 		hallOnlineAvatars.add(aid)
 	}
 	
-	CodeEnums leaveRoom(SoupMember member, SoupRoom room) {
+	def leaveRoom(SoupMember member, SoupRoom room) {
 		// 游戏中不能退出
 		if (room.status == RoomStatus.PLAYING.status) {
 			return CodeEnums.SOUP_ROOM_PLAYING
@@ -76,9 +79,8 @@ class SoupRoomData {
 			
 			// 是房主
 			if (room.owner == member.id) {
-				// 选第一个做房主，暂时不做随机逻辑
-				def memberIds = room.roomMemberMap.keySet()
-				room.owner = (memberIds.toList())[0]
+				// 随机选第一个做房主
+				room.owner = (room.roomMemberMap.keySet().toList().shuffled())[0]
 			}
 		}
 		
@@ -87,7 +89,7 @@ class SoupRoomData {
 		return CodeEnums.SUCCESS
 	}
 	
-	static CodeEnums kick(String aid, SoupMember member, SoupRoom room) {
+	static def kick(String aid, SoupMember member, SoupRoom room) {
 		// 不是房主不能踢人
 		if (aid != room.owner) {
 			return CodeEnums.SOUP_ROOM_NOT_OWNER
@@ -114,15 +116,14 @@ class SoupRoomData {
 		return CodeEnums.SUCCESS
 	}
 	
-	static CodeEnums exchangeSeat(SoupRoom room, SoupMember member, int index) {
+	static def exchangeSeat(SoupRoom room, SoupMember member, int index) {
 		// 游戏中不能换位置
 		if (room.status == RoomStatus.PLAYING.status) {
 			return CodeEnums.SOUP_ROOM_PLAYING
 		}
 		
 		// 座位有人不换
-		def mid = room.memberIds.get(index)
-		if (mid) {
+		if (room.memberIds[index]) {
 			return CodeEnums.SOUP_SEAT_EXIST
 		}
 		
@@ -139,15 +140,11 @@ class SoupRoomData {
 		return CodeEnums.SUCCESS
 	}
 	
-	SoupRoom getRoom(String roomId) {
-		if (!roomId) {
-			return null
-		}
-		
-		roomMap.get(roomId)
+	def getRoom(String roomId) {
+		!roomId ? null : roomMap.get(roomId)
 	}
 	
-	boolean existRoom(String roomId) {
+	def existRoom(String roomId) {
 		!roomId ? false : roomMap.containsKey(roomId)
 	}
 }

@@ -67,7 +67,7 @@ class SoupRecord implements TData<String> {
 	 */
 	Map<String, ConcurrentLinkedQueue<String>> memberNoteMap
 	
-	static SoupRecord createRecord(SoupRoom room, List<String> selectQuestionIds) {
+	static def createRecord(SoupRoom room, List<String> selectQuestionIds) {
 		def record = new SoupRecord()
 		record.roomId = room.id
 		record.startTime = LocalDateTime.now()
@@ -94,10 +94,6 @@ class SoupRecord implements TData<String> {
 	}
 	
 	def getMsg(String msgId) {
-		if (!msgId) {
-			return null
-		}
-		
-		chatRecordMap.get(msgId)
+		!msgId ? null : chatRecordMap[msgId]
 	}
 }

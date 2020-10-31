@@ -103,7 +103,7 @@ class SoupMember implements TData<String> {
 	 * @param roomId 房间 ID
 	 * @return 加入结果
 	 */
-	CodeEnums joinRoom(int seat, String roomId) {
+	def joinRoom(int seat, String roomId) {
 		if (status.get() != MemberStatus.FREE.status) {
 			// 非闲置状态不加入
 			return CodeEnums.SOUP_MEMBER_NOT_FREE
@@ -112,14 +112,15 @@ class SoupMember implements TData<String> {
 		status.getAndSet(MemberStatus.ROOM.status)
 		this.@seat = seat
 		this.@roomId = roomId
-		return CodeEnums.SUCCESS
+		
+		CodeEnums.SUCCESS
 	}
 	
 	/**
 	 * 是否可以发言
 	 * @return long 剩余时间(秒)
 	 */
-	long speak() {
+	def speak() {
 		if (!lastSpeakTime) {
 			this.@lastSpeakTime = LocalDateTime.now()
 			return 0L
@@ -134,7 +135,7 @@ class SoupMember implements TData<String> {
 		seconds
 	}
 	
-	boolean leaveRoom() {
+	def leaveRoom() {
 		if (!roomId) {
 			return false
 		}
