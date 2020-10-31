@@ -16,6 +16,10 @@ HGT Game Server 是一个基于海龟汤故事实现的游戏服务端，主要�
 | MongoDB | 游戏服务端持久化数据库(过期缓存数据持久化)
 | Caffeine Cache | 游戏数据内存缓存
 
+# 项目结构
+
+[目录结构](doc/CONTENT.MD)
+
 # 运行
 
 - 运行环境 : `JDK 11 +`
