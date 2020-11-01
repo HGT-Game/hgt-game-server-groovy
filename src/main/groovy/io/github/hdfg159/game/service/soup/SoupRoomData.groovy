@@ -61,7 +61,7 @@ class SoupRoomData {
 	def leaveRoom(SoupMember member, SoupRoom room) {
 		// 游戏中不能退出
 		if (room.status == RoomStatus.PLAYING.status) {
-			return CodeEnums.SOUP_ROOM_PLAYING
+			return CodeEnums.SOUP_ROOM_STATUS_PLAYING
 		}
 		
 		// 不存在用户
@@ -92,12 +92,12 @@ class SoupRoomData {
 	static def kick(String aid, SoupMember member, SoupRoom room) {
 		// 不是房主不能踢人
 		if (aid != room.owner) {
-			return CodeEnums.SOUP_ROOM_NOT_OWNER
+			return CodeEnums.SOUP_MEMBER_NOT_OWNER
 		}
 		
 		// 游戏中不能踢人
 		if (room.status == RoomStatus.PLAYING.status) {
-			return CodeEnums.SOUP_ROOM_PLAYING
+			return CodeEnums.SOUP_ROOM_STATUS_PLAYING
 		}
 		
 		// 不存在用户
@@ -119,7 +119,7 @@ class SoupRoomData {
 	static def exchangeSeat(SoupRoom room, SoupMember member, int index) {
 		// 游戏中不能换位置
 		if (room.status == RoomStatus.PLAYING.status) {
-			return CodeEnums.SOUP_ROOM_PLAYING
+			return CodeEnums.SOUP_ROOM_STATUS_PLAYING
 		}
 		
 		// 座位有人不换

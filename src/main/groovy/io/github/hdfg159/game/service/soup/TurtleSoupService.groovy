@@ -388,7 +388,7 @@ class TurtleSoupService extends AbstractService {
 		}
 		
 		if (room.status != RoomStatus.PLAYING.status) {
-			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_ROOM_NOT_PLAYING)
+			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_ROOM_STATUS_NOT_PLAYING)
 		}
 		
 		def record = room.getRecord()
@@ -407,7 +407,7 @@ class TurtleSoupService extends AbstractService {
 		record.chatRecordMap.put(chat.id, chat)
 		record.memberMsgMap.get(aid).add(chat.id)
 		
-		roomPush(CodeEnums.SOUP_ROOM_MSG_PUSH, [], [], room.id, {
+		roomPush(CodeEnums.SOUP_ROOM_PUSH, [], [], room.id, {
 			def res = buildMessageRes(chat, aid, record.mcId)
 			if (res) {
 				it.addChangedMsg(res)
@@ -427,7 +427,7 @@ class TurtleSoupService extends AbstractService {
 		}
 		
 		if (room.status != RoomStatus.PLAYING.status) {
-			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_ROOM_NOT_PLAYING)
+			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_ROOM_STATUS_NOT_PLAYING)
 		}
 		
 		def record = room.getRecord()
@@ -452,7 +452,7 @@ class TurtleSoupService extends AbstractService {
 		// 改变数据设置答案
 		chat.setAnswer(answerType.type)
 		
-		roomPush(CodeEnums.SOUP_ROOM_MSG_PUSH, [], [], room.id, {
+		roomPush(CodeEnums.SOUP_ROOM_PUSH, [], [], room.id, {
 			def res = buildMessageRes(chat, aid, record.mcId)
 			if (res) {
 				it.addChangedMsg(res)
@@ -475,7 +475,7 @@ class TurtleSoupService extends AbstractService {
 		
 		synchronized (room) {
 			if (room.status != RoomStatus.PLAYING.status) {
-				return GameUtils.resMsg(RES_SOUP_END, CodeEnums.SOUP_ROOM_NOT_PLAYING)
+				return GameUtils.resMsg(RES_SOUP_END, CodeEnums.SOUP_ROOM_STATUS_NOT_PLAYING)
 			}
 			
 			def recordId = room.recordId
@@ -537,7 +537,7 @@ class TurtleSoupService extends AbstractService {
 		
 		synchronized (room) {
 			if (room.status != RoomStatus.SELECT.status) {
-				return GameUtils.resMsg(RES_SOUP_SELECT_QUESTION, CodeEnums.SOUP_ROOM_NOT_SELECT)
+				return GameUtils.resMsg(RES_SOUP_SELECT_QUESTION, CodeEnums.SOUP_ROOM_STATUS_NOT_SELECT)
 			}
 			
 			def record = room.getRecord()

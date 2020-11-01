@@ -111,7 +111,7 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 		}
 		
 		if (roomMemberMap.containsKey(aid)) {
-			return CodeEnums.SOUP_ROOM_JOIN_EXIST
+			return CodeEnums.SOUP_ROOM_JOINED
 		}
 		
 		for (it in (0..max - 1)) {

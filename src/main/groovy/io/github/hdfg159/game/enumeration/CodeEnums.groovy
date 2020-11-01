@@ -54,23 +54,19 @@ enum CodeEnums {
 	/**
 	 * 房间不在游戏中
 	 */
-	SOUP_ROOM_NOT_PLAYING(20102),
+	SOUP_ROOM_STATUS_NOT_PLAYING(20102),
 	/**
 	 * 房间在游戏中
 	 */
-	SOUP_ROOM_PLAYING(20103),
+	SOUP_ROOM_STATUS_PLAYING(20103),
 	/**
 	 * 房间成员不存在
 	 */
 	SOUP_ROOM_MEMBER_NOT_EXIST(20104),
 	/**
-	 * 不是当前房间房主
-	 */
-	SOUP_ROOM_NOT_OWNER(20105),
-	/**
 	 * 房间不在选题状态
 	 */
-	SOUP_ROOM_NOT_SELECT(20104),
+	SOUP_ROOM_STATUS_NOT_SELECT(20105),
 	
 	/**
 	 * 加入房间失败
@@ -83,17 +79,13 @@ enum CodeEnums {
 	/**
 	 * 已经加入房间
 	 */
-	SOUP_ROOM_JOIN_EXIST(20202),
+	SOUP_ROOM_JOINED(20202),
 	
 	
 	/**
 	 * 房间推送
 	 */
 	SOUP_ROOM_PUSH(20300),
-	/**
-	 * 变更聊天消息推送
-	 */
-	SOUP_ROOM_MSG_PUSH(20301),
 	
 	/**
 	 * 离开房间失败
@@ -126,7 +118,7 @@ enum CodeEnums {
 	/**
 	 * 交换位置失败
 	 */
-	SOUP_EXCHANGE_SEAT_FAIL(20700),
+	SOUP_SEAT_EXCHANGE_FAIL(20700),
 	/**
 	 * 当前座位已经有人
 	 */
@@ -162,6 +154,10 @@ enum CodeEnums {
 	 * 成员不是MC
 	 */
 	SOUP_MEMBER_NOT_MC(21001),
+	/**
+	 * 不是当前房间房主
+	 */
+	SOUP_MEMBER_NOT_OWNER(21002),
 	
 	/**
 	 * 答案类型不存在
