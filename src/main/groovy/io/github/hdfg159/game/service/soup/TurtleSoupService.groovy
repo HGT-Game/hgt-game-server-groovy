@@ -582,6 +582,7 @@ class TurtleSoupService extends AbstractService {
 		def member = memberData.getById(aid)
 		member.online()
 		
+		// 断线重连修正数据
 		if (!roomData.existRoom(member.roomId)) {
 			member.resetRoomInfo()
 		}

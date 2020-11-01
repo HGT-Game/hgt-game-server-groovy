@@ -106,12 +106,13 @@ class SoupRoom implements TData<String>, Comparable<SoupRoom> {
 	}
 	
 	def joinRoom(String aid) {
-		if (roomMemberMap.size() >= max) {
-			return CodeEnums.SOUP_ROOM_JOIN_MAX_LIMIT
+		// 如果是房间成员，允许重复加入
+		if (roomMemberMap.containsKey(aid)) {
+			return CodeEnums.SUCCESS
 		}
 		
-		if (roomMemberMap.containsKey(aid)) {
-			return CodeEnums.SOUP_ROOM_JOINED
+		if (roomMemberMap.size() >= max) {
+			return CodeEnums.SOUP_ROOM_JOIN_MAX_LIMIT
 		}
 		
 		for (it in (0..max - 1)) {

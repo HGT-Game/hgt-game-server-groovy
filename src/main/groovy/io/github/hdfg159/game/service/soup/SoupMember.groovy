@@ -94,6 +94,8 @@ class SoupMember implements TData<String> {
 	 * 离线
 	 */
 	def offline() {
+		// 更改状态
+		this.@status.getAndSet(MemberStatus.FREE.status)
 		this.@offlineTime = LocalDateTime.now()
 	}
 	
@@ -109,6 +111,12 @@ class SoupMember implements TData<String> {
 			return CodeEnums.SOUP_MEMBER_NOT_FREE
 		}
 		
+		if (this.@roomId && roomId != this.@roomId) {
+			// roomId不为空肯定是重连，房间ID不同不允许加入
+			return CodeEnums.SOUP_ROOM_JOIN_FAIL
+		}
+		
+		// 走正常逻辑
 		status.getAndSet(MemberStatus.ROOM.status)
 		this.@seat = seat
 		this.@roomId = roomId
