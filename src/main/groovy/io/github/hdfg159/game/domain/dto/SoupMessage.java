@@ -14,6 +14,1213 @@ public final class SoupMessage {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface LoadReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:LoadReq)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code LoadReq}
+   */
+  public static final class LoadReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:LoadReq)
+      LoadReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LoadReq.newBuilder() to construct.
+    private LoadReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LoadReq() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LoadReq();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LoadReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadReq_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq)) {
+        return super.equals(obj);
+      }
+      io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq other = (io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code LoadReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:LoadReq)
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadReq_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq.Builder.class);
+      }
+
+      // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadReq_descriptor;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq build() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq result = new io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:LoadReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:LoadReq)
+    private static final io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq();
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LoadReq>
+        PARSER = new com.google.protobuf.AbstractParser<LoadReq>() {
+      @java.lang.Override
+      public LoadReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LoadReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LoadReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LoadReq> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LoadResOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:LoadRes)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool reconnect = 1;</code>
+     * @return The reconnect.
+     */
+    boolean getReconnect();
+
+    /**
+     * <code>string roomId = 2;</code>
+     * @return The roomId.
+     */
+    java.lang.String getRoomId();
+    /**
+     * <code>string roomId = 2;</code>
+     * @return The bytes for roomId.
+     */
+    com.google.protobuf.ByteString
+        getRoomIdBytes();
+
+    /**
+     * <code>string password = 3;</code>
+     * @return The password.
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>string password = 3;</code>
+     * @return The bytes for password.
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+  }
+  /**
+   * Protobuf type {@code LoadRes}
+   */
+  public static final class LoadRes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:LoadRes)
+      LoadResOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LoadRes.newBuilder() to construct.
+    private LoadRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LoadRes() {
+      roomId_ = "";
+      password_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LoadRes();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LoadRes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              reconnect_ = input.readBool();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              roomId_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              password_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadRes_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadRes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes.Builder.class);
+    }
+
+    public static final int RECONNECT_FIELD_NUMBER = 1;
+    private boolean reconnect_;
+    /**
+     * <code>bool reconnect = 1;</code>
+     * @return The reconnect.
+     */
+    @java.lang.Override
+    public boolean getReconnect() {
+      return reconnect_;
+    }
+
+    public static final int ROOMID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object roomId_;
+    /**
+     * <code>string roomId = 2;</code>
+     * @return The roomId.
+     */
+    @java.lang.Override
+    public java.lang.String getRoomId() {
+      java.lang.Object ref = roomId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        roomId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string roomId = 2;</code>
+     * @return The bytes for roomId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRoomIdBytes() {
+      java.lang.Object ref = roomId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        roomId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 3;
+    private volatile java.lang.Object password_;
+    /**
+     * <code>string password = 3;</code>
+     * @return The password.
+     */
+    @java.lang.Override
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string password = 3;</code>
+     * @return The bytes for password.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (reconnect_ != false) {
+        output.writeBool(1, reconnect_);
+      }
+      if (!getRoomIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, roomId_);
+      }
+      if (!getPasswordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, password_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (reconnect_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, reconnect_);
+      }
+      if (!getRoomIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, roomId_);
+      }
+      if (!getPasswordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, password_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes)) {
+        return super.equals(obj);
+      }
+      io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes other = (io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes) obj;
+
+      if (getReconnect()
+          != other.getReconnect()) return false;
+      if (!getRoomId()
+          .equals(other.getRoomId())) return false;
+      if (!getPassword()
+          .equals(other.getPassword())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RECONNECT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getReconnect());
+      hash = (37 * hash) + ROOMID_FIELD_NUMBER;
+      hash = (53 * hash) + getRoomId().hashCode();
+      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getPassword().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code LoadRes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:LoadRes)
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadResOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadRes_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadRes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes.Builder.class);
+      }
+
+      // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        reconnect_ = false;
+
+        roomId_ = "";
+
+        password_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadRes_descriptor;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes build() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes result = new io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes(this);
+        result.reconnect_ = reconnect_;
+        result.roomId_ = roomId_;
+        result.password_ = password_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes.getDefaultInstance()) return this;
+        if (other.getReconnect() != false) {
+          setReconnect(other.getReconnect());
+        }
+        if (!other.getRoomId().isEmpty()) {
+          roomId_ = other.roomId_;
+          onChanged();
+        }
+        if (!other.getPassword().isEmpty()) {
+          password_ = other.password_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean reconnect_ ;
+      /**
+       * <code>bool reconnect = 1;</code>
+       * @return The reconnect.
+       */
+      @java.lang.Override
+      public boolean getReconnect() {
+        return reconnect_;
+      }
+      /**
+       * <code>bool reconnect = 1;</code>
+       * @param value The reconnect to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReconnect(boolean value) {
+        
+        reconnect_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool reconnect = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReconnect() {
+        
+        reconnect_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object roomId_ = "";
+      /**
+       * <code>string roomId = 2;</code>
+       * @return The roomId.
+       */
+      public java.lang.String getRoomId() {
+        java.lang.Object ref = roomId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          roomId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string roomId = 2;</code>
+       * @return The bytes for roomId.
+       */
+      public com.google.protobuf.ByteString
+          getRoomIdBytes() {
+        java.lang.Object ref = roomId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          roomId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string roomId = 2;</code>
+       * @param value The roomId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoomId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        roomId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string roomId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRoomId() {
+        
+        roomId_ = getDefaultInstance().getRoomId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string roomId = 2;</code>
+       * @param value The bytes for roomId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoomIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        roomId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object password_ = "";
+      /**
+       * <code>string password = 3;</code>
+       * @return The password.
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string password = 3;</code>
+       * @return The bytes for password.
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string password = 3;</code>
+       * @param value The password to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPassword() {
+        
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 3;</code>
+       * @param value The bytes for password to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:LoadRes)
+    }
+
+    // @@protoc_insertion_point(class_scope:LoadRes)
+    private static final io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes();
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LoadRes>
+        PARSER = new com.google.protobuf.AbstractParser<LoadRes>() {
+      @java.lang.Override
+      public LoadRes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LoadRes(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LoadRes> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LoadRes> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface RoomHallReqOrBuilder extends
       // @@protoc_insertion_point(interface_extends:RoomHallReq)
       com.google.protobuf.MessageOrBuilder {
@@ -18480,6 +19687,16 @@ public final class SoupMessage {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_LoadReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_LoadReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_LoadRes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_LoadRes_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_RoomHallReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -18628,52 +19845,65 @@ public final class SoupMessage {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021SoupMessage.proto\"\r\n\013RoomHallReq\"W\n\013Ro" +
-      "omHallRes\022#\n\005rooms\030\001 \003(\0132\024.RoomHallRes.R" +
-      "oomRes\032#\n\007RoomRes\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 " +
-      "\001(\t\"<\n\rCreateRoomReq\022\020\n\010password\030\001 \001(\t\022\013" +
-      "\n\003max\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\"(\n\rCreateRoomR" +
-      "es\022\027\n\004room\030\001 \001(\0132\t.RoomPush\"/\n\013JoinRoomR" +
-      "eq\022\016\n\006roomId\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"&\n\013" +
-      "JoinRoomRes\022\027\n\004room\030\001 \001(\0132\t.RoomPush\"\016\n\014" +
-      "LeaveRoomReq\"\016\n\014LeaveRoomRes\"\030\n\nPrepareR" +
-      "eq\022\n\n\002ok\030\001 \001(\010\"\014\n\nPrepareRes\"%\n\007KickReq\022" +
-      "\013\n\003aid\030\001 \001(\t\022\r\n\005index\030\002 \001(\r\"\t\n\007KickRes\" " +
-      "\n\017ExchangeSeatReq\022\r\n\005index\030\001 \001(\r\"\021\n\017Exch" +
-      "angeSeatRes\"\032\n\007ChatReq\022\017\n\007content\030\001 \001(\t\"" +
-      "\032\n\007ChatRes\022\017\n\007seconds\030\001 \001(\004\"\'\n\tAnswerReq" +
-      "\022\n\n\002id\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnswerRe" +
-      "s\"\010\n\006EndReq\"\010\n\006EndRes\"\037\n\021SelectQuestionR" +
-      "eq\022\n\n\002id\030\001 \001(\t\"\023\n\021SelectQuestionRes\"\n\n\010H" +
-      "allPush\"\335\001\n\010RoomPush\022\'\n\013seatsChange\030\001 \003(" +
-      "\0132\022.RoomMemberSeatRes\022\016\n\006status\030\002 \001(\r\022\036\n" +
-      "\010question\030\003 \001(\0132\014.QuestionRes\022\016\n\006roomId\030" +
-      "\004 \001(\t\022#\n\nchangedMsg\030\005 \003(\0132\017.ChatMessageR" +
-      "es\022\034\n\003msg\030\006 \003(\0132\017.ChatMessageRes\022%\n\017sele" +
-      "ctQuestions\030\007 \003(\0132\014.QuestionRes\"\213\001\n\021Room" +
-      "MemberSeatRes\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaName\030\002 " +
-      "\001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022\r\n\005o" +
-      "wner\030\005 \001(\010\022\016\n\006status\030\006 \001(\r\022\n\n\002mc\030\007 \001(\010\022\r" +
-      "\n\005leave\030\010 \001(\010\"<\n\013QuestionRes\022\n\n\002id\030\001 \001(\t" +
-      "\022\020\n\010question\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\"x\n\016C" +
-      "hatMessageRes\022\n\n\002id\030\001 \001(\t\022\017\n\007content\030\002 \001" +
-      "(\t\022\016\n\006answer\030\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007avaNa" +
-      "me\030\005 \001(\t\022\017\n\007avaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001(\010B#\n" +
-      "!io.github.hdfg159.game.domain.dtob\006prot" +
-      "o3"
+      "\n\021SoupMessage.proto\"\t\n\007LoadReq\">\n\007LoadRe" +
+      "s\022\021\n\treconnect\030\001 \001(\010\022\016\n\006roomId\030\002 \001(\t\022\020\n\010" +
+      "password\030\003 \001(\t\"\r\n\013RoomHallReq\"W\n\013RoomHal" +
+      "lRes\022#\n\005rooms\030\001 \003(\0132\024.RoomHallRes.RoomRe" +
+      "s\032#\n\007RoomRes\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\"<" +
+      "\n\rCreateRoomReq\022\020\n\010password\030\001 \001(\t\022\013\n\003max" +
+      "\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\"(\n\rCreateRoomRes\022\027\n" +
+      "\004room\030\001 \001(\0132\t.RoomPush\"/\n\013JoinRoomReq\022\016\n" +
+      "\006roomId\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"&\n\013JoinR" +
+      "oomRes\022\027\n\004room\030\001 \001(\0132\t.RoomPush\"\016\n\014Leave" +
+      "RoomReq\"\016\n\014LeaveRoomRes\"\030\n\nPrepareReq\022\n\n" +
+      "\002ok\030\001 \001(\010\"\014\n\nPrepareRes\"%\n\007KickReq\022\013\n\003ai" +
+      "d\030\001 \001(\t\022\r\n\005index\030\002 \001(\r\"\t\n\007KickRes\" \n\017Exc" +
+      "hangeSeatReq\022\r\n\005index\030\001 \001(\r\"\021\n\017ExchangeS" +
+      "eatRes\"\032\n\007ChatReq\022\017\n\007content\030\001 \001(\t\"\032\n\007Ch" +
+      "atRes\022\017\n\007seconds\030\001 \001(\004\"\'\n\tAnswerReq\022\n\n\002i" +
+      "d\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnswerRes\"\010\n\006" +
+      "EndReq\"\010\n\006EndRes\"\037\n\021SelectQuestionReq\022\n\n" +
+      "\002id\030\001 \001(\t\"\023\n\021SelectQuestionRes\"\n\n\010HallPu" +
+      "sh\"\335\001\n\010RoomPush\022\'\n\013seatsChange\030\001 \003(\0132\022.R" +
+      "oomMemberSeatRes\022\016\n\006status\030\002 \001(\r\022\036\n\010ques" +
+      "tion\030\003 \001(\0132\014.QuestionRes\022\016\n\006roomId\030\004 \001(\t" +
+      "\022#\n\nchangedMsg\030\005 \003(\0132\017.ChatMessageRes\022\034\n" +
+      "\003msg\030\006 \003(\0132\017.ChatMessageRes\022%\n\017selectQue" +
+      "stions\030\007 \003(\0132\014.QuestionRes\"\213\001\n\021RoomMembe" +
+      "rSeatRes\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaName\030\002 \001(\t\022\017" +
+      "\n\007avaHead\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022\r\n\005owner\030" +
+      "\005 \001(\010\022\016\n\006status\030\006 \001(\r\022\n\n\002mc\030\007 \001(\010\022\r\n\005lea" +
+      "ve\030\010 \001(\010\"<\n\013QuestionRes\022\n\n\002id\030\001 \001(\t\022\020\n\010q" +
+      "uestion\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\"x\n\016ChatMe" +
+      "ssageRes\022\n\n\002id\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\022\016\n" +
+      "\006answer\030\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007avaName\030\005 " +
+      "\001(\t\022\017\n\007avaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001(\010B#\n!io.g" +
+      "ithub.hdfg159.game.domain.dtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_RoomHallReq_descriptor =
+    internal_static_LoadReq_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_LoadReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_LoadReq_descriptor,
+        new java.lang.String[] { });
+    internal_static_LoadRes_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_LoadRes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_LoadRes_descriptor,
+        new java.lang.String[] { "Reconnect", "RoomId", "Password", });
+    internal_static_RoomHallReq_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_RoomHallReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomHallReq_descriptor,
         new java.lang.String[] { });
     internal_static_RoomHallRes_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_RoomHallRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomHallRes_descriptor,
@@ -18685,151 +19915,151 @@ public final class SoupMessage {
         internal_static_RoomHallRes_RoomRes_descriptor,
         new java.lang.String[] { "Id", "Name", });
     internal_static_CreateRoomReq_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_CreateRoomReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateRoomReq_descriptor,
         new java.lang.String[] { "Password", "Max", "Name", });
     internal_static_CreateRoomRes_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_CreateRoomRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateRoomRes_descriptor,
         new java.lang.String[] { "Room", });
     internal_static_JoinRoomReq_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_JoinRoomReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_JoinRoomReq_descriptor,
         new java.lang.String[] { "RoomId", "Password", });
     internal_static_JoinRoomRes_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_JoinRoomRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_JoinRoomRes_descriptor,
         new java.lang.String[] { "Room", });
     internal_static_LeaveRoomReq_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_LeaveRoomReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LeaveRoomReq_descriptor,
         new java.lang.String[] { });
     internal_static_LeaveRoomRes_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_LeaveRoomRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LeaveRoomRes_descriptor,
         new java.lang.String[] { });
     internal_static_PrepareReq_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_PrepareReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PrepareReq_descriptor,
         new java.lang.String[] { "Ok", });
     internal_static_PrepareRes_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_PrepareRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PrepareRes_descriptor,
         new java.lang.String[] { });
     internal_static_KickReq_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_KickReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_KickReq_descriptor,
         new java.lang.String[] { "Aid", "Index", });
     internal_static_KickRes_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_KickRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_KickRes_descriptor,
         new java.lang.String[] { });
     internal_static_ExchangeSeatReq_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_ExchangeSeatReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ExchangeSeatReq_descriptor,
         new java.lang.String[] { "Index", });
     internal_static_ExchangeSeatRes_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_ExchangeSeatRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ExchangeSeatRes_descriptor,
         new java.lang.String[] { });
     internal_static_ChatReq_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_ChatReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChatReq_descriptor,
         new java.lang.String[] { "Content", });
     internal_static_ChatRes_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_ChatRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChatRes_descriptor,
         new java.lang.String[] { "Seconds", });
     internal_static_AnswerReq_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_AnswerReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AnswerReq_descriptor,
         new java.lang.String[] { "Id", "Answer", });
     internal_static_AnswerRes_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_AnswerRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AnswerRes_descriptor,
         new java.lang.String[] { });
     internal_static_EndReq_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_EndReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EndReq_descriptor,
         new java.lang.String[] { });
     internal_static_EndRes_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_EndRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EndRes_descriptor,
         new java.lang.String[] { });
     internal_static_SelectQuestionReq_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_SelectQuestionReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SelectQuestionReq_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_SelectQuestionRes_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_SelectQuestionRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SelectQuestionRes_descriptor,
         new java.lang.String[] { });
     internal_static_HallPush_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_HallPush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_HallPush_descriptor,
         new java.lang.String[] { });
     internal_static_RoomPush_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_RoomPush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomPush_descriptor,
         new java.lang.String[] { "SeatsChange", "Status", "Question", "RoomId", "ChangedMsg", "Msg", "SelectQuestions", });
     internal_static_RoomMemberSeatRes_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_RoomMemberSeatRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomMemberSeatRes_descriptor,
         new java.lang.String[] { "Aid", "AvaName", "AvaHead", "Index", "Owner", "Status", "Mc", "Leave", });
     internal_static_QuestionRes_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_QuestionRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_QuestionRes_descriptor,
         new java.lang.String[] { "Id", "Question", "Content", });
     internal_static_ChatMessageRes_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_ChatMessageRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChatMessageRes_descriptor,

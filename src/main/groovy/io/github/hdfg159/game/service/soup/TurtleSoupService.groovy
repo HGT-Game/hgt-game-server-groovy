@@ -46,6 +46,7 @@ class TurtleSoupService extends AbstractService {
 	
 	@Override
 	Completable init() {
+		response(REQ_SOUP_LOAD, load)
 		response(REQ_SOUP_ROOM_HALL, roomHall)
 		response(REQ_SOUP_CREATE_ROOM, createRoom)
 		response(REQ_SOUP_JOIN_ROOM, joinRoom)
@@ -72,6 +73,25 @@ class TurtleSoupService extends AbstractService {
 	}
 	
 	// Request
+	
+	def load = {headers, params ->
+		def aid = getHeaderAvatarId(headers)
+		
+		def member = memberData.getById(aid)
+		def room = roomData.getRoom(member.roomId)
+		if (!room) {
+			// 房间不存在，清除掉成员的roomId
+			member.roomId = null
+			return GameUtils.sucResMsg(RES_SOUP_LOAD, SoupMessage.LoadRes.newBuilder().build())
+		} else {
+			def loadRes = SoupMessage.LoadRes.newBuilder()
+					.setReconnect(true)
+					.setRoomId(room.id)
+					.setPassword(room.password)
+					.build()
+			return GameUtils.sucResMsg(RES_SOUP_LOAD, loadRes)
+		}
+	}
 	
 	def roomHall = {headers, params ->
 		// def aid = getHeaderAvatarId(headers)
@@ -130,6 +150,10 @@ class TurtleSoupService extends AbstractService {
 		def roomId = req.roomId
 		def room = roomData.getRoom(roomId)
 		if (!room) {
+			if (member.roomId == room.id) {
+				// 成员信息记录加入的房间未清除（断线重连...），且加入时候 房间不存在，直接清掉
+				member.roomId = null
+			}
 			return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_NOT_EXIST)
 		}
 		
@@ -624,14 +648,14 @@ class TurtleSoupService extends AbstractService {
 		def avatar = avatarService.getAvatarById(member.id)
 		
 		SoupMessage.RoomMemberSeatRes.newBuilder()
-				.setAid(avatar?.id)
-				.setAvaName(avatar?.username)
+				.setAid(avatar.id)
+				.setAvaName(avatar.username)
 				.setAvaHead("")
-				.setStatus(member?.status?.get())
-				.setIndex(member?.seat)
-				.setOwner(owner == member?.id)
-				.setMc(mc == member?.id)
-				.setLeave(member?.roomId == null)
+				.setStatus(member.status.get())
+				.setIndex(member.seat)
+				.setOwner(owner == member.id)
+				.setMc(mc == member.id)
+				.setLeave(member.roomId == null)
 				.build()
 	}
 	

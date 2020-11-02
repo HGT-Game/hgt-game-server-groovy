@@ -90,6 +90,11 @@ class SoupRoomData {
 	}
 	
 	static def kick(String aid, SoupMember member, SoupRoom room) {
+		// 不能踢自己
+		if (aid == member.id) {
+			return CodeEnums.SOUP_KICK_ME
+		}
+		
 		// 不是房主不能踢人
 		if (aid != room.owner) {
 			return CodeEnums.SOUP_MEMBER_NOT_OWNER

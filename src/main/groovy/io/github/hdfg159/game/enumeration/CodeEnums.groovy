@@ -113,6 +113,10 @@ enum CodeEnums {
 	 * 此人不存在
 	 */
 	SOUP_KICK_MEMBER_NOT_EXIST(20602),
+	/**
+	 * 不能踢自己
+	 */
+	SOUP_KICK_ME(20603),
 	
 	
 	/**

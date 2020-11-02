@@ -98,6 +98,11 @@ enum ProtocolEnums {
 	 */
 	REQ_SOUP_SELECT_QUESTION(2011, SoupMessage.SelectQuestionReq.class),
 	RES_SOUP_SELECT_QUESTION(-2011, SoupMessage.SelectQuestionRes.class),
+	/**
+	 * 加载游戏基础数据
+	 */
+	REQ_SOUP_LOAD(2012, SoupMessage.LoadReq.class),
+	RES_SOUP_LOAD(-2012, SoupMessage.LoadRes.class),
 	
 	/**
 	 * 大厅消息推送

@@ -88,6 +88,9 @@ class GameClient {
 						case "2005":
 							prepareSoupRoom()
 							break
+						case "2006":
+							kick()
+							break
 						case "2008":
 							chat()
 							break
@@ -97,6 +100,9 @@ class GameClient {
 						case "2010":
 							end()
 							break
+						case "2011":
+							load()
+							break
 						default:
 							break
 					}
@@ -105,6 +111,16 @@ class GameClient {
 				log.error "命令执行错误:${e.message}"
 			}
 		}
+	}
+	
+	static def kick() {
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_KICK, SoupMessage.KickReq.newBuilder().build())
+		channel.writeAndFlush(reg)
+	}
+	
+	static def load() {
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_LOAD, null)
+		channel.writeAndFlush(reg)
 	}
 	
 	static def end() {
