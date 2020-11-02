@@ -8,8 +8,12 @@ import io.github.hdfg159.game.enumeration.EventEnums
 import io.github.hdfg159.game.enumeration.ProtocolEnums
 import io.github.hdfg159.game.service.AbstractService
 import io.github.hdfg159.game.util.GameUtils
+import io.github.hdfg159.scheduler.factory.Triggers
 import io.reactivex.Completable
 import io.vertx.reactivex.core.MultiMap
+
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
 
 import static io.github.hdfg159.game.constant.GameConsts.ATTR_AVATAR
 import static io.github.hdfg159.game.constant.GameConsts.ATTR_NAME_CHANNEL_ID
@@ -25,7 +29,9 @@ import static io.github.hdfg159.game.enumeration.ProtocolEnums.RES_REGISTER
 @Slf4j
 @Singleton
 class AvatarService extends AbstractService {
-	AvatarData avatarData = AvatarData.instance
+	def TRIGGER_NAME_AVATAR_ONLINE = "avatar::online::num"
+	
+	def avatarData = AvatarData.instance
 	
 	@Override
 	Completable init() {
@@ -38,6 +44,11 @@ class AvatarService extends AbstractService {
 		handleEvent(EventEnums.OFFLINE, offlineEvent)
 		
 		this.@vertx.rxDeployVerticle(avatarData).ignoreElement()
+				.concatWith(Completable.fromRunnable({
+					Triggers.forever(TRIGGER_NAME_AVATAR_ONLINE, 3, ChronoUnit.MINUTES, LocalDateTime.now(), {
+						log.info "online avatar:[{}]", avatarData.allOnlineIds.size()
+					}).schedule()
+				}))
 	}
 	
 	@Override

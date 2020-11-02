@@ -42,7 +42,7 @@ class GameClientChannelInitializer extends ChannelInitializer<Channel> {
 		)
 		
 		ch.pipeline()
-				.addLast(new IdleStateHandler(0, 0, 60, TimeUnit.SECONDS))
+				.addLast(new IdleStateHandler(0, 0, 180, TimeUnit.SECONDS))
 				
 				.addLast(new HttpClientCodec())
 				.addLast(new HttpObjectAggregator(65536))
