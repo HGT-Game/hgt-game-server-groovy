@@ -9,6 +9,7 @@ import io.github.hdfg159.game.enumeration.EventEnums
 import io.github.hdfg159.game.enumeration.ProtocolEnums
 import io.github.hdfg159.game.service.avatar.ChannelData
 import io.github.hdfg159.game.util.GameUtils
+import io.github.hdfg159.scheduler.SchedulerManager
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.vertx.reactivex.core.AbstractVerticle
@@ -37,6 +38,7 @@ abstract class AbstractService extends AbstractVerticle {
 	 */
 	private static final ChannelData CHANNEL_DATA = ChannelData.instance
 	
+	protected scheduler
 	protected EventBus eventBus
 	
 	/**
@@ -54,6 +56,7 @@ abstract class AbstractService extends AbstractVerticle {
 	@Override
 	Completable rxStart() {
 		this.eventBus = this.@vertx.eventBus()
+		this.scheduler = SchedulerManager.INSTANCE
 		log.info "deploy game service:${this.class.simpleName}"
 		init()
 	}

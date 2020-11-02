@@ -15,7 +15,6 @@ import io.github.hdfg159.game.service.soup.enums.AnswerType
 import io.github.hdfg159.game.service.soup.enums.MemberStatus
 import io.github.hdfg159.game.service.soup.enums.RoomStatus
 import io.github.hdfg159.game.util.GameUtils
-import io.github.hdfg159.scheduler.SchedulerManager
 import io.github.hdfg159.scheduler.factory.Triggers
 import io.reactivex.Completable
 
@@ -43,8 +42,6 @@ class TurtleSoupService extends AbstractService {
 	def questionConfig = QuestionConfig.getInstance()
 	
 	def roomData = SoupRoomData.getInstance()
-	
-	def scheduler = SchedulerManager.INSTANCE
 	
 	@Override
 	Completable init() {
