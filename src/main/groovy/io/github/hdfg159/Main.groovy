@@ -16,7 +16,7 @@ import io.vertx.core.json.Json
 import io.vertx.core.json.jackson.DatabindCodec
 import io.vertx.reactivex.core.Vertx
 
-import static io.github.hdfg159.game.constant.GameConsts.getSERVER_CONFIG
+import static io.github.hdfg159.game.constant.GameConsts.SERVER_CONFIG
 import static io.reactivex.schedulers.Schedulers.io
 
 /**
