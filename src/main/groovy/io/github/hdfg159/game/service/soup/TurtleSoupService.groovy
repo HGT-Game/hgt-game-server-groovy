@@ -10,6 +10,7 @@ import io.github.hdfg159.game.enumeration.CodeEnums
 import io.github.hdfg159.game.enumeration.EventEnums
 import io.github.hdfg159.game.service.AbstractService
 import io.github.hdfg159.game.service.avatar.AvatarService
+import io.github.hdfg159.game.service.soup.config.QuestionConfig
 import io.github.hdfg159.game.service.soup.enums.AnswerType
 import io.github.hdfg159.game.service.soup.enums.MemberStatus
 import io.github.hdfg159.game.service.soup.enums.RoomStatus
@@ -39,6 +40,7 @@ class TurtleSoupService extends AbstractService {
 	
 	def memberData = SoupMemberData.getInstance()
 	def recordData = SoupRecordData.getInstance()
+	def questionConfig = QuestionConfig.getInstance()
 	
 	def roomData = SoupRoomData.getInstance()
 	
@@ -65,6 +67,7 @@ class TurtleSoupService extends AbstractService {
 		
 		this.@vertx.rxDeployVerticle(memberData).ignoreElement()
 				.mergeWith(this.@vertx.rxDeployVerticle(recordData).ignoreElement())
+				.mergeWith(this.@vertx.rxDeployVerticle(questionConfig).ignoreElement())
 	}
 	
 	@Override
@@ -235,22 +238,17 @@ class TurtleSoupService extends AbstractService {
 						// 更改房间状态
 						room.status = RoomStatus.SELECT.status
 						
-						// todo 获取问题
-						def selectQuestions = (1..10).collect {
-							def idStr = IdUtils.idStr
-							new Tuple3<>(idStr, "Q-${idStr}", "A-${idStr}")
-						}
-						
-						def questionRes = selectQuestions.collect {
+						def questionRes = questionConfig.questionMap.collect {
 							SoupMessage.QuestionRes.newBuilder()
-									.setId(it.getV1())
-									.setQuestion(it.getV2())
-									.setContent(it.getV3())
+									.setId(it.key)
+									.setQuestion(it.value.question)
+									.setContent(it.value.content)
 									.build()
 						}
 						
 						// 开始游戏记录
-						def record = SoupRecord.createRecord(room, selectQuestions.collect {it.getV1()})
+						def takeQuestions = questionConfig.questionMap.keySet().toList().shuffled().take(10)
+						def record = SoupRecord.createRecord(room, takeQuestions)
 						def cache = recordData.saveCache(record)
 						room.recordMap.put(cache.id, cache)
 						room.recordId = cache.id
@@ -524,10 +522,11 @@ class TurtleSoupService extends AbstractService {
 				}
 			}
 			
-			// todo 推送汤底答案和所有位置信息
 			roomPush(CodeEnums.SOUP_ROOM_PUSH, room.getAllMemberIds(), [], roomId, {
+				def questionId = record.questionId
+				def question = questionConfig.questionMap.get(questionId)
 				def questionRes = SoupMessage.QuestionRes.newBuilder()
-						.setContent("A-${record.questionId}")
+						.setContent(question.content)
 						.build()
 				it.setQuestion(questionRes)
 			})
@@ -736,7 +735,10 @@ class TurtleSoupService extends AbstractService {
 			
 			// 推送房间状态和题目
 			roomPush(CodeEnums.SOUP_ROOM_PUSH, [], [], roomId, {
-				it.setQuestion(SoupMessage.QuestionRes.newBuilder().setId(questionId).setQuestion("A-${questionId}").build())
+				it.setQuestion(SoupMessage.QuestionRes.newBuilder()
+						.setId(questionId)
+						.setQuestion(questionConfig.questionMap[questionId].question)
+						.build())
 			})
 		}
 	}
