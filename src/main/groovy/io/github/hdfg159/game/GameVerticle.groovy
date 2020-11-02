@@ -1,11 +1,13 @@
 package io.github.hdfg159.game
 
+
 import groovy.util.logging.Slf4j
 import io.github.hdfg159.game.config.ServerConfig
 import io.github.hdfg159.game.server.GameServer
 import io.github.hdfg159.game.service.avatar.AvatarService
 import io.github.hdfg159.game.service.farm.FarmService
 import io.github.hdfg159.game.service.soup.TurtleSoupService
+import io.github.hdfg159.scheduler.SchedulerManager
 import io.reactivex.Completable
 import io.vertx.core.json.Json
 import io.vertx.reactivex.core.AbstractVerticle
@@ -46,10 +48,14 @@ class GameVerticle extends AbstractVerticle {
 	
 	@Override
 	Completable rxStop() {
-		// 关闭服务器耗时，subscribeOn 异步
-		Completable.fromAction({
-			GameServer.instance.stop()
-			log.info "undeploy ${this.class.simpleName}"
-		}).subscribeOn(io())
+		Completable.fromRunnable({
+			SchedulerManager.INSTANCE.shutdown()
+			log.info "shutdown scheduler manager"
+		}).concatWith(
+				Completable.fromAction({
+					log.info "undeploy ${this.class.simpleName}"
+					GameServer.instance.stop()
+				}).subscribeOn(io())
+		)
 	}
 }
