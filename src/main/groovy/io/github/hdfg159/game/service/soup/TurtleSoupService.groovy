@@ -131,11 +131,6 @@ class TurtleSoupService extends AbstractService {
 		} else {
 			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
 			
-			if (room.recordId) {
-				def record = room.recordMap.get(room.recordId)
-				record.mcId
-			}
-			
 			def res = roomRes.setRoom(buildRoomPush([aid], room.id, {it})).build()
 			return GameUtils.sucResMsg(RES_SOUP_CREATE_ROOM, res)
 		}
