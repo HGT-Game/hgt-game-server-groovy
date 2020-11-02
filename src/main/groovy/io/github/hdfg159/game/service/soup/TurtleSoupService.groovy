@@ -143,12 +143,14 @@ class TurtleSoupService extends AbstractService {
 		def member = memberData.getById(aid)
 		
 		def roomId = req.roomId
+		def memberRoom = roomData.getRoom(member.roomId)
+		if (!memberRoom) {
+			// 成员信息记录加入的房间未清除（断线重连...），且加入时候 房间不存在，直接清掉
+			member.roomId = null
+		}
+		
 		def room = roomData.getRoom(roomId)
 		if (!room) {
-			if (member.roomId == room.id) {
-				// 成员信息记录加入的房间未清除（断线重连...），且加入时候 房间不存在，直接清掉
-				member.roomId = null
-			}
 			return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_NOT_EXIST)
 		}
 		
