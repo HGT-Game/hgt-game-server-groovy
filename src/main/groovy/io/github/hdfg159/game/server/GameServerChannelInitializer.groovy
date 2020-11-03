@@ -1,6 +1,5 @@
 package io.github.hdfg159.game.server
 
-
 import io.github.hdfg159.game.config.ServerConfig
 import io.github.hdfg159.game.domain.dto.GameMessage
 import io.github.hdfg159.game.handler.*
@@ -12,8 +11,6 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler
 import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketServerCompressionHandler
 import io.netty.handler.codec.protobuf.ProtobufDecoder
 import io.netty.handler.codec.protobuf.ProtobufEncoder
-import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder
-import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender
 import io.netty.handler.timeout.IdleStateHandler
 import io.vertx.reactivex.core.Vertx
 
@@ -51,10 +48,7 @@ class GameServerChannelInitializer extends ChannelInitializer<Channel> {
 				.addLast(new WebSocketServerProtocolHandler("/ws", null, true, 65536, true))
 				.addLast(new WebSocketBinaryMessageOutHandler())
 				.addLast(new WebSocketBinaryMessageInHandler())
-				
-				.addLast(new ProtobufVarint32FrameDecoder())
 				.addLast(new ProtobufDecoder(GameMessage.Message.getDefaultInstance()))
-				.addLast(new ProtobufVarint32LengthFieldPrepender())
 				.addLast(new ProtobufEncoder())
 		if (config.log) {
 			pipeline.addLast(new LogHandler())

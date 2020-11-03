@@ -14,8 +14,6 @@ import io.netty.handler.codec.http.websocketx.WebSocketClientProtocolHandler
 import io.netty.handler.codec.http.websocketx.WebSocketVersion
 import io.netty.handler.codec.protobuf.ProtobufDecoder
 import io.netty.handler.codec.protobuf.ProtobufEncoder
-import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder
-import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender
 import io.netty.handler.timeout.IdleStateHandler
 
 import java.util.concurrent.TimeUnit
@@ -51,10 +49,8 @@ class GameClientChannelInitializer extends ChannelInitializer<Channel> {
 				.addLast(new WebSocketBinaryMessageInHandler())
 				.addLast(new WebSocketBinaryMessageOutHandler())
 				
-				.addLast(new ProtobufVarint32FrameDecoder())
 				.addLast(new ProtobufDecoder(GameMessage.Message.getDefaultInstance()))
 				
-				.addLast(new ProtobufVarint32LengthFieldPrepender())
 				.addLast(new ProtobufEncoder())
 				
 				.addLast(new LogHandler())
