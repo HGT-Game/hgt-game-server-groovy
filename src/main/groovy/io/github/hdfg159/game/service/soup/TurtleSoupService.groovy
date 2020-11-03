@@ -166,7 +166,7 @@ class TurtleSoupService extends AbstractService {
 			
 			// 改变成员状态
 			def avaIndex = room.getAvaIndex(aid)
-			if (!avaIndex) {
+			if (avaIndex == null) {
 				return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST)
 			}
 			
