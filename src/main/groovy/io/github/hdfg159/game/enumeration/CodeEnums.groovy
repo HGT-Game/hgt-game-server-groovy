@@ -168,6 +168,10 @@ enum CodeEnums {
 	 */
 	SOUP_ANSWER_TYPE_NOT_EXIST(21100),
 	
+	/**
+	 * 问题不存在
+	 */
+	SOUP_QUESTION_NOT_EXIST(21200),
 	
 	long code
 	
