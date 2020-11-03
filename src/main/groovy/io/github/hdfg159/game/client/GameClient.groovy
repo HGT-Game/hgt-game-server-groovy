@@ -100,7 +100,7 @@ class GameClient {
 						case "2010":
 							end()
 							break
-						case "2011":
+						case "2012":
 							load()
 							break
 						default:
