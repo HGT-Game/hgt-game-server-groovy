@@ -10,12 +10,12 @@ HGT Game Server 是一个基于海龟汤故事实现的游戏服务端，主要�
 
 | -- | 说明|
 |---|---|
-| Netty | 构建游戏基础网络通信(Websocket连接)
-| Vert.x | 构建 Web 服务器 / EventBus
-| RxJava | 搭配异步编程 / 线程处理
-| Protobuf | 游戏传输协议
-| MongoDB | 游戏服务端持久化数据库(过期缓存数据持久化)
-| Caffeine Cache | 游戏数据内存缓存
+| [Netty](https://github.com/netty/netty)| 构建游戏基础网络通信(Websocket连接)
+| [Vert.x](https://github.com/eclipse-vertx/vert.x) | 构建 Web 服务器 / EventBus
+| [RxJava](https://github.com/ReactiveX/RxJava) | 搭配异步编程 / 线程处理
+| [Protobuf](https://github.com/protocolbuffers/protobuf) | 游戏传输协议
+| [MongoDB](https://github.com/mongodb/mongo) | 游戏服务端持久化数据库(过期缓存数据持久化)
+| [Caffeine Cache](https://github.com/ben-manes/caffeine) | 游戏数据内存缓存
 
 # 说明
 
