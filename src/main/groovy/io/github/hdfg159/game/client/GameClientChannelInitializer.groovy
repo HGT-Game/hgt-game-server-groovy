@@ -32,7 +32,7 @@ class GameClientChannelInitializer extends ChannelInitializer<Channel> {
 	@Override
 	protected void initChannel(Channel ch) throws Exception {
 		def handShaker = WebSocketClientHandshakerFactory.newHandshaker(
-				new URI("ws://localhost:9998/ws"),
+				new URI("wss://127.0.0.1:9998"),
 				WebSocketVersion.V13,
 				null,
 				true,
