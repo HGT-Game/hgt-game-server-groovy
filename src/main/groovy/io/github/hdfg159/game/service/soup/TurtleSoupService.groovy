@@ -204,6 +204,19 @@ class TurtleSoupService extends AbstractService {
 					}
 				}
 				
+				// 题目
+				def question = questionConfig.questionMap[record.questionId]
+				if (question) {
+					def questionRes = SoupMessage.QuestionRes.newBuilder()
+							.setId(question.id)
+							.setQuestion(question.question)
+					if (aid == record.mcId) {
+						questionRes.setContent(question.content)
+					}
+					
+					it.v1.setQuestion(questionRes)
+				}
+				
 				it.v1.addAllMsg(chatRecords)
 			})
 			return GameUtils.sucResMsg(RES_SOUP_JOIN_ROOM, SoupMessage.JoinRoomRes.newBuilder().setRoom(roomPush).build())
