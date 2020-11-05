@@ -24,10 +24,7 @@ import java.util.function.Function
 import static io.github.hdfg159.game.enumeration.ProtocolEnums.*
 
 /**
- * Project:starter
- * <p>
- * Package:io.github.hdfg159.game.service.soup
- * <p>
+ * 海龟汤系统
  *
  * @date 2020/10/23 14:18
  * @author zhangzhenyu
@@ -114,17 +111,24 @@ class TurtleSoupService extends AbstractService {
 		def req = params as SoupMessage.CreateRoomReq
 		def roomRes = SoupMessage.CreateRoomRes.newBuilder()
 		
-		if (!req.name || req.name.length() > 5) {
+		def roomName = req.name
+		if (!roomName || roomName.length() > 5) {
 			return GameUtils.resMsg(RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_NAME_ILLEGAL)
 		}
 		
-		if (req.max <= 0 || req.max > 10) {
+		def max = req.max
+		if (max <= 0 || max > 10) {
 			return GameUtils.resMsg(RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_MAX_ILLEGAL)
 		}
 		
-		def pair = roomData.create(aid, req.name, req.max, req.password)
-		def room = pair.item2
-		def resultCode = pair.item1
+		def member = memberData.getById(aid)
+		if (!member) {
+			return GameUtils.resMsg(RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST)
+		}
+		
+		def pair = roomData.create(member, roomName, max, req.password)
+		def room = pair.v2
+		def resultCode = pair.v1
 		
 		if (!resultCode.success()) {
 			return GameUtils.resMsg(RES_SOUP_CREATE_ROOM, resultCode)

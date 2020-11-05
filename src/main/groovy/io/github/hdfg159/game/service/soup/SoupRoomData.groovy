@@ -1,6 +1,5 @@
 package io.github.hdfg159.game.service.soup
 
-import groovyjarjarantlr4.v4.runtime.misc.Tuple2
 import io.github.hdfg159.game.enumeration.CodeEnums
 import io.github.hdfg159.game.service.soup.enums.RoomStatus
 import io.vertx.core.impl.ConcurrentHashSet
@@ -8,13 +7,10 @@ import io.vertx.core.impl.ConcurrentHashSet
 import java.util.concurrent.ConcurrentHashMap
 
 /**
- * Project:starter
- * Package:io.github.hdfg159.game.service.soup
- * Created by hdfg159 on 2020/10/23 23:07.
+ * 海龟汤 房间数据
  */
 @Singleton
 class SoupRoomData {
-	SoupMemberData memberData = SoupMemberData.getInstance()
 	
 	/**
 	 * 在大厅玩家ID
@@ -25,13 +21,8 @@ class SoupRoomData {
 	 */
 	ConcurrentHashMap<String, SoupRoom> roomMap = new ConcurrentHashMap<>()
 	
-	Tuple2<CodeEnums, SoupRoom> create(String aid, String name, int max, String password) {
-		def room = SoupRoom.createRoom(aid, name, max, password)
-		
-		def member = memberData.getById(aid)
-		if (!member) {
-			return new Tuple2<>(CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST, null)
-		}
+	Tuple2<CodeEnums, SoupRoom> create(SoupMember member, String name, int max, String password) {
+		def room = SoupRoom.createRoom(member.id, name, max, password)
 		
 		def joinRoomSuc = member.joinRoom(0, room.id)
 		if (!joinRoomSuc.success()) {
