@@ -50,4 +50,9 @@ class GameConsts {
 	 * 服务器配置文件相对路径
 	 */
 	static final String SERVER_CONFIG = 'config/server.json'
+	
+	/**
+	 * pid 文件名
+	 */
+	static final String PID_FILE_NAME = 'game.pid'
 }

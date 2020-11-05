@@ -16,6 +16,8 @@ import io.vertx.core.json.Json
 import io.vertx.core.json.jackson.DatabindCodec
 import io.vertx.reactivex.core.Vertx
 
+import java.lang.management.ManagementFactory
+
 import static io.github.hdfg159.game.constant.GameConsts.SERVER_CONFIG
 import static io.reactivex.schedulers.Schedulers.io
 
@@ -37,6 +39,9 @@ class Main {
 				.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 				.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
 				.registerModule(new JavaTimeModule())
+		
+		writePidFile()
+		
 		Vertx vx = Vertx.vertx()
 		
 		jmx()
@@ -64,6 +69,14 @@ class Main {
 			log.info "vert.x close ${throwable ? "fail" : "success"} ${throwable ? throwable.message : ""}"
 			log.info "shutdown application success"
 		}
+	}
+	
+	private static void writePidFile() {
+		def pid = ManagementFactory.getRuntimeMXBean().getName().split("@")[0]
+		def pidFile = new File("game.pid")
+		pidFile.delete()
+		pidFile << pid
+		log.info "current application pid:[{}]", pid
 	}
 	
 	private static Completable gameServer(Vertx vx) {
