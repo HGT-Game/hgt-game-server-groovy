@@ -180,7 +180,9 @@ class TurtleSoupService extends AbstractService {
 			}
 			
 			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-			roomPush(CodeEnums.SOUP_ROOM_PUSH, [aid], [aid], roomId, {it.v1})
+			roomPush([aid], [aid], roomId, {
+				it.v1
+			})
 			
 			def roomPush = buildRoomPush(room.getAllMemberIds(), roomId, {
 				if (room.status != RoomStatus.PLAYING.status) {
@@ -205,17 +207,8 @@ class TurtleSoupService extends AbstractService {
 				}
 				
 				// 题目
-				def question = questionConfig.questionMap[record.questionId]
-				if (question) {
-					def questionRes = SoupMessage.QuestionRes.newBuilder()
-							.setId(question.id)
-							.setQuestion(question.question)
-					if (aid == record.mcId) {
-						questionRes.setContent(question.content)
-					}
-					
-					it.v1.setQuestion(questionRes)
-				}
+				def questionRes = buildQuestion(aid == record.mcId, record.questionId)
+				it.v1.setQuestion(questionRes)
 				
 				it.v1.addAllMsg(chatRecords)
 			})
@@ -239,7 +232,9 @@ class TurtleSoupService extends AbstractService {
 			if (resultCode.success()) {
 				
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(roomId).build())
-				roomPush(CodeEnums.SOUP_ROOM_PUSH, [aid], [], roomId, {it.v1})
+				roomPush([aid], [], roomId, {
+					it.v1
+				})
 				
 				return GameUtils.sucResMsg(RES_SOUP_LEAVE_ROOM, SoupMessage.LeaveRoomRes.newBuilder().build())
 			} else {
@@ -275,12 +270,8 @@ class TurtleSoupService extends AbstractService {
 						// 更改房间状态
 						room.status = RoomStatus.SELECT.status
 						
-						def questionRes = questionConfig.questionMap.collect {
-							SoupMessage.QuestionRes.newBuilder()
-									.setId(it.key)
-									.setQuestion(it.value.question)
-									.setContent(it.value.content)
-									.build()
+						def questionRes = questionConfig.questionMap.keySet().collect {
+							buildQuestion(true, it)
 						}
 						
 						// 开始游戏记录
@@ -324,7 +315,9 @@ class TurtleSoupService extends AbstractService {
 					if (member.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PREPARE.status)) {
 						room.prepare.add(aid)
 						
-						roomPush(CodeEnums.SOUP_ROOM_PUSH, [aid], [], roomId, {it.v1})
+						roomPush([aid], [], roomId, {
+							it.v1
+						})
 						return sucResMsg
 					} else {
 						return errRes
@@ -335,7 +328,9 @@ class TurtleSoupService extends AbstractService {
 				if (room.owner != aid && member.status.compareAndSet(MemberStatus.PREPARE.status, MemberStatus.ROOM.status)) {
 					room.prepare.remove(aid)
 					
-					roomPush(CodeEnums.SOUP_ROOM_PUSH, [aid], [], roomId, {it.v1})
+					roomPush([aid], [], roomId, {
+						it.v1
+					})
 					return sucResMsg
 				} else {
 					return errRes
@@ -381,7 +376,9 @@ class TurtleSoupService extends AbstractService {
 			if (kickResult.success()) {
 				
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-				roomPush(CodeEnums.SOUP_ROOM_PUSH, [kickMember.id], [], roomId, {it.v1})
+				roomPush([kickMember.id], [], roomId, {
+					it.v1
+				})
 				
 				return GameUtils.sucResMsg(RES_SOUP_KICK, SoupMessage.KickRes.newBuilder().build())
 			} else {
@@ -411,7 +408,9 @@ class TurtleSoupService extends AbstractService {
 			if (result.success()) {
 				
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-				roomPush(CodeEnums.SOUP_ROOM_PUSH, [aid], [], roomId, {it.v1})
+				roomPush([aid], [], roomId, {
+					it.v1
+				})
 				
 				return GameUtils.sucResMsg(RES_SOUP_EXCHANGE_SEAT, SoupMessage.ExchangeSeatRes.newBuilder().build())
 			} else {
@@ -461,7 +460,7 @@ class TurtleSoupService extends AbstractService {
 		record.chatRecordMap.put(chat.id, chat)
 		record.memberMsgMap.get(aid).add(chat.id)
 		
-		roomPush(CodeEnums.SOUP_ROOM_PUSH, [], [], room.id, {
+		roomPush([], [], room.id, {
 			def res = buildMessageRes(chat, aid, record.mcId)
 			if (res) {
 				it.v1.addChangedMsg(res)
@@ -508,7 +507,7 @@ class TurtleSoupService extends AbstractService {
 		// 改变数据设置答案
 		chat.setAnswer(answerType.type)
 		
-		roomPush(CodeEnums.SOUP_ROOM_PUSH, [], [], room.id, {
+		roomPush([], [], room.id, {
 			def res = buildMessageRes(chat, aid, record.mcId)
 			if (res) {
 				it.v1.addChangedMsg(res)
@@ -563,13 +562,9 @@ class TurtleSoupService extends AbstractService {
 				}
 			}
 			
-			roomPush(CodeEnums.SOUP_ROOM_PUSH, room.getAllMemberIds(), [], roomId, {
-				def questionId = record.questionId
-				def question = questionConfig.questionMap.get(questionId)
-				def questionRes = SoupMessage.QuestionRes.newBuilder()
-						.setContent(question.content)
-						.build()
-				it.v1.setQuestion(questionRes)
+			roomPush(room.getAllMemberIds(), [], roomId, {
+				// 这个位置不允许空指针，肯定有数据
+				it.v1.setQuestion(buildQuestion(true, record.questionId))
 			})
 			
 			// 强制刷缓存
@@ -624,12 +619,9 @@ class TurtleSoupService extends AbstractService {
 			}
 			
 			// 推送房间状态和题目
-			roomPush(CodeEnums.SOUP_ROOM_PUSH, [], [], roomId, {
-				def questionRes = SoupMessage.QuestionRes.newBuilder()
-						.setId(req.id)
-						.setQuestion(question.question)
-						.build()
-				it.v1.setQuestion(questionRes)
+			roomPush([], [], roomId, {
+				// 这个位置不允许空指针，肯定有数据
+				it.v1.setQuestion(buildQuestion(false, req.id))
 			})
 			
 			return GameUtils.sucResMsg(RES_SOUP_SELECT_QUESTION, SoupMessage.SelectQuestionRes.newBuilder().build())
@@ -703,19 +695,25 @@ class TurtleSoupService extends AbstractService {
 				.build()
 	}
 	
-	def roomPush(CodeEnums code,
-				 Collection<String> changeMemberIds,
+	def roomPush(Collection<String> changeMemberIds,
 				 Collection<String> excludePushMemberIds,
 				 String roomId,
 				 Function<Tuple2<RoomPush.Builder, SoupRoom>, RoomPush.Builder> mapping) {
 		
 		def push = buildRoomPush(changeMemberIds, roomId, mapping)
 		if (push) {
-			def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, code, push)
+			def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH, push)
 			avatarService.pushAllMsg(roomData.getRoom(roomId).getAllMemberIds(), excludePushMemberIds.toSet(), msg)
 		}
 	}
 	
+	/**
+	 * 构建房间推送
+	 * @param changeMemberIds 变更状态或者座位的玩家ID
+	 * @param roomId 房间ID
+	 * @param mapping 转换函数
+	 * @return
+	 */
 	def buildRoomPush(Collection<String> changeMemberIds,
 					  String roomId,
 					  Function<Tuple2<RoomPush.Builder, SoupRoom>, RoomPush.Builder> mapping) {
@@ -731,12 +729,21 @@ class TurtleSoupService extends AbstractService {
 		
 		def builder = RoomPush.newBuilder()
 				.setRoomId(room.id)
+				.setRoomName(room.name)
+				.setRoomMax(room.max)
 				.setStatus(room.status)
 				.addAllSeatsChange(seatRes)
 		
 		mapping.apply(new Tuple2<RoomPush.Builder, SoupRoom>(builder, room)).build()
 	}
 	
+	/**
+	 * 构建聊天消息
+	 * @param chat 聊天记录
+	 * @param aid 玩家ID
+	 * @param mcId MCID
+	 * @return
+	 */
 	def buildMessageRes(SoupChatRecord chat, String aid, String mcId) {
 		if (!chat) {
 			return null
@@ -758,6 +765,11 @@ class TurtleSoupService extends AbstractService {
 		msgResBuilder.build()
 	}
 	
+	/**
+	 * 执行自动选题
+	 * @param roomId 房间 ID
+	 * @return
+	 */
 	def autoSelectQuestion(String roomId) {
 		def room = roomData.getRoom(roomId)
 		if (!room) {
@@ -784,12 +796,35 @@ class TurtleSoupService extends AbstractService {
 			}
 			
 			// 推送房间状态和题目
-			roomPush(CodeEnums.SOUP_ROOM_PUSH, [], [], roomId, {
-				it.v1.setQuestion(SoupMessage.QuestionRes.newBuilder()
-						.setId(questionId)
-						.setQuestion(questionConfig.questionMap[questionId].question)
-						.build())
+			roomPush([], [], roomId, {
+				// 这个位置不允许空指针，肯定有数据
+				it.v1.setQuestion(buildQuestion(false, questionId))
 			})
 		}
+	}
+	
+	/**
+	 * 构建问题
+	 *
+	 * @param containContent 是否包含答案
+	 * @param questionId 问题ID
+	 * @return
+	 */
+	def buildQuestion(boolean containContent, String questionId) {
+		def question = questionConfig.questionMap[questionId]
+		if (!question) {
+			return null
+		}
+		
+		def res = SoupMessage.QuestionRes.newBuilder()
+				.setId(question.id)
+				.setTitle(question.title)
+				.setQuestion(question.question)
+		
+		if (containContent) {
+			res.setContent(question.content)
+		}
+		
+		return res.build()
 	}
 }

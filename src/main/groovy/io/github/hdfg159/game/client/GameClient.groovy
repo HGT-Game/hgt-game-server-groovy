@@ -59,16 +59,10 @@ class GameClient {
 				if (channel.active) {
 					switch (args[0]) {
 						case "1002":
-							login("admin", "admin")
-							break
-						case "10021":
-							login("admin123", "admin123")
+							login(args[1], args[2])
 							break
 						case "1003":
-							register("admin", "admin")
-							break
-						case "10031":
-							register("admin123", "admin123")
+							register(args[1], args[2])
 							break
 						case "9999999":
 							test()
@@ -77,7 +71,7 @@ class GameClient {
 							soupRoomHall()
 							break
 						case "2002":
-							createSoupRoom(args[1].toInteger())
+							createSoupRoom(args[1], args[2].toInteger())
 							break
 						case "2003":
 							joinSoupRoom(args[1])
@@ -92,13 +86,16 @@ class GameClient {
 							kick()
 							break
 						case "2008":
-							chat()
+							chat(args[1])
 							break
 						case "2009":
 							answer(args[1], args[2].toInteger())
 							break
 						case "2010":
 							end()
+							break
+						case "2011":
+							selectQuestion(args[1])
 							break
 						case "2012":
 							load()
@@ -111,6 +108,12 @@ class GameClient {
 				log.error "命令执行错误:${e.message}"
 			}
 		}
+	}
+	
+	static def selectQuestion(id) {
+		def req = SoupMessage.SelectQuestionReq.newBuilder().setId(id).build()
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_SELECT_QUESTION, req)
+		channel.writeAndFlush(reg)
 	}
 	
 	static def kick() {
@@ -133,8 +136,8 @@ class GameClient {
 		channel.writeAndFlush(reg)
 	}
 	
-	static def chat() {
-		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_CHAT, SoupMessage.ChatReq.newBuilder().setContent("牛逼").build())
+	static def chat(msg) {
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_CHAT, SoupMessage.ChatReq.newBuilder().setContent(msg).build())
 		channel.writeAndFlush(reg)
 	}
 	
@@ -143,8 +146,11 @@ class GameClient {
 		channel.writeAndFlush(reg)
 	}
 	
-	def static createSoupRoom(int max) {
-		def req = SoupMessage.CreateRoomReq.newBuilder().setName(IdUtils.idStr.substring(0, 5)).setMax(max).build()
+	def static createSoupRoom(name, max) {
+		def req = SoupMessage.CreateRoomReq.newBuilder()
+				.setName(name)
+				.setMax(max)
+				.build()
 		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_CREATE_ROOM, req)
 		channel.writeAndFlush(reg)
 	}

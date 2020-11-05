@@ -117,6 +117,9 @@ message RoomPush {
     repeated ChatMessageRes changedMsg = 5;
     repeated ChatMessageRes msg = 6;
     repeated QuestionRes selectQuestions = 7;
+    string mcId = 8;
+    string roomName = 9;
+    uint32 roomMax = 10;
 }
 
 message RoomMemberSeatRes {
@@ -132,8 +135,9 @@ message RoomMemberSeatRes {
 
 message QuestionRes {
     string id = 1;
-    string question = 2;
-    string content = 3;
+    string title = 2;
+    string question = 3;
+    string content = 4;
 }
 
 message ChatMessageRes {

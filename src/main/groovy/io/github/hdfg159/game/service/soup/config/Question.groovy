@@ -11,6 +11,7 @@ package io.github.hdfg159.game.service.soup.config
  */
 class Question {
 	String id
+	String title
 	String question
 	String content
 }
