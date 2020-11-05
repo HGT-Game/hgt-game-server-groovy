@@ -72,7 +72,7 @@ class Main {
 	}
 	
 	private static void writePidFile() {
-		def pid = ManagementFactory.getRuntimeMXBean().getName().split("@")[0]
+		def pid = ManagementFactory.getRuntimeMXBean().getPid()
 		def pidFile = new File("game.pid")
 		pidFile.delete()
 		pidFile << pid
