@@ -49,18 +49,19 @@ class SoupRoomData {
 		hallOnlineAvatars.add(aid)
 	}
 	
-	def leaveRoom(SoupMember member, SoupRoom room) {
+	Tuple2<CodeEnums, List<String>> leaveRoom(SoupMember member, SoupRoom room) {
 		// 游戏中不能退出
 		if (room.status == RoomStatus.PLAYING.status) {
-			return CodeEnums.SOUP_ROOM_STATUS_PLAYING
+			return new Tuple2<>(CodeEnums.SOUP_ROOM_STATUS_PLAYING, [])
 		}
 		
 		// 不存在用户
 		if (!room.roomMemberMap.containsKey(member.id)) {
-			return CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST
+			return new Tuple2<>(CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST, [])
 		}
 		
 		// 最后一个人
+		List<String> changeAva = [member.id]
 		if (room.roomMemberMap.size() == 1) {
 			roomMap.remove(room.id)
 		} else {
@@ -72,12 +73,13 @@ class SoupRoomData {
 			if (room.owner == member.id) {
 				// 随机选第一个做房主
 				room.owner = (room.roomMemberMap.keySet().toList().shuffled())[0]
+				changeAva += room.owner
 			}
 		}
 		
 		// 无脑离开
 		member.leaveRoom()
-		return CodeEnums.SUCCESS
+		return new Tuple2<>(CodeEnums.SUCCESS, changeAva)
 	}
 	
 	static def kick(String aid, SoupMember member, SoupRoom room) {

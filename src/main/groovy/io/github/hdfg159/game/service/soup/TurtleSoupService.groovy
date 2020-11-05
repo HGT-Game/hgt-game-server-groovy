@@ -228,17 +228,17 @@ class TurtleSoupService extends AbstractService {
 		}
 		
 		synchronized (room) {
-			def resultCode = roomData.leaveRoom(member, room)
-			if (resultCode.success()) {
+			def result = roomData.leaveRoom(member, room)
+			if (result.v1.success()) {
 				
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(roomId).build())
-				roomPush([aid], [], roomId, {
+				roomPush(result.v2, [], roomId, {
 					it.v1
 				})
 				
 				return GameUtils.sucResMsg(RES_SOUP_LEAVE_ROOM, SoupMessage.LeaveRoomRes.newBuilder().build())
 			} else {
-				return GameUtils.resMsg(RES_SOUP_LEAVE_ROOM, resultCode)
+				return GameUtils.resMsg(RES_SOUP_LEAVE_ROOM, result.v1)
 			}
 		}
 	}
@@ -741,8 +741,7 @@ class TurtleSoupService extends AbstractService {
 	 * 构建聊天消息
 	 * @param chat 聊天记录
 	 * @param aid 玩家ID
-	 * @param mcId MCID
-	 * @return
+	 * @param mcId MC ID
 	 */
 	def buildMessageRes(SoupChatRecord chat, String aid, String mcId) {
 		if (!chat) {
