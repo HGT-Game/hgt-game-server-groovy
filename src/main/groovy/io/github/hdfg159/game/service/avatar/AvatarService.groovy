@@ -5,7 +5,6 @@ import groovy.util.logging.Slf4j
 import io.github.hdfg159.game.domain.dto.EventMessage
 import io.github.hdfg159.game.domain.dto.GameMessage
 import io.github.hdfg159.game.enumeration.EventEnums
-import io.github.hdfg159.game.enumeration.ProtocolEnums
 import io.github.hdfg159.game.service.AbstractService
 import io.github.hdfg159.game.util.GameUtils
 import io.github.hdfg159.scheduler.factory.Triggers
@@ -18,8 +17,7 @@ import java.time.temporal.ChronoUnit
 import static io.github.hdfg159.game.constant.GameConsts.ATTR_AVATAR
 import static io.github.hdfg159.game.constant.GameConsts.ATTR_NAME_CHANNEL_ID
 import static io.github.hdfg159.game.enumeration.CodeEnums.*
-import static io.github.hdfg159.game.enumeration.ProtocolEnums.RES_LOGIN
-import static io.github.hdfg159.game.enumeration.ProtocolEnums.RES_REGISTER
+import static io.github.hdfg159.game.enumeration.ProtocolEnums.*
 
 /**
  * Project:starter
@@ -35,10 +33,10 @@ class AvatarService extends AbstractService {
 	
 	@Override
 	Completable init() {
-		response(ProtocolEnums.REQ_LOGIN, login)
-		response(ProtocolEnums.REQ_OFFLINE, offline)
-		response(ProtocolEnums.REQ_HEART_BEAT, heartBeat)
-		response(ProtocolEnums.REQ_REGISTER, register)
+		response(REQ_LOGIN, login)
+		response(REQ_OFFLINE, offline)
+		response(REQ_HEART_BEAT, heartBeat)
+		response(REQ_REGISTER, register)
 		
 		handleEvent(EventEnums.ONLINE, onlineEvent)
 		handleEvent(EventEnums.OFFLINE, offlineEvent)
@@ -149,8 +147,7 @@ class AvatarService extends AbstractService {
 	}
 	
 	def heartBeat = {headers, params ->
-		def request = params as GameMessage.HeartBeatReq
-		log.info "heart beat ......"
+		GameUtils.sucResMsg(RES_HEART_BEAT, GameMessage.HeartBeatRes.newBuilder().build())
 	}
 	
 	def onlineEvent = {headers, params ->
@@ -216,7 +213,7 @@ class AvatarService extends AbstractService {
 			}
 			
 			def channel = avatarData.getChannel(userId)
-			def res = GameUtils.resMsg(ProtocolEnums.RES_OFFLINE, FORCE_OFFLINE)
+			def res = GameUtils.resMsg(RES_OFFLINE, FORCE_OFFLINE)
 			if (channel && channel.isActive()) {
 				channel.writeAndFlush(res)
 				channel.close()
