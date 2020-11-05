@@ -1,8 +1,7 @@
 package io.github.hdfg159.game.service.soup.enums
+
 /**
- * Project:hgt-game-server
- * Package:io.github.hdfg159.game.service.soup.enums
- * Created by hdfg159 on 2020/10/29 22:15.
+ * 答案类型
  */
 enum AnswerType {
 	NON(1),

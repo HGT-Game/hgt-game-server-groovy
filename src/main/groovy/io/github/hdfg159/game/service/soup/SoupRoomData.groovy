@@ -7,7 +7,7 @@ import io.vertx.core.impl.ConcurrentHashSet
 import java.util.concurrent.ConcurrentHashMap
 
 /**
- * 海龟汤 房间数据
+ * 海龟汤 房间数据管理
  */
 @Singleton
 class SoupRoomData {

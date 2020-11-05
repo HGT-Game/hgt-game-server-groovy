@@ -6,9 +6,7 @@ import io.github.hdfg159.game.data.TData
 import java.time.LocalDateTime
 
 /**
- * Project:starter
- * Package:io.github.hdfg159.game.service.soup
- * Created by hdfg159 on 2020/10/23 22:42.
+ * 海龟汤 聊天记录
  */
 @Canonical
 class SoupChatRecord implements TData<String> {

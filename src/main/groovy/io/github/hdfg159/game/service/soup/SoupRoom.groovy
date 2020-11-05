@@ -9,10 +9,7 @@ import io.github.hdfg159.game.service.soup.enums.RoomStatus
 import java.time.LocalDateTime
 
 /**
- * Project:starter
- * <p>
- * Package:io.github.hdfg159.game.service.soup
- * <p>
+ * 海龟汤 房间数据
  *
  * @date 2020/10/23 14:32
  * @author zhangzhenyu

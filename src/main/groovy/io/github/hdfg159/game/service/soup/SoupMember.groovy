@@ -10,10 +10,7 @@ import java.time.LocalDateTime
 import java.util.concurrent.atomic.AtomicInteger
 
 /**
- * Project:starter
- * <p>
- * Package:io.github.hdfg159.game.service.soup
- * <p>
+ * 海龟汤 玩家数据
  *
  * @date 2020/10/23 14:32
  * @author zhangzhenyu

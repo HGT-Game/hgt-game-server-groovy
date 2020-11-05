@@ -1,9 +1,7 @@
 package io.github.hdfg159.game.service.soup.enums
 
 /**
- * Project:hgt-game-server
- * Package:io.github.hdfg159.game.service.soup.enums
- * Created by hdfg159 on 2020/10/29 22:14.
+ * 聊天类型
  */
 enum ChatType {
 	CHAT(1),

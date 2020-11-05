@@ -695,6 +695,9 @@ class TurtleSoupService extends AbstractService {
 				.build()
 	}
 	
+	/**
+	 * 房间推送
+	 */
 	def roomPush(Collection<String> changeMemberIds,
 				 Collection<String> excludePushMemberIds,
 				 String roomId,
@@ -709,10 +712,6 @@ class TurtleSoupService extends AbstractService {
 	
 	/**
 	 * 构建房间推送
-	 * @param changeMemberIds 变更状态或者座位的玩家ID
-	 * @param roomId 房间ID
-	 * @param mapping 转换函数
-	 * @return
 	 */
 	def buildRoomPush(Collection<String> changeMemberIds,
 					  String roomId,
@@ -739,9 +738,6 @@ class TurtleSoupService extends AbstractService {
 	
 	/**
 	 * 构建聊天消息
-	 * @param chat 聊天记录
-	 * @param aid 玩家ID
-	 * @param mcId MC ID
 	 */
 	def buildMessageRes(SoupChatRecord chat, String aid, String mcId) {
 		if (!chat) {
@@ -767,7 +763,6 @@ class TurtleSoupService extends AbstractService {
 	/**
 	 * 执行自动选题
 	 * @param roomId 房间 ID
-	 * @return
 	 */
 	def autoSelectQuestion(String roomId) {
 		def room = roomData.getRoom(roomId)
@@ -804,10 +799,6 @@ class TurtleSoupService extends AbstractService {
 	
 	/**
 	 * 构建问题
-	 *
-	 * @param containContent 是否包含答案
-	 * @param questionId 问题ID
-	 * @return
 	 */
 	def buildQuestion(boolean containContent, String questionId) {
 		def question = questionConfig.questionMap[questionId]
