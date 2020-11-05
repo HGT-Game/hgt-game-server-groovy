@@ -56,21 +56,24 @@ class SoupRoomData {
 		}
 		
 		// 不存在用户
-		if (!room.roomMemberMap.containsKey(member.id)) {
+		def mid = member.id
+		if (!room.roomMemberMap.containsKey(mid)) {
 			return new Tuple2<>(CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST, [])
 		}
 		
 		// 最后一个人
-		List<String> changeAva = [member.id]
+		List<String> changeAva = [mid]
 		if (room.roomMemberMap.size() == 1) {
 			roomMap.remove(room.id)
 		} else {
-			// 移除
-			def removeIndex = room.roomMemberMap.remove(member.id)
+			// 移除准备玩家数据
+			room.prepare.remove(mid)
+			// 移除玩家位置和玩家信息存储
+			def removeIndex = room.roomMemberMap.remove(mid)
 			room.memberIds.set(removeIndex, null)
 			
 			// 是房主
-			if (room.owner == member.id) {
+			if (room.owner == mid) {
 				// 随机选第一个做房主
 				room.owner = (room.roomMemberMap.keySet().toList().shuffled())[0]
 				changeAva += room.owner
