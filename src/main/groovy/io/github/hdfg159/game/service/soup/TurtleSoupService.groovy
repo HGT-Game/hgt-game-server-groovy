@@ -607,15 +607,15 @@ class TurtleSoupService extends AbstractService {
 				return GameUtils.resMsg(RES_SOUP_SELECT_QUESTION, CodeEnums.SOUP_MEMBER_NOT_MC)
 			}
 			
-			// 取消定时器
-			scheduler.cancel("${roomId}::SELECT")
-			
 			// 选题推送
-			room.status = RoomStatus.PLAYING.status
 			record.questionId = req.id
-			record.memberIds.each {
+			room.status = RoomStatus.PLAYING.status
+			record.memberIds.findAll {it != null}.each {
 				memberData.getById(it).questionIds.add(req.id)
 			}
+			
+			// 取消定时器
+			scheduler.cancel("${roomId}::SELECT")
 			
 			// 推送房间状态和题目
 			roomPush([], [], roomId, {
