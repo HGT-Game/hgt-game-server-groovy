@@ -282,28 +282,23 @@ class TurtleSoupService extends AbstractService {
 						room.recordId = cache.id
 						
 						// 更改其他玩家状态数据
-						room.memberIds
-								.each {
-									if (!it) {
-										return
-									}
-									
-									def m = memberData.getById(it)
-									def push = RoomPush.newBuilder().setRoomId(room.id).setStatus(room.status)
-									if (it == room.owner) {
-										m.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PLAYING.status)
-										m.mcTimes += 1
-										
-										push.addAllSelectQuestions(questionRes)
-									} else {
-										m.status.compareAndSet(MemberStatus.PREPARE.status, MemberStatus.PLAYING.status)
-									}
-									m.recordIds.add(cache.id)
-									
-									// 消息推送
-									def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH, push.build())
-									avatarService.pushMsg(it, msg)
-								}
+						room.getAllMemberIds().each {
+							def m = memberData.getById(it)
+							def push = RoomPush.newBuilder().setRoomId(room.id).setStatus(room.status)
+							if (it == room.owner) {
+								m.status.compareAndSet(MemberStatus.ROOM.status, MemberStatus.PLAYING.status)
+								m.mcTimes += 1
+								
+								push.addAllSelectQuestions(questionRes)
+							} else {
+								m.status.compareAndSet(MemberStatus.PREPARE.status, MemberStatus.PLAYING.status)
+							}
+							m.recordIds.add(cache.id)
+							
+							// 消息推送
+							def msg = GameUtils.resMsg(RES_SOUP_ROOM_PUSH, CodeEnums.SOUP_ROOM_PUSH, push.build())
+							avatarService.pushMsg(it, msg)
+						}
 						
 						// 定时任务
 						Triggers.once("${roomId}::SELECT", LocalDateTime.now().plusSeconds(10), {
@@ -789,7 +784,7 @@ class TurtleSoupService extends AbstractService {
 			
 			def questionId = record.selectQuestionIds.shuffled()[0]
 			record.questionId = questionId
-			record.memberIds.each {
+			record.memberIds.findAll {it != null}.each {
 				memberData.getById(it).questionIds.add(questionId)
 			}
 			
