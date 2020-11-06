@@ -284,6 +284,10 @@ class TurtleSoupService extends AbstractService {
 						// 更改其他玩家状态数据
 						room.memberIds
 								.each {
+									if (!it) {
+										return
+									}
+									
 									def m = memberData.getById(it)
 									def push = RoomPush.newBuilder().setRoomId(room.id).setStatus(room.status)
 									if (it == room.owner) {
