@@ -26,12 +26,12 @@ class SoupRoomData {
 		
 		def joinRoomSuc = member.joinRoom(0, room.id)
 		if (!joinRoomSuc.success()) {
-			return new Tuple2<>(joinRoomSuc, null)
+			return Tuple.tuple(joinRoomSuc, null)
 		}
 		
 		roomMap.put(room.id, room)
 		
-		new Tuple2<CodeEnums, SoupRoom>(CodeEnums.SUCCESS, room)
+		Tuple.tuple(CodeEnums.SUCCESS, room)
 	}
 	
 	def getRooms() {
@@ -52,13 +52,13 @@ class SoupRoomData {
 	Tuple2<CodeEnums, List<String>> leaveRoom(SoupMember member, SoupRoom room) {
 		// 游戏中不能退出
 		if (room.status == RoomStatus.PLAYING.status) {
-			return new Tuple2<>(CodeEnums.SOUP_ROOM_STATUS_PLAYING, [])
+			return Tuple.tuple(CodeEnums.SOUP_ROOM_STATUS_PLAYING, [])
 		}
 		
 		// 不存在用户
 		def mid = member.id
 		if (!room.roomMemberMap.containsKey(mid)) {
-			return new Tuple2<>(CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST, [])
+			return Tuple.tuple(CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST, [])
 		}
 		
 		// 最后一个人
@@ -82,7 +82,7 @@ class SoupRoomData {
 		
 		// 无脑离开
 		member.leaveRoom()
-		return new Tuple2<>(CodeEnums.SUCCESS, changeAva)
+		return Tuple.tuple(CodeEnums.SUCCESS, changeAva)
 	}
 	
 	static def kick(String aid, SoupMember member, SoupRoom room) {

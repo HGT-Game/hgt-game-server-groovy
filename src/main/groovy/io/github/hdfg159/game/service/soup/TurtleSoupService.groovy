@@ -733,7 +733,7 @@ class TurtleSoupService extends AbstractService {
 				.setStatus(room.status)
 				.addAllSeatsChange(seatRes)
 		
-		mapping.apply(new Tuple2<RoomPush.Builder, SoupRoom>(builder, room)).build()
+		mapping.apply(Tuple.tuple(builder, room)).build()
 	}
 	
 	/**
