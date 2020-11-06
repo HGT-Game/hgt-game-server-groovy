@@ -20,7 +20,7 @@ class SoupMember implements TData<String> {
 	/**
 	 * 发言间隔时间
 	 */
-	private static final SPEAK_INTERVAL_SECOND = 6
+	private static final SPEAK_INTERVAL_SECOND = 2
 	
 	/**
 	 * io.github.hdfg159.game.service.soup.enums.MemberStatus

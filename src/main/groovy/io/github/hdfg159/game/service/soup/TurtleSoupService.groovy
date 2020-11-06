@@ -429,11 +429,6 @@ class TurtleSoupService extends AbstractService {
 		}
 		
 		def member = memberData.getById(aid)
-		def speak = member.speak()
-		if (speak > 0) {
-			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_CHAT_LIMIT, builder.setSeconds(speak).build())
-		}
-		
 		def room = roomData.getRoom(member.roomId)
 		if (!room) {
 			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_ROOM_NOT_EXIST)
@@ -446,6 +441,11 @@ class TurtleSoupService extends AbstractService {
 		def record = room.getRecord()
 		if (!record) {
 			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_RECORD_NOT_EXIST)
+		}
+		
+		def speak = member.speak()
+		if (speak > 0) {
+			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_CHAT_LIMIT, builder.setSeconds(speak).build())
 		}
 		
 		SoupChatRecord chat = new SoupChatRecord(
