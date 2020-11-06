@@ -262,7 +262,7 @@ class TurtleSoupService extends AbstractService {
 				// 准备或开始
 				if (room.owner == aid) {
 					// 更改玩家状态成功 && 准备人数足够
-					if (room.prepare.size() == room.allMemberIds.size()) {
+					if (room.prepare.size() != room.allMemberIds.size()) {
 						return GameUtils.resMsg(RES_SOUP_PREPARE, CodeEnums.SOUP_PREPARE_MAX_NOT_REACH)
 					}
 					
