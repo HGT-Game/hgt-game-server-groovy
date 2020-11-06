@@ -26,8 +26,8 @@ import io.netty.channel.socket.nio.NioSocketChannel
 class GameClient {
 	ChannelFuture startFuture
 	EventLoopGroup group
-	def port = 9998
-	def host = "127.0.0.1"
+	def port = 443
+	def host = "api.sunanzhi.com"
 	def static channel
 	
 	void start() {

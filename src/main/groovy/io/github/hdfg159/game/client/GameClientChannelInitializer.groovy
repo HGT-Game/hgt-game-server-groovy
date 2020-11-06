@@ -14,6 +14,8 @@ import io.netty.handler.codec.http.websocketx.WebSocketClientProtocolHandler
 import io.netty.handler.codec.http.websocketx.WebSocketVersion
 import io.netty.handler.codec.protobuf.ProtobufDecoder
 import io.netty.handler.codec.protobuf.ProtobufEncoder
+import io.netty.handler.ssl.SslContextBuilder
+import io.netty.handler.ssl.util.InsecureTrustManagerFactory
 import io.netty.handler.timeout.IdleStateHandler
 
 import java.util.concurrent.TimeUnit
@@ -32,14 +34,18 @@ class GameClientChannelInitializer extends ChannelInitializer<Channel> {
 	@Override
 	protected void initChannel(Channel ch) throws Exception {
 		def handShaker = WebSocketClientHandshakerFactory.newHandshaker(
-				new URI("wss://127.0.0.1:9998"),
+				new URI("wss://api.sunanzhi.com/game"),
 				WebSocketVersion.V13,
 				null,
 				true,
 				new DefaultHttpHeaders()
 		)
 		
+		def sslHandler = SslContextBuilder.forClient().trustManager(InsecureTrustManagerFactory.INSTANCE).build()
+				.newHandler(ch.alloc())
+		
 		ch.pipeline()
+				.addFirst(sslHandler)
 				.addLast(new IdleStateHandler(0, 0, 180, TimeUnit.SECONDS))
 				
 				.addLast(new HttpClientCodec())
