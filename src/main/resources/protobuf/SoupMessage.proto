@@ -6,9 +6,9 @@ message LoadReq {
 }
 
 message LoadRes {
-    bool reconnect = 1;
-    string roomId = 2;
-    string password = 3;
+  bool reconnect = 1;
+  string roomId = 2;
+  string password = 3;
 }
 
 message RoomHallReq {
@@ -16,30 +16,30 @@ message RoomHallReq {
 }
 
 message RoomHallRes {
-    repeated RoomRes rooms = 1;
-    message RoomRes {
-        string id = 1;
-        string name = 2;
-    }
+  repeated RoomRes rooms = 1;
+  message RoomRes {
+    string id = 1;
+    string name = 2;
+  }
 }
 
 message CreateRoomReq {
-    string password = 1;
-    uint32 max = 2;
-    string name = 3;
+  string password = 1;
+  uint32 max = 2;
+  string name = 3;
 }
 
 message CreateRoomRes {
-    RoomPush room = 1;
+  RoomPush room = 1;
 }
 
 message JoinRoomReq {
-    string roomId = 1;
-    string password = 2;
+  string roomId = 1;
+  string password = 2;
 }
 
 message JoinRoomRes {
-    RoomPush room = 1;
+  RoomPush room = 1;
 }
 
 message LeaveRoomReq {
@@ -51,7 +51,7 @@ message LeaveRoomRes {
 }
 
 message PrepareReq {
-    bool ok = 1;
+  bool ok = 1;
 }
 
 message PrepareRes {
@@ -59,8 +59,8 @@ message PrepareRes {
 }
 
 message KickReq {
-    string aid = 1;
-    uint32 index = 2;
+  string aid = 1;
+  uint32 index = 2;
 }
 
 message KickRes {
@@ -68,7 +68,7 @@ message KickRes {
 }
 
 message ExchangeSeatReq {
-    uint32 index = 1;
+  uint32 index = 1;
 }
 
 message ExchangeSeatRes {
@@ -76,16 +76,16 @@ message ExchangeSeatRes {
 }
 
 message ChatReq {
-    string content = 1;
+  string content = 1;
 }
 
 message ChatRes {
-    uint64 seconds = 1;
+  uint64 seconds = 1;
 }
 
 message AnswerReq {
-    string id = 1;
-    uint32 answer = 2;
+  string id = 1;
+  uint32 answer = 2;
 }
 
 message AnswerRes {
@@ -98,7 +98,7 @@ message EndRes {
 }
 
 message SelectQuestionReq {
-    string id = 1;
+  string id = 1;
 }
 
 message SelectQuestionRes {
@@ -110,43 +110,43 @@ message HallPush {
 }
 
 message RoomPush {
-    repeated RoomMemberSeatRes seatsChange = 1;
-    uint32 status = 2;
-    QuestionRes question = 3;
-    string roomId = 4;
-    repeated ChatMessageRes changedMsg = 5;
-    repeated ChatMessageRes msg = 6;
-    repeated QuestionRes selectQuestions = 7;
-    string mcId = 8;
-    string roomName = 9;
-    uint32 roomMax = 10;
+  repeated RoomMemberSeatRes seatsChange = 1;
+  uint32 status = 2;
+  QuestionRes question = 3;
+  string roomId = 4;
+  repeated ChatMessageRes changedMsg = 5;
+  repeated ChatMessageRes msg = 6;
+  repeated QuestionRes selectQuestions = 7;
+  string mcId = 8;
+  string roomName = 9;
+  uint32 roomMax = 10;
 }
 
 message RoomMemberSeatRes {
-    string aid = 1;
-    string avaName = 2;
-    string avaHead = 3;
-    uint32 index = 4;
-    bool owner = 5;
-    uint32 status = 6;
-    bool mc = 7;
-    bool leave = 8;
+  string aid = 1;
+  string avaName = 2;
+  string avaHead = 3;
+  uint32 index = 4;
+  bool owner = 5;
+  uint32 status = 6;
+  bool mc = 7;
+  bool leave = 8;
 }
 
 message QuestionRes {
-    string id = 1;
-    string title = 2;
-    string question = 3;
-    string content = 4;
+  string id = 1;
+  string title = 2;
+  string question = 3;
+  string content = 4;
 }
 
 message ChatMessageRes {
-    string id = 1;
-    string content = 2;
-    uint32 answer = 3;
+  string id = 1;
+  string content = 2;
+  uint32 answer = 3;
 
-    string aid = 4;
-    string avaName = 5;
-    string avaHead = 6;
-    bool mc = 7;
+  string aid = 4;
+  string avaName = 5;
+  string avaHead = 6;
+  bool mc = 7;
 }
