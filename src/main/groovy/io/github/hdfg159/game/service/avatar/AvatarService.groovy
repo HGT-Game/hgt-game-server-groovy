@@ -5,7 +5,10 @@ import groovy.util.logging.Slf4j
 import io.github.hdfg159.game.domain.dto.EventMessage
 import io.github.hdfg159.game.domain.dto.GameMessage
 import io.github.hdfg159.game.enumeration.EventEnums
+import io.github.hdfg159.game.enumeration.LogEnums
 import io.github.hdfg159.game.service.AbstractService
+import io.github.hdfg159.game.service.log.GameLog
+import io.github.hdfg159.game.service.log.LogService
 import io.github.hdfg159.game.util.GameUtils
 import io.github.hdfg159.scheduler.factory.Triggers
 import io.reactivex.Completable
@@ -27,9 +30,11 @@ import static io.github.hdfg159.game.enumeration.ProtocolEnums.*
 @Slf4j
 @Singleton
 class AvatarService extends AbstractService {
-	def TRIGGER_NAME_AVATAR_ONLINE = "avatar::online::num"
+	static final def TRIGGER_NAME_AVATAR_ONLINE = "avatar::online::num"
 	
 	def avatarData = AvatarData.instance
+	
+	def logService = LogService.getInstance()
 	
 	@Override
 	Completable init() {
@@ -111,6 +116,12 @@ class AvatarService extends AbstractService {
 		
 		log.info("玩家登录成功:[${avatar.id}][${avatar.username}][${avatarData.getChannelId(id)}]")
 		
+		logService.log(new GameLog(
+				aid: avatar.id,
+				name: avatar.username,
+				opt: LogEnums.AVATAR_LOGIN
+		))
+		
 		def res = GameMessage.LoginRes.newBuilder()
 				.setUsername(username)
 				.setUserId(id)
@@ -185,6 +196,13 @@ class AvatarService extends AbstractService {
 		// 保存缓存，全局数据加入相关信息
 		avatarData.saveCache(registerAvatar)
 		avatarData.addGlobalCache(registerAvatar)
+		
+		logService.log(new GameLog(
+				aid: registerAvatar.id,
+				name: registerAvatar.username,
+				opt: LogEnums.AVATAR_REGISTER
+		))
+		
 		def res = GameMessage.RegisterRes.newBuilder()
 				.setId(registerAvatar.id)
 				.setUsername(registerAvatar.username)

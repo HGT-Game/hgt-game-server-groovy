@@ -8,8 +8,11 @@ import io.github.hdfg159.game.domain.dto.SoupMessage
 import io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush
 import io.github.hdfg159.game.enumeration.CodeEnums
 import io.github.hdfg159.game.enumeration.EventEnums
+import io.github.hdfg159.game.enumeration.LogEnums
 import io.github.hdfg159.game.service.AbstractService
 import io.github.hdfg159.game.service.avatar.AvatarService
+import io.github.hdfg159.game.service.log.GameLog
+import io.github.hdfg159.game.service.log.LogService
 import io.github.hdfg159.game.service.soup.config.QuestionConfig
 import io.github.hdfg159.game.service.soup.enums.AnswerType
 import io.github.hdfg159.game.service.soup.enums.MemberStatus
@@ -17,6 +20,7 @@ import io.github.hdfg159.game.service.soup.enums.RoomStatus
 import io.github.hdfg159.game.util.GameUtils
 import io.github.hdfg159.scheduler.factory.Triggers
 import io.reactivex.Completable
+import io.vertx.core.json.JsonObject
 
 import java.time.LocalDateTime
 import java.util.function.Function
@@ -33,6 +37,7 @@ import static io.github.hdfg159.game.enumeration.ProtocolEnums.*
 @Singleton
 class TurtleSoupService extends AbstractService {
 	def avatarService = AvatarService.getInstance()
+	def logService = LogService.getInstance()
 	
 	def memberData = SoupMemberData.getInstance()
 	def recordData = SoupRecordData.getInstance()
@@ -136,6 +141,18 @@ class TurtleSoupService extends AbstractService {
 			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
 			
 			def res = roomRes.setRoom(buildRoomPush([aid], room.id, {it.v1})).build()
+			
+			logService.log(new GameLog(
+					aid: aid,
+					name: avatarService.getAvatarById(aid).username,
+					opt: LogEnums.SOUP_CREATE_ROOM,
+					param: new JsonObject([
+							"id"  : room.id,
+							"name": room.name,
+							"max" : room.max
+					])
+			))
+			
 			return GameUtils.sucResMsg(RES_SOUP_CREATE_ROOM, res)
 		}
 	}
@@ -212,6 +229,17 @@ class TurtleSoupService extends AbstractService {
 				
 				it.v1.addAllMsg(chatRecords)
 			})
+			
+			logService.log(new GameLog(
+					aid: aid,
+					name: avatarService.getAvatarById(aid).username,
+					opt: LogEnums.SOUP_JOIN_ROOM,
+					param: new JsonObject([
+							"id"  : room.id,
+							"name": room.name
+					])
+			))
+			
 			return GameUtils.sucResMsg(RES_SOUP_JOIN_ROOM, SoupMessage.JoinRoomRes.newBuilder().setRoom(roomPush).build())
 		}
 	}
@@ -235,6 +263,16 @@ class TurtleSoupService extends AbstractService {
 				roomPush(result.v2, [], roomId, {
 					it.v1
 				})
+				
+				logService.log(new GameLog(
+						aid: aid,
+						name: avatarService.getAvatarById(aid).username,
+						opt: LogEnums.SOUP_LEAVE_ROOM,
+						param: new JsonObject([
+								"id"  : room.id,
+								"name": room.name
+						])
+				))
 				
 				return GameUtils.sucResMsg(RES_SOUP_LEAVE_ROOM, SoupMessage.LeaveRoomRes.newBuilder().build())
 			} else {
@@ -305,6 +343,18 @@ class TurtleSoupService extends AbstractService {
 							// 自动选择一题并推送
 							autoSelectQuestion(roomId)
 						}).schedule()
+						
+						logService.log(new GameLog(
+								aid: aid,
+								name: avatarService.getAvatarById(aid).username,
+								opt: LogEnums.SOUP_START_RECORD,
+								param: new JsonObject([
+										"id"       : room.id,
+										"name"     : room.name,
+										"recordId" : record.id,
+										"memberIds": record.memberIds.findAll {it != null}
+								])
+						))
 						
 						return sucResMsg
 					} else {
@@ -379,6 +429,29 @@ class TurtleSoupService extends AbstractService {
 					it.v1
 				})
 				
+				logService.log(new GameLog(
+						aid: aid,
+						name: avatarService.getAvatarById(aid).username,
+						opt: LogEnums.SOUP_KICK,
+						param: new JsonObject([
+								"id"       : room.id,
+								"name"     : room.name,
+								"kickIndex": kickIndex,
+								"kickId"   : kickAid
+						])
+				))
+				
+				logService.log(new GameLog(
+						aid: kickMember.id,
+						name: avatarService.getAvatarById(kickMember.id).username,
+						opt: LogEnums.SOUP_LEAVE_ROOM,
+						param: new JsonObject([
+								"id"  : room.id,
+								"name": room.name,
+								"kick": true
+						])
+				))
+				
 				return GameUtils.sucResMsg(RES_SOUP_KICK, SoupMessage.KickRes.newBuilder().build())
 			} else {
 				return GameUtils.resMsg(RES_SOUP_KICK, kickResult)
@@ -410,6 +483,18 @@ class TurtleSoupService extends AbstractService {
 				roomPush([aid], [], roomId, {
 					it.v1
 				})
+				
+				logService.log(new GameLog(
+						aid: aid,
+						name: avatarService.getAvatarById(aid).username,
+						opt: LogEnums.SOUP_EXCHANGE_SEAT,
+						param: new JsonObject([
+								"id"      : room.id,
+								"name"    : room.name,
+								"srcIndex": member.seat,
+								"index"   : index
+						])
+				))
 				
 				return GameUtils.sucResMsg(RES_SOUP_EXCHANGE_SEAT, SoupMessage.ExchangeSeatRes.newBuilder().build())
 			} else {
@@ -569,6 +654,17 @@ class TurtleSoupService extends AbstractService {
 			// 强制刷缓存
 			recordData.updateForceById(recordId)
 			
+			logService.log(new GameLog(
+					aid: aid,
+					name: avatarService.getAvatarById(aid).username,
+					opt: LogEnums.SOUP_END,
+					param: new JsonObject([
+							"id"      : room.id,
+							"name"    : room.name,
+							"recordId": recordId
+					])
+			))
+			
 			return GameUtils.sucResMsg(RES_SOUP_END, SoupMessage.EndRes.newBuilder().build())
 		}
 	}
@@ -622,6 +718,17 @@ class TurtleSoupService extends AbstractService {
 				// 这个位置不允许空指针，肯定有数据
 				it.v1.setQuestion(buildQuestion(false, req.id))
 			})
+			
+			logService.log(new GameLog(
+					aid: aid,
+					name: avatarService.getAvatarById(aid).username,
+					opt: LogEnums.SOUP_SELECT_QUESTION,
+					param: new JsonObject([
+							"id"        : room.id,
+							"name"      : room.name,
+							"questionId": req.id
+					])
+			))
 			
 			return GameUtils.sucResMsg(RES_SOUP_SELECT_QUESTION, SoupMessage.SelectQuestionRes.newBuilder().build())
 		}
@@ -793,6 +900,18 @@ class TurtleSoupService extends AbstractService {
 				// 这个位置不允许空指针，肯定有数据
 				it.v1.setQuestion(buildQuestion(false, questionId))
 			})
+			
+			logService.log(new GameLog(
+					aid: "",
+					name: "",
+					opt: LogEnums.SOUP_SELECT_QUESTION,
+					param: new JsonObject([
+							"id"      : room.id,
+							"name"    : room.name,
+							"auto"    : true,
+							"recordId": record.id
+					])
+			))
 		}
 	}
 	

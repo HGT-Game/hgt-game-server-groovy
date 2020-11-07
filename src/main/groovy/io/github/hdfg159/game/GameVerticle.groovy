@@ -3,6 +3,7 @@ package io.github.hdfg159.game
 import groovy.util.logging.Slf4j
 import io.github.hdfg159.game.service.avatar.AvatarService
 import io.github.hdfg159.game.service.farm.FarmService
+import io.github.hdfg159.game.service.log.LogService
 import io.github.hdfg159.game.service.soup.TurtleSoupService
 import io.github.hdfg159.scheduler.SchedulerManager
 import io.reactivex.Completable
@@ -22,6 +23,7 @@ class GameVerticle extends AbstractVerticle {
 		log.info "deploy ${this.class.simpleName}"
 		
 		this.@vertx.rxDeployVerticle(AvatarService.getInstance()).ignoreElement()
+				.mergeWith(this.@vertx.rxDeployVerticle(LogService.getInstance()).ignoreElement())
 				.mergeWith(this.@vertx.rxDeployVerticle(FarmService.getInstance()).ignoreElement())
 				.mergeWith(this.@vertx.rxDeployVerticle(TurtleSoupService.getInstance()).ignoreElement())
 	}
