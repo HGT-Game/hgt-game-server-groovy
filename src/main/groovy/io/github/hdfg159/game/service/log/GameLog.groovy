@@ -8,9 +8,7 @@ import io.vertx.core.json.JsonObject
 import java.time.LocalDateTime
 
 /**
- * Project:hgt-game-server
- * Package:io.github.hdfg159.game.service.log
- * Created by hdfg159 on 2020/11/7 9:54.
+ * 游戏日志 数据
  */
 @Canonical
 class GameLog implements TData<String> {

@@ -5,9 +5,7 @@ import io.github.hdfg159.game.service.AbstractService
 import io.reactivex.Completable
 
 /**
- * Project:hgt-game-server
- * Package:io.github.hdfg159.game.service.log
- * Created by hdfg159 on 2020/11/7 9:53.
+ * 游戏日志系统
  */
 @Slf4j
 @Singleton
