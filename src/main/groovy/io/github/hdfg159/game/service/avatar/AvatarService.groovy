@@ -218,6 +218,10 @@ class AvatarService extends AbstractService {
 		return GameUtils.sucResMsg(RES_REGISTER, res)
 	}
 	
+	def forceOffline(Collection<String> userIds) {
+		userIds.each {forceOffline(it)}
+	}
+	
 	/**
 	 * 强制下线
 	 * @param userId 用户ID
