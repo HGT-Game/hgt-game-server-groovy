@@ -47,12 +47,11 @@ class AvatarService extends AbstractService {
 		handleEvent(EventEnums.ONLINE, onlineEvent)
 		handleEvent(EventEnums.OFFLINE, offlineEvent)
 		
-		this.@vertx.rxDeployVerticle(avatarData).ignoreElement()
-				.concatWith(Completable.fromRunnable({
-					Triggers.forever(TRIGGER_NAME_AVATAR_ONLINE, 3, ChronoUnit.MINUTES, LocalDateTime.now(), {
-						log.info "online avatar:[{}]", avatarData.allOnlineIds.size()
-					}).schedule()
-				}))
+		Completable.fromRunnable({
+			Triggers.forever(TRIGGER_NAME_AVATAR_ONLINE, 3, ChronoUnit.MINUTES, LocalDateTime.now(), {
+				log.info "online avatar:[{}]", avatarData.allOnlineIds.size()
+			}).schedule()
+		})
 	}
 	
 	@Override

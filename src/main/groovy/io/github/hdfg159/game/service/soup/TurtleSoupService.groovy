@@ -64,9 +64,7 @@ class TurtleSoupService extends AbstractService {
 		handleEvent(EventEnums.ONLINE, onlineEvent)
 		handleEvent(EventEnums.SOUP_SEAT_CHANGE, seatChangeEvent)
 		
-		this.@vertx.rxDeployVerticle(memberData).ignoreElement()
-				.mergeWith(this.@vertx.rxDeployVerticle(recordData).ignoreElement())
-				.mergeWith(this.@vertx.rxDeployVerticle(questionConfig).ignoreElement())
+		this.@vertx.rxDeployVerticle(questionConfig).ignoreElement()
 	}
 	
 	@Override
