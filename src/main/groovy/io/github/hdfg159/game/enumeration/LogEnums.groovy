@@ -8,6 +8,7 @@ package io.github.hdfg159.game.enumeration
 enum LogEnums {
 	AVATAR_LOGIN,
 	AVATAR_REGISTER,
+	AVATAR_OFFLINE,
 	
 	SOUP_CREATE_ROOM,
 	SOUP_JOIN_ROOM,

@@ -2,8 +2,7 @@ package io.github.hdfg159.game.service.log
 
 import groovy.util.logging.Slf4j
 import io.github.hdfg159.common.util.IdUtils
-import io.reactivex.Completable
-import io.reactivex.Maybe
+import io.reactivex.*
 import io.vertx.core.json.JsonObject
 import io.vertx.ext.mongo.BulkOperation
 import io.vertx.ext.mongo.MongoClientBulkWriteResult
@@ -12,12 +11,13 @@ import io.vertx.reactivex.ext.mongo.MongoClient
 
 import java.time.LocalDate
 import java.time.LocalDateTime
-import java.util.concurrent.Executors
 import java.util.concurrent.LinkedBlockingQueue
+import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.LongAdder
 
 import static io.github.hdfg159.game.constant.GameConsts.LOG_MONGO_CONFIG
 import static io.github.hdfg159.game.constant.GameConsts.LOG_MONGO_DATA_SOURCE
+import static io.reactivex.schedulers.Schedulers.single
 
 /**
  * Project:hgt-game-server
@@ -35,7 +35,6 @@ class GameLogData extends AbstractVerticle {
 	def client
 	def volatile shutdown = false
 	def logQueue = new LinkedBlockingQueue<GameLog>()
-	def singleThread = Executors.newSingleThreadExecutor()
 	
 	@Override
 	Completable rxStart() {
@@ -46,63 +45,65 @@ class GameLogData extends AbstractVerticle {
 				.map({buffer ->
 					def config = new JsonObject(buffer.delegate)
 					this.client = MongoClient.createShared(this.@vertx, config, LOG_MONGO_DATA_SOURCE)
-					log.info "create mongo client,config:${config},client:${client}"
+					log.info "create db log mongo client,config:${config},result:[${client == null}]"
 					this.client
 				})
 				.ignoreElement()
-				.concatWith(
-						Completable.fromRunnable({
-							singleThread.submit({saveLogTask()})
-						})
-				)
+				.concatWith(Completable.fromRunnable({saveLogTask()}))
 	}
 	
 	@Override
 	Completable rxStop() {
 		Completable.fromRunnable({
-			// 关闭线程池
 			this.@shutdown = true
-			singleThread.shutdown()
-			
-			// 非空队列再次保存
-			if (!logQueue.isEmpty()) {
-				def logs = packLogs(logQueue.size())
-				rxBatchSaveDB(logs)
-						.subscribe({
-							successCount.add(logs.size())
-							log.info "stopping --> batch save log success:${it.toJson()}"
-						}, {
-							errorCount.add(logs.size())
-							log.error "stopping --> batch save log error", it
-						}, {
-							log.debug "stopping --> batch save log complete"
+		}).concatWith(
+				Single.just(logQueue)
+						.filter({!it.isEmpty()})
+						.map({Tuple.tuple(it.size(), packLogs(it.size()))})
+						.flatMapCompletable({tuple ->
+							rxBatchSaveDB(tuple.v2).doOnSuccess({
+								successCount.add(tuple.v1)
+								log.info "stopping --> batch save log success:${it.toJson()}"
+							}).doOnError({
+								errorCount.add(tuple.v1)
+								log.error "stopping --> batch save log error", it
+							}).onErrorComplete().ignoreElement()
 						})
-			}
-			
+		).doOnComplete({
 			log.info "log data manager close success,success:[{}],error:[{}]", successCount.sum(), errorCount.sum()
 		})
 	}
 	
 	def saveLogTask() {
-		while (!shutdown) {
-			def logs = []
-			if (logQueue.size() > BATCH_LOG_LIMIT) {
-				logs = packLogs(BATCH_LOG_LIMIT)
+		Flowable.<GameLog> create({
+			while (!shutdown) {
+				try {
+					it.onNext(logQueue.take())
+				} catch (InterruptedException e) {
+					log.error "interrupted emmit game log,next on complete:{}", e.message
+					it.onComplete()
+				}
 			}
 			
-			if (logs) {
-				rxBatchSaveDB(logs)
-						.subscribe({
-							successCount.add(logs.size())
-							log.info "batch save log success:${it.toJson()}"
-						}, {
-							errorCount.add(logs.size())
-							log.error "batch save log error", it
-						}, {
-							log.debug "batch save log complete"
-						})
-			}
-		}
+			it.onComplete()
+		}, BackpressureStrategy.BUFFER)
+				.subscribeOn(single())
+				.buffer(10, TimeUnit.SECONDS, BATCH_LOG_LIMIT)
+				.flatMapMaybe({logs ->
+					rxBatchSaveDB(logs).doOnSuccess({
+						successCount.add(logs.size())
+					}).doOnError({
+						errorCount.add(logs.size())
+						log.error "batch save log error", it
+					}).onErrorComplete()
+				})
+				.subscribe({
+					log.info "batch save log success:${it.toJson()}"
+				}, {
+					log.error "batch save log error", it
+				}, {
+					log.debug "batch save log complete"
+				})
 	}
 	
 	def packLogs(int limit) {

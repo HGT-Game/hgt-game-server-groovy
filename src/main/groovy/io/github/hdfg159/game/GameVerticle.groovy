@@ -22,8 +22,8 @@ class GameVerticle extends AbstractVerticle {
 	Completable rxStart() {
 		log.info "deploy ${this.class.simpleName}"
 		
-		this.@vertx.rxDeployVerticle(AvatarService.getInstance()).ignoreElement()
-				.mergeWith(this.@vertx.rxDeployVerticle(LogService.getInstance()).ignoreElement())
+		this.@vertx.rxDeployVerticle(LogService.getInstance()).ignoreElement()
+				.concatWith(this.@vertx.rxDeployVerticle(AvatarService.getInstance()).ignoreElement())
 				.mergeWith(this.@vertx.rxDeployVerticle(FarmService.getInstance()).ignoreElement())
 				.mergeWith(this.@vertx.rxDeployVerticle(TurtleSoupService.getInstance()).ignoreElement())
 	}

@@ -12,6 +12,7 @@ import io.github.hdfg159.game.service.log.LogService
 import io.github.hdfg159.game.util.GameUtils
 import io.github.hdfg159.scheduler.factory.Triggers
 import io.reactivex.Completable
+import io.vertx.core.json.JsonObject
 import io.vertx.reactivex.core.MultiMap
 
 import java.time.LocalDateTime
@@ -134,22 +135,29 @@ class AvatarService extends AbstractService {
 		def userId = request.userId
 		def channelId = (headers as MultiMap)[ATTR_NAME_CHANNEL_ID]
 		
-		if (userId) {
-			def avatar = avatarData.getById(userId)
-			if (avatar) {
-				synchronized (avatar) {
-					def avatarChannelId = avatarData.getChannelId(userId)
-					if (avatarData.isOnline(userId) && avatarChannelId == channelId) {
-						log.info "玩家进行正常下线请求:[${userId}][${avatarChannelId}]"
-						
-						avatarData.offlineChannel(userId)
-						
-						def event = EventMessage.Offline.newBuilder()
-								.setUsername(avatar.username)
-								.setUserId(avatar.id)
-								.build()
-						publishEvent(EventEnums.OFFLINE, event)
-					}
+		def avatar = avatarData.getById(userId)
+		if (avatar) {
+			synchronized (avatar) {
+				def avatarChannelId = avatarData.getChannelId(userId)
+				if (avatarData.isOnline(userId) && avatarChannelId == channelId) {
+					log.info "玩家进行正常下线请求:[${userId}][${avatarChannelId}]"
+					
+					avatarData.offlineChannel(userId)
+					
+					def event = EventMessage.Offline.newBuilder()
+							.setUsername(avatar.username)
+							.setUserId(avatar.id)
+							.build()
+					publishEvent(EventEnums.OFFLINE, event)
+					
+					logService.log(new GameLog(
+							aid: avatar.id,
+							name: avatar.username,
+							opt: LogEnums.AVATAR_OFFLINE,
+							param: new JsonObject([
+									"force": false
+							])
+					))
 				}
 			}
 		}
@@ -244,6 +252,15 @@ class AvatarService extends AbstractService {
 					.setUserId(avatar.id)
 					.build()
 			publishEvent(EventEnums.OFFLINE, event)
+			
+			logService.log(new GameLog(
+					aid: avatar.id,
+					name: avatar.username,
+					opt: LogEnums.AVATAR_OFFLINE,
+					param: new JsonObject([
+							"force": true
+					])
+			))
 		}
 	}
 	
