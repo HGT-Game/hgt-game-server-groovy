@@ -350,7 +350,7 @@ class TurtleSoupService extends AbstractService {
 										"id"       : room.id,
 										"name"     : room.name,
 										"recordId" : record.id,
-										"memberIds": record.memberIds.findAll {it != null}
+										"memberIds": record.getRecordMemberIds()
 								])
 						))
 						
@@ -704,7 +704,7 @@ class TurtleSoupService extends AbstractService {
 			// 选题推送
 			record.questionId = req.id
 			room.status = RoomStatus.PLAYING.status
-			record.memberIds.findAll {it != null}.each {
+			record.getRecordMemberIds().each {
 				memberData.getById(it).questionIds.add(req.id)
 			}
 			
@@ -889,7 +889,7 @@ class TurtleSoupService extends AbstractService {
 			
 			def questionId = record.selectQuestionIds.shuffled()[0]
 			record.questionId = questionId
-			record.memberIds.findAll {it != null}.each {
+			record.getRecordMemberIds().each {
 				memberData.getById(it).questionIds.add(questionId)
 			}
 			

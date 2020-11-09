@@ -82,7 +82,7 @@ class SoupRecord implements TData<String> {
 		record.noteMap = [:]
 		record.memberNoteMap = [:]
 		
-		record.memberIds.each {
+		record.getRecordMemberIds().each {
 			record.memberMsgMap.put(it, new ConcurrentLinkedQueue<>())
 			
 			record.memberNoteMap.put(it, new ConcurrentLinkedQueue<String>())
@@ -93,5 +93,9 @@ class SoupRecord implements TData<String> {
 	
 	def getMsg(String msgId) {
 		!msgId ? null : chatRecordMap[msgId]
+	}
+	
+	def getRecordMemberIds() {
+		memberIds.findAll {it != null}
 	}
 }
