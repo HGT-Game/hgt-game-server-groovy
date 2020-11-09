@@ -97,16 +97,15 @@ class TurtleSoupService extends AbstractService {
 		// def aid = getHeaderAvatarId(headers)
 		// def req = params as SoupMessage.RoomHallReq
 		
-		def builder = SoupMessage.RoomHallRes.newBuilder()
-		roomData.getRooms().collect {
-			def roomRes = SoupMessage.RoomHallRes.RoomRes.newBuilder()
-					.setId(it.id)
-					.setName(it.name)
-					.build()
-			builder.addRooms(roomRes)
+		def roomPushes = roomData.getRooms().collect {
+			buildRoomPush([], it.id, {
+				def v1 = it.v1
+				def room = it.v2
+				v1.setRoomMemberNum(room.getAllMemberIds().size())
+			})
 		}
 		
-		GameUtils.sucResMsg(RES_SOUP_ROOM_HALL, builder.build())
+		GameUtils.sucResMsg(RES_SOUP_ROOM_HALL, SoupMessage.RoomHallRes.newBuilder().addAllRooms(roomPushes).build())
 	}
 	
 	def createRoom = {headers, params ->

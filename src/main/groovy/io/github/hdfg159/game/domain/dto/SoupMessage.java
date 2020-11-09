@@ -15,15 +15,19 @@ public final class SoupMessage {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface LoadReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:LoadReq)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.LoadReq)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code LoadReq}
+   * <pre>
+   * 2012 读取数据
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.LoadReq}
    */
   public static final class LoadReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:LoadReq)
+      // @@protoc_insertion_point(message_implements:SoupMessage.LoadReq)
       LoadReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use LoadReq.newBuilder() to construct.
@@ -84,13 +88,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadReq_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadReq_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq.Builder.class);
     }
@@ -240,21 +244,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code LoadReq}
+     * <pre>
+     * 2012 读取数据
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.LoadReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:LoadReq)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.LoadReq)
         io.github.hdfg159.game.domain.dto.SoupMessage.LoadReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadReq_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadReq_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq.Builder.class);
       }
@@ -283,7 +291,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadReq_descriptor;
       }
 
       @java.lang.Override
@@ -392,10 +400,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:LoadReq)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.LoadReq)
     }
 
-    // @@protoc_insertion_point(class_scope:LoadReq)
+    // @@protoc_insertion_point(class_scope:SoupMessage.LoadReq)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.LoadReq();
@@ -433,7 +441,7 @@ public final class SoupMessage {
   }
 
   public interface LoadResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:LoadRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.LoadRes)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -467,11 +475,15 @@ public final class SoupMessage {
         getPasswordBytes();
   }
   /**
-   * Protobuf type {@code LoadRes}
+   * <pre>
+   * -2012 读取数据返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.LoadRes}
    */
   public static final class LoadRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:LoadRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.LoadRes)
       LoadResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use LoadRes.newBuilder() to construct.
@@ -551,13 +563,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes.Builder.class);
     }
@@ -826,21 +838,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code LoadRes}
+     * <pre>
+     * -2012 读取数据返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.LoadRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:LoadRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.LoadRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.LoadResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes.Builder.class);
       }
@@ -875,7 +891,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LoadRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadRes_descriptor;
       }
 
       @java.lang.Override
@@ -1181,10 +1197,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:LoadRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.LoadRes)
     }
 
-    // @@protoc_insertion_point(class_scope:LoadRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.LoadRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.LoadRes();
@@ -1222,15 +1238,19 @@ public final class SoupMessage {
   }
 
   public interface RoomHallReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:RoomHallReq)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.RoomHallReq)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code RoomHallReq}
+   * <pre>
+   * 2001 查询大厅房间数据
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.RoomHallReq}
    */
   public static final class RoomHallReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:RoomHallReq)
+      // @@protoc_insertion_point(message_implements:SoupMessage.RoomHallReq)
       RoomHallReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use RoomHallReq.newBuilder() to construct.
@@ -1291,13 +1311,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallReq_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomHallReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallReq_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomHallReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallReq.Builder.class);
     }
@@ -1447,21 +1467,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code RoomHallReq}
+     * <pre>
+     * 2001 查询大厅房间数据
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.RoomHallReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:RoomHallReq)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.RoomHallReq)
         io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomHallReq_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallReq_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomHallReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallReq.Builder.class);
       }
@@ -1490,7 +1514,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomHallReq_descriptor;
       }
 
       @java.lang.Override
@@ -1599,10 +1623,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:RoomHallReq)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.RoomHallReq)
     }
 
-    // @@protoc_insertion_point(class_scope:RoomHallReq)
+    // @@protoc_insertion_point(class_scope:SoupMessage.RoomHallReq)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallReq();
@@ -1640,39 +1664,43 @@ public final class SoupMessage {
   }
 
   public interface RoomHallResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:RoomHallRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.RoomHallRes)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+     * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
      */
-    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes> 
+    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush> 
         getRoomsList();
     /**
-     * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+     * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
      */
-    io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes getRooms(int index);
+    io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRooms(int index);
     /**
-     * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+     * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
      */
     int getRoomsCount();
     /**
-     * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+     * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
      */
-    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomResOrBuilder> 
+    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> 
         getRoomsOrBuilderList();
     /**
-     * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+     * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
      */
-    io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomResOrBuilder getRoomsOrBuilder(
+    io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code RoomHallRes}
+   * <pre>
+   * -2001 查询大厅房间数据 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.RoomHallRes}
    */
   public static final class RoomHallRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:RoomHallRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.RoomHallRes)
       RoomHallResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use RoomHallRes.newBuilder() to construct.
@@ -1716,11 +1744,11 @@ public final class SoupMessage {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                rooms_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes>();
+                rooms_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush>();
                 mutable_bitField0_ |= 0x00000001;
               }
               rooms_.add(
-                  input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.parser(), extensionRegistry));
+                  input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -1747,771 +1775,53 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomHallRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomHallRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.Builder.class);
     }
 
-    public interface RoomResOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:RoomHallRes.RoomRes)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>string id = 1;</code>
-       * @return The id.
-       */
-      java.lang.String getId();
-      /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      com.google.protobuf.ByteString
-          getIdBytes();
-
-      /**
-       * <code>string name = 2;</code>
-       * @return The name.
-       */
-      java.lang.String getName();
-      /**
-       * <code>string name = 2;</code>
-       * @return The bytes for name.
-       */
-      com.google.protobuf.ByteString
-          getNameBytes();
-    }
-    /**
-     * Protobuf type {@code RoomHallRes.RoomRes}
-     */
-    public static final class RoomRes extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:RoomHallRes.RoomRes)
-        RoomResOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use RoomRes.newBuilder() to construct.
-      private RoomRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private RoomRes() {
-        id_ = "";
-        name_ = "";
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new RoomRes();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private RoomRes(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                id_ = s;
-                break;
-              }
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                name_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallRes_RoomRes_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallRes_RoomRes_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.Builder.class);
-      }
-
-      public static final int ID_FIELD_NUMBER = 1;
-      private volatile java.lang.Object id_;
-      /**
-       * <code>string id = 1;</code>
-       * @return The id.
-       */
-      @java.lang.Override
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int NAME_FIELD_NUMBER = 2;
-      private volatile java.lang.Object name_;
-      /**
-       * <code>string name = 2;</code>
-       * @return The name.
-       */
-      @java.lang.Override
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string name = 2;</code>
-       * @return The bytes for name.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (!getIdBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
-        }
-        if (!getNameBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (!getIdBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
-        }
-        if (!getNameBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes)) {
-          return super.equals(obj);
-        }
-        io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes other = (io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes) obj;
-
-        if (!getId()
-            .equals(other.getId())) return false;
-        if (!getName()
-            .equals(other.getName())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getId().hashCode();
-        hash = (37 * hash) + NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getName().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code RoomHallRes.RoomRes}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:RoomHallRes.RoomRes)
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomResOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallRes_RoomRes_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallRes_RoomRes_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.Builder.class);
-        }
-
-        // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          id_ = "";
-
-          name_ = "";
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallRes_RoomRes_descriptor;
-        }
-
-        @java.lang.Override
-        public io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes getDefaultInstanceForType() {
-          return io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes build() {
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes buildPartial() {
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes result = new io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes(this);
-          result.id_ = id_;
-          result.name_ = name_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes) {
-            return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes other) {
-          if (other == io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.getDefaultInstance()) return this;
-          if (!other.getId().isEmpty()) {
-            id_ = other.id_;
-            onChanged();
-          }
-          if (!other.getName().isEmpty()) {
-            name_ = other.name_;
-            onChanged();
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private java.lang.Object id_ = "";
-        /**
-         * <code>string id = 1;</code>
-         * @return The id.
-         */
-        public java.lang.String getId() {
-          java.lang.Object ref = id_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            id_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string id = 1;</code>
-         * @return The bytes for id.
-         */
-        public com.google.protobuf.ByteString
-            getIdBytes() {
-          java.lang.Object ref = id_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            id_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string id = 1;</code>
-         * @param value The id to set.
-         * @return This builder for chaining.
-         */
-        public Builder setId(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          id_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string id = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearId() {
-          
-          id_ = getDefaultInstance().getId();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string id = 1;</code>
-         * @param value The bytes for id to set.
-         * @return This builder for chaining.
-         */
-        public Builder setIdBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          id_ = value;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object name_ = "";
-        /**
-         * <code>string name = 2;</code>
-         * @return The name.
-         */
-        public java.lang.String getName() {
-          java.lang.Object ref = name_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            name_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string name = 2;</code>
-         * @return The bytes for name.
-         */
-        public com.google.protobuf.ByteString
-            getNameBytes() {
-          java.lang.Object ref = name_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            name_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string name = 2;</code>
-         * @param value The name to set.
-         * @return This builder for chaining.
-         */
-        public Builder setName(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          name_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string name = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearName() {
-          
-          name_ = getDefaultInstance().getName();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string name = 2;</code>
-         * @param value The bytes for name to set.
-         * @return This builder for chaining.
-         */
-        public Builder setNameBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          name_ = value;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:RoomHallRes.RoomRes)
-      }
-
-      // @@protoc_insertion_point(class_scope:RoomHallRes.RoomRes)
-      private static final io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes();
-      }
-
-      public static io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<RoomRes>
-          PARSER = new com.google.protobuf.AbstractParser<RoomRes>() {
-        @java.lang.Override
-        public RoomRes parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RoomRes(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<RoomRes> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<RoomRes> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
     public static final int ROOMS_FIELD_NUMBER = 1;
-    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes> rooms_;
+    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush> rooms_;
     /**
-     * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+     * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes> getRoomsList() {
+    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush> getRoomsList() {
       return rooms_;
     }
     /**
-     * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+     * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomResOrBuilder> 
+    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> 
         getRoomsOrBuilderList() {
       return rooms_;
     }
     /**
-     * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+     * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
      */
     @java.lang.Override
     public int getRoomsCount() {
       return rooms_.size();
     }
     /**
-     * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+     * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
      */
     @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes getRooms(int index) {
+    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRooms(int index) {
       return rooms_.get(index);
     }
     /**
-     * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+     * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
      */
     @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomResOrBuilder getRoomsOrBuilder(
+    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomsOrBuilder(
         int index) {
       return rooms_.get(index);
     }
@@ -2674,21 +1984,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code RoomHallRes}
+     * <pre>
+     * -2001 查询大厅房间数据 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.RoomHallRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:RoomHallRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.RoomHallRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomHallRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomHallRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.Builder.class);
       }
@@ -2724,7 +2038,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomHallRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomHallRes_descriptor;
       }
 
       @java.lang.Override
@@ -2858,22 +2172,22 @@ public final class SoupMessage {
       }
       private int bitField0_;
 
-      private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes> rooms_ =
+      private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush> rooms_ =
         java.util.Collections.emptyList();
       private void ensureRoomsIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          rooms_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes>(rooms_);
+          rooms_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush>(rooms_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomResOrBuilder> roomsBuilder_;
+          io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> roomsBuilder_;
 
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
-      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes> getRoomsList() {
+      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush> getRoomsList() {
         if (roomsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(rooms_);
         } else {
@@ -2881,7 +2195,7 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
       public int getRoomsCount() {
         if (roomsBuilder_ == null) {
@@ -2891,9 +2205,9 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes getRooms(int index) {
+      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRooms(int index) {
         if (roomsBuilder_ == null) {
           return rooms_.get(index);
         } else {
@@ -2901,10 +2215,10 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
       public Builder setRooms(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes value) {
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush value) {
         if (roomsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2918,10 +2232,10 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
       public Builder setRooms(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.Builder builderForValue) {
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder builderForValue) {
         if (roomsBuilder_ == null) {
           ensureRoomsIsMutable();
           rooms_.set(index, builderForValue.build());
@@ -2932,9 +2246,9 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
-      public Builder addRooms(io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes value) {
+      public Builder addRooms(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush value) {
         if (roomsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2948,10 +2262,10 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
       public Builder addRooms(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes value) {
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush value) {
         if (roomsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2965,10 +2279,10 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
       public Builder addRooms(
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.Builder builderForValue) {
+          io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder builderForValue) {
         if (roomsBuilder_ == null) {
           ensureRoomsIsMutable();
           rooms_.add(builderForValue.build());
@@ -2979,10 +2293,10 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
       public Builder addRooms(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.Builder builderForValue) {
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder builderForValue) {
         if (roomsBuilder_ == null) {
           ensureRoomsIsMutable();
           rooms_.add(index, builderForValue.build());
@@ -2993,10 +2307,10 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
       public Builder addAllRooms(
-          java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes> values) {
+          java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush> values) {
         if (roomsBuilder_ == null) {
           ensureRoomsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3008,7 +2322,7 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
       public Builder clearRooms() {
         if (roomsBuilder_ == null) {
@@ -3021,7 +2335,7 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
       public Builder removeRooms(int index) {
         if (roomsBuilder_ == null) {
@@ -3034,16 +2348,16 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.Builder getRoomsBuilder(
+      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder getRoomsBuilder(
           int index) {
         return getRoomsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomResOrBuilder getRoomsOrBuilder(
+      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomsOrBuilder(
           int index) {
         if (roomsBuilder_ == null) {
           return rooms_.get(index);  } else {
@@ -3051,9 +2365,9 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
-      public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomResOrBuilder> 
+      public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> 
            getRoomsOrBuilderList() {
         if (roomsBuilder_ != null) {
           return roomsBuilder_.getMessageOrBuilderList();
@@ -3062,33 +2376,33 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.Builder addRoomsBuilder() {
+      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder addRoomsBuilder() {
         return getRoomsFieldBuilder().addBuilder(
-            io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.getDefaultInstance());
+            io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.getDefaultInstance());
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.Builder addRoomsBuilder(
+      public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder addRoomsBuilder(
           int index) {
         return getRoomsFieldBuilder().addBuilder(
-            index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.getDefaultInstance());
+            index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.getDefaultInstance());
       }
       /**
-       * <code>repeated .RoomHallRes.RoomRes rooms = 1;</code>
+       * <code>repeated .SoupMessage.RoomPush rooms = 1;</code>
        */
-      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.Builder> 
+      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder> 
            getRoomsBuilderList() {
         return getRoomsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomResOrBuilder> 
+          io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> 
           getRoomsFieldBuilder() {
         if (roomsBuilder_ == null) {
           roomsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes.RoomResOrBuilder>(
+              io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder>(
                   rooms_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -3110,10 +2424,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:RoomHallRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.RoomHallRes)
     }
 
-    // @@protoc_insertion_point(class_scope:RoomHallRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.RoomHallRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.RoomHallRes();
@@ -3151,15 +2465,23 @@ public final class SoupMessage {
   }
 
   public interface CreateRoomReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:CreateRoomReq)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.CreateRoomReq)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 密码
+     * </pre>
+     *
      * <code>string password = 1;</code>
      * @return The password.
      */
     java.lang.String getPassword();
     /**
+     * <pre>
+     * 密码
+     * </pre>
+     *
      * <code>string password = 1;</code>
      * @return The bytes for password.
      */
@@ -3167,17 +2489,29 @@ public final class SoupMessage {
         getPasswordBytes();
 
     /**
+     * <pre>
+     * 最多人数
+     * </pre>
+     *
      * <code>uint32 max = 2;</code>
      * @return The max.
      */
     int getMax();
 
     /**
+     * <pre>
+     * 房间名
+     * </pre>
+     *
      * <code>string name = 3;</code>
      * @return The name.
      */
     java.lang.String getName();
     /**
+     * <pre>
+     * 房间名
+     * </pre>
+     *
      * <code>string name = 3;</code>
      * @return The bytes for name.
      */
@@ -3185,11 +2519,15 @@ public final class SoupMessage {
         getNameBytes();
   }
   /**
-   * Protobuf type {@code CreateRoomReq}
+   * <pre>
+   * 2002 创建房间
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.CreateRoomReq}
    */
   public static final class CreateRoomReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:CreateRoomReq)
+      // @@protoc_insertion_point(message_implements:SoupMessage.CreateRoomReq)
       CreateRoomReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use CreateRoomReq.newBuilder() to construct.
@@ -3269,13 +2607,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_CreateRoomReq_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_CreateRoomReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_CreateRoomReq_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_CreateRoomReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomReq.Builder.class);
     }
@@ -3283,6 +2621,10 @@ public final class SoupMessage {
     public static final int PASSWORD_FIELD_NUMBER = 1;
     private volatile java.lang.Object password_;
     /**
+     * <pre>
+     * 密码
+     * </pre>
+     *
      * <code>string password = 1;</code>
      * @return The password.
      */
@@ -3300,6 +2642,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 密码
+     * </pre>
+     *
      * <code>string password = 1;</code>
      * @return The bytes for password.
      */
@@ -3321,6 +2667,10 @@ public final class SoupMessage {
     public static final int MAX_FIELD_NUMBER = 2;
     private int max_;
     /**
+     * <pre>
+     * 最多人数
+     * </pre>
+     *
      * <code>uint32 max = 2;</code>
      * @return The max.
      */
@@ -3332,6 +2682,10 @@ public final class SoupMessage {
     public static final int NAME_FIELD_NUMBER = 3;
     private volatile java.lang.Object name_;
     /**
+     * <pre>
+     * 房间名
+     * </pre>
+     *
      * <code>string name = 3;</code>
      * @return The name.
      */
@@ -3349,6 +2703,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 房间名
+     * </pre>
+     *
      * <code>string name = 3;</code>
      * @return The bytes for name.
      */
@@ -3543,21 +2901,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code CreateRoomReq}
+     * <pre>
+     * 2002 创建房间
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.CreateRoomReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:CreateRoomReq)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.CreateRoomReq)
         io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_CreateRoomReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_CreateRoomReq_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_CreateRoomReq_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_CreateRoomReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomReq.Builder.class);
       }
@@ -3592,7 +2954,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_CreateRoomReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_CreateRoomReq_descriptor;
       }
 
       @java.lang.Override
@@ -3705,6 +3067,10 @@ public final class SoupMessage {
 
       private java.lang.Object password_ = "";
       /**
+       * <pre>
+       * 密码
+       * </pre>
+       *
        * <code>string password = 1;</code>
        * @return The password.
        */
@@ -3721,6 +3087,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 密码
+       * </pre>
+       *
        * <code>string password = 1;</code>
        * @return The bytes for password.
        */
@@ -3738,6 +3108,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 密码
+       * </pre>
+       *
        * <code>string password = 1;</code>
        * @param value The password to set.
        * @return This builder for chaining.
@@ -3753,6 +3127,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 密码
+       * </pre>
+       *
        * <code>string password = 1;</code>
        * @return This builder for chaining.
        */
@@ -3763,6 +3141,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 密码
+       * </pre>
+       *
        * <code>string password = 1;</code>
        * @param value The bytes for password to set.
        * @return This builder for chaining.
@@ -3781,6 +3163,10 @@ public final class SoupMessage {
 
       private int max_ ;
       /**
+       * <pre>
+       * 最多人数
+       * </pre>
+       *
        * <code>uint32 max = 2;</code>
        * @return The max.
        */
@@ -3789,6 +3175,10 @@ public final class SoupMessage {
         return max_;
       }
       /**
+       * <pre>
+       * 最多人数
+       * </pre>
+       *
        * <code>uint32 max = 2;</code>
        * @param value The max to set.
        * @return This builder for chaining.
@@ -3800,6 +3190,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 最多人数
+       * </pre>
+       *
        * <code>uint32 max = 2;</code>
        * @return This builder for chaining.
        */
@@ -3812,6 +3206,10 @@ public final class SoupMessage {
 
       private java.lang.Object name_ = "";
       /**
+       * <pre>
+       * 房间名
+       * </pre>
+       *
        * <code>string name = 3;</code>
        * @return The name.
        */
@@ -3828,6 +3226,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 房间名
+       * </pre>
+       *
        * <code>string name = 3;</code>
        * @return The bytes for name.
        */
@@ -3845,6 +3247,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 房间名
+       * </pre>
+       *
        * <code>string name = 3;</code>
        * @param value The name to set.
        * @return This builder for chaining.
@@ -3860,6 +3266,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 房间名
+       * </pre>
+       *
        * <code>string name = 3;</code>
        * @return This builder for chaining.
        */
@@ -3870,6 +3280,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 房间名
+       * </pre>
+       *
        * <code>string name = 3;</code>
        * @param value The bytes for name to set.
        * @return This builder for chaining.
@@ -3898,10 +3312,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:CreateRoomReq)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.CreateRoomReq)
     }
 
-    // @@protoc_insertion_point(class_scope:CreateRoomReq)
+    // @@protoc_insertion_point(class_scope:SoupMessage.CreateRoomReq)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomReq();
@@ -3939,30 +3353,46 @@ public final class SoupMessage {
   }
 
   public interface CreateRoomResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:CreateRoomRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.CreateRoomRes)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.RoomPush room = 1;</code>
+     * <pre>
+     * 房间推送信息
+     * </pre>
+     *
+     * <code>.SoupMessage.RoomPush room = 1;</code>
      * @return Whether the room field is set.
      */
     boolean hasRoom();
     /**
-     * <code>.RoomPush room = 1;</code>
+     * <pre>
+     * 房间推送信息
+     * </pre>
+     *
+     * <code>.SoupMessage.RoomPush room = 1;</code>
      * @return The room.
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRoom();
     /**
-     * <code>.RoomPush room = 1;</code>
+     * <pre>
+     * 房间推送信息
+     * </pre>
+     *
+     * <code>.SoupMessage.RoomPush room = 1;</code>
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomOrBuilder();
   }
   /**
-   * Protobuf type {@code CreateRoomRes}
+   * <pre>
+   * -2002 创建房间 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.CreateRoomRes}
    */
   public static final class CreateRoomRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:CreateRoomRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.CreateRoomRes)
       CreateRoomResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use CreateRoomRes.newBuilder() to construct.
@@ -4036,13 +3466,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_CreateRoomRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_CreateRoomRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_CreateRoomRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_CreateRoomRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes.Builder.class);
     }
@@ -4050,7 +3480,11 @@ public final class SoupMessage {
     public static final int ROOM_FIELD_NUMBER = 1;
     private io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush room_;
     /**
-     * <code>.RoomPush room = 1;</code>
+     * <pre>
+     * 房间推送信息
+     * </pre>
+     *
+     * <code>.SoupMessage.RoomPush room = 1;</code>
      * @return Whether the room field is set.
      */
     @java.lang.Override
@@ -4058,7 +3492,11 @@ public final class SoupMessage {
       return room_ != null;
     }
     /**
-     * <code>.RoomPush room = 1;</code>
+     * <pre>
+     * 房间推送信息
+     * </pre>
+     *
+     * <code>.SoupMessage.RoomPush room = 1;</code>
      * @return The room.
      */
     @java.lang.Override
@@ -4066,7 +3504,11 @@ public final class SoupMessage {
       return room_ == null ? io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.getDefaultInstance() : room_;
     }
     /**
-     * <code>.RoomPush room = 1;</code>
+     * <pre>
+     * 房间推送信息
+     * </pre>
+     *
+     * <code>.SoupMessage.RoomPush room = 1;</code>
      */
     @java.lang.Override
     public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomOrBuilder() {
@@ -4234,21 +3676,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code CreateRoomRes}
+     * <pre>
+     * -2002 创建房间 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.CreateRoomRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:CreateRoomRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.CreateRoomRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_CreateRoomRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_CreateRoomRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_CreateRoomRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_CreateRoomRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes.Builder.class);
       }
@@ -4283,7 +3729,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_CreateRoomRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_CreateRoomRes_descriptor;
       }
 
       @java.lang.Override
@@ -4392,14 +3838,22 @@ public final class SoupMessage {
       private com.google.protobuf.SingleFieldBuilderV3<
           io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> roomBuilder_;
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        * @return Whether the room field is set.
        */
       public boolean hasRoom() {
         return roomBuilder_ != null || room_ != null;
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        * @return The room.
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRoom() {
@@ -4410,7 +3864,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       public Builder setRoom(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush value) {
         if (roomBuilder_ == null) {
@@ -4426,7 +3884,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       public Builder setRoom(
           io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder builderForValue) {
@@ -4440,7 +3902,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       public Builder mergeRoom(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush value) {
         if (roomBuilder_ == null) {
@@ -4458,7 +3924,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       public Builder clearRoom() {
         if (roomBuilder_ == null) {
@@ -4472,7 +3942,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder getRoomBuilder() {
         
@@ -4480,7 +3954,11 @@ public final class SoupMessage {
         return getRoomFieldBuilder().getBuilder();
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomOrBuilder() {
         if (roomBuilder_ != null) {
@@ -4491,7 +3969,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> 
@@ -4519,10 +4001,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:CreateRoomRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.CreateRoomRes)
     }
 
-    // @@protoc_insertion_point(class_scope:CreateRoomRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.CreateRoomRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.CreateRoomRes();
@@ -4560,15 +4042,23 @@ public final class SoupMessage {
   }
 
   public interface JoinRoomReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:JoinRoomReq)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.JoinRoomReq)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 房间 ID
+     * </pre>
+     *
      * <code>string roomId = 1;</code>
      * @return The roomId.
      */
     java.lang.String getRoomId();
     /**
+     * <pre>
+     * 房间 ID
+     * </pre>
+     *
      * <code>string roomId = 1;</code>
      * @return The bytes for roomId.
      */
@@ -4576,11 +4066,19 @@ public final class SoupMessage {
         getRoomIdBytes();
 
     /**
+     * <pre>
+     * 房间密码
+     * </pre>
+     *
      * <code>string password = 2;</code>
      * @return The password.
      */
     java.lang.String getPassword();
     /**
+     * <pre>
+     * 房间密码
+     * </pre>
+     *
      * <code>string password = 2;</code>
      * @return The bytes for password.
      */
@@ -4588,11 +4086,15 @@ public final class SoupMessage {
         getPasswordBytes();
   }
   /**
-   * Protobuf type {@code JoinRoomReq}
+   * <pre>
+   * 2003 加入房间
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.JoinRoomReq}
    */
   public static final class JoinRoomReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:JoinRoomReq)
+      // @@protoc_insertion_point(message_implements:SoupMessage.JoinRoomReq)
       JoinRoomReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use JoinRoomReq.newBuilder() to construct.
@@ -4667,13 +4169,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_JoinRoomReq_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_JoinRoomReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_JoinRoomReq_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_JoinRoomReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomReq.Builder.class);
     }
@@ -4681,6 +4183,10 @@ public final class SoupMessage {
     public static final int ROOMID_FIELD_NUMBER = 1;
     private volatile java.lang.Object roomId_;
     /**
+     * <pre>
+     * 房间 ID
+     * </pre>
+     *
      * <code>string roomId = 1;</code>
      * @return The roomId.
      */
@@ -4698,6 +4204,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 房间 ID
+     * </pre>
+     *
      * <code>string roomId = 1;</code>
      * @return The bytes for roomId.
      */
@@ -4719,6 +4229,10 @@ public final class SoupMessage {
     public static final int PASSWORD_FIELD_NUMBER = 2;
     private volatile java.lang.Object password_;
     /**
+     * <pre>
+     * 房间密码
+     * </pre>
+     *
      * <code>string password = 2;</code>
      * @return The password.
      */
@@ -4736,6 +4250,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 房间密码
+     * </pre>
+     *
      * <code>string password = 2;</code>
      * @return The bytes for password.
      */
@@ -4919,21 +4437,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code JoinRoomReq}
+     * <pre>
+     * 2003 加入房间
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.JoinRoomReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:JoinRoomReq)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.JoinRoomReq)
         io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_JoinRoomReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_JoinRoomReq_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_JoinRoomReq_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_JoinRoomReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomReq.Builder.class);
       }
@@ -4966,7 +4488,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_JoinRoomReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_JoinRoomReq_descriptor;
       }
 
       @java.lang.Override
@@ -5075,6 +4597,10 @@ public final class SoupMessage {
 
       private java.lang.Object roomId_ = "";
       /**
+       * <pre>
+       * 房间 ID
+       * </pre>
+       *
        * <code>string roomId = 1;</code>
        * @return The roomId.
        */
@@ -5091,6 +4617,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 房间 ID
+       * </pre>
+       *
        * <code>string roomId = 1;</code>
        * @return The bytes for roomId.
        */
@@ -5108,6 +4638,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 房间 ID
+       * </pre>
+       *
        * <code>string roomId = 1;</code>
        * @param value The roomId to set.
        * @return This builder for chaining.
@@ -5123,6 +4657,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 房间 ID
+       * </pre>
+       *
        * <code>string roomId = 1;</code>
        * @return This builder for chaining.
        */
@@ -5133,6 +4671,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 房间 ID
+       * </pre>
+       *
        * <code>string roomId = 1;</code>
        * @param value The bytes for roomId to set.
        * @return This builder for chaining.
@@ -5151,6 +4693,10 @@ public final class SoupMessage {
 
       private java.lang.Object password_ = "";
       /**
+       * <pre>
+       * 房间密码
+       * </pre>
+       *
        * <code>string password = 2;</code>
        * @return The password.
        */
@@ -5167,6 +4713,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 房间密码
+       * </pre>
+       *
        * <code>string password = 2;</code>
        * @return The bytes for password.
        */
@@ -5184,6 +4734,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 房间密码
+       * </pre>
+       *
        * <code>string password = 2;</code>
        * @param value The password to set.
        * @return This builder for chaining.
@@ -5199,6 +4753,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 房间密码
+       * </pre>
+       *
        * <code>string password = 2;</code>
        * @return This builder for chaining.
        */
@@ -5209,6 +4767,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 房间密码
+       * </pre>
+       *
        * <code>string password = 2;</code>
        * @param value The bytes for password to set.
        * @return This builder for chaining.
@@ -5237,10 +4799,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:JoinRoomReq)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.JoinRoomReq)
     }
 
-    // @@protoc_insertion_point(class_scope:JoinRoomReq)
+    // @@protoc_insertion_point(class_scope:SoupMessage.JoinRoomReq)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomReq();
@@ -5278,30 +4840,46 @@ public final class SoupMessage {
   }
 
   public interface JoinRoomResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:JoinRoomRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.JoinRoomRes)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.RoomPush room = 1;</code>
+     * <pre>
+     * 房间推送信息
+     * </pre>
+     *
+     * <code>.SoupMessage.RoomPush room = 1;</code>
      * @return Whether the room field is set.
      */
     boolean hasRoom();
     /**
-     * <code>.RoomPush room = 1;</code>
+     * <pre>
+     * 房间推送信息
+     * </pre>
+     *
+     * <code>.SoupMessage.RoomPush room = 1;</code>
      * @return The room.
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRoom();
     /**
-     * <code>.RoomPush room = 1;</code>
+     * <pre>
+     * 房间推送信息
+     * </pre>
+     *
+     * <code>.SoupMessage.RoomPush room = 1;</code>
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomOrBuilder();
   }
   /**
-   * Protobuf type {@code JoinRoomRes}
+   * <pre>
+   * -2003 加入房间 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.JoinRoomRes}
    */
   public static final class JoinRoomRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:JoinRoomRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.JoinRoomRes)
       JoinRoomResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use JoinRoomRes.newBuilder() to construct.
@@ -5375,13 +4953,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_JoinRoomRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_JoinRoomRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_JoinRoomRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_JoinRoomRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes.Builder.class);
     }
@@ -5389,7 +4967,11 @@ public final class SoupMessage {
     public static final int ROOM_FIELD_NUMBER = 1;
     private io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush room_;
     /**
-     * <code>.RoomPush room = 1;</code>
+     * <pre>
+     * 房间推送信息
+     * </pre>
+     *
+     * <code>.SoupMessage.RoomPush room = 1;</code>
      * @return Whether the room field is set.
      */
     @java.lang.Override
@@ -5397,7 +4979,11 @@ public final class SoupMessage {
       return room_ != null;
     }
     /**
-     * <code>.RoomPush room = 1;</code>
+     * <pre>
+     * 房间推送信息
+     * </pre>
+     *
+     * <code>.SoupMessage.RoomPush room = 1;</code>
      * @return The room.
      */
     @java.lang.Override
@@ -5405,7 +4991,11 @@ public final class SoupMessage {
       return room_ == null ? io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.getDefaultInstance() : room_;
     }
     /**
-     * <code>.RoomPush room = 1;</code>
+     * <pre>
+     * 房间推送信息
+     * </pre>
+     *
+     * <code>.SoupMessage.RoomPush room = 1;</code>
      */
     @java.lang.Override
     public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomOrBuilder() {
@@ -5573,21 +5163,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code JoinRoomRes}
+     * <pre>
+     * -2003 加入房间 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.JoinRoomRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:JoinRoomRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.JoinRoomRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_JoinRoomRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_JoinRoomRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_JoinRoomRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_JoinRoomRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes.Builder.class);
       }
@@ -5622,7 +5216,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_JoinRoomRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_JoinRoomRes_descriptor;
       }
 
       @java.lang.Override
@@ -5731,14 +5325,22 @@ public final class SoupMessage {
       private com.google.protobuf.SingleFieldBuilderV3<
           io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> roomBuilder_;
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        * @return Whether the room field is set.
        */
       public boolean hasRoom() {
         return roomBuilder_ != null || room_ != null;
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        * @return The room.
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush getRoom() {
@@ -5749,7 +5351,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       public Builder setRoom(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush value) {
         if (roomBuilder_ == null) {
@@ -5765,7 +5371,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       public Builder setRoom(
           io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder builderForValue) {
@@ -5779,7 +5389,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       public Builder mergeRoom(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush value) {
         if (roomBuilder_ == null) {
@@ -5797,7 +5411,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       public Builder clearRoom() {
         if (roomBuilder_ == null) {
@@ -5811,7 +5429,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder getRoomBuilder() {
         
@@ -5819,7 +5441,11 @@ public final class SoupMessage {
         return getRoomFieldBuilder().getBuilder();
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder getRoomOrBuilder() {
         if (roomBuilder_ != null) {
@@ -5830,7 +5456,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>.RoomPush room = 1;</code>
+       * <pre>
+       * 房间推送信息
+       * </pre>
+       *
+       * <code>.SoupMessage.RoomPush room = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder> 
@@ -5858,10 +5488,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:JoinRoomRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.JoinRoomRes)
     }
 
-    // @@protoc_insertion_point(class_scope:JoinRoomRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.JoinRoomRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.JoinRoomRes();
@@ -5899,15 +5529,19 @@ public final class SoupMessage {
   }
 
   public interface LeaveRoomReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:LeaveRoomReq)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.LeaveRoomReq)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code LeaveRoomReq}
+   * <pre>
+   * 2004 离开房间
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.LeaveRoomReq}
    */
   public static final class LeaveRoomReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:LeaveRoomReq)
+      // @@protoc_insertion_point(message_implements:SoupMessage.LeaveRoomReq)
       LeaveRoomReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use LeaveRoomReq.newBuilder() to construct.
@@ -5968,13 +5602,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LeaveRoomReq_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LeaveRoomReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LeaveRoomReq_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LeaveRoomReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomReq.Builder.class);
     }
@@ -6124,21 +5758,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code LeaveRoomReq}
+     * <pre>
+     * 2004 离开房间
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.LeaveRoomReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:LeaveRoomReq)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.LeaveRoomReq)
         io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LeaveRoomReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LeaveRoomReq_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LeaveRoomReq_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LeaveRoomReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomReq.Builder.class);
       }
@@ -6167,7 +5805,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LeaveRoomReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LeaveRoomReq_descriptor;
       }
 
       @java.lang.Override
@@ -6276,10 +5914,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:LeaveRoomReq)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.LeaveRoomReq)
     }
 
-    // @@protoc_insertion_point(class_scope:LeaveRoomReq)
+    // @@protoc_insertion_point(class_scope:SoupMessage.LeaveRoomReq)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomReq();
@@ -6317,15 +5955,19 @@ public final class SoupMessage {
   }
 
   public interface LeaveRoomResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:LeaveRoomRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.LeaveRoomRes)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code LeaveRoomRes}
+   * <pre>
+   * -2004 离开房间 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.LeaveRoomRes}
    */
   public static final class LeaveRoomRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:LeaveRoomRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.LeaveRoomRes)
       LeaveRoomResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use LeaveRoomRes.newBuilder() to construct.
@@ -6386,13 +6028,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LeaveRoomRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LeaveRoomRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LeaveRoomRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LeaveRoomRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomRes.Builder.class);
     }
@@ -6542,21 +6184,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code LeaveRoomRes}
+     * <pre>
+     * -2004 离开房间 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.LeaveRoomRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:LeaveRoomRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.LeaveRoomRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LeaveRoomRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LeaveRoomRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LeaveRoomRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LeaveRoomRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomRes.Builder.class);
       }
@@ -6585,7 +6231,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_LeaveRoomRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LeaveRoomRes_descriptor;
       }
 
       @java.lang.Override
@@ -6694,10 +6340,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:LeaveRoomRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.LeaveRoomRes)
     }
 
-    // @@protoc_insertion_point(class_scope:LeaveRoomRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.LeaveRoomRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.LeaveRoomRes();
@@ -6735,21 +6381,29 @@ public final class SoupMessage {
   }
 
   public interface PrepareReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:PrepareReq)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.PrepareReq)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 准备:true,取消:false
+     * </pre>
+     *
      * <code>bool ok = 1;</code>
      * @return The ok.
      */
     boolean getOk();
   }
   /**
-   * Protobuf type {@code PrepareReq}
+   * <pre>
+   * 2005 准备
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.PrepareReq}
    */
   public static final class PrepareReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:PrepareReq)
+      // @@protoc_insertion_point(message_implements:SoupMessage.PrepareReq)
       PrepareReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use PrepareReq.newBuilder() to construct.
@@ -6815,13 +6469,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_PrepareReq_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_PrepareReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_PrepareReq_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_PrepareReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq.Builder.class);
     }
@@ -6829,6 +6483,10 @@ public final class SoupMessage {
     public static final int OK_FIELD_NUMBER = 1;
     private boolean ok_;
     /**
+     * <pre>
+     * 准备:true,取消:false
+     * </pre>
+     *
      * <code>bool ok = 1;</code>
      * @return The ok.
      */
@@ -6994,21 +6652,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code PrepareReq}
+     * <pre>
+     * 2005 准备
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.PrepareReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:PrepareReq)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.PrepareReq)
         io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_PrepareReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_PrepareReq_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_PrepareReq_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_PrepareReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq.Builder.class);
       }
@@ -7039,7 +6701,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_PrepareReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_PrepareReq_descriptor;
       }
 
       @java.lang.Override
@@ -7142,6 +6804,10 @@ public final class SoupMessage {
 
       private boolean ok_ ;
       /**
+       * <pre>
+       * 准备:true,取消:false
+       * </pre>
+       *
        * <code>bool ok = 1;</code>
        * @return The ok.
        */
@@ -7150,6 +6816,10 @@ public final class SoupMessage {
         return ok_;
       }
       /**
+       * <pre>
+       * 准备:true,取消:false
+       * </pre>
+       *
        * <code>bool ok = 1;</code>
        * @param value The ok to set.
        * @return This builder for chaining.
@@ -7161,6 +6831,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 准备:true,取消:false
+       * </pre>
+       *
        * <code>bool ok = 1;</code>
        * @return This builder for chaining.
        */
@@ -7183,10 +6857,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:PrepareReq)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.PrepareReq)
     }
 
-    // @@protoc_insertion_point(class_scope:PrepareReq)
+    // @@protoc_insertion_point(class_scope:SoupMessage.PrepareReq)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.PrepareReq();
@@ -7224,15 +6898,19 @@ public final class SoupMessage {
   }
 
   public interface PrepareResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:PrepareRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.PrepareRes)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code PrepareRes}
+   * <pre>
+   * -2005 准备 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.PrepareRes}
    */
   public static final class PrepareRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:PrepareRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.PrepareRes)
       PrepareResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use PrepareRes.newBuilder() to construct.
@@ -7293,13 +6971,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_PrepareRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_PrepareRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_PrepareRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_PrepareRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.PrepareRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.PrepareRes.Builder.class);
     }
@@ -7449,21 +7127,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code PrepareRes}
+     * <pre>
+     * -2005 准备 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.PrepareRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:PrepareRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.PrepareRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.PrepareResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_PrepareRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_PrepareRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_PrepareRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_PrepareRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.PrepareRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.PrepareRes.Builder.class);
       }
@@ -7492,7 +7174,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_PrepareRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_PrepareRes_descriptor;
       }
 
       @java.lang.Override
@@ -7601,10 +7283,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:PrepareRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.PrepareRes)
     }
 
-    // @@protoc_insertion_point(class_scope:PrepareRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.PrepareRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.PrepareRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.PrepareRes();
@@ -7642,15 +7324,23 @@ public final class SoupMessage {
   }
 
   public interface KickReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:KickReq)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.KickReq)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 玩家 ID
+     * </pre>
+     *
      * <code>string aid = 1;</code>
      * @return The aid.
      */
     java.lang.String getAid();
     /**
+     * <pre>
+     * 玩家 ID
+     * </pre>
+     *
      * <code>string aid = 1;</code>
      * @return The bytes for aid.
      */
@@ -7658,17 +7348,25 @@ public final class SoupMessage {
         getAidBytes();
 
     /**
+     * <pre>
+     * 玩家 位置(从0开始)
+     * </pre>
+     *
      * <code>uint32 index = 2;</code>
      * @return The index.
      */
     int getIndex();
   }
   /**
-   * Protobuf type {@code KickReq}
+   * <pre>
+   * 2006 踢人
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.KickReq}
    */
   public static final class KickReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:KickReq)
+      // @@protoc_insertion_point(message_implements:SoupMessage.KickReq)
       KickReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use KickReq.newBuilder() to construct.
@@ -7741,13 +7439,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_KickReq_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_KickReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_KickReq_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_KickReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.KickReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.KickReq.Builder.class);
     }
@@ -7755,6 +7453,10 @@ public final class SoupMessage {
     public static final int AID_FIELD_NUMBER = 1;
     private volatile java.lang.Object aid_;
     /**
+     * <pre>
+     * 玩家 ID
+     * </pre>
+     *
      * <code>string aid = 1;</code>
      * @return The aid.
      */
@@ -7772,6 +7474,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 玩家 ID
+     * </pre>
+     *
      * <code>string aid = 1;</code>
      * @return The bytes for aid.
      */
@@ -7793,6 +7499,10 @@ public final class SoupMessage {
     public static final int INDEX_FIELD_NUMBER = 2;
     private int index_;
     /**
+     * <pre>
+     * 玩家 位置(从0开始)
+     * </pre>
+     *
      * <code>uint32 index = 2;</code>
      * @return The index.
      */
@@ -7967,21 +7677,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code KickReq}
+     * <pre>
+     * 2006 踢人
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.KickReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:KickReq)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.KickReq)
         io.github.hdfg159.game.domain.dto.SoupMessage.KickReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_KickReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_KickReq_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_KickReq_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_KickReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.KickReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.KickReq.Builder.class);
       }
@@ -8014,7 +7728,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_KickReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_KickReq_descriptor;
       }
 
       @java.lang.Override
@@ -8122,6 +7836,10 @@ public final class SoupMessage {
 
       private java.lang.Object aid_ = "";
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 1;</code>
        * @return The aid.
        */
@@ -8138,6 +7856,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 1;</code>
        * @return The bytes for aid.
        */
@@ -8155,6 +7877,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 1;</code>
        * @param value The aid to set.
        * @return This builder for chaining.
@@ -8170,6 +7896,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 1;</code>
        * @return This builder for chaining.
        */
@@ -8180,6 +7910,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 1;</code>
        * @param value The bytes for aid to set.
        * @return This builder for chaining.
@@ -8198,6 +7932,10 @@ public final class SoupMessage {
 
       private int index_ ;
       /**
+       * <pre>
+       * 玩家 位置(从0开始)
+       * </pre>
+       *
        * <code>uint32 index = 2;</code>
        * @return The index.
        */
@@ -8206,6 +7944,10 @@ public final class SoupMessage {
         return index_;
       }
       /**
+       * <pre>
+       * 玩家 位置(从0开始)
+       * </pre>
+       *
        * <code>uint32 index = 2;</code>
        * @param value The index to set.
        * @return This builder for chaining.
@@ -8217,6 +7959,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 位置(从0开始)
+       * </pre>
+       *
        * <code>uint32 index = 2;</code>
        * @return This builder for chaining.
        */
@@ -8239,10 +7985,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:KickReq)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.KickReq)
     }
 
-    // @@protoc_insertion_point(class_scope:KickReq)
+    // @@protoc_insertion_point(class_scope:SoupMessage.KickReq)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.KickReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.KickReq();
@@ -8280,15 +8026,19 @@ public final class SoupMessage {
   }
 
   public interface KickResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:KickRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.KickRes)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code KickRes}
+   * <pre>
+   * -2006 踢人 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.KickRes}
    */
   public static final class KickRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:KickRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.KickRes)
       KickResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use KickRes.newBuilder() to construct.
@@ -8349,13 +8099,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_KickRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_KickRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_KickRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_KickRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.KickRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.KickRes.Builder.class);
     }
@@ -8505,21 +8255,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code KickRes}
+     * <pre>
+     * -2006 踢人 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.KickRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:KickRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.KickRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.KickResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_KickRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_KickRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_KickRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_KickRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.KickRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.KickRes.Builder.class);
       }
@@ -8548,7 +8302,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_KickRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_KickRes_descriptor;
       }
 
       @java.lang.Override
@@ -8657,10 +8411,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:KickRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.KickRes)
     }
 
-    // @@protoc_insertion_point(class_scope:KickRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.KickRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.KickRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.KickRes();
@@ -8698,21 +8452,29 @@ public final class SoupMessage {
   }
 
   public interface ExchangeSeatReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ExchangeSeatReq)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.ExchangeSeatReq)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 位置(从0开始)
+     * </pre>
+     *
      * <code>uint32 index = 1;</code>
      * @return The index.
      */
     int getIndex();
   }
   /**
-   * Protobuf type {@code ExchangeSeatReq}
+   * <pre>
+   * 2007 换位置
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.ExchangeSeatReq}
    */
   public static final class ExchangeSeatReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ExchangeSeatReq)
+      // @@protoc_insertion_point(message_implements:SoupMessage.ExchangeSeatReq)
       ExchangeSeatReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use ExchangeSeatReq.newBuilder() to construct.
@@ -8778,13 +8540,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ExchangeSeatReq_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ExchangeSeatReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ExchangeSeatReq_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ExchangeSeatReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatReq.Builder.class);
     }
@@ -8792,6 +8554,10 @@ public final class SoupMessage {
     public static final int INDEX_FIELD_NUMBER = 1;
     private int index_;
     /**
+     * <pre>
+     * 位置(从0开始)
+     * </pre>
+     *
      * <code>uint32 index = 1;</code>
      * @return The index.
      */
@@ -8956,21 +8722,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code ExchangeSeatReq}
+     * <pre>
+     * 2007 换位置
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.ExchangeSeatReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ExchangeSeatReq)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.ExchangeSeatReq)
         io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ExchangeSeatReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ExchangeSeatReq_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ExchangeSeatReq_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ExchangeSeatReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatReq.Builder.class);
       }
@@ -9001,7 +8771,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ExchangeSeatReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ExchangeSeatReq_descriptor;
       }
 
       @java.lang.Override
@@ -9104,6 +8874,10 @@ public final class SoupMessage {
 
       private int index_ ;
       /**
+       * <pre>
+       * 位置(从0开始)
+       * </pre>
+       *
        * <code>uint32 index = 1;</code>
        * @return The index.
        */
@@ -9112,6 +8886,10 @@ public final class SoupMessage {
         return index_;
       }
       /**
+       * <pre>
+       * 位置(从0开始)
+       * </pre>
+       *
        * <code>uint32 index = 1;</code>
        * @param value The index to set.
        * @return This builder for chaining.
@@ -9123,6 +8901,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 位置(从0开始)
+       * </pre>
+       *
        * <code>uint32 index = 1;</code>
        * @return This builder for chaining.
        */
@@ -9145,10 +8927,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ExchangeSeatReq)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.ExchangeSeatReq)
     }
 
-    // @@protoc_insertion_point(class_scope:ExchangeSeatReq)
+    // @@protoc_insertion_point(class_scope:SoupMessage.ExchangeSeatReq)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatReq();
@@ -9186,15 +8968,19 @@ public final class SoupMessage {
   }
 
   public interface ExchangeSeatResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ExchangeSeatRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.ExchangeSeatRes)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code ExchangeSeatRes}
+   * <pre>
+   * -2007 换位置 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.ExchangeSeatRes}
    */
   public static final class ExchangeSeatRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ExchangeSeatRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.ExchangeSeatRes)
       ExchangeSeatResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use ExchangeSeatRes.newBuilder() to construct.
@@ -9255,13 +9041,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ExchangeSeatRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ExchangeSeatRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ExchangeSeatRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ExchangeSeatRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatRes.Builder.class);
     }
@@ -9411,21 +9197,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code ExchangeSeatRes}
+     * <pre>
+     * -2007 换位置 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.ExchangeSeatRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ExchangeSeatRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.ExchangeSeatRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ExchangeSeatRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ExchangeSeatRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ExchangeSeatRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ExchangeSeatRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatRes.Builder.class);
       }
@@ -9454,7 +9244,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ExchangeSeatRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ExchangeSeatRes_descriptor;
       }
 
       @java.lang.Override
@@ -9563,10 +9353,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ExchangeSeatRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.ExchangeSeatRes)
     }
 
-    // @@protoc_insertion_point(class_scope:ExchangeSeatRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.ExchangeSeatRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.ExchangeSeatRes();
@@ -9604,15 +9394,23 @@ public final class SoupMessage {
   }
 
   public interface ChatReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ChatReq)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.ChatReq)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 内容
+     * </pre>
+     *
      * <code>string content = 1;</code>
      * @return The content.
      */
     java.lang.String getContent();
     /**
+     * <pre>
+     * 内容
+     * </pre>
+     *
      * <code>string content = 1;</code>
      * @return The bytes for content.
      */
@@ -9620,11 +9418,15 @@ public final class SoupMessage {
         getContentBytes();
   }
   /**
-   * Protobuf type {@code ChatReq}
+   * <pre>
+   * 2008 聊天或者提问
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.ChatReq}
    */
   public static final class ChatReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ChatReq)
+      // @@protoc_insertion_point(message_implements:SoupMessage.ChatReq)
       ChatReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use ChatReq.newBuilder() to construct.
@@ -9692,13 +9494,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatReq_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatReq_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.ChatReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.ChatReq.Builder.class);
     }
@@ -9706,6 +9508,10 @@ public final class SoupMessage {
     public static final int CONTENT_FIELD_NUMBER = 1;
     private volatile java.lang.Object content_;
     /**
+     * <pre>
+     * 内容
+     * </pre>
+     *
      * <code>string content = 1;</code>
      * @return The content.
      */
@@ -9723,6 +9529,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 内容
+     * </pre>
+     *
      * <code>string content = 1;</code>
      * @return The bytes for content.
      */
@@ -9896,21 +9706,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code ChatReq}
+     * <pre>
+     * 2008 聊天或者提问
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.ChatReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ChatReq)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.ChatReq)
         io.github.hdfg159.game.domain.dto.SoupMessage.ChatReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatReq_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatReq_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.ChatReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.ChatReq.Builder.class);
       }
@@ -9941,7 +9755,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatReq_descriptor;
       }
 
       @java.lang.Override
@@ -10045,6 +9859,10 @@ public final class SoupMessage {
 
       private java.lang.Object content_ = "";
       /**
+       * <pre>
+       * 内容
+       * </pre>
+       *
        * <code>string content = 1;</code>
        * @return The content.
        */
@@ -10061,6 +9879,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 内容
+       * </pre>
+       *
        * <code>string content = 1;</code>
        * @return The bytes for content.
        */
@@ -10078,6 +9900,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 内容
+       * </pre>
+       *
        * <code>string content = 1;</code>
        * @param value The content to set.
        * @return This builder for chaining.
@@ -10093,6 +9919,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 内容
+       * </pre>
+       *
        * <code>string content = 1;</code>
        * @return This builder for chaining.
        */
@@ -10103,6 +9933,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 内容
+       * </pre>
+       *
        * <code>string content = 1;</code>
        * @param value The bytes for content to set.
        * @return This builder for chaining.
@@ -10131,10 +9965,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ChatReq)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.ChatReq)
     }
 
-    // @@protoc_insertion_point(class_scope:ChatReq)
+    // @@protoc_insertion_point(class_scope:SoupMessage.ChatReq)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.ChatReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.ChatReq();
@@ -10172,21 +10006,29 @@ public final class SoupMessage {
   }
 
   public interface ChatResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ChatRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.ChatRes)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 距离下次发言时间（单位：秒）
+     * </pre>
+     *
      * <code>uint64 seconds = 1;</code>
      * @return The seconds.
      */
     long getSeconds();
   }
   /**
-   * Protobuf type {@code ChatRes}
+   * <pre>
+   * -2008 聊天或者提问 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.ChatRes}
    */
   public static final class ChatRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ChatRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.ChatRes)
       ChatResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use ChatRes.newBuilder() to construct.
@@ -10252,13 +10094,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.ChatRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.ChatRes.Builder.class);
     }
@@ -10266,6 +10108,10 @@ public final class SoupMessage {
     public static final int SECONDS_FIELD_NUMBER = 1;
     private long seconds_;
     /**
+     * <pre>
+     * 距离下次发言时间（单位：秒）
+     * </pre>
+     *
      * <code>uint64 seconds = 1;</code>
      * @return The seconds.
      */
@@ -10431,21 +10277,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code ChatRes}
+     * <pre>
+     * -2008 聊天或者提问 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.ChatRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ChatRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.ChatRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.ChatResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.ChatRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.ChatRes.Builder.class);
       }
@@ -10476,7 +10326,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatRes_descriptor;
       }
 
       @java.lang.Override
@@ -10579,6 +10429,10 @@ public final class SoupMessage {
 
       private long seconds_ ;
       /**
+       * <pre>
+       * 距离下次发言时间（单位：秒）
+       * </pre>
+       *
        * <code>uint64 seconds = 1;</code>
        * @return The seconds.
        */
@@ -10587,6 +10441,10 @@ public final class SoupMessage {
         return seconds_;
       }
       /**
+       * <pre>
+       * 距离下次发言时间（单位：秒）
+       * </pre>
+       *
        * <code>uint64 seconds = 1;</code>
        * @param value The seconds to set.
        * @return This builder for chaining.
@@ -10598,6 +10456,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 距离下次发言时间（单位：秒）
+       * </pre>
+       *
        * <code>uint64 seconds = 1;</code>
        * @return This builder for chaining.
        */
@@ -10620,10 +10482,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ChatRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.ChatRes)
     }
 
-    // @@protoc_insertion_point(class_scope:ChatRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.ChatRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.ChatRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.ChatRes();
@@ -10661,15 +10523,23 @@ public final class SoupMessage {
   }
 
   public interface AnswerReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AnswerReq)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.AnswerReq)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 关联对话ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The id.
      */
     java.lang.String getId();
     /**
+     * <pre>
+     * 关联对话ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The bytes for id.
      */
@@ -10677,17 +10547,25 @@ public final class SoupMessage {
         getIdBytes();
 
     /**
+     * <pre>
+     * 聊天回答 1:未回答 2:不相关 3:是 4:否 5:半对
+     * </pre>
+     *
      * <code>uint32 answer = 2;</code>
      * @return The answer.
      */
     int getAnswer();
   }
   /**
-   * Protobuf type {@code AnswerReq}
+   * <pre>
+   * 2009 MC 选择回答
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.AnswerReq}
    */
   public static final class AnswerReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AnswerReq)
+      // @@protoc_insertion_point(message_implements:SoupMessage.AnswerReq)
       AnswerReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AnswerReq.newBuilder() to construct.
@@ -10760,13 +10638,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_AnswerReq_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AnswerReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_AnswerReq_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AnswerReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.AnswerReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.AnswerReq.Builder.class);
     }
@@ -10774,6 +10652,10 @@ public final class SoupMessage {
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
     /**
+     * <pre>
+     * 关联对话ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The id.
      */
@@ -10791,6 +10673,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 关联对话ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The bytes for id.
      */
@@ -10812,6 +10698,10 @@ public final class SoupMessage {
     public static final int ANSWER_FIELD_NUMBER = 2;
     private int answer_;
     /**
+     * <pre>
+     * 聊天回答 1:未回答 2:不相关 3:是 4:否 5:半对
+     * </pre>
+     *
      * <code>uint32 answer = 2;</code>
      * @return The answer.
      */
@@ -10986,21 +10876,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code AnswerReq}
+     * <pre>
+     * 2009 MC 选择回答
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.AnswerReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AnswerReq)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.AnswerReq)
         io.github.hdfg159.game.domain.dto.SoupMessage.AnswerReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_AnswerReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AnswerReq_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_AnswerReq_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AnswerReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.AnswerReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.AnswerReq.Builder.class);
       }
@@ -11033,7 +10927,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_AnswerReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AnswerReq_descriptor;
       }
 
       @java.lang.Override
@@ -11141,6 +11035,10 @@ public final class SoupMessage {
 
       private java.lang.Object id_ = "";
       /**
+       * <pre>
+       * 关联对话ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @return The id.
        */
@@ -11157,6 +11055,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 关联对话ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @return The bytes for id.
        */
@@ -11174,6 +11076,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 关联对话ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
@@ -11189,6 +11095,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 关联对话ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @return This builder for chaining.
        */
@@ -11199,6 +11109,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 关联对话ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @param value The bytes for id to set.
        * @return This builder for chaining.
@@ -11217,6 +11131,10 @@ public final class SoupMessage {
 
       private int answer_ ;
       /**
+       * <pre>
+       * 聊天回答 1:未回答 2:不相关 3:是 4:否 5:半对
+       * </pre>
+       *
        * <code>uint32 answer = 2;</code>
        * @return The answer.
        */
@@ -11225,6 +11143,10 @@ public final class SoupMessage {
         return answer_;
       }
       /**
+       * <pre>
+       * 聊天回答 1:未回答 2:不相关 3:是 4:否 5:半对
+       * </pre>
+       *
        * <code>uint32 answer = 2;</code>
        * @param value The answer to set.
        * @return This builder for chaining.
@@ -11236,6 +11158,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 聊天回答 1:未回答 2:不相关 3:是 4:否 5:半对
+       * </pre>
+       *
        * <code>uint32 answer = 2;</code>
        * @return This builder for chaining.
        */
@@ -11258,10 +11184,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AnswerReq)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.AnswerReq)
     }
 
-    // @@protoc_insertion_point(class_scope:AnswerReq)
+    // @@protoc_insertion_point(class_scope:SoupMessage.AnswerReq)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.AnswerReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.AnswerReq();
@@ -11299,15 +11225,19 @@ public final class SoupMessage {
   }
 
   public interface AnswerResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AnswerRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.AnswerRes)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code AnswerRes}
+   * <pre>
+   * -2009 MC 选择回答 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.AnswerRes}
    */
   public static final class AnswerRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AnswerRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.AnswerRes)
       AnswerResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AnswerRes.newBuilder() to construct.
@@ -11368,13 +11298,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_AnswerRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AnswerRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_AnswerRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AnswerRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.AnswerRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.AnswerRes.Builder.class);
     }
@@ -11524,21 +11454,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code AnswerRes}
+     * <pre>
+     * -2009 MC 选择回答 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.AnswerRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AnswerRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.AnswerRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.AnswerResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_AnswerRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AnswerRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_AnswerRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AnswerRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.AnswerRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.AnswerRes.Builder.class);
       }
@@ -11567,7 +11501,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_AnswerRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AnswerRes_descriptor;
       }
 
       @java.lang.Override
@@ -11676,10 +11610,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AnswerRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.AnswerRes)
     }
 
-    // @@protoc_insertion_point(class_scope:AnswerRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.AnswerRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.AnswerRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.AnswerRes();
@@ -11717,15 +11651,19 @@ public final class SoupMessage {
   }
 
   public interface EndReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EndReq)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.EndReq)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code EndReq}
+   * <pre>
+   * 2010 结束游戏
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.EndReq}
    */
   public static final class EndReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EndReq)
+      // @@protoc_insertion_point(message_implements:SoupMessage.EndReq)
       EndReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use EndReq.newBuilder() to construct.
@@ -11786,13 +11724,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_EndReq_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_EndReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_EndReq_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_EndReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.EndReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.EndReq.Builder.class);
     }
@@ -11942,21 +11880,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code EndReq}
+     * <pre>
+     * 2010 结束游戏
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.EndReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EndReq)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.EndReq)
         io.github.hdfg159.game.domain.dto.SoupMessage.EndReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_EndReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_EndReq_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_EndReq_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_EndReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.EndReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.EndReq.Builder.class);
       }
@@ -11985,7 +11927,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_EndReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_EndReq_descriptor;
       }
 
       @java.lang.Override
@@ -12094,10 +12036,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:EndReq)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.EndReq)
     }
 
-    // @@protoc_insertion_point(class_scope:EndReq)
+    // @@protoc_insertion_point(class_scope:SoupMessage.EndReq)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.EndReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.EndReq();
@@ -12135,15 +12077,19 @@ public final class SoupMessage {
   }
 
   public interface EndResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EndRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.EndRes)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code EndRes}
+   * <pre>
+   * -2010 结束游戏
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.EndRes}
    */
   public static final class EndRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EndRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.EndRes)
       EndResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use EndRes.newBuilder() to construct.
@@ -12204,13 +12150,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_EndRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_EndRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_EndRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_EndRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.EndRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.EndRes.Builder.class);
     }
@@ -12360,21 +12306,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code EndRes}
+     * <pre>
+     * -2010 结束游戏
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.EndRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EndRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.EndRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.EndResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_EndRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_EndRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_EndRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_EndRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.EndRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.EndRes.Builder.class);
       }
@@ -12403,7 +12353,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_EndRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_EndRes_descriptor;
       }
 
       @java.lang.Override
@@ -12512,10 +12462,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:EndRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.EndRes)
     }
 
-    // @@protoc_insertion_point(class_scope:EndRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.EndRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.EndRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.EndRes();
@@ -12553,15 +12503,23 @@ public final class SoupMessage {
   }
 
   public interface SelectQuestionReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:SelectQuestionReq)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.SelectQuestionReq)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 问题 ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The id.
      */
     java.lang.String getId();
     /**
+     * <pre>
+     * 问题 ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The bytes for id.
      */
@@ -12569,11 +12527,15 @@ public final class SoupMessage {
         getIdBytes();
   }
   /**
-   * Protobuf type {@code SelectQuestionReq}
+   * <pre>
+   * 2011 选择问题
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.SelectQuestionReq}
    */
   public static final class SelectQuestionReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:SelectQuestionReq)
+      // @@protoc_insertion_point(message_implements:SoupMessage.SelectQuestionReq)
       SelectQuestionReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use SelectQuestionReq.newBuilder() to construct.
@@ -12641,13 +12603,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionReq_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_SelectQuestionReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionReq_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_SelectQuestionReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq.Builder.class);
     }
@@ -12655,6 +12617,10 @@ public final class SoupMessage {
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
     /**
+     * <pre>
+     * 问题 ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The id.
      */
@@ -12672,6 +12638,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 问题 ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The bytes for id.
      */
@@ -12845,21 +12815,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code SelectQuestionReq}
+     * <pre>
+     * 2011 选择问题
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.SelectQuestionReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:SelectQuestionReq)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.SelectQuestionReq)
         io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_SelectQuestionReq_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionReq_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_SelectQuestionReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq.Builder.class);
       }
@@ -12890,7 +12864,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionReq_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_SelectQuestionReq_descriptor;
       }
 
       @java.lang.Override
@@ -12994,6 +12968,10 @@ public final class SoupMessage {
 
       private java.lang.Object id_ = "";
       /**
+       * <pre>
+       * 问题 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @return The id.
        */
@@ -13010,6 +12988,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 问题 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @return The bytes for id.
        */
@@ -13027,6 +13009,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 问题 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
@@ -13042,6 +13028,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 问题 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @return This builder for chaining.
        */
@@ -13052,6 +13042,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 问题 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @param value The bytes for id to set.
        * @return This builder for chaining.
@@ -13080,10 +13074,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:SelectQuestionReq)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.SelectQuestionReq)
     }
 
-    // @@protoc_insertion_point(class_scope:SelectQuestionReq)
+    // @@protoc_insertion_point(class_scope:SoupMessage.SelectQuestionReq)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionReq();
@@ -13121,15 +13115,19 @@ public final class SoupMessage {
   }
 
   public interface SelectQuestionResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:SelectQuestionRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.SelectQuestionRes)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code SelectQuestionRes}
+   * <pre>
+   * -2011 选择问题 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.SelectQuestionRes}
    */
   public static final class SelectQuestionRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:SelectQuestionRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.SelectQuestionRes)
       SelectQuestionResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use SelectQuestionRes.newBuilder() to construct.
@@ -13190,13 +13188,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_SelectQuestionRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_SelectQuestionRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes.Builder.class);
     }
@@ -13346,21 +13344,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code SelectQuestionRes}
+     * <pre>
+     * -2011 选择问题 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.SelectQuestionRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:SelectQuestionRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.SelectQuestionRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_SelectQuestionRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_SelectQuestionRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes.Builder.class);
       }
@@ -13389,7 +13391,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SelectQuestionRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_SelectQuestionRes_descriptor;
       }
 
       @java.lang.Override
@@ -13498,10 +13500,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:SelectQuestionRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.SelectQuestionRes)
     }
 
-    // @@protoc_insertion_point(class_scope:SelectQuestionRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.SelectQuestionRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.SelectQuestionRes();
@@ -13539,15 +13541,19 @@ public final class SoupMessage {
   }
 
   public interface HallPushOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:HallPush)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.HallPush)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code HallPush}
+   * <pre>
+   * -2900 大厅推送消息
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.HallPush}
    */
   public static final class HallPush extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:HallPush)
+      // @@protoc_insertion_point(message_implements:SoupMessage.HallPush)
       HallPushOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use HallPush.newBuilder() to construct.
@@ -13608,13 +13614,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_HallPush_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_HallPush_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_HallPush_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_HallPush_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.HallPush.class, io.github.hdfg159.game.domain.dto.SoupMessage.HallPush.Builder.class);
     }
@@ -13764,21 +13770,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code HallPush}
+     * <pre>
+     * -2900 大厅推送消息
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.HallPush}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:HallPush)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.HallPush)
         io.github.hdfg159.game.domain.dto.SoupMessage.HallPushOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_HallPush_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_HallPush_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_HallPush_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_HallPush_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.HallPush.class, io.github.hdfg159.game.domain.dto.SoupMessage.HallPush.Builder.class);
       }
@@ -13807,7 +13817,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_HallPush_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_HallPush_descriptor;
       }
 
       @java.lang.Override
@@ -13916,10 +13926,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:HallPush)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.HallPush)
     }
 
-    // @@protoc_insertion_point(class_scope:HallPush)
+    // @@protoc_insertion_point(class_scope:SoupMessage.HallPush)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.HallPush DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.HallPush();
@@ -13957,174 +13967,312 @@ public final class SoupMessage {
   }
 
   public interface RoomPushOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:RoomPush)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.RoomPush)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> 
-        getSeatsChangeList();
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index);
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    int getSeatsChangeCount();
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
-        getSeatsChangeOrBuilderList();
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
-        int index);
-
-    /**
-     * <code>uint32 status = 2;</code>
-     * @return The status.
-     */
-    int getStatus();
-
-    /**
-     * <code>.QuestionRes question = 3;</code>
-     * @return Whether the question field is set.
-     */
-    boolean hasQuestion();
-    /**
-     * <code>.QuestionRes question = 3;</code>
-     * @return The question.
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getQuestion();
-    /**
-     * <code>.QuestionRes question = 3;</code>
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getQuestionOrBuilder();
-
-    /**
-     * <code>string roomId = 4;</code>
+     * <pre>
+     * 房间 ID
+     * </pre>
+     *
+     * <code>string roomId = 1;</code>
      * @return The roomId.
      */
     java.lang.String getRoomId();
     /**
-     * <code>string roomId = 4;</code>
+     * <pre>
+     * 房间 ID
+     * </pre>
+     *
+     * <code>string roomId = 1;</code>
      * @return The bytes for roomId.
      */
     com.google.protobuf.ByteString
         getRoomIdBytes();
 
     /**
-     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
-     */
-    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> 
-        getChangedMsgList();
-    /**
-     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChangedMsg(int index);
-    /**
-     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
-     */
-    int getChangedMsgCount();
-    /**
-     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
-     */
-    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
-        getChangedMsgOrBuilderList();
-    /**
-     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChangedMsgOrBuilder(
-        int index);
-
-    /**
-     * <code>repeated .ChatMessageRes msg = 6;</code>
-     */
-    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> 
-        getMsgList();
-    /**
-     * <code>repeated .ChatMessageRes msg = 6;</code>
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getMsg(int index);
-    /**
-     * <code>repeated .ChatMessageRes msg = 6;</code>
-     */
-    int getMsgCount();
-    /**
-     * <code>repeated .ChatMessageRes msg = 6;</code>
-     */
-    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
-        getMsgOrBuilderList();
-    /**
-     * <code>repeated .ChatMessageRes msg = 6;</code>
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getMsgOrBuilder(
-        int index);
-
-    /**
-     * <code>repeated .QuestionRes selectQuestions = 7;</code>
-     */
-    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> 
-        getSelectQuestionsList();
-    /**
-     * <code>repeated .QuestionRes selectQuestions = 7;</code>
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getSelectQuestions(int index);
-    /**
-     * <code>repeated .QuestionRes selectQuestions = 7;</code>
-     */
-    int getSelectQuestionsCount();
-    /**
-     * <code>repeated .QuestionRes selectQuestions = 7;</code>
-     */
-    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
-        getSelectQuestionsOrBuilderList();
-    /**
-     * <code>repeated .QuestionRes selectQuestions = 7;</code>
-     */
-    io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getSelectQuestionsOrBuilder(
-        int index);
-
-    /**
-     * <code>string mcId = 8;</code>
-     * @return The mcId.
-     */
-    java.lang.String getMcId();
-    /**
-     * <code>string mcId = 8;</code>
-     * @return The bytes for mcId.
-     */
-    com.google.protobuf.ByteString
-        getMcIdBytes();
-
-    /**
-     * <code>string roomName = 9;</code>
+     * <pre>
+     * 房间标题
+     * </pre>
+     *
+     * <code>string roomName = 2;</code>
      * @return The roomName.
      */
     java.lang.String getRoomName();
     /**
-     * <code>string roomName = 9;</code>
+     * <pre>
+     * 房间标题
+     * </pre>
+     *
+     * <code>string roomName = 2;</code>
      * @return The bytes for roomName.
      */
     com.google.protobuf.ByteString
         getRoomNameBytes();
 
     /**
-     * <code>uint32 roomMax = 10;</code>
+     * <pre>
+     * 房间人数上限
+     * </pre>
+     *
+     * <code>uint32 roomMax = 3;</code>
      * @return The roomMax.
      */
     int getRoomMax();
+
+    /**
+     * <pre>
+     * 当前房间人数
+     * </pre>
+     *
+     * <code>uint32 roomMemberNum = 4;</code>
+     * @return The roomMemberNum.
+     */
+    int getRoomMemberNum();
+
+    /**
+     * <pre>
+     * 变化的座位信息
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     */
+    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> 
+        getSeatsChangeList();
+    /**
+     * <pre>
+     * 变化的座位信息
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index);
+    /**
+     * <pre>
+     * 变化的座位信息
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     */
+    int getSeatsChangeCount();
+    /**
+     * <pre>
+     * 变化的座位信息
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     */
+    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
+        getSeatsChangeOrBuilderList();
+    /**
+     * <pre>
+     * 变化的座位信息
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * 房间状态 1:等待中 2:选题中 3:游戏中
+     * </pre>
+     *
+     * <code>uint32 status = 6;</code>
+     * @return The status.
+     */
+    int getStatus();
+
+    /**
+     * <pre>
+     * 选择问题列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     */
+    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> 
+        getSelectQuestionsList();
+    /**
+     * <pre>
+     * 选择问题列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getSelectQuestions(int index);
+    /**
+     * <pre>
+     * 选择问题列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     */
+    int getSelectQuestionsCount();
+    /**
+     * <pre>
+     * 选择问题列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     */
+    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
+        getSelectQuestionsOrBuilderList();
+    /**
+     * <pre>
+     * 选择问题列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getSelectQuestionsOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * 问题相关信息
+     * </pre>
+     *
+     * <code>.SoupMessage.QuestionRes question = 8;</code>
+     * @return Whether the question field is set.
+     */
+    boolean hasQuestion();
+    /**
+     * <pre>
+     * 问题相关信息
+     * </pre>
+     *
+     * <code>.SoupMessage.QuestionRes question = 8;</code>
+     * @return The question.
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getQuestion();
+    /**
+     * <pre>
+     * 问题相关信息
+     * </pre>
+     *
+     * <code>.SoupMessage.QuestionRes question = 8;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getQuestionOrBuilder();
+
+    /**
+     * <pre>
+     * 变化消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     */
+    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> 
+        getChangedMsgList();
+    /**
+     * <pre>
+     * 变化消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChangedMsg(int index);
+    /**
+     * <pre>
+     * 变化消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     */
+    int getChangedMsgCount();
+    /**
+     * <pre>
+     * 变化消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     */
+    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+        getChangedMsgOrBuilderList();
+    /**
+     * <pre>
+     * 变化消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChangedMsgOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * 完整消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     */
+    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> 
+        getMsgList();
+    /**
+     * <pre>
+     * 完整消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getMsg(int index);
+    /**
+     * <pre>
+     * 完整消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     */
+    int getMsgCount();
+    /**
+     * <pre>
+     * 完整消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     */
+    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+        getMsgOrBuilderList();
+    /**
+     * <pre>
+     * 完整消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getMsgOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * MC ID
+     * </pre>
+     *
+     * <code>string mcId = 11;</code>
+     * @return The mcId.
+     */
+    java.lang.String getMcId();
+    /**
+     * <pre>
+     * MC ID
+     * </pre>
+     *
+     * <code>string mcId = 11;</code>
+     * @return The bytes for mcId.
+     */
+    com.google.protobuf.ByteString
+        getMcIdBytes();
   }
   /**
-   * Protobuf type {@code RoomPush}
+   * <pre>
+   * -2901 房间推送消息
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.RoomPush}
    */
   public static final class RoomPush extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:RoomPush)
+      // @@protoc_insertion_point(message_implements:SoupMessage.RoomPush)
       RoomPushOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use RoomPush.newBuilder() to construct.
@@ -14132,13 +14280,13 @@ public final class SoupMessage {
       super(builder);
     }
     private RoomPush() {
-      seatsChange_ = java.util.Collections.emptyList();
       roomId_ = "";
+      roomName_ = "";
+      seatsChange_ = java.util.Collections.emptyList();
+      selectQuestions_ = java.util.Collections.emptyList();
       changedMsg_ = java.util.Collections.emptyList();
       msg_ = java.util.Collections.emptyList();
-      selectQuestions_ = java.util.Collections.emptyList();
       mcId_ = "";
-      roomName_ = "";
     }
 
     @java.lang.Override
@@ -14173,6 +14321,28 @@ public final class SoupMessage {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              roomId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              roomName_ = s;
+              break;
+            }
+            case 24: {
+
+              roomMax_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+
+              roomMemberNum_ = input.readUInt32();
+              break;
+            }
+            case 42: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 seatsChange_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes>();
                 mutable_bitField0_ |= 0x00000001;
@@ -14181,12 +14351,21 @@ public final class SoupMessage {
                   input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.parser(), extensionRegistry));
               break;
             }
-            case 16: {
+            case 48: {
 
               status_ = input.readUInt32();
               break;
             }
-            case 26: {
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                selectQuestions_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              selectQuestions_.add(
+                  input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.parser(), extensionRegistry));
+              break;
+            }
+            case 66: {
               io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder subBuilder = null;
               if (question_ != null) {
                 subBuilder = question_.toBuilder();
@@ -14199,54 +14378,28 @@ public final class SoupMessage {
 
               break;
             }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              roomId_ = s;
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+            case 74: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
                 changedMsg_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000004;
               }
               changedMsg_.add(
                   input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.parser(), extensionRegistry));
               break;
             }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+            case 82: {
+              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
                 msg_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes>();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000008;
               }
               msg_.add(
                   input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.parser(), extensionRegistry));
               break;
             }
-            case 58: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                selectQuestions_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              selectQuestions_.add(
-                  input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.parser(), extensionRegistry));
-              break;
-            }
-            case 66: {
+            case 90: {
               java.lang.String s = input.readStringRequireUtf8();
 
               mcId_ = s;
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              roomName_ = s;
-              break;
-            }
-            case 80: {
-
-              roomMax_ = input.readUInt32();
               break;
             }
             default: {
@@ -14268,13 +14421,13 @@ public final class SoupMessage {
           seatsChange_ = java.util.Collections.unmodifiableList(seatsChange_);
         }
         if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          changedMsg_ = java.util.Collections.unmodifiableList(changedMsg_);
+          selectQuestions_ = java.util.Collections.unmodifiableList(selectQuestions_);
         }
         if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          msg_ = java.util.Collections.unmodifiableList(msg_);
+          changedMsg_ = java.util.Collections.unmodifiableList(changedMsg_);
         }
         if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          selectQuestions_ = java.util.Collections.unmodifiableList(selectQuestions_);
+          msg_ = java.util.Collections.unmodifiableList(msg_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -14282,98 +14435,25 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomPush_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomPush_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomPush_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomPush_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.class, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder.class);
     }
 
-    public static final int SEATSCHANGE_FIELD_NUMBER = 1;
-    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> seatsChange_;
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    @java.lang.Override
-    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> getSeatsChangeList() {
-      return seatsChange_;
-    }
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
-        getSeatsChangeOrBuilderList() {
-      return seatsChange_;
-    }
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    @java.lang.Override
-    public int getSeatsChangeCount() {
-      return seatsChange_.size();
-    }
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index) {
-      return seatsChange_.get(index);
-    }
-    /**
-     * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
-        int index) {
-      return seatsChange_.get(index);
-    }
-
-    public static final int STATUS_FIELD_NUMBER = 2;
-    private int status_;
-    /**
-     * <code>uint32 status = 2;</code>
-     * @return The status.
-     */
-    @java.lang.Override
-    public int getStatus() {
-      return status_;
-    }
-
-    public static final int QUESTION_FIELD_NUMBER = 3;
-    private io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes question_;
-    /**
-     * <code>.QuestionRes question = 3;</code>
-     * @return Whether the question field is set.
-     */
-    @java.lang.Override
-    public boolean hasQuestion() {
-      return question_ != null;
-    }
-    /**
-     * <code>.QuestionRes question = 3;</code>
-     * @return The question.
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getQuestion() {
-      return question_ == null ? io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.getDefaultInstance() : question_;
-    }
-    /**
-     * <code>.QuestionRes question = 3;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getQuestionOrBuilder() {
-      return getQuestion();
-    }
-
-    public static final int ROOMID_FIELD_NUMBER = 4;
+    public static final int ROOMID_FIELD_NUMBER = 1;
     private volatile java.lang.Object roomId_;
     /**
-     * <code>string roomId = 4;</code>
+     * <pre>
+     * 房间 ID
+     * </pre>
+     *
+     * <code>string roomId = 1;</code>
      * @return The roomId.
      */
     @java.lang.Override
@@ -14390,7 +14470,11 @@ public final class SoupMessage {
       }
     }
     /**
-     * <code>string roomId = 4;</code>
+     * <pre>
+     * 房间 ID
+     * </pre>
+     *
+     * <code>string roomId = 1;</code>
      * @return The bytes for roomId.
      */
     @java.lang.Override
@@ -14408,168 +14492,14 @@ public final class SoupMessage {
       }
     }
 
-    public static final int CHANGEDMSG_FIELD_NUMBER = 5;
-    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> changedMsg_;
-    /**
-     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
-     */
-    @java.lang.Override
-    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getChangedMsgList() {
-      return changedMsg_;
-    }
-    /**
-     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
-        getChangedMsgOrBuilderList() {
-      return changedMsg_;
-    }
-    /**
-     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
-     */
-    @java.lang.Override
-    public int getChangedMsgCount() {
-      return changedMsg_.size();
-    }
-    /**
-     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChangedMsg(int index) {
-      return changedMsg_.get(index);
-    }
-    /**
-     * <code>repeated .ChatMessageRes changedMsg = 5;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChangedMsgOrBuilder(
-        int index) {
-      return changedMsg_.get(index);
-    }
-
-    public static final int MSG_FIELD_NUMBER = 6;
-    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> msg_;
-    /**
-     * <code>repeated .ChatMessageRes msg = 6;</code>
-     */
-    @java.lang.Override
-    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getMsgList() {
-      return msg_;
-    }
-    /**
-     * <code>repeated .ChatMessageRes msg = 6;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
-        getMsgOrBuilderList() {
-      return msg_;
-    }
-    /**
-     * <code>repeated .ChatMessageRes msg = 6;</code>
-     */
-    @java.lang.Override
-    public int getMsgCount() {
-      return msg_.size();
-    }
-    /**
-     * <code>repeated .ChatMessageRes msg = 6;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getMsg(int index) {
-      return msg_.get(index);
-    }
-    /**
-     * <code>repeated .ChatMessageRes msg = 6;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getMsgOrBuilder(
-        int index) {
-      return msg_.get(index);
-    }
-
-    public static final int SELECTQUESTIONS_FIELD_NUMBER = 7;
-    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> selectQuestions_;
-    /**
-     * <code>repeated .QuestionRes selectQuestions = 7;</code>
-     */
-    @java.lang.Override
-    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> getSelectQuestionsList() {
-      return selectQuestions_;
-    }
-    /**
-     * <code>repeated .QuestionRes selectQuestions = 7;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
-        getSelectQuestionsOrBuilderList() {
-      return selectQuestions_;
-    }
-    /**
-     * <code>repeated .QuestionRes selectQuestions = 7;</code>
-     */
-    @java.lang.Override
-    public int getSelectQuestionsCount() {
-      return selectQuestions_.size();
-    }
-    /**
-     * <code>repeated .QuestionRes selectQuestions = 7;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getSelectQuestions(int index) {
-      return selectQuestions_.get(index);
-    }
-    /**
-     * <code>repeated .QuestionRes selectQuestions = 7;</code>
-     */
-    @java.lang.Override
-    public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getSelectQuestionsOrBuilder(
-        int index) {
-      return selectQuestions_.get(index);
-    }
-
-    public static final int MCID_FIELD_NUMBER = 8;
-    private volatile java.lang.Object mcId_;
-    /**
-     * <code>string mcId = 8;</code>
-     * @return The mcId.
-     */
-    @java.lang.Override
-    public java.lang.String getMcId() {
-      java.lang.Object ref = mcId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        mcId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string mcId = 8;</code>
-     * @return The bytes for mcId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMcIdBytes() {
-      java.lang.Object ref = mcId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        mcId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ROOMNAME_FIELD_NUMBER = 9;
+    public static final int ROOMNAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object roomName_;
     /**
-     * <code>string roomName = 9;</code>
+     * <pre>
+     * 房间标题
+     * </pre>
+     *
+     * <code>string roomName = 2;</code>
      * @return The roomName.
      */
     @java.lang.Override
@@ -14586,7 +14516,11 @@ public final class SoupMessage {
       }
     }
     /**
-     * <code>string roomName = 9;</code>
+     * <pre>
+     * 房间标题
+     * </pre>
+     *
+     * <code>string roomName = 2;</code>
      * @return The bytes for roomName.
      */
     @java.lang.Override
@@ -14604,15 +14538,373 @@ public final class SoupMessage {
       }
     }
 
-    public static final int ROOMMAX_FIELD_NUMBER = 10;
+    public static final int ROOMMAX_FIELD_NUMBER = 3;
     private int roomMax_;
     /**
-     * <code>uint32 roomMax = 10;</code>
+     * <pre>
+     * 房间人数上限
+     * </pre>
+     *
+     * <code>uint32 roomMax = 3;</code>
      * @return The roomMax.
      */
     @java.lang.Override
     public int getRoomMax() {
       return roomMax_;
+    }
+
+    public static final int ROOMMEMBERNUM_FIELD_NUMBER = 4;
+    private int roomMemberNum_;
+    /**
+     * <pre>
+     * 当前房间人数
+     * </pre>
+     *
+     * <code>uint32 roomMemberNum = 4;</code>
+     * @return The roomMemberNum.
+     */
+    @java.lang.Override
+    public int getRoomMemberNum() {
+      return roomMemberNum_;
+    }
+
+    public static final int SEATSCHANGE_FIELD_NUMBER = 5;
+    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> seatsChange_;
+    /**
+     * <pre>
+     * 变化的座位信息
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> getSeatsChangeList() {
+      return seatsChange_;
+    }
+    /**
+     * <pre>
+     * 变化的座位信息
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
+        getSeatsChangeOrBuilderList() {
+      return seatsChange_;
+    }
+    /**
+     * <pre>
+     * 变化的座位信息
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     */
+    @java.lang.Override
+    public int getSeatsChangeCount() {
+      return seatsChange_.size();
+    }
+    /**
+     * <pre>
+     * 变化的座位信息
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index) {
+      return seatsChange_.get(index);
+    }
+    /**
+     * <pre>
+     * 变化的座位信息
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
+        int index) {
+      return seatsChange_.get(index);
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 6;
+    private int status_;
+    /**
+     * <pre>
+     * 房间状态 1:等待中 2:选题中 3:游戏中
+     * </pre>
+     *
+     * <code>uint32 status = 6;</code>
+     * @return The status.
+     */
+    @java.lang.Override
+    public int getStatus() {
+      return status_;
+    }
+
+    public static final int SELECTQUESTIONS_FIELD_NUMBER = 7;
+    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> selectQuestions_;
+    /**
+     * <pre>
+     * 选择问题列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> getSelectQuestionsList() {
+      return selectQuestions_;
+    }
+    /**
+     * <pre>
+     * 选择问题列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
+        getSelectQuestionsOrBuilderList() {
+      return selectQuestions_;
+    }
+    /**
+     * <pre>
+     * 选择问题列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     */
+    @java.lang.Override
+    public int getSelectQuestionsCount() {
+      return selectQuestions_.size();
+    }
+    /**
+     * <pre>
+     * 选择问题列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getSelectQuestions(int index) {
+      return selectQuestions_.get(index);
+    }
+    /**
+     * <pre>
+     * 选择问题列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getSelectQuestionsOrBuilder(
+        int index) {
+      return selectQuestions_.get(index);
+    }
+
+    public static final int QUESTION_FIELD_NUMBER = 8;
+    private io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes question_;
+    /**
+     * <pre>
+     * 问题相关信息
+     * </pre>
+     *
+     * <code>.SoupMessage.QuestionRes question = 8;</code>
+     * @return Whether the question field is set.
+     */
+    @java.lang.Override
+    public boolean hasQuestion() {
+      return question_ != null;
+    }
+    /**
+     * <pre>
+     * 问题相关信息
+     * </pre>
+     *
+     * <code>.SoupMessage.QuestionRes question = 8;</code>
+     * @return The question.
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getQuestion() {
+      return question_ == null ? io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.getDefaultInstance() : question_;
+    }
+    /**
+     * <pre>
+     * 问题相关信息
+     * </pre>
+     *
+     * <code>.SoupMessage.QuestionRes question = 8;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getQuestionOrBuilder() {
+      return getQuestion();
+    }
+
+    public static final int CHANGEDMSG_FIELD_NUMBER = 9;
+    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> changedMsg_;
+    /**
+     * <pre>
+     * 变化消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getChangedMsgList() {
+      return changedMsg_;
+    }
+    /**
+     * <pre>
+     * 变化消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+        getChangedMsgOrBuilderList() {
+      return changedMsg_;
+    }
+    /**
+     * <pre>
+     * 变化消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     */
+    @java.lang.Override
+    public int getChangedMsgCount() {
+      return changedMsg_.size();
+    }
+    /**
+     * <pre>
+     * 变化消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChangedMsg(int index) {
+      return changedMsg_.get(index);
+    }
+    /**
+     * <pre>
+     * 变化消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChangedMsgOrBuilder(
+        int index) {
+      return changedMsg_.get(index);
+    }
+
+    public static final int MSG_FIELD_NUMBER = 10;
+    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> msg_;
+    /**
+     * <pre>
+     * 完整消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getMsgList() {
+      return msg_;
+    }
+    /**
+     * <pre>
+     * 完整消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+        getMsgOrBuilderList() {
+      return msg_;
+    }
+    /**
+     * <pre>
+     * 完整消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     */
+    @java.lang.Override
+    public int getMsgCount() {
+      return msg_.size();
+    }
+    /**
+     * <pre>
+     * 完整消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getMsg(int index) {
+      return msg_.get(index);
+    }
+    /**
+     * <pre>
+     * 完整消息列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getMsgOrBuilder(
+        int index) {
+      return msg_.get(index);
+    }
+
+    public static final int MCID_FIELD_NUMBER = 11;
+    private volatile java.lang.Object mcId_;
+    /**
+     * <pre>
+     * MC ID
+     * </pre>
+     *
+     * <code>string mcId = 11;</code>
+     * @return The mcId.
+     */
+    @java.lang.Override
+    public java.lang.String getMcId() {
+      java.lang.Object ref = mcId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        mcId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * MC ID
+     * </pre>
+     *
+     * <code>string mcId = 11;</code>
+     * @return The bytes for mcId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMcIdBytes() {
+      java.lang.Object ref = mcId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        mcId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14629,35 +14921,38 @@ public final class SoupMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!getRoomIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, roomId_);
+      }
+      if (!getRoomNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, roomName_);
+      }
+      if (roomMax_ != 0) {
+        output.writeUInt32(3, roomMax_);
+      }
+      if (roomMemberNum_ != 0) {
+        output.writeUInt32(4, roomMemberNum_);
+      }
       for (int i = 0; i < seatsChange_.size(); i++) {
-        output.writeMessage(1, seatsChange_.get(i));
+        output.writeMessage(5, seatsChange_.get(i));
       }
       if (status_ != 0) {
-        output.writeUInt32(2, status_);
-      }
-      if (question_ != null) {
-        output.writeMessage(3, getQuestion());
-      }
-      if (!getRoomIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, roomId_);
-      }
-      for (int i = 0; i < changedMsg_.size(); i++) {
-        output.writeMessage(5, changedMsg_.get(i));
-      }
-      for (int i = 0; i < msg_.size(); i++) {
-        output.writeMessage(6, msg_.get(i));
+        output.writeUInt32(6, status_);
       }
       for (int i = 0; i < selectQuestions_.size(); i++) {
         output.writeMessage(7, selectQuestions_.get(i));
       }
+      if (question_ != null) {
+        output.writeMessage(8, getQuestion());
+      }
+      for (int i = 0; i < changedMsg_.size(); i++) {
+        output.writeMessage(9, changedMsg_.get(i));
+      }
+      for (int i = 0; i < msg_.size(); i++) {
+        output.writeMessage(10, msg_.get(i));
+      }
       if (!getMcIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, mcId_);
-      }
-      if (!getRoomNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, roomName_);
-      }
-      if (roomMax_ != 0) {
-        output.writeUInt32(10, roomMax_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, mcId_);
       }
       unknownFields.writeTo(output);
     }
@@ -14668,42 +14963,46 @@ public final class SoupMessage {
       if (size != -1) return size;
 
       size = 0;
+      if (!getRoomIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, roomId_);
+      }
+      if (!getRoomNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, roomName_);
+      }
+      if (roomMax_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, roomMax_);
+      }
+      if (roomMemberNum_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, roomMemberNum_);
+      }
       for (int i = 0; i < seatsChange_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, seatsChange_.get(i));
+          .computeMessageSize(5, seatsChange_.get(i));
       }
       if (status_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, status_);
-      }
-      if (question_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getQuestion());
-      }
-      if (!getRoomIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, roomId_);
-      }
-      for (int i = 0; i < changedMsg_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, changedMsg_.get(i));
-      }
-      for (int i = 0; i < msg_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, msg_.get(i));
+          .computeUInt32Size(6, status_);
       }
       for (int i = 0; i < selectQuestions_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, selectQuestions_.get(i));
       }
-      if (!getMcIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, mcId_);
-      }
-      if (!getRoomNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, roomName_);
-      }
-      if (roomMax_ != 0) {
+      if (question_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(10, roomMax_);
+          .computeMessageSize(8, getQuestion());
+      }
+      for (int i = 0; i < changedMsg_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, changedMsg_.get(i));
+      }
+      for (int i = 0; i < msg_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, msg_.get(i));
+      }
+      if (!getMcIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, mcId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14720,29 +15019,31 @@ public final class SoupMessage {
       }
       io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush other = (io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush) obj;
 
+      if (!getRoomId()
+          .equals(other.getRoomId())) return false;
+      if (!getRoomName()
+          .equals(other.getRoomName())) return false;
+      if (getRoomMax()
+          != other.getRoomMax()) return false;
+      if (getRoomMemberNum()
+          != other.getRoomMemberNum()) return false;
       if (!getSeatsChangeList()
           .equals(other.getSeatsChangeList())) return false;
       if (getStatus()
           != other.getStatus()) return false;
+      if (!getSelectQuestionsList()
+          .equals(other.getSelectQuestionsList())) return false;
       if (hasQuestion() != other.hasQuestion()) return false;
       if (hasQuestion()) {
         if (!getQuestion()
             .equals(other.getQuestion())) return false;
       }
-      if (!getRoomId()
-          .equals(other.getRoomId())) return false;
       if (!getChangedMsgList()
           .equals(other.getChangedMsgList())) return false;
       if (!getMsgList()
           .equals(other.getMsgList())) return false;
-      if (!getSelectQuestionsList()
-          .equals(other.getSelectQuestionsList())) return false;
       if (!getMcId()
           .equals(other.getMcId())) return false;
-      if (!getRoomName()
-          .equals(other.getRoomName())) return false;
-      if (getRoomMax()
-          != other.getRoomMax()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -14754,18 +15055,28 @@ public final class SoupMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ROOMID_FIELD_NUMBER;
+      hash = (53 * hash) + getRoomId().hashCode();
+      hash = (37 * hash) + ROOMNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getRoomName().hashCode();
+      hash = (37 * hash) + ROOMMAX_FIELD_NUMBER;
+      hash = (53 * hash) + getRoomMax();
+      hash = (37 * hash) + ROOMMEMBERNUM_FIELD_NUMBER;
+      hash = (53 * hash) + getRoomMemberNum();
       if (getSeatsChangeCount() > 0) {
         hash = (37 * hash) + SEATSCHANGE_FIELD_NUMBER;
         hash = (53 * hash) + getSeatsChangeList().hashCode();
       }
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
       hash = (53 * hash) + getStatus();
+      if (getSelectQuestionsCount() > 0) {
+        hash = (37 * hash) + SELECTQUESTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getSelectQuestionsList().hashCode();
+      }
       if (hasQuestion()) {
         hash = (37 * hash) + QUESTION_FIELD_NUMBER;
         hash = (53 * hash) + getQuestion().hashCode();
       }
-      hash = (37 * hash) + ROOMID_FIELD_NUMBER;
-      hash = (53 * hash) + getRoomId().hashCode();
       if (getChangedMsgCount() > 0) {
         hash = (37 * hash) + CHANGEDMSG_FIELD_NUMBER;
         hash = (53 * hash) + getChangedMsgList().hashCode();
@@ -14774,16 +15085,8 @@ public final class SoupMessage {
         hash = (37 * hash) + MSG_FIELD_NUMBER;
         hash = (53 * hash) + getMsgList().hashCode();
       }
-      if (getSelectQuestionsCount() > 0) {
-        hash = (37 * hash) + SELECTQUESTIONS_FIELD_NUMBER;
-        hash = (53 * hash) + getSelectQuestionsList().hashCode();
-      }
       hash = (37 * hash) + MCID_FIELD_NUMBER;
       hash = (53 * hash) + getMcId().hashCode();
-      hash = (37 * hash) + ROOMNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getRoomName().hashCode();
-      hash = (37 * hash) + ROOMMAX_FIELD_NUMBER;
-      hash = (53 * hash) + getRoomMax();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14880,21 +15183,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code RoomPush}
+     * <pre>
+     * -2901 房间推送消息
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.RoomPush}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:RoomPush)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.RoomPush)
         io.github.hdfg159.game.domain.dto.SoupMessage.RoomPushOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomPush_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomPush_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomPush_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomPush_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.class, io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.Builder.class);
       }
@@ -14913,14 +15220,22 @@ public final class SoupMessage {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getSeatsChangeFieldBuilder();
+          getSelectQuestionsFieldBuilder();
           getChangedMsgFieldBuilder();
           getMsgFieldBuilder();
-          getSelectQuestionsFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        roomId_ = "";
+
+        roomName_ = "";
+
+        roomMax_ = 0;
+
+        roomMemberNum_ = 0;
+
         if (seatsChangeBuilder_ == null) {
           seatsChange_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -14929,37 +15244,31 @@ public final class SoupMessage {
         }
         status_ = 0;
 
+        if (selectQuestionsBuilder_ == null) {
+          selectQuestions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          selectQuestionsBuilder_.clear();
+        }
         if (questionBuilder_ == null) {
           question_ = null;
         } else {
           question_ = null;
           questionBuilder_ = null;
         }
-        roomId_ = "";
-
         if (changedMsgBuilder_ == null) {
           changedMsg_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           changedMsgBuilder_.clear();
         }
         if (msgBuilder_ == null) {
           msg_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           msgBuilder_.clear();
         }
-        if (selectQuestionsBuilder_ == null) {
-          selectQuestions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        } else {
-          selectQuestionsBuilder_.clear();
-        }
         mcId_ = "";
-
-        roomName_ = "";
-
-        roomMax_ = 0;
 
         return this;
       }
@@ -14967,7 +15276,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomPush_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomPush_descriptor;
       }
 
       @java.lang.Override
@@ -14988,6 +15297,10 @@ public final class SoupMessage {
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush buildPartial() {
         io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush result = new io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush(this);
         int from_bitField0_ = bitField0_;
+        result.roomId_ = roomId_;
+        result.roomName_ = roomName_;
+        result.roomMax_ = roomMax_;
+        result.roomMemberNum_ = roomMemberNum_;
         if (seatsChangeBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             seatsChange_ = java.util.Collections.unmodifiableList(seatsChange_);
@@ -14998,42 +15311,39 @@ public final class SoupMessage {
           result.seatsChange_ = seatsChangeBuilder_.build();
         }
         result.status_ = status_;
+        if (selectQuestionsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            selectQuestions_ = java.util.Collections.unmodifiableList(selectQuestions_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.selectQuestions_ = selectQuestions_;
+        } else {
+          result.selectQuestions_ = selectQuestionsBuilder_.build();
+        }
         if (questionBuilder_ == null) {
           result.question_ = question_;
         } else {
           result.question_ = questionBuilder_.build();
         }
-        result.roomId_ = roomId_;
         if (changedMsgBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             changedMsg_ = java.util.Collections.unmodifiableList(changedMsg_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.changedMsg_ = changedMsg_;
         } else {
           result.changedMsg_ = changedMsgBuilder_.build();
         }
         if (msgBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             msg_ = java.util.Collections.unmodifiableList(msg_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.msg_ = msg_;
         } else {
           result.msg_ = msgBuilder_.build();
         }
-        if (selectQuestionsBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
-            selectQuestions_ = java.util.Collections.unmodifiableList(selectQuestions_);
-            bitField0_ = (bitField0_ & ~0x00000008);
-          }
-          result.selectQuestions_ = selectQuestions_;
-        } else {
-          result.selectQuestions_ = selectQuestionsBuilder_.build();
-        }
         result.mcId_ = mcId_;
-        result.roomName_ = roomName_;
-        result.roomMax_ = roomMax_;
         onBuilt();
         return result;
       }
@@ -15082,6 +15392,20 @@ public final class SoupMessage {
 
       public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush other) {
         if (other == io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush.getDefaultInstance()) return this;
+        if (!other.getRoomId().isEmpty()) {
+          roomId_ = other.roomId_;
+          onChanged();
+        }
+        if (!other.getRoomName().isEmpty()) {
+          roomName_ = other.roomName_;
+          onChanged();
+        }
+        if (other.getRoomMax() != 0) {
+          setRoomMax(other.getRoomMax());
+        }
+        if (other.getRoomMemberNum() != 0) {
+          setRoomMemberNum(other.getRoomMemberNum());
+        }
         if (seatsChangeBuilder_ == null) {
           if (!other.seatsChange_.isEmpty()) {
             if (seatsChange_.isEmpty()) {
@@ -15111,70 +15435,11 @@ public final class SoupMessage {
         if (other.getStatus() != 0) {
           setStatus(other.getStatus());
         }
-        if (other.hasQuestion()) {
-          mergeQuestion(other.getQuestion());
-        }
-        if (!other.getRoomId().isEmpty()) {
-          roomId_ = other.roomId_;
-          onChanged();
-        }
-        if (changedMsgBuilder_ == null) {
-          if (!other.changedMsg_.isEmpty()) {
-            if (changedMsg_.isEmpty()) {
-              changedMsg_ = other.changedMsg_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-            } else {
-              ensureChangedMsgIsMutable();
-              changedMsg_.addAll(other.changedMsg_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.changedMsg_.isEmpty()) {
-            if (changedMsgBuilder_.isEmpty()) {
-              changedMsgBuilder_.dispose();
-              changedMsgBuilder_ = null;
-              changedMsg_ = other.changedMsg_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-              changedMsgBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getChangedMsgFieldBuilder() : null;
-            } else {
-              changedMsgBuilder_.addAllMessages(other.changedMsg_);
-            }
-          }
-        }
-        if (msgBuilder_ == null) {
-          if (!other.msg_.isEmpty()) {
-            if (msg_.isEmpty()) {
-              msg_ = other.msg_;
-              bitField0_ = (bitField0_ & ~0x00000004);
-            } else {
-              ensureMsgIsMutable();
-              msg_.addAll(other.msg_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.msg_.isEmpty()) {
-            if (msgBuilder_.isEmpty()) {
-              msgBuilder_.dispose();
-              msgBuilder_ = null;
-              msg_ = other.msg_;
-              bitField0_ = (bitField0_ & ~0x00000004);
-              msgBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getMsgFieldBuilder() : null;
-            } else {
-              msgBuilder_.addAllMessages(other.msg_);
-            }
-          }
-        }
         if (selectQuestionsBuilder_ == null) {
           if (!other.selectQuestions_.isEmpty()) {
             if (selectQuestions_.isEmpty()) {
               selectQuestions_ = other.selectQuestions_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureSelectQuestionsIsMutable();
               selectQuestions_.addAll(other.selectQuestions_);
@@ -15187,7 +15452,7 @@ public final class SoupMessage {
               selectQuestionsBuilder_.dispose();
               selectQuestionsBuilder_ = null;
               selectQuestions_ = other.selectQuestions_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000002);
               selectQuestionsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getSelectQuestionsFieldBuilder() : null;
@@ -15196,16 +15461,64 @@ public final class SoupMessage {
             }
           }
         }
+        if (other.hasQuestion()) {
+          mergeQuestion(other.getQuestion());
+        }
+        if (changedMsgBuilder_ == null) {
+          if (!other.changedMsg_.isEmpty()) {
+            if (changedMsg_.isEmpty()) {
+              changedMsg_ = other.changedMsg_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureChangedMsgIsMutable();
+              changedMsg_.addAll(other.changedMsg_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.changedMsg_.isEmpty()) {
+            if (changedMsgBuilder_.isEmpty()) {
+              changedMsgBuilder_.dispose();
+              changedMsgBuilder_ = null;
+              changedMsg_ = other.changedMsg_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              changedMsgBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getChangedMsgFieldBuilder() : null;
+            } else {
+              changedMsgBuilder_.addAllMessages(other.changedMsg_);
+            }
+          }
+        }
+        if (msgBuilder_ == null) {
+          if (!other.msg_.isEmpty()) {
+            if (msg_.isEmpty()) {
+              msg_ = other.msg_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensureMsgIsMutable();
+              msg_.addAll(other.msg_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.msg_.isEmpty()) {
+            if (msgBuilder_.isEmpty()) {
+              msgBuilder_.dispose();
+              msgBuilder_ = null;
+              msg_ = other.msg_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              msgBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getMsgFieldBuilder() : null;
+            } else {
+              msgBuilder_.addAllMessages(other.msg_);
+            }
+          }
+        }
         if (!other.getMcId().isEmpty()) {
           mcId_ = other.mcId_;
           onChanged();
-        }
-        if (!other.getRoomName().isEmpty()) {
-          roomName_ = other.roomName_;
-          onChanged();
-        }
-        if (other.getRoomMax() != 0) {
-          setRoomMax(other.getRoomMax());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -15237,6 +15550,284 @@ public final class SoupMessage {
       }
       private int bitField0_;
 
+      private java.lang.Object roomId_ = "";
+      /**
+       * <pre>
+       * 房间 ID
+       * </pre>
+       *
+       * <code>string roomId = 1;</code>
+       * @return The roomId.
+       */
+      public java.lang.String getRoomId() {
+        java.lang.Object ref = roomId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          roomId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 房间 ID
+       * </pre>
+       *
+       * <code>string roomId = 1;</code>
+       * @return The bytes for roomId.
+       */
+      public com.google.protobuf.ByteString
+          getRoomIdBytes() {
+        java.lang.Object ref = roomId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          roomId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 房间 ID
+       * </pre>
+       *
+       * <code>string roomId = 1;</code>
+       * @param value The roomId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoomId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        roomId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 房间 ID
+       * </pre>
+       *
+       * <code>string roomId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRoomId() {
+        
+        roomId_ = getDefaultInstance().getRoomId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 房间 ID
+       * </pre>
+       *
+       * <code>string roomId = 1;</code>
+       * @param value The bytes for roomId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoomIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        roomId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object roomName_ = "";
+      /**
+       * <pre>
+       * 房间标题
+       * </pre>
+       *
+       * <code>string roomName = 2;</code>
+       * @return The roomName.
+       */
+      public java.lang.String getRoomName() {
+        java.lang.Object ref = roomName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          roomName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 房间标题
+       * </pre>
+       *
+       * <code>string roomName = 2;</code>
+       * @return The bytes for roomName.
+       */
+      public com.google.protobuf.ByteString
+          getRoomNameBytes() {
+        java.lang.Object ref = roomName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          roomName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 房间标题
+       * </pre>
+       *
+       * <code>string roomName = 2;</code>
+       * @param value The roomName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoomName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        roomName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 房间标题
+       * </pre>
+       *
+       * <code>string roomName = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRoomName() {
+        
+        roomName_ = getDefaultInstance().getRoomName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 房间标题
+       * </pre>
+       *
+       * <code>string roomName = 2;</code>
+       * @param value The bytes for roomName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoomNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        roomName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int roomMax_ ;
+      /**
+       * <pre>
+       * 房间人数上限
+       * </pre>
+       *
+       * <code>uint32 roomMax = 3;</code>
+       * @return The roomMax.
+       */
+      @java.lang.Override
+      public int getRoomMax() {
+        return roomMax_;
+      }
+      /**
+       * <pre>
+       * 房间人数上限
+       * </pre>
+       *
+       * <code>uint32 roomMax = 3;</code>
+       * @param value The roomMax to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoomMax(int value) {
+        
+        roomMax_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 房间人数上限
+       * </pre>
+       *
+       * <code>uint32 roomMax = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRoomMax() {
+        
+        roomMax_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int roomMemberNum_ ;
+      /**
+       * <pre>
+       * 当前房间人数
+       * </pre>
+       *
+       * <code>uint32 roomMemberNum = 4;</code>
+       * @return The roomMemberNum.
+       */
+      @java.lang.Override
+      public int getRoomMemberNum() {
+        return roomMemberNum_;
+      }
+      /**
+       * <pre>
+       * 当前房间人数
+       * </pre>
+       *
+       * <code>uint32 roomMemberNum = 4;</code>
+       * @param value The roomMemberNum to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoomMemberNum(int value) {
+        
+        roomMemberNum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 当前房间人数
+       * </pre>
+       *
+       * <code>uint32 roomMemberNum = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRoomMemberNum() {
+        
+        roomMemberNum_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> seatsChange_ =
         java.util.Collections.emptyList();
       private void ensureSeatsChangeIsMutable() {
@@ -15250,7 +15841,11 @@ public final class SoupMessage {
           io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> seatsChangeBuilder_;
 
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> getSeatsChangeList() {
         if (seatsChangeBuilder_ == null) {
@@ -15260,7 +15855,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public int getSeatsChangeCount() {
         if (seatsChangeBuilder_ == null) {
@@ -15270,7 +15869,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index) {
         if (seatsChangeBuilder_ == null) {
@@ -15280,7 +15883,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public Builder setSeatsChange(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes value) {
@@ -15297,7 +15904,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public Builder setSeatsChange(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder builderForValue) {
@@ -15311,7 +15922,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public Builder addSeatsChange(io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes value) {
         if (seatsChangeBuilder_ == null) {
@@ -15327,7 +15942,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public Builder addSeatsChange(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes value) {
@@ -15344,7 +15963,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public Builder addSeatsChange(
           io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder builderForValue) {
@@ -15358,7 +15981,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public Builder addSeatsChange(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder builderForValue) {
@@ -15372,7 +15999,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public Builder addAllSeatsChange(
           java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> values) {
@@ -15387,7 +16018,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public Builder clearSeatsChange() {
         if (seatsChangeBuilder_ == null) {
@@ -15400,7 +16035,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public Builder removeSeatsChange(int index) {
         if (seatsChangeBuilder_ == null) {
@@ -15413,14 +16052,22 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder getSeatsChangeBuilder(
           int index) {
         return getSeatsChangeFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
           int index) {
@@ -15430,7 +16077,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
            getSeatsChangeOrBuilderList() {
@@ -15441,14 +16092,22 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder addSeatsChangeBuilder() {
         return getSeatsChangeFieldBuilder().addBuilder(
             io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.getDefaultInstance());
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder addSeatsChangeBuilder(
           int index) {
@@ -15456,7 +16115,11 @@ public final class SoupMessage {
             index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.getDefaultInstance());
       }
       /**
-       * <code>repeated .RoomMemberSeatRes seatsChange = 1;</code>
+       * <pre>
+       * 变化的座位信息
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder> 
            getSeatsChangeBuilderList() {
@@ -15479,7 +16142,11 @@ public final class SoupMessage {
 
       private int status_ ;
       /**
-       * <code>uint32 status = 2;</code>
+       * <pre>
+       * 房间状态 1:等待中 2:选题中 3:游戏中
+       * </pre>
+       *
+       * <code>uint32 status = 6;</code>
        * @return The status.
        */
       @java.lang.Override
@@ -15487,7 +16154,11 @@ public final class SoupMessage {
         return status_;
       }
       /**
-       * <code>uint32 status = 2;</code>
+       * <pre>
+       * 房间状态 1:等待中 2:选题中 3:游戏中
+       * </pre>
+       *
+       * <code>uint32 status = 6;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
@@ -15498,7 +16169,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>uint32 status = 2;</code>
+       * <pre>
+       * 房间状态 1:等待中 2:选题中 3:游戏中
+       * </pre>
+       *
+       * <code>uint32 status = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
@@ -15508,18 +16183,338 @@ public final class SoupMessage {
         return this;
       }
 
+      private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> selectQuestions_ =
+        java.util.Collections.emptyList();
+      private void ensureSelectQuestionsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          selectQuestions_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes>(selectQuestions_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> selectQuestionsBuilder_;
+
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> getSelectQuestionsList() {
+        if (selectQuestionsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(selectQuestions_);
+        } else {
+          return selectQuestionsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public int getSelectQuestionsCount() {
+        if (selectQuestionsBuilder_ == null) {
+          return selectQuestions_.size();
+        } else {
+          return selectQuestionsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getSelectQuestions(int index) {
+        if (selectQuestionsBuilder_ == null) {
+          return selectQuestions_.get(index);
+        } else {
+          return selectQuestionsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder setSelectQuestions(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
+        if (selectQuestionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.set(index, value);
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder setSelectQuestions(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
+        if (selectQuestionsBuilder_ == null) {
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder addSelectQuestions(io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
+        if (selectQuestionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.add(value);
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder addSelectQuestions(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
+        if (selectQuestionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.add(index, value);
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder addSelectQuestions(
+          io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
+        if (selectQuestionsBuilder_ == null) {
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.add(builderForValue.build());
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder addSelectQuestions(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
+        if (selectQuestionsBuilder_ == null) {
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder addAllSelectQuestions(
+          java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> values) {
+        if (selectQuestionsBuilder_ == null) {
+          ensureSelectQuestionsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, selectQuestions_);
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder clearSelectQuestions() {
+        if (selectQuestionsBuilder_ == null) {
+          selectQuestions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public Builder removeSelectQuestions(int index) {
+        if (selectQuestionsBuilder_ == null) {
+          ensureSelectQuestionsIsMutable();
+          selectQuestions_.remove(index);
+          onChanged();
+        } else {
+          selectQuestionsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder getSelectQuestionsBuilder(
+          int index) {
+        return getSelectQuestionsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getSelectQuestionsOrBuilder(
+          int index) {
+        if (selectQuestionsBuilder_ == null) {
+          return selectQuestions_.get(index);  } else {
+          return selectQuestionsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
+           getSelectQuestionsOrBuilderList() {
+        if (selectQuestionsBuilder_ != null) {
+          return selectQuestionsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(selectQuestions_);
+        }
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder addSelectQuestionsBuilder() {
+        return getSelectQuestionsFieldBuilder().addBuilder(
+            io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder addSelectQuestionsBuilder(
+          int index) {
+        return getSelectQuestionsFieldBuilder().addBuilder(
+            index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 选择问题列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       */
+      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder> 
+           getSelectQuestionsBuilderList() {
+        return getSelectQuestionsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
+          getSelectQuestionsFieldBuilder() {
+        if (selectQuestionsBuilder_ == null) {
+          selectQuestionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder>(
+                  selectQuestions_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          selectQuestions_ = null;
+        }
+        return selectQuestionsBuilder_;
+      }
+
       private io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes question_;
       private com.google.protobuf.SingleFieldBuilderV3<
           io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> questionBuilder_;
       /**
-       * <code>.QuestionRes question = 3;</code>
+       * <pre>
+       * 问题相关信息
+       * </pre>
+       *
+       * <code>.SoupMessage.QuestionRes question = 8;</code>
        * @return Whether the question field is set.
        */
       public boolean hasQuestion() {
         return questionBuilder_ != null || question_ != null;
       }
       /**
-       * <code>.QuestionRes question = 3;</code>
+       * <pre>
+       * 问题相关信息
+       * </pre>
+       *
+       * <code>.SoupMessage.QuestionRes question = 8;</code>
        * @return The question.
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getQuestion() {
@@ -15530,7 +16525,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>.QuestionRes question = 3;</code>
+       * <pre>
+       * 问题相关信息
+       * </pre>
+       *
+       * <code>.SoupMessage.QuestionRes question = 8;</code>
        */
       public Builder setQuestion(io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
         if (questionBuilder_ == null) {
@@ -15546,7 +16545,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>.QuestionRes question = 3;</code>
+       * <pre>
+       * 问题相关信息
+       * </pre>
+       *
+       * <code>.SoupMessage.QuestionRes question = 8;</code>
        */
       public Builder setQuestion(
           io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
@@ -15560,7 +16563,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>.QuestionRes question = 3;</code>
+       * <pre>
+       * 问题相关信息
+       * </pre>
+       *
+       * <code>.SoupMessage.QuestionRes question = 8;</code>
        */
       public Builder mergeQuestion(io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
         if (questionBuilder_ == null) {
@@ -15578,7 +16585,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>.QuestionRes question = 3;</code>
+       * <pre>
+       * 问题相关信息
+       * </pre>
+       *
+       * <code>.SoupMessage.QuestionRes question = 8;</code>
        */
       public Builder clearQuestion() {
         if (questionBuilder_ == null) {
@@ -15592,7 +16603,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>.QuestionRes question = 3;</code>
+       * <pre>
+       * 问题相关信息
+       * </pre>
+       *
+       * <code>.SoupMessage.QuestionRes question = 8;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder getQuestionBuilder() {
         
@@ -15600,7 +16615,11 @@ public final class SoupMessage {
         return getQuestionFieldBuilder().getBuilder();
       }
       /**
-       * <code>.QuestionRes question = 3;</code>
+       * <pre>
+       * 问题相关信息
+       * </pre>
+       *
+       * <code>.SoupMessage.QuestionRes question = 8;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getQuestionOrBuilder() {
         if (questionBuilder_ != null) {
@@ -15611,7 +16630,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>.QuestionRes question = 3;</code>
+       * <pre>
+       * 问题相关信息
+       * </pre>
+       *
+       * <code>.SoupMessage.QuestionRes question = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
@@ -15627,88 +16650,12 @@ public final class SoupMessage {
         return questionBuilder_;
       }
 
-      private java.lang.Object roomId_ = "";
-      /**
-       * <code>string roomId = 4;</code>
-       * @return The roomId.
-       */
-      public java.lang.String getRoomId() {
-        java.lang.Object ref = roomId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          roomId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string roomId = 4;</code>
-       * @return The bytes for roomId.
-       */
-      public com.google.protobuf.ByteString
-          getRoomIdBytes() {
-        java.lang.Object ref = roomId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          roomId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string roomId = 4;</code>
-       * @param value The roomId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRoomId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        roomId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string roomId = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRoomId() {
-        
-        roomId_ = getDefaultInstance().getRoomId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string roomId = 4;</code>
-       * @param value The bytes for roomId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRoomIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        roomId_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> changedMsg_ =
         java.util.Collections.emptyList();
       private void ensureChangedMsgIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           changedMsg_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes>(changedMsg_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -15716,7 +16663,11 @@ public final class SoupMessage {
           io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> changedMsgBuilder_;
 
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getChangedMsgList() {
         if (changedMsgBuilder_ == null) {
@@ -15726,7 +16677,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public int getChangedMsgCount() {
         if (changedMsgBuilder_ == null) {
@@ -15736,7 +16691,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChangedMsg(int index) {
         if (changedMsgBuilder_ == null) {
@@ -15746,7 +16705,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public Builder setChangedMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
@@ -15763,7 +16726,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public Builder setChangedMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
@@ -15777,7 +16744,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public Builder addChangedMsg(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
         if (changedMsgBuilder_ == null) {
@@ -15793,7 +16764,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public Builder addChangedMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
@@ -15810,7 +16785,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public Builder addChangedMsg(
           io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
@@ -15824,7 +16803,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public Builder addChangedMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
@@ -15838,7 +16821,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public Builder addAllChangedMsg(
           java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> values) {
@@ -15853,12 +16840,16 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public Builder clearChangedMsg() {
         if (changedMsgBuilder_ == null) {
           changedMsg_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           changedMsgBuilder_.clear();
@@ -15866,7 +16857,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public Builder removeChangedMsg(int index) {
         if (changedMsgBuilder_ == null) {
@@ -15879,14 +16874,22 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder getChangedMsgBuilder(
           int index) {
         return getChangedMsgFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChangedMsgOrBuilder(
           int index) {
@@ -15896,7 +16899,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
            getChangedMsgOrBuilderList() {
@@ -15907,14 +16914,22 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder addChangedMsgBuilder() {
         return getChangedMsgFieldBuilder().addBuilder(
             io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance());
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder addChangedMsgBuilder(
           int index) {
@@ -15922,7 +16937,11 @@ public final class SoupMessage {
             index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance());
       }
       /**
-       * <code>repeated .ChatMessageRes changedMsg = 5;</code>
+       * <pre>
+       * 变化消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder> 
            getChangedMsgBuilderList() {
@@ -15935,7 +16954,7 @@ public final class SoupMessage {
           changedMsgBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder>(
                   changedMsg_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           changedMsg_ = null;
@@ -15946,9 +16965,9 @@ public final class SoupMessage {
       private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> msg_ =
         java.util.Collections.emptyList();
       private void ensureMsgIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           msg_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes>(msg_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -15956,7 +16975,11 @@ public final class SoupMessage {
           io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> msgBuilder_;
 
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getMsgList() {
         if (msgBuilder_ == null) {
@@ -15966,7 +16989,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public int getMsgCount() {
         if (msgBuilder_ == null) {
@@ -15976,7 +17003,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getMsg(int index) {
         if (msgBuilder_ == null) {
@@ -15986,7 +17017,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public Builder setMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
@@ -16003,7 +17038,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public Builder setMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
@@ -16017,7 +17056,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public Builder addMsg(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
         if (msgBuilder_ == null) {
@@ -16033,7 +17076,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public Builder addMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
@@ -16050,7 +17097,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public Builder addMsg(
           io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
@@ -16064,7 +17115,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public Builder addMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
@@ -16078,7 +17133,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public Builder addAllMsg(
           java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> values) {
@@ -16093,12 +17152,16 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public Builder clearMsg() {
         if (msgBuilder_ == null) {
           msg_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           msgBuilder_.clear();
@@ -16106,7 +17169,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public Builder removeMsg(int index) {
         if (msgBuilder_ == null) {
@@ -16119,14 +17186,22 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder getMsgBuilder(
           int index) {
         return getMsgFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getMsgOrBuilder(
           int index) {
@@ -16136,7 +17211,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
            getMsgOrBuilderList() {
@@ -16147,14 +17226,22 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder addMsgBuilder() {
         return getMsgFieldBuilder().addBuilder(
             io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance());
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder addMsgBuilder(
           int index) {
@@ -16162,7 +17249,11 @@ public final class SoupMessage {
             index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance());
       }
       /**
-       * <code>repeated .ChatMessageRes msg = 6;</code>
+       * <pre>
+       * 完整消息列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder> 
            getMsgBuilderList() {
@@ -16175,7 +17266,7 @@ public final class SoupMessage {
           msgBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder>(
                   msg_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           msg_ = null;
@@ -16183,249 +17274,13 @@ public final class SoupMessage {
         return msgBuilder_;
       }
 
-      private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> selectQuestions_ =
-        java.util.Collections.emptyList();
-      private void ensureSelectQuestionsIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
-          selectQuestions_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes>(selectQuestions_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> selectQuestionsBuilder_;
-
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> getSelectQuestionsList() {
-        if (selectQuestionsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(selectQuestions_);
-        } else {
-          return selectQuestionsBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public int getSelectQuestionsCount() {
-        if (selectQuestionsBuilder_ == null) {
-          return selectQuestions_.size();
-        } else {
-          return selectQuestionsBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getSelectQuestions(int index) {
-        if (selectQuestionsBuilder_ == null) {
-          return selectQuestions_.get(index);
-        } else {
-          return selectQuestionsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public Builder setSelectQuestions(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
-        if (selectQuestionsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSelectQuestionsIsMutable();
-          selectQuestions_.set(index, value);
-          onChanged();
-        } else {
-          selectQuestionsBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public Builder setSelectQuestions(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
-        if (selectQuestionsBuilder_ == null) {
-          ensureSelectQuestionsIsMutable();
-          selectQuestions_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          selectQuestionsBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public Builder addSelectQuestions(io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
-        if (selectQuestionsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSelectQuestionsIsMutable();
-          selectQuestions_.add(value);
-          onChanged();
-        } else {
-          selectQuestionsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public Builder addSelectQuestions(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
-        if (selectQuestionsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSelectQuestionsIsMutable();
-          selectQuestions_.add(index, value);
-          onChanged();
-        } else {
-          selectQuestionsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public Builder addSelectQuestions(
-          io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
-        if (selectQuestionsBuilder_ == null) {
-          ensureSelectQuestionsIsMutable();
-          selectQuestions_.add(builderForValue.build());
-          onChanged();
-        } else {
-          selectQuestionsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public Builder addSelectQuestions(
-          int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
-        if (selectQuestionsBuilder_ == null) {
-          ensureSelectQuestionsIsMutable();
-          selectQuestions_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          selectQuestionsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public Builder addAllSelectQuestions(
-          java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> values) {
-        if (selectQuestionsBuilder_ == null) {
-          ensureSelectQuestionsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, selectQuestions_);
-          onChanged();
-        } else {
-          selectQuestionsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public Builder clearSelectQuestions() {
-        if (selectQuestionsBuilder_ == null) {
-          selectQuestions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
-          onChanged();
-        } else {
-          selectQuestionsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public Builder removeSelectQuestions(int index) {
-        if (selectQuestionsBuilder_ == null) {
-          ensureSelectQuestionsIsMutable();
-          selectQuestions_.remove(index);
-          onChanged();
-        } else {
-          selectQuestionsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder getSelectQuestionsBuilder(
-          int index) {
-        return getSelectQuestionsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getSelectQuestionsOrBuilder(
-          int index) {
-        if (selectQuestionsBuilder_ == null) {
-          return selectQuestions_.get(index);  } else {
-          return selectQuestionsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
-           getSelectQuestionsOrBuilderList() {
-        if (selectQuestionsBuilder_ != null) {
-          return selectQuestionsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(selectQuestions_);
-        }
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder addSelectQuestionsBuilder() {
-        return getSelectQuestionsFieldBuilder().addBuilder(
-            io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder addSelectQuestionsBuilder(
-          int index) {
-        return getSelectQuestionsFieldBuilder().addBuilder(
-            index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .QuestionRes selectQuestions = 7;</code>
-       */
-      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder> 
-           getSelectQuestionsBuilderList() {
-        return getSelectQuestionsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
-          getSelectQuestionsFieldBuilder() {
-        if (selectQuestionsBuilder_ == null) {
-          selectQuestionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder>(
-                  selectQuestions_,
-                  ((bitField0_ & 0x00000008) != 0),
-                  getParentForChildren(),
-                  isClean());
-          selectQuestions_ = null;
-        }
-        return selectQuestionsBuilder_;
-      }
-
       private java.lang.Object mcId_ = "";
       /**
-       * <code>string mcId = 8;</code>
+       * <pre>
+       * MC ID
+       * </pre>
+       *
+       * <code>string mcId = 11;</code>
        * @return The mcId.
        */
       public java.lang.String getMcId() {
@@ -16441,7 +17296,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>string mcId = 8;</code>
+       * <pre>
+       * MC ID
+       * </pre>
+       *
+       * <code>string mcId = 11;</code>
        * @return The bytes for mcId.
        */
       public com.google.protobuf.ByteString
@@ -16458,7 +17317,11 @@ public final class SoupMessage {
         }
       }
       /**
-       * <code>string mcId = 8;</code>
+       * <pre>
+       * MC ID
+       * </pre>
+       *
+       * <code>string mcId = 11;</code>
        * @param value The mcId to set.
        * @return This builder for chaining.
        */
@@ -16473,7 +17336,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>string mcId = 8;</code>
+       * <pre>
+       * MC ID
+       * </pre>
+       *
+       * <code>string mcId = 11;</code>
        * @return This builder for chaining.
        */
       public Builder clearMcId() {
@@ -16483,7 +17350,11 @@ public final class SoupMessage {
         return this;
       }
       /**
-       * <code>string mcId = 8;</code>
+       * <pre>
+       * MC ID
+       * </pre>
+       *
+       * <code>string mcId = 11;</code>
        * @param value The bytes for mcId to set.
        * @return This builder for chaining.
        */
@@ -16495,113 +17366,6 @@ public final class SoupMessage {
   checkByteStringIsUtf8(value);
         
         mcId_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object roomName_ = "";
-      /**
-       * <code>string roomName = 9;</code>
-       * @return The roomName.
-       */
-      public java.lang.String getRoomName() {
-        java.lang.Object ref = roomName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          roomName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string roomName = 9;</code>
-       * @return The bytes for roomName.
-       */
-      public com.google.protobuf.ByteString
-          getRoomNameBytes() {
-        java.lang.Object ref = roomName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          roomName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string roomName = 9;</code>
-       * @param value The roomName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRoomName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        roomName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string roomName = 9;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRoomName() {
-        
-        roomName_ = getDefaultInstance().getRoomName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string roomName = 9;</code>
-       * @param value The bytes for roomName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRoomNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        roomName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int roomMax_ ;
-      /**
-       * <code>uint32 roomMax = 10;</code>
-       * @return The roomMax.
-       */
-      @java.lang.Override
-      public int getRoomMax() {
-        return roomMax_;
-      }
-      /**
-       * <code>uint32 roomMax = 10;</code>
-       * @param value The roomMax to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRoomMax(int value) {
-        
-        roomMax_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 roomMax = 10;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRoomMax() {
-        
-        roomMax_ = 0;
         onChanged();
         return this;
       }
@@ -16618,10 +17382,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:RoomPush)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.RoomPush)
     }
 
-    // @@protoc_insertion_point(class_scope:RoomPush)
+    // @@protoc_insertion_point(class_scope:SoupMessage.RoomPush)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.RoomPush();
@@ -16659,15 +17423,23 @@ public final class SoupMessage {
   }
 
   public interface RoomMemberSeatResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:RoomMemberSeatRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.RoomMemberSeatRes)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 玩家 ID
+     * </pre>
+     *
      * <code>string aid = 1;</code>
      * @return The aid.
      */
     java.lang.String getAid();
     /**
+     * <pre>
+     * 玩家 ID
+     * </pre>
+     *
      * <code>string aid = 1;</code>
      * @return The bytes for aid.
      */
@@ -16675,11 +17447,19 @@ public final class SoupMessage {
         getAidBytes();
 
     /**
+     * <pre>
+     * 玩家 名称
+     * </pre>
+     *
      * <code>string avaName = 2;</code>
      * @return The avaName.
      */
     java.lang.String getAvaName();
     /**
+     * <pre>
+     * 玩家 名称
+     * </pre>
+     *
      * <code>string avaName = 2;</code>
      * @return The bytes for avaName.
      */
@@ -16687,11 +17467,19 @@ public final class SoupMessage {
         getAvaNameBytes();
 
     /**
+     * <pre>
+     * 玩家 头像
+     * </pre>
+     *
      * <code>string avaHead = 3;</code>
      * @return The avaHead.
      */
     java.lang.String getAvaHead();
     /**
+     * <pre>
+     * 玩家 头像
+     * </pre>
+     *
      * <code>string avaHead = 3;</code>
      * @return The bytes for avaHead.
      */
@@ -16699,41 +17487,65 @@ public final class SoupMessage {
         getAvaHeadBytes();
 
     /**
+     * <pre>
+     * 玩家 位置（从 0 开始）
+     * </pre>
+     *
      * <code>uint32 index = 4;</code>
      * @return The index.
      */
     int getIndex();
 
     /**
+     * <pre>
+     * 玩家 是否房主
+     * </pre>
+     *
      * <code>bool owner = 5;</code>
      * @return The owner.
      */
     boolean getOwner();
 
     /**
+     * <pre>
+     * 玩家状态 1:闲置 2:在房间 3:准备中 4:游戏中
+     * </pre>
+     *
      * <code>uint32 status = 6;</code>
      * @return The status.
      */
     int getStatus();
 
     /**
+     * <pre>
+     * 是否 MC
+     * </pre>
+     *
      * <code>bool mc = 7;</code>
      * @return The mc.
      */
     boolean getMc();
 
     /**
+     * <pre>
+     * 是否离开
+     * </pre>
+     *
      * <code>bool leave = 8;</code>
      * @return The leave.
      */
     boolean getLeave();
   }
   /**
-   * Protobuf type {@code RoomMemberSeatRes}
+   * <pre>
+   * 房间成员信息
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.RoomMemberSeatRes}
    */
   public static final class RoomMemberSeatRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:RoomMemberSeatRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.RoomMemberSeatRes)
       RoomMemberSeatResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use RoomMemberSeatRes.newBuilder() to construct.
@@ -16840,13 +17652,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomMemberSeatRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomMemberSeatRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomMemberSeatRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomMemberSeatRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder.class);
     }
@@ -16854,6 +17666,10 @@ public final class SoupMessage {
     public static final int AID_FIELD_NUMBER = 1;
     private volatile java.lang.Object aid_;
     /**
+     * <pre>
+     * 玩家 ID
+     * </pre>
+     *
      * <code>string aid = 1;</code>
      * @return The aid.
      */
@@ -16871,6 +17687,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 玩家 ID
+     * </pre>
+     *
      * <code>string aid = 1;</code>
      * @return The bytes for aid.
      */
@@ -16892,6 +17712,10 @@ public final class SoupMessage {
     public static final int AVANAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object avaName_;
     /**
+     * <pre>
+     * 玩家 名称
+     * </pre>
+     *
      * <code>string avaName = 2;</code>
      * @return The avaName.
      */
@@ -16909,6 +17733,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 玩家 名称
+     * </pre>
+     *
      * <code>string avaName = 2;</code>
      * @return The bytes for avaName.
      */
@@ -16930,6 +17758,10 @@ public final class SoupMessage {
     public static final int AVAHEAD_FIELD_NUMBER = 3;
     private volatile java.lang.Object avaHead_;
     /**
+     * <pre>
+     * 玩家 头像
+     * </pre>
+     *
      * <code>string avaHead = 3;</code>
      * @return The avaHead.
      */
@@ -16947,6 +17779,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 玩家 头像
+     * </pre>
+     *
      * <code>string avaHead = 3;</code>
      * @return The bytes for avaHead.
      */
@@ -16968,6 +17804,10 @@ public final class SoupMessage {
     public static final int INDEX_FIELD_NUMBER = 4;
     private int index_;
     /**
+     * <pre>
+     * 玩家 位置（从 0 开始）
+     * </pre>
+     *
      * <code>uint32 index = 4;</code>
      * @return The index.
      */
@@ -16979,6 +17819,10 @@ public final class SoupMessage {
     public static final int OWNER_FIELD_NUMBER = 5;
     private boolean owner_;
     /**
+     * <pre>
+     * 玩家 是否房主
+     * </pre>
+     *
      * <code>bool owner = 5;</code>
      * @return The owner.
      */
@@ -16990,6 +17834,10 @@ public final class SoupMessage {
     public static final int STATUS_FIELD_NUMBER = 6;
     private int status_;
     /**
+     * <pre>
+     * 玩家状态 1:闲置 2:在房间 3:准备中 4:游戏中
+     * </pre>
+     *
      * <code>uint32 status = 6;</code>
      * @return The status.
      */
@@ -17001,6 +17849,10 @@ public final class SoupMessage {
     public static final int MC_FIELD_NUMBER = 7;
     private boolean mc_;
     /**
+     * <pre>
+     * 是否 MC
+     * </pre>
+     *
      * <code>bool mc = 7;</code>
      * @return The mc.
      */
@@ -17012,6 +17864,10 @@ public final class SoupMessage {
     public static final int LEAVE_FIELD_NUMBER = 8;
     private boolean leave_;
     /**
+     * <pre>
+     * 是否离开
+     * </pre>
+     *
      * <code>bool leave = 8;</code>
      * @return The leave.
      */
@@ -17253,21 +18109,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code RoomMemberSeatRes}
+     * <pre>
+     * 房间成员信息
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.RoomMemberSeatRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:RoomMemberSeatRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.RoomMemberSeatRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomMemberSeatRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomMemberSeatRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomMemberSeatRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomMemberSeatRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder.class);
       }
@@ -17312,7 +18172,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_RoomMemberSeatRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_RoomMemberSeatRes_descriptor;
       }
 
       @java.lang.Override
@@ -17446,6 +18306,10 @@ public final class SoupMessage {
 
       private java.lang.Object aid_ = "";
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 1;</code>
        * @return The aid.
        */
@@ -17462,6 +18326,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 1;</code>
        * @return The bytes for aid.
        */
@@ -17479,6 +18347,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 1;</code>
        * @param value The aid to set.
        * @return This builder for chaining.
@@ -17494,6 +18366,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 1;</code>
        * @return This builder for chaining.
        */
@@ -17504,6 +18380,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 1;</code>
        * @param value The bytes for aid to set.
        * @return This builder for chaining.
@@ -17522,6 +18402,10 @@ public final class SoupMessage {
 
       private java.lang.Object avaName_ = "";
       /**
+       * <pre>
+       * 玩家 名称
+       * </pre>
+       *
        * <code>string avaName = 2;</code>
        * @return The avaName.
        */
@@ -17538,6 +18422,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 名称
+       * </pre>
+       *
        * <code>string avaName = 2;</code>
        * @return The bytes for avaName.
        */
@@ -17555,6 +18443,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 名称
+       * </pre>
+       *
        * <code>string avaName = 2;</code>
        * @param value The avaName to set.
        * @return This builder for chaining.
@@ -17570,6 +18462,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 名称
+       * </pre>
+       *
        * <code>string avaName = 2;</code>
        * @return This builder for chaining.
        */
@@ -17580,6 +18476,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 名称
+       * </pre>
+       *
        * <code>string avaName = 2;</code>
        * @param value The bytes for avaName to set.
        * @return This builder for chaining.
@@ -17598,6 +18498,10 @@ public final class SoupMessage {
 
       private java.lang.Object avaHead_ = "";
       /**
+       * <pre>
+       * 玩家 头像
+       * </pre>
+       *
        * <code>string avaHead = 3;</code>
        * @return The avaHead.
        */
@@ -17614,6 +18518,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 头像
+       * </pre>
+       *
        * <code>string avaHead = 3;</code>
        * @return The bytes for avaHead.
        */
@@ -17631,6 +18539,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 头像
+       * </pre>
+       *
        * <code>string avaHead = 3;</code>
        * @param value The avaHead to set.
        * @return This builder for chaining.
@@ -17646,6 +18558,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 头像
+       * </pre>
+       *
        * <code>string avaHead = 3;</code>
        * @return This builder for chaining.
        */
@@ -17656,6 +18572,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 头像
+       * </pre>
+       *
        * <code>string avaHead = 3;</code>
        * @param value The bytes for avaHead to set.
        * @return This builder for chaining.
@@ -17674,6 +18594,10 @@ public final class SoupMessage {
 
       private int index_ ;
       /**
+       * <pre>
+       * 玩家 位置（从 0 开始）
+       * </pre>
+       *
        * <code>uint32 index = 4;</code>
        * @return The index.
        */
@@ -17682,6 +18606,10 @@ public final class SoupMessage {
         return index_;
       }
       /**
+       * <pre>
+       * 玩家 位置（从 0 开始）
+       * </pre>
+       *
        * <code>uint32 index = 4;</code>
        * @param value The index to set.
        * @return This builder for chaining.
@@ -17693,6 +18621,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 位置（从 0 开始）
+       * </pre>
+       *
        * <code>uint32 index = 4;</code>
        * @return This builder for chaining.
        */
@@ -17705,6 +18637,10 @@ public final class SoupMessage {
 
       private boolean owner_ ;
       /**
+       * <pre>
+       * 玩家 是否房主
+       * </pre>
+       *
        * <code>bool owner = 5;</code>
        * @return The owner.
        */
@@ -17713,6 +18649,10 @@ public final class SoupMessage {
         return owner_;
       }
       /**
+       * <pre>
+       * 玩家 是否房主
+       * </pre>
+       *
        * <code>bool owner = 5;</code>
        * @param value The owner to set.
        * @return This builder for chaining.
@@ -17724,6 +18664,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 是否房主
+       * </pre>
+       *
        * <code>bool owner = 5;</code>
        * @return This builder for chaining.
        */
@@ -17736,6 +18680,10 @@ public final class SoupMessage {
 
       private int status_ ;
       /**
+       * <pre>
+       * 玩家状态 1:闲置 2:在房间 3:准备中 4:游戏中
+       * </pre>
+       *
        * <code>uint32 status = 6;</code>
        * @return The status.
        */
@@ -17744,6 +18692,10 @@ public final class SoupMessage {
         return status_;
       }
       /**
+       * <pre>
+       * 玩家状态 1:闲置 2:在房间 3:准备中 4:游戏中
+       * </pre>
+       *
        * <code>uint32 status = 6;</code>
        * @param value The status to set.
        * @return This builder for chaining.
@@ -17755,6 +18707,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家状态 1:闲置 2:在房间 3:准备中 4:游戏中
+       * </pre>
+       *
        * <code>uint32 status = 6;</code>
        * @return This builder for chaining.
        */
@@ -17767,6 +18723,10 @@ public final class SoupMessage {
 
       private boolean mc_ ;
       /**
+       * <pre>
+       * 是否 MC
+       * </pre>
+       *
        * <code>bool mc = 7;</code>
        * @return The mc.
        */
@@ -17775,6 +18735,10 @@ public final class SoupMessage {
         return mc_;
       }
       /**
+       * <pre>
+       * 是否 MC
+       * </pre>
+       *
        * <code>bool mc = 7;</code>
        * @param value The mc to set.
        * @return This builder for chaining.
@@ -17786,6 +18750,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 是否 MC
+       * </pre>
+       *
        * <code>bool mc = 7;</code>
        * @return This builder for chaining.
        */
@@ -17798,6 +18766,10 @@ public final class SoupMessage {
 
       private boolean leave_ ;
       /**
+       * <pre>
+       * 是否离开
+       * </pre>
+       *
        * <code>bool leave = 8;</code>
        * @return The leave.
        */
@@ -17806,6 +18778,10 @@ public final class SoupMessage {
         return leave_;
       }
       /**
+       * <pre>
+       * 是否离开
+       * </pre>
+       *
        * <code>bool leave = 8;</code>
        * @param value The leave to set.
        * @return This builder for chaining.
@@ -17817,6 +18793,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 是否离开
+       * </pre>
+       *
        * <code>bool leave = 8;</code>
        * @return This builder for chaining.
        */
@@ -17839,10 +18819,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:RoomMemberSeatRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.RoomMemberSeatRes)
     }
 
-    // @@protoc_insertion_point(class_scope:RoomMemberSeatRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.RoomMemberSeatRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes();
@@ -17880,15 +18860,23 @@ public final class SoupMessage {
   }
 
   public interface QuestionResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:QuestionRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.QuestionRes)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 问题 ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The id.
      */
     java.lang.String getId();
     /**
+     * <pre>
+     * 问题 ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The bytes for id.
      */
@@ -17896,11 +18884,19 @@ public final class SoupMessage {
         getIdBytes();
 
     /**
+     * <pre>
+     * 标题
+     * </pre>
+     *
      * <code>string title = 2;</code>
      * @return The title.
      */
     java.lang.String getTitle();
     /**
+     * <pre>
+     * 标题
+     * </pre>
+     *
      * <code>string title = 2;</code>
      * @return The bytes for title.
      */
@@ -17908,11 +18904,19 @@ public final class SoupMessage {
         getTitleBytes();
 
     /**
+     * <pre>
+     * 问题
+     * </pre>
+     *
      * <code>string question = 3;</code>
      * @return The question.
      */
     java.lang.String getQuestion();
     /**
+     * <pre>
+     * 问题
+     * </pre>
+     *
      * <code>string question = 3;</code>
      * @return The bytes for question.
      */
@@ -17920,11 +18924,19 @@ public final class SoupMessage {
         getQuestionBytes();
 
     /**
+     * <pre>
+     * 答案
+     * </pre>
+     *
      * <code>string content = 4;</code>
      * @return The content.
      */
     java.lang.String getContent();
     /**
+     * <pre>
+     * 答案
+     * </pre>
+     *
      * <code>string content = 4;</code>
      * @return The bytes for content.
      */
@@ -17932,11 +18944,11 @@ public final class SoupMessage {
         getContentBytes();
   }
   /**
-   * Protobuf type {@code QuestionRes}
+   * Protobuf type {@code SoupMessage.QuestionRes}
    */
   public static final class QuestionRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:QuestionRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.QuestionRes)
       QuestionResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use QuestionRes.newBuilder() to construct.
@@ -18025,13 +19037,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_QuestionRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_QuestionRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_QuestionRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_QuestionRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder.class);
     }
@@ -18039,6 +19051,10 @@ public final class SoupMessage {
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
     /**
+     * <pre>
+     * 问题 ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The id.
      */
@@ -18056,6 +19072,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 问题 ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The bytes for id.
      */
@@ -18077,6 +19097,10 @@ public final class SoupMessage {
     public static final int TITLE_FIELD_NUMBER = 2;
     private volatile java.lang.Object title_;
     /**
+     * <pre>
+     * 标题
+     * </pre>
+     *
      * <code>string title = 2;</code>
      * @return The title.
      */
@@ -18094,6 +19118,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 标题
+     * </pre>
+     *
      * <code>string title = 2;</code>
      * @return The bytes for title.
      */
@@ -18115,6 +19143,10 @@ public final class SoupMessage {
     public static final int QUESTION_FIELD_NUMBER = 3;
     private volatile java.lang.Object question_;
     /**
+     * <pre>
+     * 问题
+     * </pre>
+     *
      * <code>string question = 3;</code>
      * @return The question.
      */
@@ -18132,6 +19164,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 问题
+     * </pre>
+     *
      * <code>string question = 3;</code>
      * @return The bytes for question.
      */
@@ -18153,6 +19189,10 @@ public final class SoupMessage {
     public static final int CONTENT_FIELD_NUMBER = 4;
     private volatile java.lang.Object content_;
     /**
+     * <pre>
+     * 答案
+     * </pre>
+     *
      * <code>string content = 4;</code>
      * @return The content.
      */
@@ -18170,6 +19210,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 答案
+     * </pre>
+     *
      * <code>string content = 4;</code>
      * @return The bytes for content.
      */
@@ -18373,21 +19417,21 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code QuestionRes}
+     * Protobuf type {@code SoupMessage.QuestionRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:QuestionRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.QuestionRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_QuestionRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_QuestionRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_QuestionRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_QuestionRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder.class);
       }
@@ -18424,7 +19468,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_QuestionRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_QuestionRes_descriptor;
       }
 
       @java.lang.Override
@@ -18543,6 +19587,10 @@ public final class SoupMessage {
 
       private java.lang.Object id_ = "";
       /**
+       * <pre>
+       * 问题 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @return The id.
        */
@@ -18559,6 +19607,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 问题 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @return The bytes for id.
        */
@@ -18576,6 +19628,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 问题 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
@@ -18591,6 +19647,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 问题 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @return This builder for chaining.
        */
@@ -18601,6 +19661,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 问题 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @param value The bytes for id to set.
        * @return This builder for chaining.
@@ -18619,6 +19683,10 @@ public final class SoupMessage {
 
       private java.lang.Object title_ = "";
       /**
+       * <pre>
+       * 标题
+       * </pre>
+       *
        * <code>string title = 2;</code>
        * @return The title.
        */
@@ -18635,6 +19703,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 标题
+       * </pre>
+       *
        * <code>string title = 2;</code>
        * @return The bytes for title.
        */
@@ -18652,6 +19724,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 标题
+       * </pre>
+       *
        * <code>string title = 2;</code>
        * @param value The title to set.
        * @return This builder for chaining.
@@ -18667,6 +19743,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 标题
+       * </pre>
+       *
        * <code>string title = 2;</code>
        * @return This builder for chaining.
        */
@@ -18677,6 +19757,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 标题
+       * </pre>
+       *
        * <code>string title = 2;</code>
        * @param value The bytes for title to set.
        * @return This builder for chaining.
@@ -18695,6 +19779,10 @@ public final class SoupMessage {
 
       private java.lang.Object question_ = "";
       /**
+       * <pre>
+       * 问题
+       * </pre>
+       *
        * <code>string question = 3;</code>
        * @return The question.
        */
@@ -18711,6 +19799,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 问题
+       * </pre>
+       *
        * <code>string question = 3;</code>
        * @return The bytes for question.
        */
@@ -18728,6 +19820,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 问题
+       * </pre>
+       *
        * <code>string question = 3;</code>
        * @param value The question to set.
        * @return This builder for chaining.
@@ -18743,6 +19839,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 问题
+       * </pre>
+       *
        * <code>string question = 3;</code>
        * @return This builder for chaining.
        */
@@ -18753,6 +19853,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 问题
+       * </pre>
+       *
        * <code>string question = 3;</code>
        * @param value The bytes for question to set.
        * @return This builder for chaining.
@@ -18771,6 +19875,10 @@ public final class SoupMessage {
 
       private java.lang.Object content_ = "";
       /**
+       * <pre>
+       * 答案
+       * </pre>
+       *
        * <code>string content = 4;</code>
        * @return The content.
        */
@@ -18787,6 +19895,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 答案
+       * </pre>
+       *
        * <code>string content = 4;</code>
        * @return The bytes for content.
        */
@@ -18804,6 +19916,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 答案
+       * </pre>
+       *
        * <code>string content = 4;</code>
        * @param value The content to set.
        * @return This builder for chaining.
@@ -18819,6 +19935,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 答案
+       * </pre>
+       *
        * <code>string content = 4;</code>
        * @return This builder for chaining.
        */
@@ -18829,6 +19949,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 答案
+       * </pre>
+       *
        * <code>string content = 4;</code>
        * @param value The bytes for content to set.
        * @return This builder for chaining.
@@ -18857,10 +19981,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:QuestionRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.QuestionRes)
     }
 
-    // @@protoc_insertion_point(class_scope:QuestionRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.QuestionRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes();
@@ -18898,15 +20022,23 @@ public final class SoupMessage {
   }
 
   public interface ChatMessageResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ChatMessageRes)
+      // @@protoc_insertion_point(interface_extends:SoupMessage.ChatMessageRes)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 聊天信息 ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The id.
      */
     java.lang.String getId();
     /**
+     * <pre>
+     * 聊天信息 ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The bytes for id.
      */
@@ -18914,11 +20046,19 @@ public final class SoupMessage {
         getIdBytes();
 
     /**
+     * <pre>
+     * 聊天内容
+     * </pre>
+     *
      * <code>string content = 2;</code>
      * @return The content.
      */
     java.lang.String getContent();
     /**
+     * <pre>
+     * 聊天内容
+     * </pre>
+     *
      * <code>string content = 2;</code>
      * @return The bytes for content.
      */
@@ -18926,17 +20066,29 @@ public final class SoupMessage {
         getContentBytes();
 
     /**
+     * <pre>
+     * 聊天回答 1:未回答 2:不相关 3:是 4:否 5:半对
+     * </pre>
+     *
      * <code>uint32 answer = 3;</code>
      * @return The answer.
      */
     int getAnswer();
 
     /**
+     * <pre>
+     * 玩家 ID
+     * </pre>
+     *
      * <code>string aid = 4;</code>
      * @return The aid.
      */
     java.lang.String getAid();
     /**
+     * <pre>
+     * 玩家 ID
+     * </pre>
+     *
      * <code>string aid = 4;</code>
      * @return The bytes for aid.
      */
@@ -18944,11 +20096,19 @@ public final class SoupMessage {
         getAidBytes();
 
     /**
+     * <pre>
+     * 玩家 名称
+     * </pre>
+     *
      * <code>string avaName = 5;</code>
      * @return The avaName.
      */
     java.lang.String getAvaName();
     /**
+     * <pre>
+     * 玩家 名称
+     * </pre>
+     *
      * <code>string avaName = 5;</code>
      * @return The bytes for avaName.
      */
@@ -18956,11 +20116,19 @@ public final class SoupMessage {
         getAvaNameBytes();
 
     /**
+     * <pre>
+     * 玩家 头像
+     * </pre>
+     *
      * <code>string avaHead = 6;</code>
      * @return The avaHead.
      */
     java.lang.String getAvaHead();
     /**
+     * <pre>
+     * 玩家 头像
+     * </pre>
+     *
      * <code>string avaHead = 6;</code>
      * @return The bytes for avaHead.
      */
@@ -18968,17 +20136,25 @@ public final class SoupMessage {
         getAvaHeadBytes();
 
     /**
+     * <pre>
+     * 是否 MC
+     * </pre>
+     *
      * <code>bool mc = 7;</code>
      * @return The mc.
      */
     boolean getMc();
   }
   /**
-   * Protobuf type {@code ChatMessageRes}
+   * <pre>
+   * 聊天信息
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.ChatMessageRes}
    */
   public static final class ChatMessageRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ChatMessageRes)
+      // @@protoc_insertion_point(message_implements:SoupMessage.ChatMessageRes)
       ChatMessageResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use ChatMessageRes.newBuilder() to construct.
@@ -19084,13 +20260,13 @@ public final class SoupMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatMessageRes_descriptor;
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatMessageRes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatMessageRes_fieldAccessorTable
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatMessageRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder.class);
     }
@@ -19098,6 +20274,10 @@ public final class SoupMessage {
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
     /**
+     * <pre>
+     * 聊天信息 ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The id.
      */
@@ -19115,6 +20295,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 聊天信息 ID
+     * </pre>
+     *
      * <code>string id = 1;</code>
      * @return The bytes for id.
      */
@@ -19136,6 +20320,10 @@ public final class SoupMessage {
     public static final int CONTENT_FIELD_NUMBER = 2;
     private volatile java.lang.Object content_;
     /**
+     * <pre>
+     * 聊天内容
+     * </pre>
+     *
      * <code>string content = 2;</code>
      * @return The content.
      */
@@ -19153,6 +20341,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 聊天内容
+     * </pre>
+     *
      * <code>string content = 2;</code>
      * @return The bytes for content.
      */
@@ -19174,6 +20366,10 @@ public final class SoupMessage {
     public static final int ANSWER_FIELD_NUMBER = 3;
     private int answer_;
     /**
+     * <pre>
+     * 聊天回答 1:未回答 2:不相关 3:是 4:否 5:半对
+     * </pre>
+     *
      * <code>uint32 answer = 3;</code>
      * @return The answer.
      */
@@ -19185,6 +20381,10 @@ public final class SoupMessage {
     public static final int AID_FIELD_NUMBER = 4;
     private volatile java.lang.Object aid_;
     /**
+     * <pre>
+     * 玩家 ID
+     * </pre>
+     *
      * <code>string aid = 4;</code>
      * @return The aid.
      */
@@ -19202,6 +20402,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 玩家 ID
+     * </pre>
+     *
      * <code>string aid = 4;</code>
      * @return The bytes for aid.
      */
@@ -19223,6 +20427,10 @@ public final class SoupMessage {
     public static final int AVANAME_FIELD_NUMBER = 5;
     private volatile java.lang.Object avaName_;
     /**
+     * <pre>
+     * 玩家 名称
+     * </pre>
+     *
      * <code>string avaName = 5;</code>
      * @return The avaName.
      */
@@ -19240,6 +20448,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 玩家 名称
+     * </pre>
+     *
      * <code>string avaName = 5;</code>
      * @return The bytes for avaName.
      */
@@ -19261,6 +20473,10 @@ public final class SoupMessage {
     public static final int AVAHEAD_FIELD_NUMBER = 6;
     private volatile java.lang.Object avaHead_;
     /**
+     * <pre>
+     * 玩家 头像
+     * </pre>
+     *
      * <code>string avaHead = 6;</code>
      * @return The avaHead.
      */
@@ -19278,6 +20494,10 @@ public final class SoupMessage {
       }
     }
     /**
+     * <pre>
+     * 玩家 头像
+     * </pre>
+     *
      * <code>string avaHead = 6;</code>
      * @return The bytes for avaHead.
      */
@@ -19299,6 +20519,10 @@ public final class SoupMessage {
     public static final int MC_FIELD_NUMBER = 7;
     private boolean mc_;
     /**
+     * <pre>
+     * 是否 MC
+     * </pre>
+     *
      * <code>bool mc = 7;</code>
      * @return The mc.
      */
@@ -19525,21 +20749,25 @@ public final class SoupMessage {
       return builder;
     }
     /**
-     * Protobuf type {@code ChatMessageRes}
+     * <pre>
+     * 聊天信息
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.ChatMessageRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ChatMessageRes)
+        // @@protoc_insertion_point(builder_implements:SoupMessage.ChatMessageRes)
         io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatMessageRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatMessageRes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatMessageRes_fieldAccessorTable
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatMessageRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder.class);
       }
@@ -19582,7 +20810,7 @@ public final class SoupMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_ChatMessageRes_descriptor;
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_ChatMessageRes_descriptor;
       }
 
       @java.lang.Override
@@ -19714,6 +20942,10 @@ public final class SoupMessage {
 
       private java.lang.Object id_ = "";
       /**
+       * <pre>
+       * 聊天信息 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @return The id.
        */
@@ -19730,6 +20962,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 聊天信息 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @return The bytes for id.
        */
@@ -19747,6 +20983,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 聊天信息 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
@@ -19762,6 +21002,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 聊天信息 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @return This builder for chaining.
        */
@@ -19772,6 +21016,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 聊天信息 ID
+       * </pre>
+       *
        * <code>string id = 1;</code>
        * @param value The bytes for id to set.
        * @return This builder for chaining.
@@ -19790,6 +21038,10 @@ public final class SoupMessage {
 
       private java.lang.Object content_ = "";
       /**
+       * <pre>
+       * 聊天内容
+       * </pre>
+       *
        * <code>string content = 2;</code>
        * @return The content.
        */
@@ -19806,6 +21058,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 聊天内容
+       * </pre>
+       *
        * <code>string content = 2;</code>
        * @return The bytes for content.
        */
@@ -19823,6 +21079,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 聊天内容
+       * </pre>
+       *
        * <code>string content = 2;</code>
        * @param value The content to set.
        * @return This builder for chaining.
@@ -19838,6 +21098,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 聊天内容
+       * </pre>
+       *
        * <code>string content = 2;</code>
        * @return This builder for chaining.
        */
@@ -19848,6 +21112,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 聊天内容
+       * </pre>
+       *
        * <code>string content = 2;</code>
        * @param value The bytes for content to set.
        * @return This builder for chaining.
@@ -19866,6 +21134,10 @@ public final class SoupMessage {
 
       private int answer_ ;
       /**
+       * <pre>
+       * 聊天回答 1:未回答 2:不相关 3:是 4:否 5:半对
+       * </pre>
+       *
        * <code>uint32 answer = 3;</code>
        * @return The answer.
        */
@@ -19874,6 +21146,10 @@ public final class SoupMessage {
         return answer_;
       }
       /**
+       * <pre>
+       * 聊天回答 1:未回答 2:不相关 3:是 4:否 5:半对
+       * </pre>
+       *
        * <code>uint32 answer = 3;</code>
        * @param value The answer to set.
        * @return This builder for chaining.
@@ -19885,6 +21161,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 聊天回答 1:未回答 2:不相关 3:是 4:否 5:半对
+       * </pre>
+       *
        * <code>uint32 answer = 3;</code>
        * @return This builder for chaining.
        */
@@ -19897,6 +21177,10 @@ public final class SoupMessage {
 
       private java.lang.Object aid_ = "";
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 4;</code>
        * @return The aid.
        */
@@ -19913,6 +21197,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 4;</code>
        * @return The bytes for aid.
        */
@@ -19930,6 +21218,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 4;</code>
        * @param value The aid to set.
        * @return This builder for chaining.
@@ -19945,6 +21237,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 4;</code>
        * @return This builder for chaining.
        */
@@ -19955,6 +21251,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 ID
+       * </pre>
+       *
        * <code>string aid = 4;</code>
        * @param value The bytes for aid to set.
        * @return This builder for chaining.
@@ -19973,6 +21273,10 @@ public final class SoupMessage {
 
       private java.lang.Object avaName_ = "";
       /**
+       * <pre>
+       * 玩家 名称
+       * </pre>
+       *
        * <code>string avaName = 5;</code>
        * @return The avaName.
        */
@@ -19989,6 +21293,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 名称
+       * </pre>
+       *
        * <code>string avaName = 5;</code>
        * @return The bytes for avaName.
        */
@@ -20006,6 +21314,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 名称
+       * </pre>
+       *
        * <code>string avaName = 5;</code>
        * @param value The avaName to set.
        * @return This builder for chaining.
@@ -20021,6 +21333,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 名称
+       * </pre>
+       *
        * <code>string avaName = 5;</code>
        * @return This builder for chaining.
        */
@@ -20031,6 +21347,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 名称
+       * </pre>
+       *
        * <code>string avaName = 5;</code>
        * @param value The bytes for avaName to set.
        * @return This builder for chaining.
@@ -20049,6 +21369,10 @@ public final class SoupMessage {
 
       private java.lang.Object avaHead_ = "";
       /**
+       * <pre>
+       * 玩家 头像
+       * </pre>
+       *
        * <code>string avaHead = 6;</code>
        * @return The avaHead.
        */
@@ -20065,6 +21389,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 头像
+       * </pre>
+       *
        * <code>string avaHead = 6;</code>
        * @return The bytes for avaHead.
        */
@@ -20082,6 +21410,10 @@ public final class SoupMessage {
         }
       }
       /**
+       * <pre>
+       * 玩家 头像
+       * </pre>
+       *
        * <code>string avaHead = 6;</code>
        * @param value The avaHead to set.
        * @return This builder for chaining.
@@ -20097,6 +21429,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 头像
+       * </pre>
+       *
        * <code>string avaHead = 6;</code>
        * @return This builder for chaining.
        */
@@ -20107,6 +21443,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 玩家 头像
+       * </pre>
+       *
        * <code>string avaHead = 6;</code>
        * @param value The bytes for avaHead to set.
        * @return This builder for chaining.
@@ -20125,6 +21465,10 @@ public final class SoupMessage {
 
       private boolean mc_ ;
       /**
+       * <pre>
+       * 是否 MC
+       * </pre>
+       *
        * <code>bool mc = 7;</code>
        * @return The mc.
        */
@@ -20133,6 +21477,10 @@ public final class SoupMessage {
         return mc_;
       }
       /**
+       * <pre>
+       * 是否 MC
+       * </pre>
+       *
        * <code>bool mc = 7;</code>
        * @param value The mc to set.
        * @return This builder for chaining.
@@ -20144,6 +21492,10 @@ public final class SoupMessage {
         return this;
       }
       /**
+       * <pre>
+       * 是否 MC
+       * </pre>
+       *
        * <code>bool mc = 7;</code>
        * @return This builder for chaining.
        */
@@ -20166,10 +21518,10 @@ public final class SoupMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ChatMessageRes)
+      // @@protoc_insertion_point(builder_scope:SoupMessage.ChatMessageRes)
     }
 
-    // @@protoc_insertion_point(class_scope:ChatMessageRes)
+    // @@protoc_insertion_point(class_scope:SoupMessage.ChatMessageRes)
     private static final io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes();
@@ -20207,155 +21559,150 @@ public final class SoupMessage {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_LoadReq_descriptor;
+    internal_static_SoupMessage_LoadReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_LoadReq_fieldAccessorTable;
+      internal_static_SoupMessage_LoadReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_LoadRes_descriptor;
+    internal_static_SoupMessage_LoadRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_LoadRes_fieldAccessorTable;
+      internal_static_SoupMessage_LoadRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomHallReq_descriptor;
+    internal_static_SoupMessage_RoomHallReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomHallReq_fieldAccessorTable;
+      internal_static_SoupMessage_RoomHallReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomHallRes_descriptor;
+    internal_static_SoupMessage_RoomHallRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomHallRes_fieldAccessorTable;
+      internal_static_SoupMessage_RoomHallRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomHallRes_RoomRes_descriptor;
+    internal_static_SoupMessage_CreateRoomReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomHallRes_RoomRes_fieldAccessorTable;
+      internal_static_SoupMessage_CreateRoomReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_CreateRoomReq_descriptor;
+    internal_static_SoupMessage_CreateRoomRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_CreateRoomReq_fieldAccessorTable;
+      internal_static_SoupMessage_CreateRoomRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_CreateRoomRes_descriptor;
+    internal_static_SoupMessage_JoinRoomReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_CreateRoomRes_fieldAccessorTable;
+      internal_static_SoupMessage_JoinRoomReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_JoinRoomReq_descriptor;
+    internal_static_SoupMessage_JoinRoomRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_JoinRoomReq_fieldAccessorTable;
+      internal_static_SoupMessage_JoinRoomRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_JoinRoomRes_descriptor;
+    internal_static_SoupMessage_LeaveRoomReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_JoinRoomRes_fieldAccessorTable;
+      internal_static_SoupMessage_LeaveRoomReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_LeaveRoomReq_descriptor;
+    internal_static_SoupMessage_LeaveRoomRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_LeaveRoomReq_fieldAccessorTable;
+      internal_static_SoupMessage_LeaveRoomRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_LeaveRoomRes_descriptor;
+    internal_static_SoupMessage_PrepareReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_LeaveRoomRes_fieldAccessorTable;
+      internal_static_SoupMessage_PrepareReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PrepareReq_descriptor;
+    internal_static_SoupMessage_PrepareRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_PrepareReq_fieldAccessorTable;
+      internal_static_SoupMessage_PrepareRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PrepareRes_descriptor;
+    internal_static_SoupMessage_KickReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_PrepareRes_fieldAccessorTable;
+      internal_static_SoupMessage_KickReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_KickReq_descriptor;
+    internal_static_SoupMessage_KickRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_KickReq_fieldAccessorTable;
+      internal_static_SoupMessage_KickRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_KickRes_descriptor;
+    internal_static_SoupMessage_ExchangeSeatReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_KickRes_fieldAccessorTable;
+      internal_static_SoupMessage_ExchangeSeatReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ExchangeSeatReq_descriptor;
+    internal_static_SoupMessage_ExchangeSeatRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ExchangeSeatReq_fieldAccessorTable;
+      internal_static_SoupMessage_ExchangeSeatRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ExchangeSeatRes_descriptor;
+    internal_static_SoupMessage_ChatReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ExchangeSeatRes_fieldAccessorTable;
+      internal_static_SoupMessage_ChatReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChatReq_descriptor;
+    internal_static_SoupMessage_ChatRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChatReq_fieldAccessorTable;
+      internal_static_SoupMessage_ChatRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChatRes_descriptor;
+    internal_static_SoupMessage_AnswerReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChatRes_fieldAccessorTable;
+      internal_static_SoupMessage_AnswerReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AnswerReq_descriptor;
+    internal_static_SoupMessage_AnswerRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AnswerReq_fieldAccessorTable;
+      internal_static_SoupMessage_AnswerRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AnswerRes_descriptor;
+    internal_static_SoupMessage_EndReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AnswerRes_fieldAccessorTable;
+      internal_static_SoupMessage_EndReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EndReq_descriptor;
+    internal_static_SoupMessage_EndRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EndReq_fieldAccessorTable;
+      internal_static_SoupMessage_EndRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EndRes_descriptor;
+    internal_static_SoupMessage_SelectQuestionReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EndRes_fieldAccessorTable;
+      internal_static_SoupMessage_SelectQuestionReq_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_SelectQuestionReq_descriptor;
+    internal_static_SoupMessage_SelectQuestionRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_SelectQuestionReq_fieldAccessorTable;
+      internal_static_SoupMessage_SelectQuestionRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_SelectQuestionRes_descriptor;
+    internal_static_SoupMessage_HallPush_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_SelectQuestionRes_fieldAccessorTable;
+      internal_static_SoupMessage_HallPush_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_HallPush_descriptor;
+    internal_static_SoupMessage_RoomPush_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_HallPush_fieldAccessorTable;
+      internal_static_SoupMessage_RoomPush_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomPush_descriptor;
+    internal_static_SoupMessage_RoomMemberSeatRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomPush_fieldAccessorTable;
+      internal_static_SoupMessage_RoomMemberSeatRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMemberSeatRes_descriptor;
+    internal_static_SoupMessage_QuestionRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMemberSeatRes_fieldAccessorTable;
+      internal_static_SoupMessage_QuestionRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_QuestionRes_descriptor;
+    internal_static_SoupMessage_ChatMessageRes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_QuestionRes_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChatMessageRes_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChatMessageRes_fieldAccessorTable;
+      internal_static_SoupMessage_ChatMessageRes_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -20365,226 +21712,222 @@ public final class SoupMessage {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021SoupMessage.proto\"\t\n\007LoadReq\">\n\007LoadRe" +
-      "s\022\021\n\treconnect\030\001 \001(\010\022\016\n\006roomId\030\002 \001(\t\022\020\n\010" +
-      "password\030\003 \001(\t\"\r\n\013RoomHallReq\"W\n\013RoomHal" +
-      "lRes\022#\n\005rooms\030\001 \003(\0132\024.RoomHallRes.RoomRe" +
-      "s\032#\n\007RoomRes\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\"<" +
-      "\n\rCreateRoomReq\022\020\n\010password\030\001 \001(\t\022\013\n\003max" +
-      "\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\"(\n\rCreateRoomRes\022\027\n" +
-      "\004room\030\001 \001(\0132\t.RoomPush\"/\n\013JoinRoomReq\022\016\n" +
-      "\006roomId\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"&\n\013JoinR" +
-      "oomRes\022\027\n\004room\030\001 \001(\0132\t.RoomPush\"\016\n\014Leave" +
-      "RoomReq\"\016\n\014LeaveRoomRes\"\030\n\nPrepareReq\022\n\n" +
-      "\002ok\030\001 \001(\010\"\014\n\nPrepareRes\"%\n\007KickReq\022\013\n\003ai" +
-      "d\030\001 \001(\t\022\r\n\005index\030\002 \001(\r\"\t\n\007KickRes\" \n\017Exc" +
-      "hangeSeatReq\022\r\n\005index\030\001 \001(\r\"\021\n\017ExchangeS" +
-      "eatRes\"\032\n\007ChatReq\022\017\n\007content\030\001 \001(\t\"\032\n\007Ch" +
-      "atRes\022\017\n\007seconds\030\001 \001(\004\"\'\n\tAnswerReq\022\n\n\002i" +
-      "d\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnswerRes\"\010\n\006" +
-      "EndReq\"\010\n\006EndRes\"\037\n\021SelectQuestionReq\022\n\n" +
-      "\002id\030\001 \001(\t\"\023\n\021SelectQuestionRes\"\n\n\010HallPu" +
-      "sh\"\216\002\n\010RoomPush\022\'\n\013seatsChange\030\001 \003(\0132\022.R" +
-      "oomMemberSeatRes\022\016\n\006status\030\002 \001(\r\022\036\n\010ques" +
-      "tion\030\003 \001(\0132\014.QuestionRes\022\016\n\006roomId\030\004 \001(\t" +
-      "\022#\n\nchangedMsg\030\005 \003(\0132\017.ChatMessageRes\022\034\n" +
-      "\003msg\030\006 \003(\0132\017.ChatMessageRes\022%\n\017selectQue" +
-      "stions\030\007 \003(\0132\014.QuestionRes\022\014\n\004mcId\030\010 \001(\t" +
-      "\022\020\n\010roomName\030\t \001(\t\022\017\n\007roomMax\030\n \001(\r\"\213\001\n\021" +
-      "RoomMemberSeatRes\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaNam" +
-      "e\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022" +
-      "\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001(\r\022\n\n\002mc\030\007 \001" +
-      "(\010\022\r\n\005leave\030\010 \001(\010\"K\n\013QuestionRes\022\n\n\002id\030\001" +
-      " \001(\t\022\r\n\005title\030\002 \001(\t\022\020\n\010question\030\003 \001(\t\022\017\n" +
-      "\007content\030\004 \001(\t\"x\n\016ChatMessageRes\022\n\n\002id\030\001" +
-      " \001(\t\022\017\n\007content\030\002 \001(\t\022\016\n\006answer\030\003 \001(\r\022\013\n" +
-      "\003aid\030\004 \001(\t\022\017\n\007avaName\030\005 \001(\t\022\017\n\007avaHead\030\006" +
-      " \001(\t\022\n\n\002mc\030\007 \001(\010B#\n!io.github.hdfg159.ga" +
-      "me.domain.dtob\006proto3"
+      "\n\021SoupMessage.proto\022\013SoupMessage\"\t\n\007Load" +
+      "Req\">\n\007LoadRes\022\021\n\treconnect\030\001 \001(\010\022\016\n\006roo" +
+      "mId\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\"\r\n\013RoomHallR" +
+      "eq\"3\n\013RoomHallRes\022$\n\005rooms\030\001 \003(\0132\025.SoupM" +
+      "essage.RoomPush\"<\n\rCreateRoomReq\022\020\n\010pass" +
+      "word\030\001 \001(\t\022\013\n\003max\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\"4\n" +
+      "\rCreateRoomRes\022#\n\004room\030\001 \001(\0132\025.SoupMessa" +
+      "ge.RoomPush\"/\n\013JoinRoomReq\022\016\n\006roomId\030\001 \001" +
+      "(\t\022\020\n\010password\030\002 \001(\t\"2\n\013JoinRoomRes\022#\n\004r" +
+      "oom\030\001 \001(\0132\025.SoupMessage.RoomPush\"\016\n\014Leav" +
+      "eRoomReq\"\016\n\014LeaveRoomRes\"\030\n\nPrepareReq\022\n" +
+      "\n\002ok\030\001 \001(\010\"\014\n\nPrepareRes\"%\n\007KickReq\022\013\n\003a" +
+      "id\030\001 \001(\t\022\r\n\005index\030\002 \001(\r\"\t\n\007KickRes\" \n\017Ex" +
+      "changeSeatReq\022\r\n\005index\030\001 \001(\r\"\021\n\017Exchange" +
+      "SeatRes\"\032\n\007ChatReq\022\017\n\007content\030\001 \001(\t\"\032\n\007C" +
+      "hatRes\022\017\n\007seconds\030\001 \001(\004\"\'\n\tAnswerReq\022\n\n\002" +
+      "id\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnswerRes\"\010\n" +
+      "\006EndReq\"\010\n\006EndRes\"\037\n\021SelectQuestionReq\022\n" +
+      "\n\002id\030\001 \001(\t\"\023\n\021SelectQuestionRes\"\n\n\010HallP" +
+      "ush\"\341\002\n\010RoomPush\022\016\n\006roomId\030\001 \001(\t\022\020\n\010room" +
+      "Name\030\002 \001(\t\022\017\n\007roomMax\030\003 \001(\r\022\025\n\rroomMembe" +
+      "rNum\030\004 \001(\r\0223\n\013seatsChange\030\005 \003(\0132\036.SoupMe" +
+      "ssage.RoomMemberSeatRes\022\016\n\006status\030\006 \001(\r\022" +
+      "1\n\017selectQuestions\030\007 \003(\0132\030.SoupMessage.Q" +
+      "uestionRes\022*\n\010question\030\010 \001(\0132\030.SoupMessa" +
+      "ge.QuestionRes\022/\n\nchangedMsg\030\t \003(\0132\033.Sou" +
+      "pMessage.ChatMessageRes\022(\n\003msg\030\n \003(\0132\033.S" +
+      "oupMessage.ChatMessageRes\022\014\n\004mcId\030\013 \001(\t\"" +
+      "\213\001\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001(\t\022\017\n\007av" +
+      "aName\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005index\030\004 " +
+      "\001(\r\022\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001(\r\022\n\n\002mc" +
+      "\030\007 \001(\010\022\r\n\005leave\030\010 \001(\010\"K\n\013QuestionRes\022\n\n\002" +
+      "id\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\020\n\010question\030\003 \001(" +
+      "\t\022\017\n\007content\030\004 \001(\t\"x\n\016ChatMessageRes\022\n\n\002" +
+      "id\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\022\016\n\006answer\030\003 \001(" +
+      "\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007avaName\030\005 \001(\t\022\017\n\007avaHe" +
+      "ad\030\006 \001(\t\022\n\n\002mc\030\007 \001(\010B/\n!io.github.hdfg15" +
+      "9.game.domain.dtoZ\n./protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_LoadReq_descriptor =
+    internal_static_SoupMessage_LoadReq_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_LoadReq_fieldAccessorTable = new
+    internal_static_SoupMessage_LoadReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_LoadReq_descriptor,
+        internal_static_SoupMessage_LoadReq_descriptor,
         new java.lang.String[] { });
-    internal_static_LoadRes_descriptor =
+    internal_static_SoupMessage_LoadRes_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_LoadRes_fieldAccessorTable = new
+    internal_static_SoupMessage_LoadRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_LoadRes_descriptor,
+        internal_static_SoupMessage_LoadRes_descriptor,
         new java.lang.String[] { "Reconnect", "RoomId", "Password", });
-    internal_static_RoomHallReq_descriptor =
+    internal_static_SoupMessage_RoomHallReq_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_RoomHallReq_fieldAccessorTable = new
+    internal_static_SoupMessage_RoomHallReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomHallReq_descriptor,
+        internal_static_SoupMessage_RoomHallReq_descriptor,
         new java.lang.String[] { });
-    internal_static_RoomHallRes_descriptor =
+    internal_static_SoupMessage_RoomHallRes_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_RoomHallRes_fieldAccessorTable = new
+    internal_static_SoupMessage_RoomHallRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomHallRes_descriptor,
+        internal_static_SoupMessage_RoomHallRes_descriptor,
         new java.lang.String[] { "Rooms", });
-    internal_static_RoomHallRes_RoomRes_descriptor =
-      internal_static_RoomHallRes_descriptor.getNestedTypes().get(0);
-    internal_static_RoomHallRes_RoomRes_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomHallRes_RoomRes_descriptor,
-        new java.lang.String[] { "Id", "Name", });
-    internal_static_CreateRoomReq_descriptor =
+    internal_static_SoupMessage_CreateRoomReq_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_CreateRoomReq_fieldAccessorTable = new
+    internal_static_SoupMessage_CreateRoomReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_CreateRoomReq_descriptor,
+        internal_static_SoupMessage_CreateRoomReq_descriptor,
         new java.lang.String[] { "Password", "Max", "Name", });
-    internal_static_CreateRoomRes_descriptor =
+    internal_static_SoupMessage_CreateRoomRes_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_CreateRoomRes_fieldAccessorTable = new
+    internal_static_SoupMessage_CreateRoomRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_CreateRoomRes_descriptor,
+        internal_static_SoupMessage_CreateRoomRes_descriptor,
         new java.lang.String[] { "Room", });
-    internal_static_JoinRoomReq_descriptor =
+    internal_static_SoupMessage_JoinRoomReq_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_JoinRoomReq_fieldAccessorTable = new
+    internal_static_SoupMessage_JoinRoomReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_JoinRoomReq_descriptor,
+        internal_static_SoupMessage_JoinRoomReq_descriptor,
         new java.lang.String[] { "RoomId", "Password", });
-    internal_static_JoinRoomRes_descriptor =
+    internal_static_SoupMessage_JoinRoomRes_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_JoinRoomRes_fieldAccessorTable = new
+    internal_static_SoupMessage_JoinRoomRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_JoinRoomRes_descriptor,
+        internal_static_SoupMessage_JoinRoomRes_descriptor,
         new java.lang.String[] { "Room", });
-    internal_static_LeaveRoomReq_descriptor =
+    internal_static_SoupMessage_LeaveRoomReq_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_LeaveRoomReq_fieldAccessorTable = new
+    internal_static_SoupMessage_LeaveRoomReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_LeaveRoomReq_descriptor,
+        internal_static_SoupMessage_LeaveRoomReq_descriptor,
         new java.lang.String[] { });
-    internal_static_LeaveRoomRes_descriptor =
+    internal_static_SoupMessage_LeaveRoomRes_descriptor =
       getDescriptor().getMessageTypes().get(9);
-    internal_static_LeaveRoomRes_fieldAccessorTable = new
+    internal_static_SoupMessage_LeaveRoomRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_LeaveRoomRes_descriptor,
+        internal_static_SoupMessage_LeaveRoomRes_descriptor,
         new java.lang.String[] { });
-    internal_static_PrepareReq_descriptor =
+    internal_static_SoupMessage_PrepareReq_descriptor =
       getDescriptor().getMessageTypes().get(10);
-    internal_static_PrepareReq_fieldAccessorTable = new
+    internal_static_SoupMessage_PrepareReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_PrepareReq_descriptor,
+        internal_static_SoupMessage_PrepareReq_descriptor,
         new java.lang.String[] { "Ok", });
-    internal_static_PrepareRes_descriptor =
+    internal_static_SoupMessage_PrepareRes_descriptor =
       getDescriptor().getMessageTypes().get(11);
-    internal_static_PrepareRes_fieldAccessorTable = new
+    internal_static_SoupMessage_PrepareRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_PrepareRes_descriptor,
+        internal_static_SoupMessage_PrepareRes_descriptor,
         new java.lang.String[] { });
-    internal_static_KickReq_descriptor =
+    internal_static_SoupMessage_KickReq_descriptor =
       getDescriptor().getMessageTypes().get(12);
-    internal_static_KickReq_fieldAccessorTable = new
+    internal_static_SoupMessage_KickReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_KickReq_descriptor,
+        internal_static_SoupMessage_KickReq_descriptor,
         new java.lang.String[] { "Aid", "Index", });
-    internal_static_KickRes_descriptor =
+    internal_static_SoupMessage_KickRes_descriptor =
       getDescriptor().getMessageTypes().get(13);
-    internal_static_KickRes_fieldAccessorTable = new
+    internal_static_SoupMessage_KickRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_KickRes_descriptor,
+        internal_static_SoupMessage_KickRes_descriptor,
         new java.lang.String[] { });
-    internal_static_ExchangeSeatReq_descriptor =
+    internal_static_SoupMessage_ExchangeSeatReq_descriptor =
       getDescriptor().getMessageTypes().get(14);
-    internal_static_ExchangeSeatReq_fieldAccessorTable = new
+    internal_static_SoupMessage_ExchangeSeatReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ExchangeSeatReq_descriptor,
+        internal_static_SoupMessage_ExchangeSeatReq_descriptor,
         new java.lang.String[] { "Index", });
-    internal_static_ExchangeSeatRes_descriptor =
+    internal_static_SoupMessage_ExchangeSeatRes_descriptor =
       getDescriptor().getMessageTypes().get(15);
-    internal_static_ExchangeSeatRes_fieldAccessorTable = new
+    internal_static_SoupMessage_ExchangeSeatRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ExchangeSeatRes_descriptor,
+        internal_static_SoupMessage_ExchangeSeatRes_descriptor,
         new java.lang.String[] { });
-    internal_static_ChatReq_descriptor =
+    internal_static_SoupMessage_ChatReq_descriptor =
       getDescriptor().getMessageTypes().get(16);
-    internal_static_ChatReq_fieldAccessorTable = new
+    internal_static_SoupMessage_ChatReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChatReq_descriptor,
+        internal_static_SoupMessage_ChatReq_descriptor,
         new java.lang.String[] { "Content", });
-    internal_static_ChatRes_descriptor =
+    internal_static_SoupMessage_ChatRes_descriptor =
       getDescriptor().getMessageTypes().get(17);
-    internal_static_ChatRes_fieldAccessorTable = new
+    internal_static_SoupMessage_ChatRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChatRes_descriptor,
+        internal_static_SoupMessage_ChatRes_descriptor,
         new java.lang.String[] { "Seconds", });
-    internal_static_AnswerReq_descriptor =
+    internal_static_SoupMessage_AnswerReq_descriptor =
       getDescriptor().getMessageTypes().get(18);
-    internal_static_AnswerReq_fieldAccessorTable = new
+    internal_static_SoupMessage_AnswerReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AnswerReq_descriptor,
+        internal_static_SoupMessage_AnswerReq_descriptor,
         new java.lang.String[] { "Id", "Answer", });
-    internal_static_AnswerRes_descriptor =
+    internal_static_SoupMessage_AnswerRes_descriptor =
       getDescriptor().getMessageTypes().get(19);
-    internal_static_AnswerRes_fieldAccessorTable = new
+    internal_static_SoupMessage_AnswerRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AnswerRes_descriptor,
+        internal_static_SoupMessage_AnswerRes_descriptor,
         new java.lang.String[] { });
-    internal_static_EndReq_descriptor =
+    internal_static_SoupMessage_EndReq_descriptor =
       getDescriptor().getMessageTypes().get(20);
-    internal_static_EndReq_fieldAccessorTable = new
+    internal_static_SoupMessage_EndReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EndReq_descriptor,
+        internal_static_SoupMessage_EndReq_descriptor,
         new java.lang.String[] { });
-    internal_static_EndRes_descriptor =
+    internal_static_SoupMessage_EndRes_descriptor =
       getDescriptor().getMessageTypes().get(21);
-    internal_static_EndRes_fieldAccessorTable = new
+    internal_static_SoupMessage_EndRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EndRes_descriptor,
+        internal_static_SoupMessage_EndRes_descriptor,
         new java.lang.String[] { });
-    internal_static_SelectQuestionReq_descriptor =
+    internal_static_SoupMessage_SelectQuestionReq_descriptor =
       getDescriptor().getMessageTypes().get(22);
-    internal_static_SelectQuestionReq_fieldAccessorTable = new
+    internal_static_SoupMessage_SelectQuestionReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_SelectQuestionReq_descriptor,
+        internal_static_SoupMessage_SelectQuestionReq_descriptor,
         new java.lang.String[] { "Id", });
-    internal_static_SelectQuestionRes_descriptor =
+    internal_static_SoupMessage_SelectQuestionRes_descriptor =
       getDescriptor().getMessageTypes().get(23);
-    internal_static_SelectQuestionRes_fieldAccessorTable = new
+    internal_static_SoupMessage_SelectQuestionRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_SelectQuestionRes_descriptor,
+        internal_static_SoupMessage_SelectQuestionRes_descriptor,
         new java.lang.String[] { });
-    internal_static_HallPush_descriptor =
+    internal_static_SoupMessage_HallPush_descriptor =
       getDescriptor().getMessageTypes().get(24);
-    internal_static_HallPush_fieldAccessorTable = new
+    internal_static_SoupMessage_HallPush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_HallPush_descriptor,
+        internal_static_SoupMessage_HallPush_descriptor,
         new java.lang.String[] { });
-    internal_static_RoomPush_descriptor =
+    internal_static_SoupMessage_RoomPush_descriptor =
       getDescriptor().getMessageTypes().get(25);
-    internal_static_RoomPush_fieldAccessorTable = new
+    internal_static_SoupMessage_RoomPush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomPush_descriptor,
-        new java.lang.String[] { "SeatsChange", "Status", "Question", "RoomId", "ChangedMsg", "Msg", "SelectQuestions", "McId", "RoomName", "RoomMax", });
-    internal_static_RoomMemberSeatRes_descriptor =
+        internal_static_SoupMessage_RoomPush_descriptor,
+        new java.lang.String[] { "RoomId", "RoomName", "RoomMax", "RoomMemberNum", "SeatsChange", "Status", "SelectQuestions", "Question", "ChangedMsg", "Msg", "McId", });
+    internal_static_SoupMessage_RoomMemberSeatRes_descriptor =
       getDescriptor().getMessageTypes().get(26);
-    internal_static_RoomMemberSeatRes_fieldAccessorTable = new
+    internal_static_SoupMessage_RoomMemberSeatRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMemberSeatRes_descriptor,
+        internal_static_SoupMessage_RoomMemberSeatRes_descriptor,
         new java.lang.String[] { "Aid", "AvaName", "AvaHead", "Index", "Owner", "Status", "Mc", "Leave", });
-    internal_static_QuestionRes_descriptor =
+    internal_static_SoupMessage_QuestionRes_descriptor =
       getDescriptor().getMessageTypes().get(27);
-    internal_static_QuestionRes_fieldAccessorTable = new
+    internal_static_SoupMessage_QuestionRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_QuestionRes_descriptor,
+        internal_static_SoupMessage_QuestionRes_descriptor,
         new java.lang.String[] { "Id", "Title", "Question", "Content", });
-    internal_static_ChatMessageRes_descriptor =
+    internal_static_SoupMessage_ChatMessageRes_descriptor =
       getDescriptor().getMessageTypes().get(28);
-    internal_static_ChatMessageRes_fieldAccessorTable = new
+    internal_static_SoupMessage_ChatMessageRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChatMessageRes_descriptor,
+        internal_static_SoupMessage_ChatMessageRes_descriptor,
         new java.lang.String[] { "Id", "Content", "Answer", "Aid", "AvaName", "AvaHead", "Mc", });
   }
 
