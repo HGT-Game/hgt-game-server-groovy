@@ -9,6 +9,7 @@ import io.github.hdfg159.game.service.log.LogService
 import io.github.hdfg159.game.service.soup.SoupMemberData
 import io.github.hdfg159.game.service.soup.SoupRecordData
 import io.github.hdfg159.game.service.soup.TurtleSoupService
+import io.github.hdfg159.game.service.soup.config.QuestionConfig
 import io.github.hdfg159.scheduler.SchedulerManager
 import io.reactivex.Completable
 import io.vertx.reactivex.core.AbstractVerticle
@@ -25,6 +26,9 @@ class GameVerticle extends AbstractVerticle {
 	@Override
 	Completable rxStart() {
 		log.info "deploy ${this.class.simpleName}"
+		def configs = Completable.mergeArray(
+				this.@vertx.rxDeployVerticle(QuestionConfig.instance).ignoreElement()
+		)
 		
 		def dataManagers = Completable.mergeArray(
 				this.@vertx.rxDeployVerticle(GameLogData.instance).ignoreElement(),
@@ -40,7 +44,11 @@ class GameVerticle extends AbstractVerticle {
 				.mergeWith(this.@vertx.rxDeployVerticle(TurtleSoupService.getInstance()).ignoreElement())
 				.mergeWith(this.@vertx.rxDeployVerticle(FarmService.getInstance()).ignoreElement())
 		
-		dataManagers.concatWith(services)
+		Completable.concatArray(
+				configs,
+				dataManagers,
+				services
+		)
 	}
 	
 	@Override

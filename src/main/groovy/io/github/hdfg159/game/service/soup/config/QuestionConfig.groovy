@@ -1,11 +1,9 @@
 package io.github.hdfg159.game.service.soup.config
 
-import com.fasterxml.jackson.core.type.TypeReference
-import com.fasterxml.jackson.databind.ObjectMapper
 import groovy.util.logging.Slf4j
+import io.github.hdfg159.game.config.AbstractConfigLoader
 import io.reactivex.Completable
-import io.vertx.core.json.Json
-import io.vertx.reactivex.core.AbstractVerticle
+import io.vertx.reactivex.sqlclient.templates.SqlTemplate
 
 /**
  * Project:hgt-game-server
@@ -17,24 +15,23 @@ import io.vertx.reactivex.core.AbstractVerticle
  */
 @Slf4j
 @Singleton
-class QuestionConfig extends AbstractVerticle {
-    Map<String, Question> questionMap
+class QuestionConfig extends AbstractConfigLoader {
+    Map<String, Question> questionMap = [:]
     
     @Override
-    Completable rxStart() {
-        this.@vertx.fileSystem()
-                .rxReadFile('config/questions.json')
-                .map({buffer ->
-                    log.info "server config:${Json.decodeValue(buffer.delegate)}"
-                    new ObjectMapper().readValue(buffer.toString(), new TypeReference<List<Question>>() {})
-                })
+    Completable load() {
+        SqlTemplate.forQuery(client, "SELECT question_id AS id, title, description AS question, content FROM question WHERE status = 1")
+                .mapTo(Question.class)
+                .rxExecute([:])
                 .doOnSuccess({
-                    Map<String, Question> qm = [:]
-                    it.collect {
-                        qm.put(it.id, it)
+                    it.each {question ->
+                        questionMap.put(question.id, question)
                     }
-                    questionMap = qm
-                })
-                .ignoreElement()
+                }).ignoreElement()
+    }
+    
+    @Override
+    Completable reload() {
+        Completable.complete()
     }
 }

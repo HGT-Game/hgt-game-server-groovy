@@ -54,6 +54,12 @@ class GameConsts {
 	 * mongodb 配置文件相对路径 日志库
 	 */
 	static final String LOG_MONGO_CONFIG = 'config/db_log.json'
+	
+	/**
+	 * MYSQL 配置库文件
+	 */
+	static final String CONFIG_MYSQL = 'config/db_config.json'
+	
 	/**
 	 * 服务器配置文件相对路径
 	 */
