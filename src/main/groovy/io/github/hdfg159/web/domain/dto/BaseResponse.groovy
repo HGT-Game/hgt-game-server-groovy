@@ -3,6 +3,7 @@ package io.github.hdfg159.web.domain.dto
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import groovy.transform.builder.Builder
+import io.vertx.core.http.HttpHeaders
 import io.vertx.core.json.Json
 import io.vertx.reactivex.ext.web.RoutingContext
 
@@ -136,8 +137,12 @@ class BaseResponse<T> implements Serializable {
 	
 	def response(RoutingContext context, int statusCode) {
 		context.response()
-				.putHeader("content-type", "application/json")
+				.putHeader(HttpHeaders.CONTENT_TYPE, "application/json; charset=utf-8")
 				.setStatusCode(statusCode)
 				.end(Json.encode(this))
+	}
+	
+	def responseOk(RoutingContext context) {
+		context.json(this)
 	}
 }

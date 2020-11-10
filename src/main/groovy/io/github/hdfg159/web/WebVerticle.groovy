@@ -1,8 +1,21 @@
 package io.github.hdfg159.web
 
 import groovy.util.logging.Slf4j
+import io.github.hdfg159.web.config.WebServerConfig
+import io.github.hdfg159.web.domain.dto.BaseResponse
+import io.netty.handler.codec.http.HttpResponseStatus
 import io.reactivex.Completable
+import io.reactivex.Single
+import io.vertx.core.json.JsonObject
+import io.vertx.ext.auth.JWTOptions
+import io.vertx.ext.auth.PubSecKeyOptions
+import io.vertx.ext.auth.jwt.JWTAuthOptions
 import io.vertx.reactivex.core.AbstractVerticle
+import io.vertx.reactivex.core.http.HttpServer
+import io.vertx.reactivex.ext.auth.jwt.JWTAuth
+import io.vertx.reactivex.ext.web.Router
+import io.vertx.reactivex.ext.web.handler.*
+import io.vertx.reactivex.ext.web.sstore.LocalSessionStore
 
 /**
  * Project:starter
@@ -12,12 +25,41 @@ import io.vertx.reactivex.core.AbstractVerticle
 @Slf4j
 @Singleton
 class WebVerticle extends AbstractVerticle {
-	
 	@Override
 	Completable rxStart() {
-		Completable.fromCallable({
-			log.info "deploy ${this.class.simpleName}"
-		})
+		Single.just(new WebServerConfig())
+				.flatMap({
+					this.@vertx.fileSystem()
+							.rxReadFile("config/web_server.json")
+							.map({it.toJsonObject().mapTo(WebServerConfig.class)})
+							.map({
+								it.setJwtConfig(new WebServerConfig.JwtConfig())
+								it
+							})
+				})
+				.flatMap({config ->
+					this.@vertx.fileSystem()
+							.rxReadFile("config/jwt/public.pem")
+							.map({it.toString()})
+							.map({
+								config.jwtConfig.setPublicKey(it)
+								config
+							})
+				})
+				
+				.flatMap({config ->
+					this.@vertx.fileSystem()
+							.rxReadFile("config/jwt/private_key.pem")
+							.map({it.toString()})
+							.map({
+								config.jwtConfig.setPrivateKey(it)
+								config
+							})
+				})
+				.flatMap({deployServer(it)}).ignoreElement()
+				.doOnComplete({
+					log.info "deploy ${this.class.simpleName} complete"
+				})
 	}
 	
 	@Override
@@ -25,5 +67,65 @@ class WebVerticle extends AbstractVerticle {
 		Completable.fromCallable({
 			log.info "undeploy ${this.class.simpleName}"
 		})
+	}
+	
+	Single<HttpServer> deployServer(WebServerConfig config) {
+		Router router = Router.router(this.@vertx)
+		
+		def jWTAuthOptions = new JWTAuthOptions()
+				.addPubSecKey(
+						new PubSecKeyOptions()
+								.setAlgorithm("RS256")
+								.setBuffer(config.jwtConfig.getPublicKey())
+				)
+				.addPubSecKey(
+						new PubSecKeyOptions()
+								.setAlgorithm("RS256")
+								.setBuffer(config.jwtConfig.getPrivateKey())
+				)
+		JWTAuth jwt = JWTAuth.create(this.@vertx, jWTAuthOptions)
+		
+		router.get("/token").handler({ctx ->
+			def object = new JsonObject()
+			object.put("uuid", UUID.randomUUID().toString())
+			// 根据额外信息生成token
+			def token = jwt.generateToken(object, new JWTOptions(
+					algorithm: "RS256",
+					expiresInSeconds: 20 * 60,
+					permissions: ["USER", "ADMIN"]
+			))
+			BaseResponse.success(token).responseOk(ctx)
+		})
+		
+		def chainAuthHandler = ChainAuthHandler.any()
+		chainAuthHandler.add(JWTAuthHandler.create(jwt))
+		
+		router.route()
+				.handler(FaviconHandler.create(this.@vertx, "static/favicon.ico"))
+				.handler(LoggerHandler.create())
+				.handler(BodyHandler.create())
+				.handler(SessionHandler.create(LocalSessionStore.create(this.@vertx)))
+				.handler(chainAuthHandler)
+				.handler(CorsHandler.create("*"))
+				.handler(ResponseTimeHandler.create())
+		
+		// 一定不要用create("/static")，是相对路径
+		def staticHandler = StaticHandler.create("static")
+		router.route("/static/*").handler(staticHandler)
+		// 因为设置了访问目录，访问目录时候要地址后面加 /
+		def shareStaticHandler = StaticHandler.create("logs").setDirectoryListing(true).setCachingEnabled(false)
+		router.route("/share/*").handler(shareStaticHandler)
+		
+		router.errorHandler(HttpResponseStatus.INTERNAL_SERVER_ERROR.code(), {context ->
+			def throwable = context.failure()
+			log.error "router error:${throwable?.message}", throwable
+			BaseResponse.fail(throwable?.message, throwable?.class?.name)
+					.response(context, HttpResponseStatus.INTERNAL_SERVER_ERROR.code())
+		})
+		
+		this.@vertx.createHttpServer()
+				.requestHandler(router)
+				.exceptionHandler({exception -> log.error exception.message, exception})
+				.rxListen(config.port)
 	}
 }
