@@ -97,14 +97,18 @@ class TurtleSoupService extends AbstractService {
 		// def aid = getHeaderAvatarId(headers)
 		// def req = params as SoupMessage.RoomHallReq
 		
-		def roomPushes = roomData.getRooms().collect {
-			buildRoomPush([], it.id, {
-				def v1 = it.v1
-				def room = it.v2
-				v1.setRoomMemberNum(room.getAllMemberIds().size())
-						.setHasPassword(room.password != null)
-			})
-		}
+		def roomPushes = roomData.getRooms()
+				.findAll {
+					it.status == RoomStatus.WAIT.status
+				}
+				.collect {
+					buildRoomPush([], it.id, {
+						def v1 = it.v1
+						def room = it.v2
+						v1.setRoomMemberNum(room.getAllMemberIds().size())
+								.setHasPassword(room.password != null)
+					})
+				}
 		
 		GameUtils.sucResMsg(RES_SOUP_ROOM_HALL, SoupMessage.RoomHallRes.newBuilder().addAllRooms(roomPushes).build())
 	}
