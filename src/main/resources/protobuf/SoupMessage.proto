@@ -151,24 +151,26 @@ message RoomPush {
     uint32 roomMax = 3;
     // 当前房间人数
     uint32 roomMemberNum = 4;
+    // 是否有密码
+    bool hasPassword = 5;
 
     // 变化的座位信息
-    repeated RoomMemberSeatRes seatsChange = 5;
+    repeated RoomMemberSeatRes seatsChange = 6;
     // 房间状态 1:等待中 2:选题中 3:游戏中
-    uint32 status = 6;
+    uint32 status = 7;
 
     // 选择问题列表
-    repeated QuestionRes selectQuestions = 7;
+    repeated QuestionRes selectQuestions = 8;
     // 问题相关信息
-    QuestionRes question = 8;
+    QuestionRes question = 9;
 
     // 变化消息列表
-    repeated ChatMessageRes changedMsg = 9;
+    repeated ChatMessageRes changedMsg = 10;
     // 完整消息列表
-    repeated ChatMessageRes msg = 10;
+    repeated ChatMessageRes msg = 11;
 
     // MC ID
-    string mcId = 11;
+    string mcId = 12;
 }
 
 // 房间成员信息

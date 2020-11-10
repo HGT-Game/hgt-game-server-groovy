@@ -14032,10 +14032,20 @@ public final class SoupMessage {
 
     /**
      * <pre>
+     * 是否有密码
+     * </pre>
+     *
+     * <code>bool hasPassword = 5;</code>
+     * @return The hasPassword.
+     */
+    boolean getHasPassword();
+
+    /**
+     * <pre>
      * 变化的座位信息
      * </pre>
      *
-     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
      */
     java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> 
         getSeatsChangeList();
@@ -14044,7 +14054,7 @@ public final class SoupMessage {
      * 变化的座位信息
      * </pre>
      *
-     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index);
     /**
@@ -14052,7 +14062,7 @@ public final class SoupMessage {
      * 变化的座位信息
      * </pre>
      *
-     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
      */
     int getSeatsChangeCount();
     /**
@@ -14060,7 +14070,7 @@ public final class SoupMessage {
      * 变化的座位信息
      * </pre>
      *
-     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
      */
     java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
         getSeatsChangeOrBuilderList();
@@ -14069,7 +14079,7 @@ public final class SoupMessage {
      * 变化的座位信息
      * </pre>
      *
-     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
         int index);
@@ -14079,7 +14089,7 @@ public final class SoupMessage {
      * 房间状态 1:等待中 2:选题中 3:游戏中
      * </pre>
      *
-     * <code>uint32 status = 6;</code>
+     * <code>uint32 status = 7;</code>
      * @return The status.
      */
     int getStatus();
@@ -14089,7 +14099,7 @@ public final class SoupMessage {
      * 选择问题列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
      */
     java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> 
         getSelectQuestionsList();
@@ -14098,7 +14108,7 @@ public final class SoupMessage {
      * 选择问题列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getSelectQuestions(int index);
     /**
@@ -14106,7 +14116,7 @@ public final class SoupMessage {
      * 选择问题列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
      */
     int getSelectQuestionsCount();
     /**
@@ -14114,7 +14124,7 @@ public final class SoupMessage {
      * 选择问题列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
      */
     java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
         getSelectQuestionsOrBuilderList();
@@ -14123,7 +14133,7 @@ public final class SoupMessage {
      * 选择问题列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getSelectQuestionsOrBuilder(
         int index);
@@ -14133,7 +14143,7 @@ public final class SoupMessage {
      * 问题相关信息
      * </pre>
      *
-     * <code>.SoupMessage.QuestionRes question = 8;</code>
+     * <code>.SoupMessage.QuestionRes question = 9;</code>
      * @return Whether the question field is set.
      */
     boolean hasQuestion();
@@ -14142,7 +14152,7 @@ public final class SoupMessage {
      * 问题相关信息
      * </pre>
      *
-     * <code>.SoupMessage.QuestionRes question = 8;</code>
+     * <code>.SoupMessage.QuestionRes question = 9;</code>
      * @return The question.
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getQuestion();
@@ -14151,7 +14161,7 @@ public final class SoupMessage {
      * 问题相关信息
      * </pre>
      *
-     * <code>.SoupMessage.QuestionRes question = 8;</code>
+     * <code>.SoupMessage.QuestionRes question = 9;</code>
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getQuestionOrBuilder();
 
@@ -14160,7 +14170,7 @@ public final class SoupMessage {
      * 变化消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
      */
     java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> 
         getChangedMsgList();
@@ -14169,7 +14179,7 @@ public final class SoupMessage {
      * 变化消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChangedMsg(int index);
     /**
@@ -14177,7 +14187,7 @@ public final class SoupMessage {
      * 变化消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
      */
     int getChangedMsgCount();
     /**
@@ -14185,7 +14195,7 @@ public final class SoupMessage {
      * 变化消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
      */
     java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
         getChangedMsgOrBuilderList();
@@ -14194,7 +14204,7 @@ public final class SoupMessage {
      * 变化消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChangedMsgOrBuilder(
         int index);
@@ -14204,7 +14214,7 @@ public final class SoupMessage {
      * 完整消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
      */
     java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> 
         getMsgList();
@@ -14213,7 +14223,7 @@ public final class SoupMessage {
      * 完整消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getMsg(int index);
     /**
@@ -14221,7 +14231,7 @@ public final class SoupMessage {
      * 完整消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
      */
     int getMsgCount();
     /**
@@ -14229,7 +14239,7 @@ public final class SoupMessage {
      * 完整消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
      */
     java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
         getMsgOrBuilderList();
@@ -14238,7 +14248,7 @@ public final class SoupMessage {
      * 完整消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
      */
     io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getMsgOrBuilder(
         int index);
@@ -14248,7 +14258,7 @@ public final class SoupMessage {
      * MC ID
      * </pre>
      *
-     * <code>string mcId = 11;</code>
+     * <code>string mcId = 12;</code>
      * @return The mcId.
      */
     java.lang.String getMcId();
@@ -14257,7 +14267,7 @@ public final class SoupMessage {
      * MC ID
      * </pre>
      *
-     * <code>string mcId = 11;</code>
+     * <code>string mcId = 12;</code>
      * @return The bytes for mcId.
      */
     com.google.protobuf.ByteString
@@ -14342,7 +14352,12 @@ public final class SoupMessage {
               roomMemberNum_ = input.readUInt32();
               break;
             }
-            case 42: {
+            case 40: {
+
+              hasPassword_ = input.readBool();
+              break;
+            }
+            case 50: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 seatsChange_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes>();
                 mutable_bitField0_ |= 0x00000001;
@@ -14351,12 +14366,12 @@ public final class SoupMessage {
                   input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.parser(), extensionRegistry));
               break;
             }
-            case 48: {
+            case 56: {
 
               status_ = input.readUInt32();
               break;
             }
-            case 58: {
+            case 66: {
               if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 selectQuestions_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes>();
                 mutable_bitField0_ |= 0x00000002;
@@ -14365,7 +14380,7 @@ public final class SoupMessage {
                   input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.parser(), extensionRegistry));
               break;
             }
-            case 66: {
+            case 74: {
               io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder subBuilder = null;
               if (question_ != null) {
                 subBuilder = question_.toBuilder();
@@ -14378,7 +14393,7 @@ public final class SoupMessage {
 
               break;
             }
-            case 74: {
+            case 82: {
               if (!((mutable_bitField0_ & 0x00000004) != 0)) {
                 changedMsg_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes>();
                 mutable_bitField0_ |= 0x00000004;
@@ -14387,7 +14402,7 @@ public final class SoupMessage {
                   input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.parser(), extensionRegistry));
               break;
             }
-            case 82: {
+            case 90: {
               if (!((mutable_bitField0_ & 0x00000008) != 0)) {
                 msg_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes>();
                 mutable_bitField0_ |= 0x00000008;
@@ -14396,7 +14411,7 @@ public final class SoupMessage {
                   input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.parser(), extensionRegistry));
               break;
             }
-            case 90: {
+            case 98: {
               java.lang.String s = input.readStringRequireUtf8();
 
               mcId_ = s;
@@ -14568,14 +14583,29 @@ public final class SoupMessage {
       return roomMemberNum_;
     }
 
-    public static final int SEATSCHANGE_FIELD_NUMBER = 5;
+    public static final int HASPASSWORD_FIELD_NUMBER = 5;
+    private boolean hasPassword_;
+    /**
+     * <pre>
+     * 是否有密码
+     * </pre>
+     *
+     * <code>bool hasPassword = 5;</code>
+     * @return The hasPassword.
+     */
+    @java.lang.Override
+    public boolean getHasPassword() {
+      return hasPassword_;
+    }
+
+    public static final int SEATSCHANGE_FIELD_NUMBER = 6;
     private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> seatsChange_;
     /**
      * <pre>
      * 变化的座位信息
      * </pre>
      *
-     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
      */
     @java.lang.Override
     public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> getSeatsChangeList() {
@@ -14586,7 +14616,7 @@ public final class SoupMessage {
      * 变化的座位信息
      * </pre>
      *
-     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
      */
     @java.lang.Override
     public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
@@ -14598,7 +14628,7 @@ public final class SoupMessage {
      * 变化的座位信息
      * </pre>
      *
-     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
      */
     @java.lang.Override
     public int getSeatsChangeCount() {
@@ -14609,7 +14639,7 @@ public final class SoupMessage {
      * 变化的座位信息
      * </pre>
      *
-     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
      */
     @java.lang.Override
     public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index) {
@@ -14620,7 +14650,7 @@ public final class SoupMessage {
      * 变化的座位信息
      * </pre>
      *
-     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+     * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
      */
     @java.lang.Override
     public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
@@ -14628,14 +14658,14 @@ public final class SoupMessage {
       return seatsChange_.get(index);
     }
 
-    public static final int STATUS_FIELD_NUMBER = 6;
+    public static final int STATUS_FIELD_NUMBER = 7;
     private int status_;
     /**
      * <pre>
      * 房间状态 1:等待中 2:选题中 3:游戏中
      * </pre>
      *
-     * <code>uint32 status = 6;</code>
+     * <code>uint32 status = 7;</code>
      * @return The status.
      */
     @java.lang.Override
@@ -14643,14 +14673,14 @@ public final class SoupMessage {
       return status_;
     }
 
-    public static final int SELECTQUESTIONS_FIELD_NUMBER = 7;
+    public static final int SELECTQUESTIONS_FIELD_NUMBER = 8;
     private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> selectQuestions_;
     /**
      * <pre>
      * 选择问题列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
      */
     @java.lang.Override
     public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> getSelectQuestionsList() {
@@ -14661,7 +14691,7 @@ public final class SoupMessage {
      * 选择问题列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
      */
     @java.lang.Override
     public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
@@ -14673,7 +14703,7 @@ public final class SoupMessage {
      * 选择问题列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
      */
     @java.lang.Override
     public int getSelectQuestionsCount() {
@@ -14684,7 +14714,7 @@ public final class SoupMessage {
      * 选择问题列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
      */
     @java.lang.Override
     public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getSelectQuestions(int index) {
@@ -14695,7 +14725,7 @@ public final class SoupMessage {
      * 选择问题列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+     * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
      */
     @java.lang.Override
     public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getSelectQuestionsOrBuilder(
@@ -14703,14 +14733,14 @@ public final class SoupMessage {
       return selectQuestions_.get(index);
     }
 
-    public static final int QUESTION_FIELD_NUMBER = 8;
+    public static final int QUESTION_FIELD_NUMBER = 9;
     private io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes question_;
     /**
      * <pre>
      * 问题相关信息
      * </pre>
      *
-     * <code>.SoupMessage.QuestionRes question = 8;</code>
+     * <code>.SoupMessage.QuestionRes question = 9;</code>
      * @return Whether the question field is set.
      */
     @java.lang.Override
@@ -14722,7 +14752,7 @@ public final class SoupMessage {
      * 问题相关信息
      * </pre>
      *
-     * <code>.SoupMessage.QuestionRes question = 8;</code>
+     * <code>.SoupMessage.QuestionRes question = 9;</code>
      * @return The question.
      */
     @java.lang.Override
@@ -14734,21 +14764,21 @@ public final class SoupMessage {
      * 问题相关信息
      * </pre>
      *
-     * <code>.SoupMessage.QuestionRes question = 8;</code>
+     * <code>.SoupMessage.QuestionRes question = 9;</code>
      */
     @java.lang.Override
     public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getQuestionOrBuilder() {
       return getQuestion();
     }
 
-    public static final int CHANGEDMSG_FIELD_NUMBER = 9;
+    public static final int CHANGEDMSG_FIELD_NUMBER = 10;
     private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> changedMsg_;
     /**
      * <pre>
      * 变化消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
      */
     @java.lang.Override
     public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getChangedMsgList() {
@@ -14759,7 +14789,7 @@ public final class SoupMessage {
      * 变化消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
      */
     @java.lang.Override
     public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
@@ -14771,7 +14801,7 @@ public final class SoupMessage {
      * 变化消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
      */
     @java.lang.Override
     public int getChangedMsgCount() {
@@ -14782,7 +14812,7 @@ public final class SoupMessage {
      * 变化消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
      */
     @java.lang.Override
     public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChangedMsg(int index) {
@@ -14793,7 +14823,7 @@ public final class SoupMessage {
      * 变化消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
      */
     @java.lang.Override
     public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChangedMsgOrBuilder(
@@ -14801,14 +14831,14 @@ public final class SoupMessage {
       return changedMsg_.get(index);
     }
 
-    public static final int MSG_FIELD_NUMBER = 10;
+    public static final int MSG_FIELD_NUMBER = 11;
     private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> msg_;
     /**
      * <pre>
      * 完整消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
      */
     @java.lang.Override
     public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getMsgList() {
@@ -14819,7 +14849,7 @@ public final class SoupMessage {
      * 完整消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
      */
     @java.lang.Override
     public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
@@ -14831,7 +14861,7 @@ public final class SoupMessage {
      * 完整消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
      */
     @java.lang.Override
     public int getMsgCount() {
@@ -14842,7 +14872,7 @@ public final class SoupMessage {
      * 完整消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
      */
     @java.lang.Override
     public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getMsg(int index) {
@@ -14853,7 +14883,7 @@ public final class SoupMessage {
      * 完整消息列表
      * </pre>
      *
-     * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+     * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
      */
     @java.lang.Override
     public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getMsgOrBuilder(
@@ -14861,14 +14891,14 @@ public final class SoupMessage {
       return msg_.get(index);
     }
 
-    public static final int MCID_FIELD_NUMBER = 11;
+    public static final int MCID_FIELD_NUMBER = 12;
     private volatile java.lang.Object mcId_;
     /**
      * <pre>
      * MC ID
      * </pre>
      *
-     * <code>string mcId = 11;</code>
+     * <code>string mcId = 12;</code>
      * @return The mcId.
      */
     @java.lang.Override
@@ -14889,7 +14919,7 @@ public final class SoupMessage {
      * MC ID
      * </pre>
      *
-     * <code>string mcId = 11;</code>
+     * <code>string mcId = 12;</code>
      * @return The bytes for mcId.
      */
     @java.lang.Override
@@ -14933,26 +14963,29 @@ public final class SoupMessage {
       if (roomMemberNum_ != 0) {
         output.writeUInt32(4, roomMemberNum_);
       }
+      if (hasPassword_ != false) {
+        output.writeBool(5, hasPassword_);
+      }
       for (int i = 0; i < seatsChange_.size(); i++) {
-        output.writeMessage(5, seatsChange_.get(i));
+        output.writeMessage(6, seatsChange_.get(i));
       }
       if (status_ != 0) {
-        output.writeUInt32(6, status_);
+        output.writeUInt32(7, status_);
       }
       for (int i = 0; i < selectQuestions_.size(); i++) {
-        output.writeMessage(7, selectQuestions_.get(i));
+        output.writeMessage(8, selectQuestions_.get(i));
       }
       if (question_ != null) {
-        output.writeMessage(8, getQuestion());
+        output.writeMessage(9, getQuestion());
       }
       for (int i = 0; i < changedMsg_.size(); i++) {
-        output.writeMessage(9, changedMsg_.get(i));
+        output.writeMessage(10, changedMsg_.get(i));
       }
       for (int i = 0; i < msg_.size(); i++) {
-        output.writeMessage(10, msg_.get(i));
+        output.writeMessage(11, msg_.get(i));
       }
       if (!getMcIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, mcId_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, mcId_);
       }
       unknownFields.writeTo(output);
     }
@@ -14977,32 +15010,36 @@ public final class SoupMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, roomMemberNum_);
       }
+      if (hasPassword_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, hasPassword_);
+      }
       for (int i = 0; i < seatsChange_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, seatsChange_.get(i));
+          .computeMessageSize(6, seatsChange_.get(i));
       }
       if (status_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(6, status_);
+          .computeUInt32Size(7, status_);
       }
       for (int i = 0; i < selectQuestions_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, selectQuestions_.get(i));
+          .computeMessageSize(8, selectQuestions_.get(i));
       }
       if (question_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, getQuestion());
+          .computeMessageSize(9, getQuestion());
       }
       for (int i = 0; i < changedMsg_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, changedMsg_.get(i));
+          .computeMessageSize(10, changedMsg_.get(i));
       }
       for (int i = 0; i < msg_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, msg_.get(i));
+          .computeMessageSize(11, msg_.get(i));
       }
       if (!getMcIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, mcId_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, mcId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -15027,6 +15064,8 @@ public final class SoupMessage {
           != other.getRoomMax()) return false;
       if (getRoomMemberNum()
           != other.getRoomMemberNum()) return false;
+      if (getHasPassword()
+          != other.getHasPassword()) return false;
       if (!getSeatsChangeList()
           .equals(other.getSeatsChangeList())) return false;
       if (getStatus()
@@ -15063,6 +15102,9 @@ public final class SoupMessage {
       hash = (53 * hash) + getRoomMax();
       hash = (37 * hash) + ROOMMEMBERNUM_FIELD_NUMBER;
       hash = (53 * hash) + getRoomMemberNum();
+      hash = (37 * hash) + HASPASSWORD_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getHasPassword());
       if (getSeatsChangeCount() > 0) {
         hash = (37 * hash) + SEATSCHANGE_FIELD_NUMBER;
         hash = (53 * hash) + getSeatsChangeList().hashCode();
@@ -15236,6 +15278,8 @@ public final class SoupMessage {
 
         roomMemberNum_ = 0;
 
+        hasPassword_ = false;
+
         if (seatsChangeBuilder_ == null) {
           seatsChange_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -15301,6 +15345,7 @@ public final class SoupMessage {
         result.roomName_ = roomName_;
         result.roomMax_ = roomMax_;
         result.roomMemberNum_ = roomMemberNum_;
+        result.hasPassword_ = hasPassword_;
         if (seatsChangeBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             seatsChange_ = java.util.Collections.unmodifiableList(seatsChange_);
@@ -15405,6 +15450,9 @@ public final class SoupMessage {
         }
         if (other.getRoomMemberNum() != 0) {
           setRoomMemberNum(other.getRoomMemberNum());
+        }
+        if (other.getHasPassword() != false) {
+          setHasPassword(other.getHasPassword());
         }
         if (seatsChangeBuilder_ == null) {
           if (!other.seatsChange_.isEmpty()) {
@@ -15828,6 +15876,49 @@ public final class SoupMessage {
         return this;
       }
 
+      private boolean hasPassword_ ;
+      /**
+       * <pre>
+       * 是否有密码
+       * </pre>
+       *
+       * <code>bool hasPassword = 5;</code>
+       * @return The hasPassword.
+       */
+      @java.lang.Override
+      public boolean getHasPassword() {
+        return hasPassword_;
+      }
+      /**
+       * <pre>
+       * 是否有密码
+       * </pre>
+       *
+       * <code>bool hasPassword = 5;</code>
+       * @param value The hasPassword to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHasPassword(boolean value) {
+        
+        hasPassword_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 是否有密码
+       * </pre>
+       *
+       * <code>bool hasPassword = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHasPassword() {
+        
+        hasPassword_ = false;
+        onChanged();
+        return this;
+      }
+
       private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> seatsChange_ =
         java.util.Collections.emptyList();
       private void ensureSeatsChangeIsMutable() {
@@ -15845,7 +15936,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> getSeatsChangeList() {
         if (seatsChangeBuilder_ == null) {
@@ -15859,7 +15950,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public int getSeatsChangeCount() {
         if (seatsChangeBuilder_ == null) {
@@ -15873,7 +15964,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes getSeatsChange(int index) {
         if (seatsChangeBuilder_ == null) {
@@ -15887,7 +15978,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public Builder setSeatsChange(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes value) {
@@ -15908,7 +15999,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public Builder setSeatsChange(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder builderForValue) {
@@ -15926,7 +16017,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public Builder addSeatsChange(io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes value) {
         if (seatsChangeBuilder_ == null) {
@@ -15946,7 +16037,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public Builder addSeatsChange(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes value) {
@@ -15967,7 +16058,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public Builder addSeatsChange(
           io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder builderForValue) {
@@ -15985,7 +16076,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public Builder addSeatsChange(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder builderForValue) {
@@ -16003,7 +16094,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public Builder addAllSeatsChange(
           java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes> values) {
@@ -16022,7 +16113,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public Builder clearSeatsChange() {
         if (seatsChangeBuilder_ == null) {
@@ -16039,7 +16130,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public Builder removeSeatsChange(int index) {
         if (seatsChangeBuilder_ == null) {
@@ -16056,7 +16147,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder getSeatsChangeBuilder(
           int index) {
@@ -16067,7 +16158,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder getSeatsChangeOrBuilder(
           int index) {
@@ -16081,7 +16172,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatResOrBuilder> 
            getSeatsChangeOrBuilderList() {
@@ -16096,7 +16187,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder addSeatsChangeBuilder() {
         return getSeatsChangeFieldBuilder().addBuilder(
@@ -16107,7 +16198,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder addSeatsChangeBuilder(
           int index) {
@@ -16119,7 +16210,7 @@ public final class SoupMessage {
        * 变化的座位信息
        * </pre>
        *
-       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 5;</code>
+       * <code>repeated .SoupMessage.RoomMemberSeatRes seatsChange = 6;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.RoomMemberSeatRes.Builder> 
            getSeatsChangeBuilderList() {
@@ -16146,7 +16237,7 @@ public final class SoupMessage {
        * 房间状态 1:等待中 2:选题中 3:游戏中
        * </pre>
        *
-       * <code>uint32 status = 6;</code>
+       * <code>uint32 status = 7;</code>
        * @return The status.
        */
       @java.lang.Override
@@ -16158,7 +16249,7 @@ public final class SoupMessage {
        * 房间状态 1:等待中 2:选题中 3:游戏中
        * </pre>
        *
-       * <code>uint32 status = 6;</code>
+       * <code>uint32 status = 7;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
@@ -16173,7 +16264,7 @@ public final class SoupMessage {
        * 房间状态 1:等待中 2:选题中 3:游戏中
        * </pre>
        *
-       * <code>uint32 status = 6;</code>
+       * <code>uint32 status = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
@@ -16200,7 +16291,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> getSelectQuestionsList() {
         if (selectQuestionsBuilder_ == null) {
@@ -16214,7 +16305,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public int getSelectQuestionsCount() {
         if (selectQuestionsBuilder_ == null) {
@@ -16228,7 +16319,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getSelectQuestions(int index) {
         if (selectQuestionsBuilder_ == null) {
@@ -16242,7 +16333,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public Builder setSelectQuestions(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
@@ -16263,7 +16354,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public Builder setSelectQuestions(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
@@ -16281,7 +16372,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public Builder addSelectQuestions(io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
         if (selectQuestionsBuilder_ == null) {
@@ -16301,7 +16392,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public Builder addSelectQuestions(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
@@ -16322,7 +16413,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public Builder addSelectQuestions(
           io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
@@ -16340,7 +16431,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public Builder addSelectQuestions(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
@@ -16358,7 +16449,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public Builder addAllSelectQuestions(
           java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes> values) {
@@ -16377,7 +16468,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public Builder clearSelectQuestions() {
         if (selectQuestionsBuilder_ == null) {
@@ -16394,7 +16485,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public Builder removeSelectQuestions(int index) {
         if (selectQuestionsBuilder_ == null) {
@@ -16411,7 +16502,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder getSelectQuestionsBuilder(
           int index) {
@@ -16422,7 +16513,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getSelectQuestionsOrBuilder(
           int index) {
@@ -16436,7 +16527,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
            getSelectQuestionsOrBuilderList() {
@@ -16451,7 +16542,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder addSelectQuestionsBuilder() {
         return getSelectQuestionsFieldBuilder().addBuilder(
@@ -16462,7 +16553,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder addSelectQuestionsBuilder(
           int index) {
@@ -16474,7 +16565,7 @@ public final class SoupMessage {
        * 选择问题列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 7;</code>
+       * <code>repeated .SoupMessage.QuestionRes selectQuestions = 8;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder> 
            getSelectQuestionsBuilderList() {
@@ -16503,7 +16594,7 @@ public final class SoupMessage {
        * 问题相关信息
        * </pre>
        *
-       * <code>.SoupMessage.QuestionRes question = 8;</code>
+       * <code>.SoupMessage.QuestionRes question = 9;</code>
        * @return Whether the question field is set.
        */
       public boolean hasQuestion() {
@@ -16514,7 +16605,7 @@ public final class SoupMessage {
        * 问题相关信息
        * </pre>
        *
-       * <code>.SoupMessage.QuestionRes question = 8;</code>
+       * <code>.SoupMessage.QuestionRes question = 9;</code>
        * @return The question.
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes getQuestion() {
@@ -16529,7 +16620,7 @@ public final class SoupMessage {
        * 问题相关信息
        * </pre>
        *
-       * <code>.SoupMessage.QuestionRes question = 8;</code>
+       * <code>.SoupMessage.QuestionRes question = 9;</code>
        */
       public Builder setQuestion(io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
         if (questionBuilder_ == null) {
@@ -16549,7 +16640,7 @@ public final class SoupMessage {
        * 问题相关信息
        * </pre>
        *
-       * <code>.SoupMessage.QuestionRes question = 8;</code>
+       * <code>.SoupMessage.QuestionRes question = 9;</code>
        */
       public Builder setQuestion(
           io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder builderForValue) {
@@ -16567,7 +16658,7 @@ public final class SoupMessage {
        * 问题相关信息
        * </pre>
        *
-       * <code>.SoupMessage.QuestionRes question = 8;</code>
+       * <code>.SoupMessage.QuestionRes question = 9;</code>
        */
       public Builder mergeQuestion(io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes value) {
         if (questionBuilder_ == null) {
@@ -16589,7 +16680,7 @@ public final class SoupMessage {
        * 问题相关信息
        * </pre>
        *
-       * <code>.SoupMessage.QuestionRes question = 8;</code>
+       * <code>.SoupMessage.QuestionRes question = 9;</code>
        */
       public Builder clearQuestion() {
         if (questionBuilder_ == null) {
@@ -16607,7 +16698,7 @@ public final class SoupMessage {
        * 问题相关信息
        * </pre>
        *
-       * <code>.SoupMessage.QuestionRes question = 8;</code>
+       * <code>.SoupMessage.QuestionRes question = 9;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder getQuestionBuilder() {
         
@@ -16619,7 +16710,7 @@ public final class SoupMessage {
        * 问题相关信息
        * </pre>
        *
-       * <code>.SoupMessage.QuestionRes question = 8;</code>
+       * <code>.SoupMessage.QuestionRes question = 9;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder getQuestionOrBuilder() {
         if (questionBuilder_ != null) {
@@ -16634,7 +16725,7 @@ public final class SoupMessage {
        * 问题相关信息
        * </pre>
        *
-       * <code>.SoupMessage.QuestionRes question = 8;</code>
+       * <code>.SoupMessage.QuestionRes question = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.QuestionResOrBuilder> 
@@ -16667,7 +16758,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getChangedMsgList() {
         if (changedMsgBuilder_ == null) {
@@ -16681,7 +16772,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public int getChangedMsgCount() {
         if (changedMsgBuilder_ == null) {
@@ -16695,7 +16786,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChangedMsg(int index) {
         if (changedMsgBuilder_ == null) {
@@ -16709,7 +16800,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public Builder setChangedMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
@@ -16730,7 +16821,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public Builder setChangedMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
@@ -16748,7 +16839,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public Builder addChangedMsg(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
         if (changedMsgBuilder_ == null) {
@@ -16768,7 +16859,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public Builder addChangedMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
@@ -16789,7 +16880,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public Builder addChangedMsg(
           io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
@@ -16807,7 +16898,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public Builder addChangedMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
@@ -16825,7 +16916,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public Builder addAllChangedMsg(
           java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> values) {
@@ -16844,7 +16935,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public Builder clearChangedMsg() {
         if (changedMsgBuilder_ == null) {
@@ -16861,7 +16952,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public Builder removeChangedMsg(int index) {
         if (changedMsgBuilder_ == null) {
@@ -16878,7 +16969,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder getChangedMsgBuilder(
           int index) {
@@ -16889,7 +16980,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChangedMsgOrBuilder(
           int index) {
@@ -16903,7 +16994,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
            getChangedMsgOrBuilderList() {
@@ -16918,7 +17009,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder addChangedMsgBuilder() {
         return getChangedMsgFieldBuilder().addBuilder(
@@ -16929,7 +17020,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder addChangedMsgBuilder(
           int index) {
@@ -16941,7 +17032,7 @@ public final class SoupMessage {
        * 变化消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 9;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes changedMsg = 10;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder> 
            getChangedMsgBuilderList() {
@@ -16979,7 +17070,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> getMsgList() {
         if (msgBuilder_ == null) {
@@ -16993,7 +17084,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public int getMsgCount() {
         if (msgBuilder_ == null) {
@@ -17007,7 +17098,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getMsg(int index) {
         if (msgBuilder_ == null) {
@@ -17021,7 +17112,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public Builder setMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
@@ -17042,7 +17133,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public Builder setMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
@@ -17060,7 +17151,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public Builder addMsg(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
         if (msgBuilder_ == null) {
@@ -17080,7 +17171,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public Builder addMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
@@ -17101,7 +17192,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public Builder addMsg(
           io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
@@ -17119,7 +17210,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public Builder addMsg(
           int index, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
@@ -17137,7 +17228,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public Builder addAllMsg(
           java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes> values) {
@@ -17156,7 +17247,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public Builder clearMsg() {
         if (msgBuilder_ == null) {
@@ -17173,7 +17264,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public Builder removeMsg(int index) {
         if (msgBuilder_ == null) {
@@ -17190,7 +17281,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder getMsgBuilder(
           int index) {
@@ -17201,7 +17292,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getMsgOrBuilder(
           int index) {
@@ -17215,7 +17306,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
            getMsgOrBuilderList() {
@@ -17230,7 +17321,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder addMsgBuilder() {
         return getMsgFieldBuilder().addBuilder(
@@ -17241,7 +17332,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder addMsgBuilder(
           int index) {
@@ -17253,7 +17344,7 @@ public final class SoupMessage {
        * 完整消息列表
        * </pre>
        *
-       * <code>repeated .SoupMessage.ChatMessageRes msg = 10;</code>
+       * <code>repeated .SoupMessage.ChatMessageRes msg = 11;</code>
        */
       public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder> 
            getMsgBuilderList() {
@@ -17280,7 +17371,7 @@ public final class SoupMessage {
        * MC ID
        * </pre>
        *
-       * <code>string mcId = 11;</code>
+       * <code>string mcId = 12;</code>
        * @return The mcId.
        */
       public java.lang.String getMcId() {
@@ -17300,7 +17391,7 @@ public final class SoupMessage {
        * MC ID
        * </pre>
        *
-       * <code>string mcId = 11;</code>
+       * <code>string mcId = 12;</code>
        * @return The bytes for mcId.
        */
       public com.google.protobuf.ByteString
@@ -17321,7 +17412,7 @@ public final class SoupMessage {
        * MC ID
        * </pre>
        *
-       * <code>string mcId = 11;</code>
+       * <code>string mcId = 12;</code>
        * @param value The mcId to set.
        * @return This builder for chaining.
        */
@@ -17340,7 +17431,7 @@ public final class SoupMessage {
        * MC ID
        * </pre>
        *
-       * <code>string mcId = 11;</code>
+       * <code>string mcId = 12;</code>
        * @return This builder for chaining.
        */
       public Builder clearMcId() {
@@ -17354,7 +17445,7 @@ public final class SoupMessage {
        * MC ID
        * </pre>
        *
-       * <code>string mcId = 11;</code>
+       * <code>string mcId = 12;</code>
        * @param value The bytes for mcId to set.
        * @return This builder for chaining.
        */
@@ -21731,25 +21822,26 @@ public final class SoupMessage {
       "id\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnswerRes\"\010\n" +
       "\006EndReq\"\010\n\006EndRes\"\037\n\021SelectQuestionReq\022\n" +
       "\n\002id\030\001 \001(\t\"\023\n\021SelectQuestionRes\"\n\n\010HallP" +
-      "ush\"\341\002\n\010RoomPush\022\016\n\006roomId\030\001 \001(\t\022\020\n\010room" +
+      "ush\"\366\002\n\010RoomPush\022\016\n\006roomId\030\001 \001(\t\022\020\n\010room" +
       "Name\030\002 \001(\t\022\017\n\007roomMax\030\003 \001(\r\022\025\n\rroomMembe" +
-      "rNum\030\004 \001(\r\0223\n\013seatsChange\030\005 \003(\0132\036.SoupMe" +
-      "ssage.RoomMemberSeatRes\022\016\n\006status\030\006 \001(\r\022" +
-      "1\n\017selectQuestions\030\007 \003(\0132\030.SoupMessage.Q" +
-      "uestionRes\022*\n\010question\030\010 \001(\0132\030.SoupMessa" +
-      "ge.QuestionRes\022/\n\nchangedMsg\030\t \003(\0132\033.Sou" +
-      "pMessage.ChatMessageRes\022(\n\003msg\030\n \003(\0132\033.S" +
-      "oupMessage.ChatMessageRes\022\014\n\004mcId\030\013 \001(\t\"" +
-      "\213\001\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001(\t\022\017\n\007av" +
-      "aName\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005index\030\004 " +
-      "\001(\r\022\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001(\r\022\n\n\002mc" +
-      "\030\007 \001(\010\022\r\n\005leave\030\010 \001(\010\"K\n\013QuestionRes\022\n\n\002" +
-      "id\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\020\n\010question\030\003 \001(" +
-      "\t\022\017\n\007content\030\004 \001(\t\"x\n\016ChatMessageRes\022\n\n\002" +
-      "id\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\022\016\n\006answer\030\003 \001(" +
-      "\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007avaName\030\005 \001(\t\022\017\n\007avaHe" +
-      "ad\030\006 \001(\t\022\n\n\002mc\030\007 \001(\010B/\n!io.github.hdfg15" +
-      "9.game.domain.dtoZ\n./protobufb\006proto3"
+      "rNum\030\004 \001(\r\022\023\n\013hasPassword\030\005 \001(\010\0223\n\013seats" +
+      "Change\030\006 \003(\0132\036.SoupMessage.RoomMemberSea" +
+      "tRes\022\016\n\006status\030\007 \001(\r\0221\n\017selectQuestions\030" +
+      "\010 \003(\0132\030.SoupMessage.QuestionRes\022*\n\010quest" +
+      "ion\030\t \001(\0132\030.SoupMessage.QuestionRes\022/\n\nc" +
+      "hangedMsg\030\n \003(\0132\033.SoupMessage.ChatMessag" +
+      "eRes\022(\n\003msg\030\013 \003(\0132\033.SoupMessage.ChatMess" +
+      "ageRes\022\014\n\004mcId\030\014 \001(\t\"\213\001\n\021RoomMemberSeatR" +
+      "es\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaH" +
+      "ead\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022" +
+      "\016\n\006status\030\006 \001(\r\022\n\n\002mc\030\007 \001(\010\022\r\n\005leave\030\010 \001" +
+      "(\010\"K\n\013QuestionRes\022\n\n\002id\030\001 \001(\t\022\r\n\005title\030\002" +
+      " \001(\t\022\020\n\010question\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\"" +
+      "x\n\016ChatMessageRes\022\n\n\002id\030\001 \001(\t\022\017\n\007content" +
+      "\030\002 \001(\t\022\016\n\006answer\030\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007a" +
+      "vaName\030\005 \001(\t\022\017\n\007avaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001(" +
+      "\010B/\n!io.github.hdfg159.game.domain.dtoZ\n" +
+      "./protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -21910,7 +22002,7 @@ public final class SoupMessage {
     internal_static_SoupMessage_RoomPush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SoupMessage_RoomPush_descriptor,
-        new java.lang.String[] { "RoomId", "RoomName", "RoomMax", "RoomMemberNum", "SeatsChange", "Status", "SelectQuestions", "Question", "ChangedMsg", "Msg", "McId", });
+        new java.lang.String[] { "RoomId", "RoomName", "RoomMax", "RoomMemberNum", "HasPassword", "SeatsChange", "Status", "SelectQuestions", "Question", "ChangedMsg", "Msg", "McId", });
     internal_static_SoupMessage_RoomMemberSeatRes_descriptor =
       getDescriptor().getMessageTypes().get(26);
     internal_static_SoupMessage_RoomMemberSeatRes_fieldAccessorTable = new

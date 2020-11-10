@@ -102,6 +102,7 @@ class TurtleSoupService extends AbstractService {
 				def v1 = it.v1
 				def room = it.v2
 				v1.setRoomMemberNum(room.getAllMemberIds().size())
+						.setHasPassword(room.password != null)
 			})
 		}
 		
@@ -114,7 +115,7 @@ class TurtleSoupService extends AbstractService {
 		def roomRes = SoupMessage.CreateRoomRes.newBuilder()
 		
 		def roomName = req.name
-		if (!roomName || roomName.length() > 5) {
+		if (!roomName || roomName.length() > 8) {
 			return GameUtils.resMsg(RES_SOUP_CREATE_ROOM, CodeEnums.SOUP_ROOM_NAME_ILLEGAL)
 		}
 		
