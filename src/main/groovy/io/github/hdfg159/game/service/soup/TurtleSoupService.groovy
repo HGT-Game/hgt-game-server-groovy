@@ -341,7 +341,7 @@ class TurtleSoupService extends AbstractService {
 						}
 						
 						// 定时任务
-						Triggers.once("${roomId}::SELECT", LocalDateTime.now().plusSeconds(10), {
+						Triggers.once("${roomId}::SELECT", LocalDateTime.now().plusSeconds(takeQuestions.size() * 2), {
 							// 自动选择一题并推送
 							autoSelectQuestion(roomId)
 						}).schedule()
