@@ -27,6 +27,7 @@ class QuestionConfig extends AbstractConfigLoader {
                     it.each {question ->
                         questionMap.put(question.id, question)
                     }
+                    log.info("load question config size:[{}]", questionMap.size())
                 }).ignoreElement()
     }
     
