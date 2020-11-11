@@ -32,6 +32,6 @@ class QuestionConfig extends AbstractConfigLoader {
     
     @Override
     Completable reload() {
-        Completable.complete()
+        load()
     }
 }

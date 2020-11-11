@@ -15,7 +15,6 @@ import io.vertx.reactivex.core.http.HttpServer
 import io.vertx.reactivex.ext.auth.jwt.JWTAuth
 import io.vertx.reactivex.ext.web.Router
 import io.vertx.reactivex.ext.web.handler.*
-import io.vertx.reactivex.ext.web.sstore.LocalSessionStore
 
 /**
  * Project:starter
@@ -71,41 +70,11 @@ class WebVerticle extends AbstractVerticle {
 	
 	Single<HttpServer> deployServer(WebServerConfig config) {
 		Router router = Router.router(this.@vertx)
-		
-		def jWTAuthOptions = new JWTAuthOptions()
-				.addPubSecKey(
-						new PubSecKeyOptions()
-								.setAlgorithm("RS256")
-								.setBuffer(config.jwtConfig.getPublicKey())
-				)
-				.addPubSecKey(
-						new PubSecKeyOptions()
-								.setAlgorithm("RS256")
-								.setBuffer(config.jwtConfig.getPrivateKey())
-				)
-		JWTAuth jwt = JWTAuth.create(this.@vertx, jWTAuthOptions)
-		
-		router.get("/token").handler({ctx ->
-			def object = new JsonObject()
-			object.put("uuid", UUID.randomUUID().toString())
-			// 根据额外信息生成token
-			def token = jwt.generateToken(object, new JWTOptions(
-					algorithm: "RS256",
-					expiresInSeconds: 20 * 60,
-					permissions: ["USER", "ADMIN"]
-			))
-			BaseResponse.success(token).responseOk(ctx)
-		})
-		
-		def chainAuthHandler = ChainAuthHandler.any()
-		chainAuthHandler.add(JWTAuthHandler.create(jwt))
-		
 		router.route()
 				.handler(FaviconHandler.create(this.@vertx, "static/favicon.ico"))
 				.handler(LoggerHandler.create())
 				.handler(BodyHandler.create())
-				.handler(SessionHandler.create(LocalSessionStore.create(this.@vertx)))
-				.handler(chainAuthHandler)
+		// .handler(SessionHandler.create(LocalSessionStore.create(this.@vertx)))
 				.handler(CorsHandler.create("*"))
 				.handler(ResponseTimeHandler.create())
 		
@@ -115,6 +84,44 @@ class WebVerticle extends AbstractVerticle {
 		// 因为设置了访问目录，访问目录时候要地址后面加 /
 		def shareStaticHandler = StaticHandler.create("logs").setDirectoryListing(true).setCachingEnabled(false)
 		router.route("/share/*").handler(shareStaticHandler)
+		
+		def algorithm = "RS256"
+		def jWTAuthOptions = new JWTAuthOptions()
+				.addPubSecKey(
+						new PubSecKeyOptions()
+								.setAlgorithm(algorithm)
+								.setBuffer(config.jwtConfig.getPublicKey())
+				)
+				.addPubSecKey(
+						new PubSecKeyOptions()
+								.setAlgorithm(algorithm)
+								.setBuffer(config.jwtConfig.getPrivateKey())
+				)
+		JWTAuth jwt = JWTAuth.create(this.@vertx, jWTAuthOptions)
+		def chainAuthHandler = ChainAuthHandler.any()
+		chainAuthHandler.add(JWTAuthHandler.create(jwt))
+		router.route("/api/**").handler(chainAuthHandler)
+		
+		router.post("/login").handler({ctx ->
+			def params = ctx.bodyAsJson
+			
+			def username = params.getString("username")
+			def password = params.getString("password")
+			if (username == 'admin' && password == 'admin') {
+				def object = new JsonObject()
+				object.put("uuid", UUID.randomUUID().toString())
+				// 根据额外信息生成token
+				def token = jwt.generateToken(object, new JWTOptions(
+						algorithm: algorithm,
+						expiresInSeconds: 20 * 60,
+						permissions: ["ADMIN"]
+				))
+				BaseResponse.success(token).responseOk(ctx)
+				return
+			}
+			
+			BaseResponse.fail("登录失败").response(ctx, HttpResponseStatus.UNAUTHORIZED.code())
+		})
 		
 		router.errorHandler(HttpResponseStatus.INTERNAL_SERVER_ERROR.code(), {context ->
 			def throwable = context.failure()
