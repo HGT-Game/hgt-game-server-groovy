@@ -1,0 +1,23 @@
+GET {{host}}/
+Accept: application/json
+
+###
+POST {{host}}/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+> {%
+    client.global.set("jwt", response.body.data);
+%}
+
+###
+
+GET http://localhost:8080/students/1
+Content-Type: application/json
+Accept: application/json
+Authorization: BEAR {{jwt}}

@@ -1,6 +1,7 @@
 package io.github.hdfg159.web
 
 import groovy.util.logging.Slf4j
+import io.github.hdfg159.common.util.IdUtils
 import io.github.hdfg159.web.config.WebServerConfig
 import io.github.hdfg159.web.domain.dto.BaseResponse
 import io.netty.handler.codec.http.HttpResponseStatus
@@ -102,6 +103,9 @@ class WebVerticle extends AbstractVerticle {
 		chainAuthHandler.add(JWTAuthHandler.create(jwt))
 		router.route("/api/**").handler(chainAuthHandler)
 		
+		router.get("/").handler({
+			it.response().end(IdUtils.idStr)
+		})
 		router.post("/login").handler({ctx ->
 			def params = ctx.bodyAsJson
 			

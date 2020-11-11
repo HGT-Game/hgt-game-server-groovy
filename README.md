@@ -24,7 +24,12 @@ HGT Game Server 是一个基于海龟汤故事实现的游戏服务端，主要�
 # 运行
 
 - 运行环境 : `JDK 11 +`
-- 更改数据库配置文件和服务器配置文件 : `config/mongodb.json` & `config/server.json`
+- 更改配置文件
+    - 游戏日志数据库 : `config/db_log.json` 
+    - 游戏数据库 : `config/db_game.json`
+    - 游戏配置数据库 : `config/db_config.json`
+    - 游戏服务器配置 : `config/server.json`
+    - 游戏 web 服务器配置 : `config/web_server.json`
 - 运行游戏服务端启动入口类 : `io.github.hdfg159.Main`
 
 # 贡献
