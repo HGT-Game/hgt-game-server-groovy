@@ -2,6 +2,7 @@ package io.github.hdfg159.web
 
 import groovy.util.logging.Slf4j
 import io.github.hdfg159.common.util.IdUtils
+import io.github.hdfg159.game.config.ConfigLoaderData
 import io.github.hdfg159.web.config.WebServerConfig
 import io.github.hdfg159.web.domain.dto.BaseResponse
 import io.netty.handler.codec.http.HttpResponseStatus
@@ -101,7 +102,7 @@ class WebVerticle extends AbstractVerticle {
 		JWTAuth jwt = JWTAuth.create(this.@vertx, jWTAuthOptions)
 		def chainAuthHandler = ChainAuthHandler.any()
 		chainAuthHandler.add(JWTAuthHandler.create(jwt))
-		router.route("/api/**").handler(chainAuthHandler)
+		router.route("/api/*").handler(chainAuthHandler)
 		
 		router.get("/").handler({
 			it.response().end(IdUtils.idStr)
@@ -127,6 +128,8 @@ class WebVerticle extends AbstractVerticle {
 			BaseResponse.fail("登录失败").response(ctx, HttpResponseStatus.UNAUTHORIZED.code())
 		})
 		
+		router.mountSubRouter("/api/config", configRouter())
+		
 		router.errorHandler(HttpResponseStatus.INTERNAL_SERVER_ERROR.code(), {context ->
 			def throwable = context.failure()
 			log.error "router error:${throwable?.message}", throwable
@@ -138,5 +141,19 @@ class WebVerticle extends AbstractVerticle {
 				.requestHandler(router)
 				.exceptionHandler({exception -> log.error exception.message, exception})
 				.rxListen(config.port)
+	}
+	
+	def configRouter() {
+		def router = Router.router(this.@vertx)
+		
+		router.post("/reload/all").handler({ctx ->
+			ConfigLoaderData.instance.reloadConfig([])
+					.doOnComplete({
+						BaseResponse.success().response(ctx, HttpResponseStatus.OK.code())
+					})
+					.subscribe()
+		})
+		
+		router
 	}
 }

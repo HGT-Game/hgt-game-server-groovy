@@ -29,6 +29,7 @@ abstract class AbstractConfigLoader extends AbstractVerticle {
 		
 		createClient.concatWith(Completable.defer({load()}))
 				.doOnComplete({
+					ConfigLoaderData.instance.addConfigLoader(this)
 					log.info "deploy config complete : ${this.class.simpleName}"
 				})
 	}

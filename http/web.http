@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/students/1
+POST {{host}}/api/config/reload/all
 Content-Type: application/json
 Accept: application/json
-Authorization: BEAR {{jwt}}
+Authorization: BEARER {{jwt}}
