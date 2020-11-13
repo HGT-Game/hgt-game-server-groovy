@@ -64,7 +64,6 @@ abstract class AbstractService extends AbstractVerticle {
 	
 	@Override
 	Completable rxStop() {
-		log.info "undeploy game service:${this.class.simpleName}"
 		destroy().doOnComplete({
 			log.info "undeploy game service complete : ${this.class.simpleName}"
 		})

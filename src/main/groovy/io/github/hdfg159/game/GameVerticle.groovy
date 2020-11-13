@@ -27,22 +27,30 @@ class GameVerticle extends AbstractVerticle {
 	Completable rxStart() {
 		Completable.defer({
 			def configs = Completable.mergeArray(
+					// 海龟汤问题配置表
 					this.@vertx.rxDeployVerticle(QuestionConfig.instance).ignoreElement()
 			)
 			
 			def dataManagers = Completable.mergeArray(
+					// 日志数据
 					this.@vertx.rxDeployVerticle(GameLogData.instance).ignoreElement(),
 					
+					// 玩家数据
 					this.@vertx.rxDeployVerticle(AvatarData.instance).ignoreElement(),
 					
+					// 海龟汤数据
 					this.@vertx.rxDeployVerticle(SoupMemberData.instance).ignoreElement(),
 					this.@vertx.rxDeployVerticle(SoupRecordData.instance).ignoreElement(),
 			)
 			
 			def services = this.@vertx.rxDeployVerticle(LogService.getInstance()).ignoreElement()
-					.concatWith(this.@vertx.rxDeployVerticle(AvatarService.getInstance()).ignoreElement())
-					.mergeWith(this.@vertx.rxDeployVerticle(TurtleSoupService.getInstance()).ignoreElement())
-					.mergeWith(this.@vertx.rxDeployVerticle(FarmService.getInstance()).ignoreElement())
+					.concatWith(
+							Completable.mergeArray(
+									this.@vertx.rxDeployVerticle(AvatarService.getInstance()).ignoreElement(),
+									this.@vertx.rxDeployVerticle(TurtleSoupService.getInstance()).ignoreElement(),
+									this.@vertx.rxDeployVerticle(FarmService.getInstance()).ignoreElement()
+							)
+					)
 			
 			Completable.concatArray(
 					configs,

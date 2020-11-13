@@ -46,18 +46,16 @@ class Main {
 		
 		jmx()
 		
-		def webServer = vx.rxDeployVerticle(WebVerticle.instance).ignoreElement()
-		def games = vx.rxDeployVerticle(GameVerticle.instance).ignoreElement()
-		// mergeArrayDelayError 延迟到全部完成才发布失败
-		Completable.mergeArrayDelayError(webServer, games)
-				.concatWith(gameServer(vx))
-				.subscribe({
-					log.info "deploy verticle success"
-				}, {
-					log.error "deploy verticle error:${it.message}", it
-					new Thread({System.exit(0)}).start()
-				})
-		// 注册JVM关闭钩子函数，优雅关闭 vert.x
+		Completable.mergeArrayDelayError(
+				vx.rxDeployVerticle(WebVerticle.instance).ignoreElement(),
+				vx.rxDeployVerticle(GameVerticle.instance).ignoreElement()
+		).concatWith(gameServer(vx)).subscribe({
+			log.info "deploy verticle success"
+		}, {
+			log.error "deploy verticle error:${it.message}", it
+			new Thread({System.exit(0)}).start()
+		})
+		
 		Runtime.addShutdownHook {
 			log.info("shutdown application,exist verticle count:${vx.deploymentIDs().size()},closing  ...")
 			
