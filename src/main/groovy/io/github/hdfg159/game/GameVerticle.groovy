@@ -25,30 +25,33 @@ import io.vertx.reactivex.core.AbstractVerticle
 class GameVerticle extends AbstractVerticle {
 	@Override
 	Completable rxStart() {
-		log.info "deploy ${this.class.simpleName}"
-		def configs = Completable.mergeArray(
-				this.@vertx.rxDeployVerticle(QuestionConfig.instance).ignoreElement()
-		)
-		
-		def dataManagers = Completable.mergeArray(
-				this.@vertx.rxDeployVerticle(GameLogData.instance).ignoreElement(),
-				
-				this.@vertx.rxDeployVerticle(AvatarData.instance).ignoreElement(),
-				
-				this.@vertx.rxDeployVerticle(SoupMemberData.instance).ignoreElement(),
-				this.@vertx.rxDeployVerticle(SoupRecordData.instance).ignoreElement(),
-		)
-		
-		def services = this.@vertx.rxDeployVerticle(LogService.getInstance()).ignoreElement()
-				.concatWith(this.@vertx.rxDeployVerticle(AvatarService.getInstance()).ignoreElement())
-				.mergeWith(this.@vertx.rxDeployVerticle(TurtleSoupService.getInstance()).ignoreElement())
-				.mergeWith(this.@vertx.rxDeployVerticle(FarmService.getInstance()).ignoreElement())
-		
-		Completable.concatArray(
-				configs,
-				dataManagers,
-				services
-		)
+		Completable.defer({
+			def configs = Completable.mergeArray(
+					this.@vertx.rxDeployVerticle(QuestionConfig.instance).ignoreElement()
+			)
+			
+			def dataManagers = Completable.mergeArray(
+					this.@vertx.rxDeployVerticle(GameLogData.instance).ignoreElement(),
+					
+					this.@vertx.rxDeployVerticle(AvatarData.instance).ignoreElement(),
+					
+					this.@vertx.rxDeployVerticle(SoupMemberData.instance).ignoreElement(),
+					this.@vertx.rxDeployVerticle(SoupRecordData.instance).ignoreElement(),
+			)
+			
+			def services = this.@vertx.rxDeployVerticle(LogService.getInstance()).ignoreElement()
+					.concatWith(this.@vertx.rxDeployVerticle(AvatarService.getInstance()).ignoreElement())
+					.mergeWith(this.@vertx.rxDeployVerticle(TurtleSoupService.getInstance()).ignoreElement())
+					.mergeWith(this.@vertx.rxDeployVerticle(FarmService.getInstance()).ignoreElement())
+			
+			Completable.concatArray(
+					configs,
+					dataManagers,
+					services
+			)
+		}).doOnComplete({
+			log.info "deploy ${this.class.simpleName} complete"
+		})
 	}
 	
 	@Override
