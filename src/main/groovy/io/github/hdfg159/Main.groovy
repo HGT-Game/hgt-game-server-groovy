@@ -6,19 +6,20 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import groovy.jmx.builder.JmxBuilder
 import groovy.util.logging.Slf4j
+import groovy.yaml.YamlSlurper
 import io.github.hdfg159.game.GameVerticle
 import io.github.hdfg159.game.config.ServerConfig
+import io.github.hdfg159.game.constant.GameConsts
 import io.github.hdfg159.game.server.GameServer
 import io.github.hdfg159.game.util.GroovyUtils
 import io.github.hdfg159.web.WebVerticle
 import io.reactivex.Completable
-import io.vertx.core.json.Json
+import io.vertx.core.json.JsonObject
 import io.vertx.core.json.jackson.DatabindCodec
 import io.vertx.reactivex.core.Vertx
 
 import java.lang.management.ManagementFactory
 
-import static io.github.hdfg159.game.constant.GameConsts.SERVER_CONFIG
 import static io.reactivex.schedulers.Schedulers.io
 
 /**
@@ -71,7 +72,7 @@ class Main {
 	
 	private static void writePidFile() {
 		def pid = ManagementFactory.getRuntimeMXBean().getPid()
-		def pidFile = new File("game.pid")
+		def pidFile = new File(GameConsts.PID_FILE_NAME)
 		pidFile.delete()
 		pidFile << pid
 		log.info "current application pid:[{}]", pid
@@ -79,10 +80,10 @@ class Main {
 	
 	private static Completable gameServer(Vertx vx) {
 		vx.fileSystem()
-				.rxReadFile(SERVER_CONFIG)
+				.rxReadFile(GameConsts.CONFIG_PATH)
 				.map({buffer ->
-					log.info "server config:${Json.decodeValue(buffer.delegate)}"
-					Json.decodeValue(buffer.delegate, ServerConfig.class)
+					def gameConfigMap = new YamlSlurper().parseText(buffer.toString()).server.game
+					new JsonObject(gameConfigMap).mapTo(ServerConfig.class)
 				})
 				.flatMapCompletable({config ->
 					Completable.fromCallable({

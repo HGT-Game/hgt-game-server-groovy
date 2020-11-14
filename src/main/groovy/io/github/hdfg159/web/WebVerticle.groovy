@@ -1,8 +1,10 @@
 package io.github.hdfg159.web
 
 import groovy.util.logging.Slf4j
+import groovy.yaml.YamlSlurper
 import io.github.hdfg159.common.util.IdUtils
 import io.github.hdfg159.game.config.ConfigLoaderData
+import io.github.hdfg159.game.constant.GameConsts
 import io.github.hdfg159.web.config.WebServerConfig
 import io.github.hdfg159.web.domain.dto.BaseResponse
 import io.netty.handler.codec.http.HttpResponseStatus
@@ -31,8 +33,10 @@ class WebVerticle extends AbstractVerticle {
 		Single.just(new WebServerConfig())
 				.flatMap({
 					this.@vertx.fileSystem()
-							.rxReadFile("config/web_server.json")
-							.map({it.toJsonObject().mapTo(WebServerConfig.class)})
+							.rxReadFile(GameConsts.CONFIG_PATH)
+							.map({
+								new JsonObject(new YamlSlurper().parseText(it.toString()).server.web).mapTo(WebServerConfig.class)
+							})
 							.map({
 								it.setJwtConfig(new WebServerConfig.JwtConfig())
 								it

@@ -43,28 +43,17 @@ class GameConsts {
 	 */
 	static final String MONGO_DATA_SOURCE = 'common'
 	/**
-	 * mongodb 配置文件相对路径
-	 */
-	static final String MONGO_CONFIG = 'config/db_game.json'
-	/**
 	 * mongodb 共享数据源名称 日志库
 	 */
 	static final String LOG_MONGO_DATA_SOURCE = 'common-log'
 	/**
-	 * mongodb 配置文件相对路径 日志库
+	 * 配置文件路径
 	 */
-	static final String LOG_MONGO_CONFIG = 'config/db_log.json'
-	
+	static final String CONFIG_PATH = 'config/config.yml'
 	/**
-	 * MYSQL 配置库文件
+	 * 组件配置文件路径
 	 */
-	static final String CONFIG_MYSQL = 'config/db_config.json'
-	
-	/**
-	 * 服务器配置文件相对路径
-	 */
-	static final String SERVER_CONFIG = 'config/server.json'
-	
+	static final String COMPONENT_PATH = 'component/component.yml'
 	/**
 	 * pid 文件名
 	 */

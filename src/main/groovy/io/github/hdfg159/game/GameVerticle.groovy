@@ -1,17 +1,11 @@
 package io.github.hdfg159.game
 
 import groovy.util.logging.Slf4j
-import io.github.hdfg159.game.service.avatar.AvatarData
-import io.github.hdfg159.game.service.avatar.AvatarService
-import io.github.hdfg159.game.service.farm.FarmService
-import io.github.hdfg159.game.service.log.GameLogData
-import io.github.hdfg159.game.service.log.LogService
-import io.github.hdfg159.game.service.soup.SoupMemberData
-import io.github.hdfg159.game.service.soup.SoupRecordData
-import io.github.hdfg159.game.service.soup.TurtleSoupService
-import io.github.hdfg159.game.service.soup.config.QuestionConfig
+import groovy.yaml.YamlSlurper
+import io.github.hdfg159.game.constant.GameConsts
 import io.github.hdfg159.scheduler.SchedulerManager
 import io.reactivex.Completable
+import io.vertx.core.Verticle
 import io.vertx.reactivex.core.AbstractVerticle
 
 /**
@@ -25,41 +19,15 @@ import io.vertx.reactivex.core.AbstractVerticle
 class GameVerticle extends AbstractVerticle {
 	@Override
 	Completable rxStart() {
-		Completable.defer({
-			def configs = Completable.mergeArray(
-					// 海龟汤问题配置表
-					this.@vertx.rxDeployVerticle(QuestionConfig.instance).ignoreElement()
-			)
-			
-			def dataManagers = Completable.mergeArray(
-					// 日志数据
-					this.@vertx.rxDeployVerticle(GameLogData.instance).ignoreElement(),
-					
-					// 玩家数据
-					this.@vertx.rxDeployVerticle(AvatarData.instance).ignoreElement(),
-					
-					// 海龟汤数据
-					this.@vertx.rxDeployVerticle(SoupMemberData.instance).ignoreElement(),
-					this.@vertx.rxDeployVerticle(SoupRecordData.instance).ignoreElement(),
-			)
-			
-			def services = this.@vertx.rxDeployVerticle(LogService.getInstance()).ignoreElement()
-					.concatWith(
-							Completable.mergeArray(
-									this.@vertx.rxDeployVerticle(AvatarService.getInstance()).ignoreElement(),
-									this.@vertx.rxDeployVerticle(TurtleSoupService.getInstance()).ignoreElement(),
-									this.@vertx.rxDeployVerticle(FarmService.getInstance()).ignoreElement()
-							)
-					)
-			
-			Completable.concatArray(
-					configs,
-					dataManagers,
-					services
-			)
-		}).doOnComplete({
-			log.info "deploy ${this.class.simpleName} complete"
-		})
+		this.@vertx.fileSystem()
+				.rxReadFile(GameConsts.COMPONENT_PATH)
+				.map({
+					new YamlSlurper().parseText(it.toString())
+				})
+				.flatMapCompletable(this.&createComponents)
+				.doOnComplete({
+					log.info "deploy ${this.class.simpleName} complete"
+				})
 	}
 	
 	@Override
@@ -67,6 +35,29 @@ class GameVerticle extends AbstractVerticle {
 		Completable.fromRunnable({
 			SchedulerManager.INSTANCE.shutdown()
 			log.info "shutdown scheduler manager"
+		})
+	}
+	
+	
+	def createComponents(components) {
+		Completable.defer({
+			def dataManagersOrderMap = new TreeMap<String, List<String>>(components.'data-managers')
+			def servicesOrderMap = new TreeMap<String, List<String>>(components.services)
+			def configsOrderMap = new TreeMap<String, List<String>>(components.configs)
+			
+			def dataManagers = buildVerticleCompletes(dataManagersOrderMap)
+			def services = buildVerticleCompletes(servicesOrderMap)
+			def configs = buildVerticleCompletes(configsOrderMap)
+			
+			Completable.concatArray(configs, dataManagers, services)
+		})
+	}
+	
+	def buildVerticleCompletes(verticleOrderMap) {
+		Completable.concat(verticleOrderMap.collect {order, names ->
+			Completable.merge(names.collect {name ->
+				this.@vertx.rxDeployVerticle((("${name}" as Class).getInstance()) as Verticle).ignoreElement()
+			})
 		})
 	}
 }

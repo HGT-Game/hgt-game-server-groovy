@@ -1,6 +1,7 @@
 package io.github.hdfg159.game.config
 
 import groovy.util.logging.Slf4j
+import groovy.yaml.YamlSlurper
 import io.github.hdfg159.game.constant.GameConsts
 import io.reactivex.Completable
 import io.vertx.core.json.JsonObject
@@ -21,8 +22,10 @@ abstract class AbstractConfigLoader extends AbstractVerticle {
 	@Override
 	Completable rxStart() {
 		def createClient = this.@vertx.fileSystem()
-				.rxReadFile(GameConsts.CONFIG_MYSQL)
-				.map({new JsonObject(it.delegate)})
+				.rxReadFile(GameConsts.CONFIG_PATH)
+				.map({
+					new JsonObject(new YamlSlurper().parseText(it.toString()).database.config)
+				})
 				.doOnSuccess({
 					client = MySQLPool.pool(this.@vertx, new MySQLConnectOptions(it), new PoolOptions())
 				}).ignoreElement()

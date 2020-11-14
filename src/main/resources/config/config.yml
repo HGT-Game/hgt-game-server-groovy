@@ -1,0 +1,33 @@
+server:
+  web:
+    port: 9997
+  game:
+    log: true
+    port: 9998
+    maxConnection: 5000
+    websocket: true
+    websocketPath: /
+
+database:
+  game:
+    db_name: game
+    host: 127.0.0.1
+    port: 27017
+    minPoolSize: 10
+    maxPoolSize: 50
+    maxIdleTimeMS: 300000
+    maxLifeTimeMS: 3600000
+  log:
+    db_name: game_log
+    host: 127.0.0.1
+    port: 27017
+    minPoolSize: 5
+    maxPoolSize: 5
+    maxIdleTimeMS: 300000
+    maxLifeTimeMS: 3600000
+  config:
+    host: 127.0.0.1
+    port: 33061
+    user: turtle_soup
+    password: turtle_soup
+    database: turtle_soup
