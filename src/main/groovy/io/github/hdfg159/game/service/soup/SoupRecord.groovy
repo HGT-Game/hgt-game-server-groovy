@@ -112,7 +112,7 @@ class SoupRecord implements TData<String> {
 		noteMap.put(id, note)
 		
 		def aid = note.aid
-		memberNoteMap[aid].add(id)
+		memberNoteMap[aid] << aid
 	}
 	
 	def deleteNote(SoupNote note) {
@@ -124,15 +124,13 @@ class SoupRecord implements TData<String> {
 	}
 	
 	def getAidAllNoteRes(String aid) {
-		def noteIds = memberNoteMap[aid]
-		if (noteIds) {
+		if (!memberNoteMap.containsKey(aid)) {
 			return []
 		}
 		
-		noteIds.collect {getNote(it)}
+		memberNoteMap[aid]
+				.collect {getNote(it)}
 				.findAll {it != null}
-				.collect {
-					it.covertNoteRes(getMsg(it.referChatId))
-				}
+				.collect {it.covertNoteRes(getMsg(it.referChatId))}
 	}
 }
