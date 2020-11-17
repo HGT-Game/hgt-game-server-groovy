@@ -105,6 +105,24 @@ enum ProtocolEnums {
 	RES_SOUP_LOAD(-2012, SoupMessage.LoadRes.class),
 	
 	/**
+	 * 增加笔记
+	 */
+	REQ_SOUP_ADD_NOTE(2013, SoupMessage.AddNoteReq.class),
+	RES_SOUP_ADD_NOTE(-2013, SoupMessage.AddNoteRes.class),
+	
+	/**
+	 * 删除笔记
+	 */
+	REQ_SOUP_DELETE_NOTE(2014, SoupMessage.DeleteNoteReq.class),
+	RES_SOUP_DELETE_NOTE(-2014, SoupMessage.DeleteNoteRes.class),
+	
+	/**
+	 * 读取笔记
+	 */
+	REQ_SOUP_LOAD_NOTE(2015, SoupMessage.LoadNoteReq.class),
+	RES_SOUP_LOAD_NOTE(-2015, SoupMessage.LoadNoteRes.class),
+	
+	/**
 	 * 大厅消息推送
 	 */
 	REQ_SOUP_HALL_PUSH(2900, SoupMessage.HallPush.class),

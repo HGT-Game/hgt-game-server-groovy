@@ -60,6 +60,10 @@ class TurtleSoupService extends AbstractService {
 		response(REQ_SOUP_END, end)
 		response(REQ_SOUP_SELECT_QUESTION, selectQuestion)
 		
+		response(REQ_SOUP_ADD_NOTE, addNote)
+		response(REQ_SOUP_DELETE_NOTE, deleteNote)
+		response(REQ_SOUP_LOAD_NOTE, loadNote)
+		
 		handleEvent(EventEnums.OFFLINE, offlineEvent)
 		handleEvent(EventEnums.ONLINE, onlineEvent)
 		handleEvent(EventEnums.SOUP_SEAT_CHANGE, seatChangeEvent)
@@ -780,6 +784,107 @@ class TurtleSoupService extends AbstractService {
 		} else {
 			roomData.removeAvaFromHall(aid)
 		}
+	}
+	
+	def addNote = {headers, params ->
+		def aid = getHeaderAvatarId(headers)
+		def req = params as SoupMessage.AddNoteReq
+		def messageId = req.messageId
+		def content = req.content
+		
+		if (!messageId && !content) {
+			return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_NOTE_ILLEGAL)
+		}
+		
+		def member = memberData.getById(aid)
+		def room = roomData.getRoom(member.roomId)
+		if (!room) {
+			return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_ROOM_NOT_EXIST)
+		}
+		
+		def record = room.getRecord()
+		if (!record) {
+			return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_RECORD_NOT_EXIST)
+		}
+		
+		if (messageId) {
+			def msg = record.getMsg(messageId)
+			if (!msg) {
+				return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_MESSAGE_NOT_EXIST)
+			}
+			
+			if (msg.answer == AnswerType.NONE.type) {
+				return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_MESSAGE_NOT_ANSWER)
+			}
+			
+			def note = SoupNote.createChatNote(aid, messageId)
+			return GameUtils.sucResMsg(RES_SOUP_ADD_NOTE, note.covertNoteRes(msg))
+		}
+		
+		if (!messageId && content) {
+			if (content.length() > 20) {
+				return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_NOTE_ILLEGAL)
+			} else {
+				def note = SoupNote.createCustomNote(aid, content)
+				return GameUtils.sucResMsg(RES_SOUP_ADD_NOTE, note.covertNoteRes(null))
+			}
+		}
+		
+		GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_NOTE_ILLEGAL)
+	}
+	
+	def loadNote = {headers, params ->
+		def aid = getHeaderAvatarId(headers)
+		def req = params as SoupMessage.LoadNoteReq
+		
+		def loadAid = req.aid
+		
+		def member = memberData.getById(aid)
+		def room = roomData.getRoom(member.roomId)
+		if (!room) {
+			return GameUtils.resMsg(RES_SOUP_LOAD_NOTE, CodeEnums.SOUP_ROOM_NOT_EXIST)
+		}
+		
+		def record = room.getRecord()
+		if (!record) {
+			return GameUtils.resMsg(RES_SOUP_LOAD_NOTE, CodeEnums.SOUP_RECORD_NOT_EXIST)
+		}
+		
+		def res = SoupMessage.LoadNoteRes.newBuilder()
+				.addAllNotes(record.getAidAllNoteRes(loadAid))
+				.build()
+		GameUtils.sucResMsg(RES_SOUP_LOAD_NOTE, res)
+	}
+	
+	def deleteNote = {headers, params ->
+		def aid = getHeaderAvatarId(headers)
+		def req = params as SoupMessage.DeleteNoteReq
+		
+		def id = req.id
+		
+		def member = memberData.getById(aid)
+		def room = roomData.getRoom(member.roomId)
+		if (!room) {
+			return GameUtils.resMsg(RES_SOUP_DELETE_NOTE, CodeEnums.SOUP_ROOM_NOT_EXIST)
+		}
+		
+		def record = room.getRecord()
+		if (!record) {
+			return GameUtils.resMsg(RES_SOUP_DELETE_NOTE, CodeEnums.SOUP_RECORD_NOT_EXIST)
+		}
+		
+		def note = record.getNote(id)
+		if (!note) {
+			return GameUtils.resMsg(RES_SOUP_DELETE_NOTE, CodeEnums.SOUP_NOTE_NOT_EXIST)
+		}
+		
+		if (note.aid != aid) {
+			return GameUtils.resMsg(RES_SOUP_DELETE_NOTE, CodeEnums.SOUP_NOTE_DELETE_LIMIT)
+		}
+		
+		record.deleteNote(note)
+		
+		GameUtils.sucResMsg(RES_SOUP_DELETE_NOTE, SoupMessage.DeleteNoteRes.newBuilder().build())
 	}
 	
 	// Private

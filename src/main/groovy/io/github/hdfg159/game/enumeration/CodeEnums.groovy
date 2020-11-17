@@ -149,6 +149,10 @@ enum CodeEnums {
 	 * 聊天记录不存在
 	 */
 	SOUP_MESSAGE_NOT_EXIST(20903),
+	/**
+	 * 消息未被MC作答
+	 */
+	SOUP_MESSAGE_NOT_ANSWER(20904),
 	
 	/**
 	 * 成员不是闲置状态
@@ -172,6 +176,19 @@ enum CodeEnums {
 	 * 问题不存在
 	 */
 	SOUP_QUESTION_NOT_EXIST(21200),
+	
+	/**
+	 * 笔记不存在
+	 */
+	SOUP_NOTE_NOT_EXIST(21300),
+	/**
+	 * 笔记删除受限制
+	 */
+	SOUP_NOTE_DELETE_LIMIT(21301),
+	/**
+	 * 笔记不合法
+	 */
+	SOUP_NOTE_ILLEGAL(21302),
 	
 	long code
 	

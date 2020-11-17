@@ -21649,6 +21649,5199 @@ public final class SoupMessage {
 
   }
 
+  public interface AddNoteReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SoupMessage.AddNoteReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *  聊天消息 id
+     * </pre>
+     *
+     * <code>string messageId = 1;</code>
+     * @return The messageId.
+     */
+    java.lang.String getMessageId();
+    /**
+     * <pre>
+     *  聊天消息 id
+     * </pre>
+     *
+     * <code>string messageId = 1;</code>
+     * @return The bytes for messageId.
+     */
+    com.google.protobuf.ByteString
+        getMessageIdBytes();
+
+    /**
+     * <pre>
+     *  自定义内容
+     * </pre>
+     *
+     * <code>string content = 2;</code>
+     * @return The content.
+     */
+    java.lang.String getContent();
+    /**
+     * <pre>
+     *  自定义内容
+     * </pre>
+     *
+     * <code>string content = 2;</code>
+     * @return The bytes for content.
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+  }
+  /**
+   * <pre>
+   * 加入笔记 请求
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.AddNoteReq}
+   */
+  public static final class AddNoteReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SoupMessage.AddNoteReq)
+      AddNoteReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AddNoteReq.newBuilder() to construct.
+    private AddNoteReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AddNoteReq() {
+      messageId_ = "";
+      content_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AddNoteReq();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AddNoteReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              messageId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              content_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AddNoteReq_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AddNoteReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq.Builder.class);
+    }
+
+    public static final int MESSAGEID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object messageId_;
+    /**
+     * <pre>
+     *  聊天消息 id
+     * </pre>
+     *
+     * <code>string messageId = 1;</code>
+     * @return The messageId.
+     */
+    @java.lang.Override
+    public java.lang.String getMessageId() {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        messageId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *  聊天消息 id
+     * </pre>
+     *
+     * <code>string messageId = 1;</code>
+     * @return The bytes for messageId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMessageIdBytes() {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        messageId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONTENT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object content_;
+    /**
+     * <pre>
+     *  自定义内容
+     * </pre>
+     *
+     * <code>string content = 2;</code>
+     * @return The content.
+     */
+    @java.lang.Override
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *  自定义内容
+     * </pre>
+     *
+     * <code>string content = 2;</code>
+     * @return The bytes for content.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getMessageIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, messageId_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, content_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getMessageIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, messageId_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, content_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq)) {
+        return super.equals(obj);
+      }
+      io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq other = (io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq) obj;
+
+      if (!getMessageId()
+          .equals(other.getMessageId())) return false;
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MESSAGEID_FIELD_NUMBER;
+      hash = (53 * hash) + getMessageId().hashCode();
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 加入笔记 请求
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.AddNoteReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SoupMessage.AddNoteReq)
+        io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AddNoteReq_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AddNoteReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq.Builder.class);
+      }
+
+      // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        messageId_ = "";
+
+        content_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AddNoteReq_descriptor;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq build() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq result = new io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq(this);
+        result.messageId_ = messageId_;
+        result.content_ = content_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq.getDefaultInstance()) return this;
+        if (!other.getMessageId().isEmpty()) {
+          messageId_ = other.messageId_;
+          onChanged();
+        }
+        if (!other.getContent().isEmpty()) {
+          content_ = other.content_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object messageId_ = "";
+      /**
+       * <pre>
+       *  聊天消息 id
+       * </pre>
+       *
+       * <code>string messageId = 1;</code>
+       * @return The messageId.
+       */
+      public java.lang.String getMessageId() {
+        java.lang.Object ref = messageId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          messageId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *  聊天消息 id
+       * </pre>
+       *
+       * <code>string messageId = 1;</code>
+       * @return The bytes for messageId.
+       */
+      public com.google.protobuf.ByteString
+          getMessageIdBytes() {
+        java.lang.Object ref = messageId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          messageId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *  聊天消息 id
+       * </pre>
+       *
+       * <code>string messageId = 1;</code>
+       * @param value The messageId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessageId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        messageId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  聊天消息 id
+       * </pre>
+       *
+       * <code>string messageId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMessageId() {
+        
+        messageId_ = getDefaultInstance().getMessageId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  聊天消息 id
+       * </pre>
+       *
+       * <code>string messageId = 1;</code>
+       * @param value The bytes for messageId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessageIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        messageId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object content_ = "";
+      /**
+       * <pre>
+       *  自定义内容
+       * </pre>
+       *
+       * <code>string content = 2;</code>
+       * @return The content.
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *  自定义内容
+       * </pre>
+       *
+       * <code>string content = 2;</code>
+       * @return The bytes for content.
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *  自定义内容
+       * </pre>
+       *
+       * <code>string content = 2;</code>
+       * @param value The content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  自定义内容
+       * </pre>
+       *
+       * <code>string content = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearContent() {
+        
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  自定义内容
+       * </pre>
+       *
+       * <code>string content = 2;</code>
+       * @param value The bytes for content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SoupMessage.AddNoteReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:SoupMessage.AddNoteReq)
+    private static final io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq();
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AddNoteReq>
+        PARSER = new com.google.protobuf.AbstractParser<AddNoteReq>() {
+      @java.lang.Override
+      public AddNoteReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AddNoteReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AddNoteReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AddNoteReq> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AddNoteResOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SoupMessage.AddNoteRes)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *  新增笔记
+     * </pre>
+     *
+     * <code>.SoupMessage.NoteRes note = 1;</code>
+     * @return Whether the note field is set.
+     */
+    boolean hasNote();
+    /**
+     * <pre>
+     *  新增笔记
+     * </pre>
+     *
+     * <code>.SoupMessage.NoteRes note = 1;</code>
+     * @return The note.
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes getNote();
+    /**
+     * <pre>
+     *  新增笔记
+     * </pre>
+     *
+     * <code>.SoupMessage.NoteRes note = 1;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder getNoteOrBuilder();
+  }
+  /**
+   * <pre>
+   * 加入笔记 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.AddNoteRes}
+   */
+  public static final class AddNoteRes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SoupMessage.AddNoteRes)
+      AddNoteResOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AddNoteRes.newBuilder() to construct.
+    private AddNoteRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AddNoteRes() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AddNoteRes();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AddNoteRes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder subBuilder = null;
+              if (note_ != null) {
+                subBuilder = note_.toBuilder();
+              }
+              note_ = input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(note_);
+                note_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AddNoteRes_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AddNoteRes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes.Builder.class);
+    }
+
+    public static final int NOTE_FIELD_NUMBER = 1;
+    private io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes note_;
+    /**
+     * <pre>
+     *  新增笔记
+     * </pre>
+     *
+     * <code>.SoupMessage.NoteRes note = 1;</code>
+     * @return Whether the note field is set.
+     */
+    @java.lang.Override
+    public boolean hasNote() {
+      return note_ != null;
+    }
+    /**
+     * <pre>
+     *  新增笔记
+     * </pre>
+     *
+     * <code>.SoupMessage.NoteRes note = 1;</code>
+     * @return The note.
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes getNote() {
+      return note_ == null ? io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.getDefaultInstance() : note_;
+    }
+    /**
+     * <pre>
+     *  新增笔记
+     * </pre>
+     *
+     * <code>.SoupMessage.NoteRes note = 1;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder getNoteOrBuilder() {
+      return getNote();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (note_ != null) {
+        output.writeMessage(1, getNote());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (note_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getNote());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes)) {
+        return super.equals(obj);
+      }
+      io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes other = (io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes) obj;
+
+      if (hasNote() != other.hasNote()) return false;
+      if (hasNote()) {
+        if (!getNote()
+            .equals(other.getNote())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasNote()) {
+        hash = (37 * hash) + NOTE_FIELD_NUMBER;
+        hash = (53 * hash) + getNote().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 加入笔记 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.AddNoteRes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SoupMessage.AddNoteRes)
+        io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteResOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AddNoteRes_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AddNoteRes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes.Builder.class);
+      }
+
+      // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (noteBuilder_ == null) {
+          note_ = null;
+        } else {
+          note_ = null;
+          noteBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_AddNoteRes_descriptor;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes build() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes result = new io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes(this);
+        if (noteBuilder_ == null) {
+          result.note_ = note_;
+        } else {
+          result.note_ = noteBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes.getDefaultInstance()) return this;
+        if (other.hasNote()) {
+          mergeNote(other.getNote());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes note_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder> noteBuilder_;
+      /**
+       * <pre>
+       *  新增笔记
+       * </pre>
+       *
+       * <code>.SoupMessage.NoteRes note = 1;</code>
+       * @return Whether the note field is set.
+       */
+      public boolean hasNote() {
+        return noteBuilder_ != null || note_ != null;
+      }
+      /**
+       * <pre>
+       *  新增笔记
+       * </pre>
+       *
+       * <code>.SoupMessage.NoteRes note = 1;</code>
+       * @return The note.
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes getNote() {
+        if (noteBuilder_ == null) {
+          return note_ == null ? io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.getDefaultInstance() : note_;
+        } else {
+          return noteBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *  新增笔记
+       * </pre>
+       *
+       * <code>.SoupMessage.NoteRes note = 1;</code>
+       */
+      public Builder setNote(io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes value) {
+        if (noteBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          note_ = value;
+          onChanged();
+        } else {
+          noteBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *  新增笔记
+       * </pre>
+       *
+       * <code>.SoupMessage.NoteRes note = 1;</code>
+       */
+      public Builder setNote(
+          io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder builderForValue) {
+        if (noteBuilder_ == null) {
+          note_ = builderForValue.build();
+          onChanged();
+        } else {
+          noteBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *  新增笔记
+       * </pre>
+       *
+       * <code>.SoupMessage.NoteRes note = 1;</code>
+       */
+      public Builder mergeNote(io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes value) {
+        if (noteBuilder_ == null) {
+          if (note_ != null) {
+            note_ =
+              io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.newBuilder(note_).mergeFrom(value).buildPartial();
+          } else {
+            note_ = value;
+          }
+          onChanged();
+        } else {
+          noteBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *  新增笔记
+       * </pre>
+       *
+       * <code>.SoupMessage.NoteRes note = 1;</code>
+       */
+      public Builder clearNote() {
+        if (noteBuilder_ == null) {
+          note_ = null;
+          onChanged();
+        } else {
+          note_ = null;
+          noteBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *  新增笔记
+       * </pre>
+       *
+       * <code>.SoupMessage.NoteRes note = 1;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder getNoteBuilder() {
+        
+        onChanged();
+        return getNoteFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *  新增笔记
+       * </pre>
+       *
+       * <code>.SoupMessage.NoteRes note = 1;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder getNoteOrBuilder() {
+        if (noteBuilder_ != null) {
+          return noteBuilder_.getMessageOrBuilder();
+        } else {
+          return note_ == null ?
+              io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.getDefaultInstance() : note_;
+        }
+      }
+      /**
+       * <pre>
+       *  新增笔记
+       * </pre>
+       *
+       * <code>.SoupMessage.NoteRes note = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder> 
+          getNoteFieldBuilder() {
+        if (noteBuilder_ == null) {
+          noteBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder>(
+                  getNote(),
+                  getParentForChildren(),
+                  isClean());
+          note_ = null;
+        }
+        return noteBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SoupMessage.AddNoteRes)
+    }
+
+    // @@protoc_insertion_point(class_scope:SoupMessage.AddNoteRes)
+    private static final io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes();
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AddNoteRes>
+        PARSER = new com.google.protobuf.AbstractParser<AddNoteRes>() {
+      @java.lang.Override
+      public AddNoteRes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AddNoteRes(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AddNoteRes> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AddNoteRes> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.AddNoteRes getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DeleteNoteReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SoupMessage.DeleteNoteReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *  笔记 id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <pre>
+     *  笔记 id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+  }
+  /**
+   * <pre>
+   *删除笔记 请求
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.DeleteNoteReq}
+   */
+  public static final class DeleteNoteReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SoupMessage.DeleteNoteReq)
+      DeleteNoteReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DeleteNoteReq.newBuilder() to construct.
+    private DeleteNoteReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DeleteNoteReq() {
+      id_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DeleteNoteReq();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DeleteNoteReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_DeleteNoteReq_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_DeleteNoteReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <pre>
+     *  笔记 id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *  笔记 id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq)) {
+        return super.equals(obj);
+      }
+      io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq other = (io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *删除笔记 请求
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.DeleteNoteReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SoupMessage.DeleteNoteReq)
+        io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_DeleteNoteReq_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_DeleteNoteReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq.Builder.class);
+      }
+
+      // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_DeleteNoteReq_descriptor;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq build() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq result = new io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq(this);
+        result.id_ = id_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <pre>
+       *  笔记 id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *  笔记 id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *  笔记 id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记 id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记 id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SoupMessage.DeleteNoteReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:SoupMessage.DeleteNoteReq)
+    private static final io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq();
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DeleteNoteReq>
+        PARSER = new com.google.protobuf.AbstractParser<DeleteNoteReq>() {
+      @java.lang.Override
+      public DeleteNoteReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DeleteNoteReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DeleteNoteReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DeleteNoteReq> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DeleteNoteResOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SoupMessage.DeleteNoteRes)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * <pre>
+   *删除笔记 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.DeleteNoteRes}
+   */
+  public static final class DeleteNoteRes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SoupMessage.DeleteNoteRes)
+      DeleteNoteResOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DeleteNoteRes.newBuilder() to construct.
+    private DeleteNoteRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DeleteNoteRes() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DeleteNoteRes();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DeleteNoteRes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_DeleteNoteRes_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_DeleteNoteRes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes)) {
+        return super.equals(obj);
+      }
+      io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes other = (io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *删除笔记 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.DeleteNoteRes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SoupMessage.DeleteNoteRes)
+        io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteResOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_DeleteNoteRes_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_DeleteNoteRes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes.Builder.class);
+      }
+
+      // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_DeleteNoteRes_descriptor;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes build() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes result = new io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SoupMessage.DeleteNoteRes)
+    }
+
+    // @@protoc_insertion_point(class_scope:SoupMessage.DeleteNoteRes)
+    private static final io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes();
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DeleteNoteRes>
+        PARSER = new com.google.protobuf.AbstractParser<DeleteNoteRes>() {
+      @java.lang.Override
+      public DeleteNoteRes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DeleteNoteRes(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DeleteNoteRes> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DeleteNoteRes> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.DeleteNoteRes getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LoadNoteReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SoupMessage.LoadNoteReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *  查询用户 id
+     * </pre>
+     *
+     * <code>string aid = 1;</code>
+     * @return The aid.
+     */
+    java.lang.String getAid();
+    /**
+     * <pre>
+     *  查询用户 id
+     * </pre>
+     *
+     * <code>string aid = 1;</code>
+     * @return The bytes for aid.
+     */
+    com.google.protobuf.ByteString
+        getAidBytes();
+  }
+  /**
+   * <pre>
+   * 查询笔记 请求
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.LoadNoteReq}
+   */
+  public static final class LoadNoteReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SoupMessage.LoadNoteReq)
+      LoadNoteReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LoadNoteReq.newBuilder() to construct.
+    private LoadNoteReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LoadNoteReq() {
+      aid_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LoadNoteReq();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LoadNoteReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              aid_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadNoteReq_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadNoteReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq.Builder.class);
+    }
+
+    public static final int AID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object aid_;
+    /**
+     * <pre>
+     *  查询用户 id
+     * </pre>
+     *
+     * <code>string aid = 1;</code>
+     * @return The aid.
+     */
+    @java.lang.Override
+    public java.lang.String getAid() {
+      java.lang.Object ref = aid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        aid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *  查询用户 id
+     * </pre>
+     *
+     * <code>string aid = 1;</code>
+     * @return The bytes for aid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAidBytes() {
+      java.lang.Object ref = aid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        aid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getAidBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, aid_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getAidBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, aid_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq)) {
+        return super.equals(obj);
+      }
+      io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq other = (io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq) obj;
+
+      if (!getAid()
+          .equals(other.getAid())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + AID_FIELD_NUMBER;
+      hash = (53 * hash) + getAid().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 查询笔记 请求
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.LoadNoteReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SoupMessage.LoadNoteReq)
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadNoteReq_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadNoteReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq.class, io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq.Builder.class);
+      }
+
+      // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        aid_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadNoteReq_descriptor;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq build() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq result = new io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq(this);
+        result.aid_ = aid_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq.getDefaultInstance()) return this;
+        if (!other.getAid().isEmpty()) {
+          aid_ = other.aid_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object aid_ = "";
+      /**
+       * <pre>
+       *  查询用户 id
+       * </pre>
+       *
+       * <code>string aid = 1;</code>
+       * @return The aid.
+       */
+      public java.lang.String getAid() {
+        java.lang.Object ref = aid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          aid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *  查询用户 id
+       * </pre>
+       *
+       * <code>string aid = 1;</code>
+       * @return The bytes for aid.
+       */
+      public com.google.protobuf.ByteString
+          getAidBytes() {
+        java.lang.Object ref = aid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          aid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *  查询用户 id
+       * </pre>
+       *
+       * <code>string aid = 1;</code>
+       * @param value The aid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        aid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  查询用户 id
+       * </pre>
+       *
+       * <code>string aid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAid() {
+        
+        aid_ = getDefaultInstance().getAid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  查询用户 id
+       * </pre>
+       *
+       * <code>string aid = 1;</code>
+       * @param value The bytes for aid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        aid_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SoupMessage.LoadNoteReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:SoupMessage.LoadNoteReq)
+    private static final io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq();
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LoadNoteReq>
+        PARSER = new com.google.protobuf.AbstractParser<LoadNoteReq>() {
+      @java.lang.Override
+      public LoadNoteReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LoadNoteReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LoadNoteReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LoadNoteReq> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LoadNoteResOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SoupMessage.LoadNoteRes)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *  笔记列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+     */
+    java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes> 
+        getNotesList();
+    /**
+     * <pre>
+     *  笔记列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes getNotes(int index);
+    /**
+     * <pre>
+     *  笔记列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+     */
+    int getNotesCount();
+    /**
+     * <pre>
+     *  笔记列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+     */
+    java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder> 
+        getNotesOrBuilderList();
+    /**
+     * <pre>
+     *  笔记列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder getNotesOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * 查询笔记 返回
+   * </pre>
+   *
+   * Protobuf type {@code SoupMessage.LoadNoteRes}
+   */
+  public static final class LoadNoteRes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SoupMessage.LoadNoteRes)
+      LoadNoteResOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LoadNoteRes.newBuilder() to construct.
+    private LoadNoteRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LoadNoteRes() {
+      notes_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LoadNoteRes();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LoadNoteRes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                notes_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              notes_.add(
+                  input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          notes_ = java.util.Collections.unmodifiableList(notes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadNoteRes_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadNoteRes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes.Builder.class);
+    }
+
+    public static final int NOTES_FIELD_NUMBER = 1;
+    private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes> notes_;
+    /**
+     * <pre>
+     *  笔记列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes> getNotesList() {
+      return notes_;
+    }
+    /**
+     * <pre>
+     *  笔记列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder> 
+        getNotesOrBuilderList() {
+      return notes_;
+    }
+    /**
+     * <pre>
+     *  笔记列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+     */
+    @java.lang.Override
+    public int getNotesCount() {
+      return notes_.size();
+    }
+    /**
+     * <pre>
+     *  笔记列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes getNotes(int index) {
+      return notes_.get(index);
+    }
+    /**
+     * <pre>
+     *  笔记列表
+     * </pre>
+     *
+     * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder getNotesOrBuilder(
+        int index) {
+      return notes_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < notes_.size(); i++) {
+        output.writeMessage(1, notes_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < notes_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, notes_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes)) {
+        return super.equals(obj);
+      }
+      io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes other = (io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes) obj;
+
+      if (!getNotesList()
+          .equals(other.getNotesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getNotesCount() > 0) {
+        hash = (37 * hash) + NOTES_FIELD_NUMBER;
+        hash = (53 * hash) + getNotesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 查询笔记 返回
+     * </pre>
+     *
+     * Protobuf type {@code SoupMessage.LoadNoteRes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SoupMessage.LoadNoteRes)
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteResOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadNoteRes_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadNoteRes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes.Builder.class);
+      }
+
+      // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getNotesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (notesBuilder_ == null) {
+          notes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          notesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_LoadNoteRes_descriptor;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes build() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes result = new io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes(this);
+        int from_bitField0_ = bitField0_;
+        if (notesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            notes_ = java.util.Collections.unmodifiableList(notes_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.notes_ = notes_;
+        } else {
+          result.notes_ = notesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes.getDefaultInstance()) return this;
+        if (notesBuilder_ == null) {
+          if (!other.notes_.isEmpty()) {
+            if (notes_.isEmpty()) {
+              notes_ = other.notes_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureNotesIsMutable();
+              notes_.addAll(other.notes_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.notes_.isEmpty()) {
+            if (notesBuilder_.isEmpty()) {
+              notesBuilder_.dispose();
+              notesBuilder_ = null;
+              notes_ = other.notes_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              notesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getNotesFieldBuilder() : null;
+            } else {
+              notesBuilder_.addAllMessages(other.notes_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes> notes_ =
+        java.util.Collections.emptyList();
+      private void ensureNotesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          notes_ = new java.util.ArrayList<io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes>(notes_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder> notesBuilder_;
+
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes> getNotesList() {
+        if (notesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(notes_);
+        } else {
+          return notesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public int getNotesCount() {
+        if (notesBuilder_ == null) {
+          return notes_.size();
+        } else {
+          return notesBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes getNotes(int index) {
+        if (notesBuilder_ == null) {
+          return notes_.get(index);
+        } else {
+          return notesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public Builder setNotes(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes value) {
+        if (notesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNotesIsMutable();
+          notes_.set(index, value);
+          onChanged();
+        } else {
+          notesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public Builder setNotes(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder builderForValue) {
+        if (notesBuilder_ == null) {
+          ensureNotesIsMutable();
+          notes_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          notesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public Builder addNotes(io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes value) {
+        if (notesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNotesIsMutable();
+          notes_.add(value);
+          onChanged();
+        } else {
+          notesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public Builder addNotes(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes value) {
+        if (notesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNotesIsMutable();
+          notes_.add(index, value);
+          onChanged();
+        } else {
+          notesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public Builder addNotes(
+          io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder builderForValue) {
+        if (notesBuilder_ == null) {
+          ensureNotesIsMutable();
+          notes_.add(builderForValue.build());
+          onChanged();
+        } else {
+          notesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public Builder addNotes(
+          int index, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder builderForValue) {
+        if (notesBuilder_ == null) {
+          ensureNotesIsMutable();
+          notes_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          notesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public Builder addAllNotes(
+          java.lang.Iterable<? extends io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes> values) {
+        if (notesBuilder_ == null) {
+          ensureNotesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, notes_);
+          onChanged();
+        } else {
+          notesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public Builder clearNotes() {
+        if (notesBuilder_ == null) {
+          notes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          notesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public Builder removeNotes(int index) {
+        if (notesBuilder_ == null) {
+          ensureNotesIsMutable();
+          notes_.remove(index);
+          onChanged();
+        } else {
+          notesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder getNotesBuilder(
+          int index) {
+        return getNotesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder getNotesOrBuilder(
+          int index) {
+        if (notesBuilder_ == null) {
+          return notes_.get(index);  } else {
+          return notesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public java.util.List<? extends io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder> 
+           getNotesOrBuilderList() {
+        if (notesBuilder_ != null) {
+          return notesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(notes_);
+        }
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder addNotesBuilder() {
+        return getNotesFieldBuilder().addBuilder(
+            io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder addNotesBuilder(
+          int index) {
+        return getNotesFieldBuilder().addBuilder(
+            index, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *  笔记列表
+       * </pre>
+       *
+       * <code>repeated .SoupMessage.NoteRes notes = 1;</code>
+       */
+      public java.util.List<io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder> 
+           getNotesBuilderList() {
+        return getNotesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder> 
+          getNotesFieldBuilder() {
+        if (notesBuilder_ == null) {
+          notesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder>(
+                  notes_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          notes_ = null;
+        }
+        return notesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SoupMessage.LoadNoteRes)
+    }
+
+    // @@protoc_insertion_point(class_scope:SoupMessage.LoadNoteRes)
+    private static final io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes();
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LoadNoteRes>
+        PARSER = new com.google.protobuf.AbstractParser<LoadNoteRes>() {
+      @java.lang.Override
+      public LoadNoteRes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LoadNoteRes(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LoadNoteRes> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LoadNoteRes> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.LoadNoteRes getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface NoteResOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SoupMessage.NoteRes)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *  笔记 id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <pre>
+     *  笔记 id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <pre>
+     *  类型 1:引用对话 2:自定义
+     * </pre>
+     *
+     * <code>int32 type = 2;</code>
+     * @return The type.
+     */
+    int getType();
+
+    /**
+     * <pre>
+     *  自定义类型的内容
+     * </pre>
+     *
+     * <code>string content = 3;</code>
+     * @return The content.
+     */
+    java.lang.String getContent();
+    /**
+     * <pre>
+     *  自定义类型的内容
+     * </pre>
+     *
+     * <code>string content = 3;</code>
+     * @return The bytes for content.
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+
+    /**
+     * <pre>
+     *  聊天消息引用对象
+     * </pre>
+     *
+     * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+     * @return Whether the chatMessage field is set.
+     */
+    boolean hasChatMessage();
+    /**
+     * <pre>
+     *  聊天消息引用对象
+     * </pre>
+     *
+     * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+     * @return The chatMessage.
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChatMessage();
+    /**
+     * <pre>
+     *  聊天消息引用对象
+     * </pre>
+     *
+     * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+     */
+    io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChatMessageOrBuilder();
+  }
+  /**
+   * Protobuf type {@code SoupMessage.NoteRes}
+   */
+  public static final class NoteRes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SoupMessage.NoteRes)
+      NoteResOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use NoteRes.newBuilder() to construct.
+    private NoteRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private NoteRes() {
+      id_ = "";
+      content_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NoteRes();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private NoteRes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            case 16: {
+
+              type_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              content_ = s;
+              break;
+            }
+            case 34: {
+              io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder subBuilder = null;
+              if (chatMessage_ != null) {
+                subBuilder = chatMessage_.toBuilder();
+              }
+              chatMessage_ = input.readMessage(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(chatMessage_);
+                chatMessage_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_NoteRes_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_NoteRes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <pre>
+     *  笔记 id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *  笔记 id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 2;
+    private int type_;
+    /**
+     * <pre>
+     *  类型 1:引用对话 2:自定义
+     * </pre>
+     *
+     * <code>int32 type = 2;</code>
+     * @return The type.
+     */
+    @java.lang.Override
+    public int getType() {
+      return type_;
+    }
+
+    public static final int CONTENT_FIELD_NUMBER = 3;
+    private volatile java.lang.Object content_;
+    /**
+     * <pre>
+     *  自定义类型的内容
+     * </pre>
+     *
+     * <code>string content = 3;</code>
+     * @return The content.
+     */
+    @java.lang.Override
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *  自定义类型的内容
+     * </pre>
+     *
+     * <code>string content = 3;</code>
+     * @return The bytes for content.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CHATMESSAGE_FIELD_NUMBER = 4;
+    private io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes chatMessage_;
+    /**
+     * <pre>
+     *  聊天消息引用对象
+     * </pre>
+     *
+     * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+     * @return Whether the chatMessage field is set.
+     */
+    @java.lang.Override
+    public boolean hasChatMessage() {
+      return chatMessage_ != null;
+    }
+    /**
+     * <pre>
+     *  聊天消息引用对象
+     * </pre>
+     *
+     * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+     * @return The chatMessage.
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChatMessage() {
+      return chatMessage_ == null ? io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance() : chatMessage_;
+    }
+    /**
+     * <pre>
+     *  聊天消息引用对象
+     * </pre>
+     *
+     * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+     */
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChatMessageOrBuilder() {
+      return getChatMessage();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      if (type_ != 0) {
+        output.writeInt32(2, type_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, content_);
+      }
+      if (chatMessage_ != null) {
+        output.writeMessage(4, getChatMessage());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      if (type_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, type_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, content_);
+      }
+      if (chatMessage_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getChatMessage());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes)) {
+        return super.equals(obj);
+      }
+      io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes other = (io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (getType()
+          != other.getType()) return false;
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (hasChatMessage() != other.hasChatMessage()) return false;
+      if (hasChatMessage()) {
+        if (!getChatMessage()
+            .equals(other.getChatMessage())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getType();
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      if (hasChatMessage()) {
+        hash = (37 * hash) + CHATMESSAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getChatMessage().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SoupMessage.NoteRes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SoupMessage.NoteRes)
+        io.github.hdfg159.game.domain.dto.SoupMessage.NoteResOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_NoteRes_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_NoteRes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.class, io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.Builder.class);
+      }
+
+      // Construct using io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        type_ = 0;
+
+        content_ = "";
+
+        if (chatMessageBuilder_ == null) {
+          chatMessage_ = null;
+        } else {
+          chatMessage_ = null;
+          chatMessageBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.internal_static_SoupMessage_NoteRes_descriptor;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes getDefaultInstanceForType() {
+        return io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes build() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes buildPartial() {
+        io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes result = new io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes(this);
+        result.id_ = id_;
+        result.type_ = type_;
+        result.content_ = content_;
+        if (chatMessageBuilder_ == null) {
+          result.chatMessage_ = chatMessage_;
+        } else {
+          result.chatMessage_ = chatMessageBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes) {
+          return mergeFrom((io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes other) {
+        if (other == io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        if (other.getType() != 0) {
+          setType(other.getType());
+        }
+        if (!other.getContent().isEmpty()) {
+          content_ = other.content_;
+          onChanged();
+        }
+        if (other.hasChatMessage()) {
+          mergeChatMessage(other.getChatMessage());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <pre>
+       *  笔记 id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *  笔记 id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *  笔记 id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记 id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  笔记 id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int type_ ;
+      /**
+       * <pre>
+       *  类型 1:引用对话 2:自定义
+       * </pre>
+       *
+       * <code>int32 type = 2;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public int getType() {
+        return type_;
+      }
+      /**
+       * <pre>
+       *  类型 1:引用对话 2:自定义
+       * </pre>
+       *
+       * <code>int32 type = 2;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(int value) {
+        
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  类型 1:引用对话 2:自定义
+       * </pre>
+       *
+       * <code>int32 type = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object content_ = "";
+      /**
+       * <pre>
+       *  自定义类型的内容
+       * </pre>
+       *
+       * <code>string content = 3;</code>
+       * @return The content.
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *  自定义类型的内容
+       * </pre>
+       *
+       * <code>string content = 3;</code>
+       * @return The bytes for content.
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *  自定义类型的内容
+       * </pre>
+       *
+       * <code>string content = 3;</code>
+       * @param value The content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  自定义类型的内容
+       * </pre>
+       *
+       * <code>string content = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearContent() {
+        
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *  自定义类型的内容
+       * </pre>
+       *
+       * <code>string content = 3;</code>
+       * @param value The bytes for content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes chatMessage_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> chatMessageBuilder_;
+      /**
+       * <pre>
+       *  聊天消息引用对象
+       * </pre>
+       *
+       * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+       * @return Whether the chatMessage field is set.
+       */
+      public boolean hasChatMessage() {
+        return chatMessageBuilder_ != null || chatMessage_ != null;
+      }
+      /**
+       * <pre>
+       *  聊天消息引用对象
+       * </pre>
+       *
+       * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+       * @return The chatMessage.
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes getChatMessage() {
+        if (chatMessageBuilder_ == null) {
+          return chatMessage_ == null ? io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance() : chatMessage_;
+        } else {
+          return chatMessageBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *  聊天消息引用对象
+       * </pre>
+       *
+       * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+       */
+      public Builder setChatMessage(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
+        if (chatMessageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          chatMessage_ = value;
+          onChanged();
+        } else {
+          chatMessageBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *  聊天消息引用对象
+       * </pre>
+       *
+       * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+       */
+      public Builder setChatMessage(
+          io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder builderForValue) {
+        if (chatMessageBuilder_ == null) {
+          chatMessage_ = builderForValue.build();
+          onChanged();
+        } else {
+          chatMessageBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *  聊天消息引用对象
+       * </pre>
+       *
+       * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+       */
+      public Builder mergeChatMessage(io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes value) {
+        if (chatMessageBuilder_ == null) {
+          if (chatMessage_ != null) {
+            chatMessage_ =
+              io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.newBuilder(chatMessage_).mergeFrom(value).buildPartial();
+          } else {
+            chatMessage_ = value;
+          }
+          onChanged();
+        } else {
+          chatMessageBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *  聊天消息引用对象
+       * </pre>
+       *
+       * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+       */
+      public Builder clearChatMessage() {
+        if (chatMessageBuilder_ == null) {
+          chatMessage_ = null;
+          onChanged();
+        } else {
+          chatMessage_ = null;
+          chatMessageBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *  聊天消息引用对象
+       * </pre>
+       *
+       * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder getChatMessageBuilder() {
+        
+        onChanged();
+        return getChatMessageFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *  聊天消息引用对象
+       * </pre>
+       *
+       * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+       */
+      public io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder getChatMessageOrBuilder() {
+        if (chatMessageBuilder_ != null) {
+          return chatMessageBuilder_.getMessageOrBuilder();
+        } else {
+          return chatMessage_ == null ?
+              io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.getDefaultInstance() : chatMessage_;
+        }
+      }
+      /**
+       * <pre>
+       *  聊天消息引用对象
+       * </pre>
+       *
+       * <code>.SoupMessage.ChatMessageRes chatMessage = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder> 
+          getChatMessageFieldBuilder() {
+        if (chatMessageBuilder_ == null) {
+          chatMessageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageRes.Builder, io.github.hdfg159.game.domain.dto.SoupMessage.ChatMessageResOrBuilder>(
+                  getChatMessage(),
+                  getParentForChildren(),
+                  isClean());
+          chatMessage_ = null;
+        }
+        return chatMessageBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SoupMessage.NoteRes)
+    }
+
+    // @@protoc_insertion_point(class_scope:SoupMessage.NoteRes)
+    private static final io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes();
+    }
+
+    public static io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<NoteRes>
+        PARSER = new com.google.protobuf.AbstractParser<NoteRes>() {
+      @java.lang.Override
+      public NoteRes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NoteRes(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<NoteRes> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NoteRes> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.github.hdfg159.game.domain.dto.SoupMessage.NoteRes getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SoupMessage_LoadReq_descriptor;
   private static final 
@@ -21794,6 +26987,41 @@ public final class SoupMessage {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_SoupMessage_ChatMessageRes_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SoupMessage_AddNoteReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SoupMessage_AddNoteReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SoupMessage_AddNoteRes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SoupMessage_AddNoteRes_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SoupMessage_DeleteNoteReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SoupMessage_DeleteNoteReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SoupMessage_DeleteNoteRes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SoupMessage_DeleteNoteRes_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SoupMessage_LoadNoteReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SoupMessage_LoadNoteReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SoupMessage_LoadNoteRes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SoupMessage_LoadNoteRes_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SoupMessage_NoteRes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SoupMessage_NoteRes_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -21840,8 +27068,16 @@ public final class SoupMessage {
       "x\n\016ChatMessageRes\022\n\n\002id\030\001 \001(\t\022\017\n\007content" +
       "\030\002 \001(\t\022\016\n\006answer\030\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007a" +
       "vaName\030\005 \001(\t\022\017\n\007avaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001(" +
-      "\010B/\n!io.github.hdfg159.game.domain.dtoZ\n" +
-      "./protobufb\006proto3"
+      "\010\"0\n\nAddNoteReq\022\021\n\tmessageId\030\001 \001(\t\022\017\n\007co" +
+      "ntent\030\002 \001(\t\"0\n\nAddNoteRes\022\"\n\004note\030\001 \001(\0132" +
+      "\024.SoupMessage.NoteRes\"\033\n\rDeleteNoteReq\022\n" +
+      "\n\002id\030\001 \001(\t\"\017\n\rDeleteNoteRes\"\032\n\013LoadNoteR" +
+      "eq\022\013\n\003aid\030\001 \001(\t\"2\n\013LoadNoteRes\022#\n\005notes\030" +
+      "\001 \003(\0132\024.SoupMessage.NoteRes\"f\n\007NoteRes\022\n" +
+      "\n\002id\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\017\n\007content\030\003 \001(" +
+      "\t\0220\n\013chatMessage\030\004 \001(\0132\033.SoupMessage.Cha" +
+      "tMessageResB/\n!io.github.hdfg159.game.do" +
+      "main.dtoZ\n./protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -22021,6 +27257,48 @@ public final class SoupMessage {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SoupMessage_ChatMessageRes_descriptor,
         new java.lang.String[] { "Id", "Content", "Answer", "Aid", "AvaName", "AvaHead", "Mc", });
+    internal_static_SoupMessage_AddNoteReq_descriptor =
+      getDescriptor().getMessageTypes().get(29);
+    internal_static_SoupMessage_AddNoteReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SoupMessage_AddNoteReq_descriptor,
+        new java.lang.String[] { "MessageId", "Content", });
+    internal_static_SoupMessage_AddNoteRes_descriptor =
+      getDescriptor().getMessageTypes().get(30);
+    internal_static_SoupMessage_AddNoteRes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SoupMessage_AddNoteRes_descriptor,
+        new java.lang.String[] { "Note", });
+    internal_static_SoupMessage_DeleteNoteReq_descriptor =
+      getDescriptor().getMessageTypes().get(31);
+    internal_static_SoupMessage_DeleteNoteReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SoupMessage_DeleteNoteReq_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_SoupMessage_DeleteNoteRes_descriptor =
+      getDescriptor().getMessageTypes().get(32);
+    internal_static_SoupMessage_DeleteNoteRes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SoupMessage_DeleteNoteRes_descriptor,
+        new java.lang.String[] { });
+    internal_static_SoupMessage_LoadNoteReq_descriptor =
+      getDescriptor().getMessageTypes().get(33);
+    internal_static_SoupMessage_LoadNoteReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SoupMessage_LoadNoteReq_descriptor,
+        new java.lang.String[] { "Aid", });
+    internal_static_SoupMessage_LoadNoteRes_descriptor =
+      getDescriptor().getMessageTypes().get(34);
+    internal_static_SoupMessage_LoadNoteRes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SoupMessage_LoadNoteRes_descriptor,
+        new java.lang.String[] { "Notes", });
+    internal_static_SoupMessage_NoteRes_descriptor =
+      getDescriptor().getMessageTypes().get(35);
+    internal_static_SoupMessage_NoteRes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SoupMessage_NoteRes_descriptor,
+        new java.lang.String[] { "Id", "Type", "Content", "ChatMessage", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

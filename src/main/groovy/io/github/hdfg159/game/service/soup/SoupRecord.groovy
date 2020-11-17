@@ -98,4 +98,41 @@ class SoupRecord implements TData<String> {
 	def getRecordMemberIds() {
 		memberIds.findAll {it != null}
 	}
+	
+	def getNote(String id) {
+		noteMap[id]
+	}
+	
+	def addNote(SoupNote note) {
+		if (!note) {
+			return
+		}
+		
+		def id = note.id
+		noteMap.put(id, note)
+		
+		def aid = note.aid
+		memberNoteMap[aid].add(id)
+	}
+	
+	def deleteNote(SoupNote note) {
+		def aid = note.aid
+		def id = note.id
+		
+		noteMap.remove(id)
+		memberNoteMap[aid].remove(id)
+	}
+	
+	def getAidAllNoteRes(String aid) {
+		def noteIds = memberNoteMap[aid]
+		if (noteIds) {
+			return []
+		}
+		
+		noteIds.collect {getNote(it)}
+				.findAll {it != null}
+				.collect {
+					it.covertNoteRes(getMsg(it.referChatId))
+				}
+	}
 }
