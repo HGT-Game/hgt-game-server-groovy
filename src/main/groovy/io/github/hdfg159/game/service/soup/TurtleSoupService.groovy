@@ -837,7 +837,7 @@ class TurtleSoupService extends AbstractService {
 		def aid = getHeaderAvatarId(headers)
 		def req = params as SoupMessage.LoadNoteReq
 		
-		def loadAid = req.aid
+		def loadAid = req.aid ?: aid
 		
 		def member = memberData.getById(aid)
 		def room = roomData.getRoom(member.roomId)
