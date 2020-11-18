@@ -218,16 +218,11 @@ class TurtleSoupService extends AbstractService {
 				def msgIds = record.chatRecordIds.toList()
 				// 限制100条
 				def limit = 100
-				Deque<SoupMessage.ChatMessageRes> chatRecords = new ArrayDeque<>()
 				// 取最小记录数，防止越界
 				def min = Math.min(msgIds.size(), limit)
-				for (int i in (0..<min)) {
-					def id = msgIds[msgIds.size() - 1 - i]
-					def msg = record.getMsg(id)
-					if (msg) {
-						chatRecords.addFirst(buildMessageRes(msg, aid, record.mcId))
-					}
-				}
+				def chatRecords = (0..<min).collect {record.getMsg(msgIds[msgIds.size() - min + it])}
+						.findAll {it != null}
+						.collect {buildMessageRes(it, aid, record.mcId)}
 				
 				// 题目
 				def questionRes = buildQuestion(aid == record.mcId, record.questionId)
@@ -398,7 +393,6 @@ class TurtleSoupService extends AbstractService {
 		def req = params as SoupMessage.KickReq
 		def aid = getHeaderAvatarId(headers)
 		
-		
 		def kickAid = req.aid
 		def kickIndex = req.index
 		if (!kickAid || !kickIndex) {
@@ -520,6 +514,11 @@ class TurtleSoupService extends AbstractService {
 		}
 		
 		def member = memberData.getById(aid)
+		if (member.status.get() != MemberStatus.PLAYING.status) {
+			// 还没进对局拒绝请求
+			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_MEMBER_NOT_PLAYING)
+		}
+		
 		def room = roomData.getRoom(member.roomId)
 		if (!room) {
 			return GameUtils.resMsg(RES_SOUP_CHAT, CodeEnums.SOUP_ROOM_NOT_EXIST)
@@ -566,6 +565,11 @@ class TurtleSoupService extends AbstractService {
 		def req = params as SoupMessage.AnswerReq
 		
 		def member = memberData.getById(aid)
+		if (member.status.get() != MemberStatus.PLAYING.status) {
+			// 还没进对局拒绝请求
+			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_MEMBER_NOT_PLAYING)
+		}
+		
 		def room = roomData.getRoom(member.roomId)
 		if (!room) {
 			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_ROOM_NOT_EXIST)
@@ -614,6 +618,11 @@ class TurtleSoupService extends AbstractService {
 		// def req = params as SoupMessage.EndReq
 		
 		def member = memberData.getById(aid)
+		if (member.status.get() != MemberStatus.PLAYING.status) {
+			// 还没进对局拒绝请求
+			return GameUtils.resMsg(RES_SOUP_END, CodeEnums.SOUP_MEMBER_NOT_PLAYING)
+		}
+		
 		def roomId = member.roomId
 		def room = roomData.getRoom(roomId)
 		if (!room) {
@@ -625,8 +634,7 @@ class TurtleSoupService extends AbstractService {
 				return GameUtils.resMsg(RES_SOUP_END, CodeEnums.SOUP_ROOM_STATUS_NOT_PLAYING)
 			}
 			
-			def recordId = room.recordId
-			def record = room.recordMap.get(recordId)
+			def record = room.getRecord()
 			if (!record) {
 				return GameUtils.resMsg(RES_SOUP_END, CodeEnums.SOUP_RECORD_NOT_EXIST)
 			}
@@ -797,6 +805,11 @@ class TurtleSoupService extends AbstractService {
 		}
 		
 		def member = memberData.getById(aid)
+		if (member.status.get() != MemberStatus.PLAYING.status) {
+			// 还没进对局拒绝请求
+			return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_MEMBER_NOT_PLAYING)
+		}
+		
 		def room = roomData.getRoom(member.roomId)
 		if (!room) {
 			return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_ROOM_NOT_EXIST)
@@ -863,6 +876,11 @@ class TurtleSoupService extends AbstractService {
 		def id = req.id
 		
 		def member = memberData.getById(aid)
+		if (member.status.get() != MemberStatus.PLAYING.status) {
+			// 还没进对局拒绝请求
+			return GameUtils.resMsg(RES_SOUP_DELETE_NOTE, CodeEnums.SOUP_MEMBER_NOT_PLAYING)
+		}
+		
 		def room = roomData.getRoom(member.roomId)
 		if (!room) {
 			return GameUtils.resMsg(RES_SOUP_DELETE_NOTE, CodeEnums.SOUP_ROOM_NOT_EXIST)

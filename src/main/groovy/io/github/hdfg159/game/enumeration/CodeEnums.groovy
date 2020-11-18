@@ -166,6 +166,10 @@ enum CodeEnums {
 	 * 不是当前房间房主
 	 */
 	SOUP_MEMBER_NOT_OWNER(21002),
+	/**
+	 * 成员不是游戏中
+	 */
+	SOUP_MEMBER_NOT_PLAYING(21003),
 	
 	/**
 	 * 答案类型不存在

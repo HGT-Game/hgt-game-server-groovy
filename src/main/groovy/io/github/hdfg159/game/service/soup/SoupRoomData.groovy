@@ -142,7 +142,7 @@ class SoupRoomData {
 	}
 	
 	def getRoom(String roomId) {
-		!roomId ? null : roomMap.get(roomId)
+		!roomId ? null : roomMap[roomId]
 	}
 	
 	def existRoom(String roomId) {
