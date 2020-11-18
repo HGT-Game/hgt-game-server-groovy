@@ -5,11 +5,14 @@ package io.github.hdfg159.game.service.soup.enums
  */
 enum AnswerType {
 	// 未作答
-	NONE(0),
 	NON(1),
+	// 不相关
 	UNRELATED(2),
+	// 对
 	YES(3),
+	// 错
 	NO(4),
+	// 半对
 	HALF(5),
 	
 	int type

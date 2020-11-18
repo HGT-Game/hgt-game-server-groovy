@@ -175,6 +175,7 @@ enum CodeEnums {
 	 * 答案类型不存在
 	 */
 	SOUP_ANSWER_TYPE_NOT_EXIST(21100),
+	SOUP_ANSWER_NOT_ALLOW_MC(21101),
 	
 	/**
 	 * 问题不存在
@@ -193,6 +194,10 @@ enum CodeEnums {
 	 * 笔记不合法
 	 */
 	SOUP_NOTE_ILLEGAL(21302),
+	/**
+	 * MC不能做笔记
+	 */
+	SOUP_ADD_NOTE_NOT_ALLOW_MC(21303),
 	
 	long code
 	

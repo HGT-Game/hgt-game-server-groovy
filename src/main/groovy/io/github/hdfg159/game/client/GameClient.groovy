@@ -58,47 +58,56 @@ class GameClient {
 				// 下面业务代码
 				if (channel.active) {
 					switch (args[0]) {
-						case "1002":
+						case "${ProtocolEnums.REQ_LOGIN.protocol}":
 							login(args[1], args[2])
 							break
-						case "1003":
+						case "${ProtocolEnums.REQ_REGISTER.protocol}":
 							register(args[1], args[2])
 							break
-						case "9999999":
+						case "${ProtocolEnums.REQ_TEST.protocol}":
 							test()
 							break
-						case "2001":
+						case "${ProtocolEnums.REQ_SOUP_ROOM_HALL.protocol}":
 							soupRoomHall()
 							break
-						case "2002":
+						case "${ProtocolEnums.REQ_SOUP_CREATE_ROOM.protocol}":
 							createSoupRoom(args[1], args[2].toInteger())
 							break
-						case "2003":
+						case "${ProtocolEnums.REQ_SOUP_JOIN_ROOM.protocol}":
 							joinSoupRoom(args[1])
 							break
-						case "2004":
+						case "${ProtocolEnums.REQ_SOUP_LEAVE_ROOM.protocol}":
 							leaveSoupRoom()
 							break
-						case "2005":
+						case "${ProtocolEnums.REQ_SOUP_PREPARE.protocol}":
 							prepareSoupRoom()
 							break
-						case "2006":
+						case "${ProtocolEnums.REQ_SOUP_KICK.protocol}":
 							kick()
 							break
-						case "2008":
+						case "${ProtocolEnums.REQ_SOUP_CHAT.protocol}":
 							chat(args[1])
 							break
-						case "2009":
+						case "${ProtocolEnums.REQ_SOUP_ANSWER.protocol}":
 							answer(args[1], args[2].toInteger())
 							break
-						case "2010":
+						case "${ProtocolEnums.REQ_SOUP_END.protocol}":
 							end()
 							break
-						case "2011":
+						case "${ProtocolEnums.REQ_SOUP_SELECT_QUESTION.protocol}":
 							selectQuestion(args[1])
 							break
-						case "2012":
+						case "${ProtocolEnums.REQ_SOUP_LOAD.protocol}":
 							load()
+							break
+						case "${ProtocolEnums.REQ_SOUP_LOAD_NOTE.protocol}":
+							loadNote(args[1])
+							break
+						case "${ProtocolEnums.REQ_SOUP_ADD_NOTE.protocol}":
+							addNote(args[1], args[2])
+							break
+						case "${ProtocolEnums.REQ_SOUP_DELETE_NOTE.protocol}":
+							deleteNote(args[1])
 							break
 						default:
 							break
@@ -193,6 +202,32 @@ class GameClient {
 		channel.writeAndFlush(login)
 	}
 	
+	def static loadNote(String s) {
+		def req = SoupMessage.LoadNoteReq.newBuilder()
+				.setAid(s)
+				.build()
+		channel.writeAndFlush(GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_LOAD_NOTE, req))
+	}
+	
+	def static addNote(p1, p2) {
+		def builder = SoupMessage.AddNoteReq.newBuilder()
+		if (p1) {
+			builder.setMessageId(p1)
+		}
+		if (p2) {
+			builder.setContent(p2)
+		}
+		def req = builder.build()
+		channel.writeAndFlush(GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_ADD_NOTE, req))
+	}
+	
+	def static deleteNote(String s) {
+		def req = SoupMessage.DeleteNoteReq.newBuilder()
+				.setId(s)
+				.build()
+		channel.writeAndFlush(GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_DELETE_NOTE, req))
+	}
+	
 	def static test() {
 		def testReq = GameMessage.TestReq.newBuilder()
 				.setStr(IdUtils.idStr)
@@ -213,4 +248,6 @@ class GameClient {
 	static void main(String[] args) {
 		getInstance().start()
 	}
+	
+	
 }

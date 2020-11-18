@@ -593,6 +593,11 @@ class TurtleSoupService extends AbstractService {
 			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_MESSAGE_NOT_EXIST)
 		}
 		
+		if (chat.mid == aid) {
+			// 这种属于 mc 自己说自己回答，不允许
+			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_ANSWER_NOT_ALLOW_MC)
+		}
+		
 		def answerType = AnswerType.valOf(req.answer)
 		if (!answerType) {
 			return GameUtils.resMsg(RES_SOUP_ANSWER, CodeEnums.SOUP_ANSWER_TYPE_NOT_EXIST)
@@ -666,6 +671,7 @@ class TurtleSoupService extends AbstractService {
 			})
 			
 			// 强制刷缓存
+			def recordId = record.id
 			recordData.updateForceById(recordId)
 			
 			logService.log(new GameLog(
@@ -820,18 +826,23 @@ class TurtleSoupService extends AbstractService {
 			return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_RECORD_NOT_EXIST)
 		}
 		
+		if (record.mcId == aid) {
+			return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_ADD_NOTE_NOT_ALLOW_MC)
+		}
+		
 		if (messageId) {
 			def msg = record.getMsg(messageId)
 			if (!msg) {
 				return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_MESSAGE_NOT_EXIST)
 			}
 			
-			if (msg.answer == AnswerType.NONE.type) {
+			if (msg.answer == AnswerType.NON.type) {
 				return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_MESSAGE_NOT_ANSWER)
 			}
 			
 			def note = SoupNote.createChatNote(aid, messageId)
-			return GameUtils.sucResMsg(RES_SOUP_ADD_NOTE, note.covertNoteRes(msg))
+			record.addNote(note)
+			return GameUtils.sucResMsg(RES_SOUP_ADD_NOTE, SoupMessage.AddNoteRes.newBuilder().setNote(note.covertNoteRes(msg)).build())
 		}
 		
 		if (!messageId && content) {
@@ -839,7 +850,8 @@ class TurtleSoupService extends AbstractService {
 				return GameUtils.resMsg(RES_SOUP_ADD_NOTE, CodeEnums.SOUP_NOTE_ILLEGAL)
 			} else {
 				def note = SoupNote.createCustomNote(aid, content)
-				return GameUtils.sucResMsg(RES_SOUP_ADD_NOTE, note.covertNoteRes(null))
+				record.addNote(note)
+				return GameUtils.sucResMsg(RES_SOUP_ADD_NOTE, SoupMessage.AddNoteRes.newBuilder().setNote(note.covertNoteRes(null)).build())
 			}
 		}
 		
