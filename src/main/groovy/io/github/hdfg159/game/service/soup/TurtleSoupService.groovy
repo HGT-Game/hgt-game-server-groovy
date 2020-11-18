@@ -308,12 +308,13 @@ class TurtleSoupService extends AbstractService {
 						// 更改房间状态
 						room.status = RoomStatus.SELECT.status
 						
-						def questionRes = questionConfig.questionMap.keySet().collect {
+						def limit = 10
+						def takeQuestions = questionConfig.questionMap.keySet().toList().shuffled().take(limit)
+						def questionRes = takeQuestions.collect {
 							buildQuestion(true, it)
 						}
 						
 						// 开始游戏记录
-						def takeQuestions = questionConfig.questionMap.keySet().toList().shuffled().take(10)
 						def record = SoupRecord.createRecord(room, takeQuestions)
 						def cache = recordData.saveCache(record)
 						room.recordMap.put(cache.id, cache)
