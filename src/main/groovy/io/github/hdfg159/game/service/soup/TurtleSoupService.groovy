@@ -109,8 +109,7 @@ class TurtleSoupService extends AbstractService {
 					buildRoomPush([], it.id, {
 						def v1 = it.v1
 						def room = it.v2
-						v1.setRoomMemberNum(room.getAllMemberIds().size())
-								.setHasPassword(room.password != null)
+						v1.setRoomMemberNum(room.getAllMemberIds().size()).setHasPassword(room.password ? true : false)
 					})
 				}
 		

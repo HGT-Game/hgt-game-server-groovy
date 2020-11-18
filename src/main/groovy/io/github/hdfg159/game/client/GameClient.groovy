@@ -71,7 +71,7 @@ class GameClient {
 							soupRoomHall()
 							break
 						case "${ProtocolEnums.REQ_SOUP_CREATE_ROOM.protocol}":
-							createSoupRoom(args[1], args[2].toInteger())
+							createSoupRoom(args[1], args[2].toInteger(), args.length < 4 ? null : args[3])
 							break
 						case "${ProtocolEnums.REQ_SOUP_JOIN_ROOM.protocol}":
 							joinSoupRoom(args[1])
@@ -155,12 +155,15 @@ class GameClient {
 		channel.writeAndFlush(reg)
 	}
 	
-	def static createSoupRoom(name, max) {
-		def req = SoupMessage.CreateRoomReq.newBuilder()
+	def static createSoupRoom(name, max, password) {
+		def builder = SoupMessage.CreateRoomReq.newBuilder()
 				.setName(name)
 				.setMax(max)
-				.build()
-		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_CREATE_ROOM, req)
+		if (password) {
+			builder.setPassword(password)
+		}
+		
+		def reg = GameUtils.reqMsg(ProtocolEnums.REQ_SOUP_CREATE_ROOM, builder.build())
 		channel.writeAndFlush(reg)
 	}
 	
