@@ -222,7 +222,7 @@ class TurtleSoupService extends AbstractService {
 				def min = Math.min(msgIds.size(), limit)
 				def chatRecords = (0..<min).collect {record.getMsg(msgIds[msgIds.size() - min + it])}
 						.findAll {it != null}
-						.collect {buildMessageRes(it, aid, record.mcId)}
+						.collect {buildMessageRes(it, record.mcId)}
 				
 				// 题目
 				def questionRes = buildQuestion(aid == record.mcId, record.questionId)
@@ -550,7 +550,7 @@ class TurtleSoupService extends AbstractService {
 		record.memberMsgMap.get(aid).add(chat.id)
 		
 		roomPush([], [], room.id, {
-			def res = buildMessageRes(chat, aid, record.mcId)
+			def res = buildMessageRes(chat, record.mcId)
 			if (res) {
 				it.v1.addChangedMsg(res)
 			}
@@ -607,7 +607,7 @@ class TurtleSoupService extends AbstractService {
 		chat.setAnswer(answerType.type)
 		
 		roomPush([], [], room.id, {
-			def res = buildMessageRes(chat, aid, record.mcId)
+			def res = buildMessageRes(chat, record.mcId)
 			if (res) {
 				it.v1.addChangedMsg(res)
 			}
@@ -982,7 +982,7 @@ class TurtleSoupService extends AbstractService {
 	/**
 	 * 构建聊天消息
 	 */
-	def buildMessageRes(SoupChatRecord chat, String aid, String mcId) {
+	def buildMessageRes(SoupChatRecord chat, String mcId) {
 		if (!chat) {
 			return null
 		}
@@ -992,7 +992,7 @@ class TurtleSoupService extends AbstractService {
 				.setContent(chat.content)
 				.setAnswer(chat.answer)
 		
-		def avatar = avatarService.getAvatarById(aid)
+		def avatar = avatarService.getAvatarById(chat.mid)
 		if (avatar) {
 			msgResBuilder
 					.setAid(avatar.id)

@@ -112,7 +112,7 @@ class SoupRecord implements TData<String> {
 		noteMap.put(id, note)
 		
 		def aid = note.aid
-		memberNoteMap[aid] << aid
+		memberNoteMap[aid] << id
 	}
 	
 	def deleteNote(SoupNote note) {
