@@ -5,7 +5,6 @@ package io.github.hdfg159.game.service.soup.enums
  */
 enum ChatType {
 	CHAT(1),
-	QUESTION(2)
 	
 	int type
 	

@@ -15,7 +15,7 @@ class SoupChatRecord implements TData<String> {
 	 */
 	String mid
 	/**
-	 * 消息类型 0:普通聊天 1:问题
+	 * 消息类型 0:普通聊天
 	 */
 	int type
 	/**
@@ -27,7 +27,7 @@ class SoupChatRecord implements TData<String> {
 	 */
 	String content
 	/**
-	 * 房间创建时间
+	 * 创建时间
 	 */
 	LocalDateTime createTime
 }
