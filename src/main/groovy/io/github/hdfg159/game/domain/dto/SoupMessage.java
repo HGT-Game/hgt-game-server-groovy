@@ -17619,13 +17619,13 @@ public final class SoupMessage {
 
     /**
      * <pre>
-     * 是否离开
+     * 离开方式 1:主动离开 2：被动离开(被踢)
      * </pre>
      *
-     * <code>bool leave = 8;</code>
+     * <code>uint32 leave = 8;</code>
      * @return The leave.
      */
-    boolean getLeave();
+    int getLeave();
   }
   /**
    * <pre>
@@ -17719,7 +17719,7 @@ public final class SoupMessage {
             }
             case 64: {
 
-              leave_ = input.readBool();
+              leave_ = input.readUInt32();
               break;
             }
             default: {
@@ -17953,17 +17953,17 @@ public final class SoupMessage {
     }
 
     public static final int LEAVE_FIELD_NUMBER = 8;
-    private boolean leave_;
+    private int leave_;
     /**
      * <pre>
-     * 是否离开
+     * 离开方式 1:主动离开 2：被动离开(被踢)
      * </pre>
      *
-     * <code>bool leave = 8;</code>
+     * <code>uint32 leave = 8;</code>
      * @return The leave.
      */
     @java.lang.Override
-    public boolean getLeave() {
+    public int getLeave() {
       return leave_;
     }
 
@@ -18002,8 +18002,8 @@ public final class SoupMessage {
       if (mc_ != false) {
         output.writeBool(7, mc_);
       }
-      if (leave_ != false) {
-        output.writeBool(8, leave_);
+      if (leave_ != 0) {
+        output.writeUInt32(8, leave_);
       }
       unknownFields.writeTo(output);
     }
@@ -18039,9 +18039,9 @@ public final class SoupMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(7, mc_);
       }
-      if (leave_ != false) {
+      if (leave_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(8, leave_);
+          .computeUInt32Size(8, leave_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -18102,8 +18102,7 @@ public final class SoupMessage {
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getMc());
       hash = (37 * hash) + LEAVE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getLeave());
+      hash = (53 * hash) + getLeave();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -18255,7 +18254,7 @@ public final class SoupMessage {
 
         mc_ = false;
 
-        leave_ = false;
+        leave_ = 0;
 
         return this;
       }
@@ -18363,7 +18362,7 @@ public final class SoupMessage {
         if (other.getMc() != false) {
           setMc(other.getMc());
         }
-        if (other.getLeave() != false) {
+        if (other.getLeave() != 0) {
           setLeave(other.getLeave());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -18855,29 +18854,29 @@ public final class SoupMessage {
         return this;
       }
 
-      private boolean leave_ ;
+      private int leave_ ;
       /**
        * <pre>
-       * 是否离开
+       * 离开方式 1:主动离开 2：被动离开(被踢)
        * </pre>
        *
-       * <code>bool leave = 8;</code>
+       * <code>uint32 leave = 8;</code>
        * @return The leave.
        */
       @java.lang.Override
-      public boolean getLeave() {
+      public int getLeave() {
         return leave_;
       }
       /**
        * <pre>
-       * 是否离开
+       * 离开方式 1:主动离开 2：被动离开(被踢)
        * </pre>
        *
-       * <code>bool leave = 8;</code>
+       * <code>uint32 leave = 8;</code>
        * @param value The leave to set.
        * @return This builder for chaining.
        */
-      public Builder setLeave(boolean value) {
+      public Builder setLeave(int value) {
         
         leave_ = value;
         onChanged();
@@ -18885,15 +18884,15 @@ public final class SoupMessage {
       }
       /**
        * <pre>
-       * 是否离开
+       * 离开方式 1:主动离开 2：被动离开(被踢)
        * </pre>
        *
-       * <code>bool leave = 8;</code>
+       * <code>uint32 leave = 8;</code>
        * @return This builder for chaining.
        */
       public Builder clearLeave() {
         
-        leave_ = false;
+        leave_ = 0;
         onChanged();
         return this;
       }
@@ -21695,7 +21694,7 @@ public final class SoupMessage {
   }
   /**
    * <pre>
-   * 加入笔记 请求
+   * 加入笔记 请求 2013
    * </pre>
    *
    * Protobuf type {@code SoupMessage.AddNoteReq}
@@ -22046,7 +22045,7 @@ public final class SoupMessage {
     }
     /**
      * <pre>
-     * 加入笔记 请求
+     * 加入笔记 请求 2013
      * </pre>
      *
      * Protobuf type {@code SoupMessage.AddNoteReq}
@@ -23162,7 +23161,7 @@ public final class SoupMessage {
   }
   /**
    * <pre>
-   *删除笔记 请求
+   *删除笔记 请求 2014
    * </pre>
    *
    * Protobuf type {@code SoupMessage.DeleteNoteReq}
@@ -23450,7 +23449,7 @@ public final class SoupMessage {
     }
     /**
      * <pre>
-     *删除笔记 请求
+     *删除笔记 请求 2014
      * </pre>
      *
      * Protobuf type {@code SoupMessage.DeleteNoteReq}
@@ -24200,7 +24199,7 @@ public final class SoupMessage {
   }
   /**
    * <pre>
-   * 查询笔记 请求
+   * 查询笔记 请求 2015
    * </pre>
    *
    * Protobuf type {@code SoupMessage.LoadNoteReq}
@@ -24488,7 +24487,7 @@ public final class SoupMessage {
     }
     /**
      * <pre>
-     * 查询笔记 请求
+     * 查询笔记 请求 2015
      * </pre>
      *
      * Protobuf type {@code SoupMessage.LoadNoteReq}
@@ -27063,7 +27062,7 @@ public final class SoupMessage {
       "es\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaH" +
       "ead\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022" +
       "\016\n\006status\030\006 \001(\r\022\n\n\002mc\030\007 \001(\010\022\r\n\005leave\030\010 \001" +
-      "(\010\"K\n\013QuestionRes\022\n\n\002id\030\001 \001(\t\022\r\n\005title\030\002" +
+      "(\r\"K\n\013QuestionRes\022\n\n\002id\030\001 \001(\t\022\r\n\005title\030\002" +
       " \001(\t\022\020\n\010question\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\"" +
       "x\n\016ChatMessageRes\022\n\n\002id\030\001 \001(\t\022\017\n\007content" +
       "\030\002 \001(\t\022\016\n\006answer\030\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007a" +

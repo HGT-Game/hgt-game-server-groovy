@@ -189,8 +189,8 @@ message RoomMemberSeatRes {
   uint32 status = 6;
   // 是否 MC
   bool mc = 7;
-  // 是否离开
-  bool leave = 8;
+  // 离开方式 1:主动离开 2：被动离开(被踢)
+  uint32 leave = 8;
 }
 
 message QuestionRes {

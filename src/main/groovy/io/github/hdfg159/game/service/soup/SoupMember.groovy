@@ -3,6 +3,7 @@ package io.github.hdfg159.game.service.soup
 import groovy.transform.Canonical
 import io.github.hdfg159.game.data.TData
 import io.github.hdfg159.game.enumeration.CodeEnums
+import io.github.hdfg159.game.service.soup.enums.LeaveEnum
 import io.github.hdfg159.game.service.soup.enums.MemberStatus
 
 import java.time.Duration
@@ -36,6 +37,11 @@ class SoupMember implements TData<String> {
 	 * 当前房间 ID
 	 */
 	volatile String roomId
+	/**
+	 * {@link io.github.hdfg159.game.service.soup.enums.LeaveEnum}
+	 * 离开方式
+	 */
+	volatile int leave
 	/**
 	 * 最后发言时间
 	 */
@@ -140,7 +146,7 @@ class SoupMember implements TData<String> {
 		seconds
 	}
 	
-	def leaveRoom() {
+	def leaveRoom(boolean kick) {
 		if (!roomId) {
 			return false
 		}
@@ -152,6 +158,7 @@ class SoupMember implements TData<String> {
 		
 		this.@status.getAndSet(MemberStatus.FREE.status)
 		this.@roomId = null
+		this.@leave = kick ? LeaveEnum.PASSIVE.type : LeaveEnum.INITIATIVE.type
 		
 		true
 	}

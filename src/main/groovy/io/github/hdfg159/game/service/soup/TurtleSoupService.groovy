@@ -15,6 +15,7 @@ import io.github.hdfg159.game.service.log.GameLog
 import io.github.hdfg159.game.service.log.LogService
 import io.github.hdfg159.game.service.soup.config.QuestionConfig
 import io.github.hdfg159.game.service.soup.enums.AnswerType
+import io.github.hdfg159.game.service.soup.enums.LeaveEnum
 import io.github.hdfg159.game.service.soup.enums.MemberStatus
 import io.github.hdfg159.game.service.soup.enums.RoomStatus
 import io.github.hdfg159.game.util.GameUtils
@@ -932,7 +933,7 @@ class TurtleSoupService extends AbstractService {
 				.setIndex(member.seat)
 				.setOwner(owner == member.id)
 				.setMc(mc == member.id)
-				.setLeave(member.roomId == null)
+				.setLeave(member.roomId == null ? member.leave : LeaveEnum.NONE.type)
 				.build()
 	}
 	

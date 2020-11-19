@@ -81,7 +81,7 @@ class SoupRoomData {
 		}
 		
 		// 无脑离开
-		member.leaveRoom()
+		member.leaveRoom(false)
 		return Tuple.tuple(CodeEnums.SUCCESS, changeAva)
 	}
 	
@@ -112,7 +112,7 @@ class SoupRoomData {
 		// 移除准备玩家数据
 		room.prepare.remove(member.id)
 		
-		member.leaveRoom()
+		member.leaveRoom(true)
 		
 		return CodeEnums.SUCCESS
 	}
