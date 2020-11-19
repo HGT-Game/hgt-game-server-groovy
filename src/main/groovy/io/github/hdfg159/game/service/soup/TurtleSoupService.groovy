@@ -309,10 +309,8 @@ class TurtleSoupService extends AbstractService {
 						room.status = RoomStatus.SELECT.status
 						
 						def limit = 10
-						def takeQuestions = questionConfig.questionMap.keySet().toList().shuffled().take(limit)
-						def questionRes = takeQuestions.collect {
-							buildQuestion(true, it)
-						}
+						def takeQuestions = questionConfig.getQuestionIds().toList().shuffled().take(limit)
+						def questionRes = takeQuestions.collect {buildQuestion(true, it)}
 						
 						// 开始游戏记录
 						def record = SoupRecord.createRecord(room, takeQuestions)
@@ -697,7 +695,7 @@ class TurtleSoupService extends AbstractService {
 			return GameUtils.resMsg(RES_SOUP_SELECT_QUESTION, CodeEnums.PARAM_ERROR)
 		}
 		
-		def question = questionConfig.questionMap[req.id]
+		def question = questionConfig.getQuestion(req.id)
 		if (!question) {
 			return GameUtils.resMsg(RES_SOUP_SELECT_QUESTION, CodeEnums.SOUP_QUESTION_NOT_EXIST)
 		}
@@ -1056,7 +1054,7 @@ class TurtleSoupService extends AbstractService {
 	 * 构建问题
 	 */
 	def buildQuestion(boolean containContent, String questionId) {
-		def question = questionConfig.questionMap[questionId]
+		def question = questionConfig.getQuestion(questionId)
 		if (!question) {
 			return null
 		}

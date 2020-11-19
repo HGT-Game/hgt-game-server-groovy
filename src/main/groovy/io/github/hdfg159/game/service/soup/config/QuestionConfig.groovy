@@ -35,4 +35,12 @@ class QuestionConfig extends AbstractConfigLoader {
     Completable reload() {
         load()
     }
+    
+    def getQuestion(String id) {
+        questionMap[id]
+    }
+    
+    Set<String> getQuestionIds() {
+        questionMap.keySet().asUnmodifiable()
+    }
 }
