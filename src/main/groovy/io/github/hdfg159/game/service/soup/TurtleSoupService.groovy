@@ -935,6 +935,7 @@ class TurtleSoupService extends AbstractService {
 				.setOwner(owner == member.id)
 				.setMc(mc == member.id)
 				.setLeave(member.roomId == null ? member.leave : LeaveEnum.NONE.type)
+				.setOnline(avatarService.isOnline(member.id))
 				.build()
 	}
 	
@@ -1087,6 +1088,10 @@ class TurtleSoupService extends AbstractService {
 			return
 		}
 		
+		// 推送离线状态
+		roomPush([member.id], [member.id], member.roomId, {it.v1})
+		
+		// 如果是 MC
 		if (member.id == record.mcId) {
 			// 启动 MC 离线定时器 倒计时
 			Triggers.once("${record.id}::MC::OFFLINE::${member.id}", LocalDateTime.now().plusMinutes(3), {

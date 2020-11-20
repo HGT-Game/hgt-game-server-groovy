@@ -300,4 +300,8 @@ class AvatarService extends AbstractService {
 	def getAvatarByName(String name) {
 		avatarData.getByUsername(name)
 	}
+	
+	def isOnline(String aid) {
+		avatarData.isOnline(aid)
+	}
 }

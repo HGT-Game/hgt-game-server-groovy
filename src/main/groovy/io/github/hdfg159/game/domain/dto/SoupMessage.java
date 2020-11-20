@@ -17716,6 +17716,16 @@ public final class SoupMessage {
      * @return The leave.
      */
     int getLeave();
+
+    /**
+     * <pre>
+     * 是否在线
+     * </pre>
+     *
+     * <code>bool online = 9;</code>
+     * @return The online.
+     */
+    boolean getOnline();
   }
   /**
    * <pre>
@@ -17810,6 +17820,11 @@ public final class SoupMessage {
             case 64: {
 
               leave_ = input.readUInt32();
+              break;
+            }
+            case 72: {
+
+              online_ = input.readBool();
               break;
             }
             default: {
@@ -18057,6 +18072,21 @@ public final class SoupMessage {
       return leave_;
     }
 
+    public static final int ONLINE_FIELD_NUMBER = 9;
+    private boolean online_;
+    /**
+     * <pre>
+     * 是否在线
+     * </pre>
+     *
+     * <code>bool online = 9;</code>
+     * @return The online.
+     */
+    @java.lang.Override
+    public boolean getOnline() {
+      return online_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -18094,6 +18124,9 @@ public final class SoupMessage {
       }
       if (leave_ != 0) {
         output.writeUInt32(8, leave_);
+      }
+      if (online_ != false) {
+        output.writeBool(9, online_);
       }
       unknownFields.writeTo(output);
     }
@@ -18133,6 +18166,10 @@ public final class SoupMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(8, leave_);
       }
+      if (online_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(9, online_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -18164,6 +18201,8 @@ public final class SoupMessage {
           != other.getMc()) return false;
       if (getLeave()
           != other.getLeave()) return false;
+      if (getOnline()
+          != other.getOnline()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -18193,6 +18232,9 @@ public final class SoupMessage {
           getMc());
       hash = (37 * hash) + LEAVE_FIELD_NUMBER;
       hash = (53 * hash) + getLeave();
+      hash = (37 * hash) + ONLINE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getOnline());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -18346,6 +18388,8 @@ public final class SoupMessage {
 
         leave_ = 0;
 
+        online_ = false;
+
         return this;
       }
 
@@ -18380,6 +18424,7 @@ public final class SoupMessage {
         result.status_ = status_;
         result.mc_ = mc_;
         result.leave_ = leave_;
+        result.online_ = online_;
         onBuilt();
         return result;
       }
@@ -18454,6 +18499,9 @@ public final class SoupMessage {
         }
         if (other.getLeave() != 0) {
           setLeave(other.getLeave());
+        }
+        if (other.getOnline() != false) {
+          setOnline(other.getOnline());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -18983,6 +19031,49 @@ public final class SoupMessage {
       public Builder clearLeave() {
         
         leave_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean online_ ;
+      /**
+       * <pre>
+       * 是否在线
+       * </pre>
+       *
+       * <code>bool online = 9;</code>
+       * @return The online.
+       */
+      @java.lang.Override
+      public boolean getOnline() {
+        return online_;
+      }
+      /**
+       * <pre>
+       * 是否在线
+       * </pre>
+       *
+       * <code>bool online = 9;</code>
+       * @param value The online to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOnline(boolean value) {
+        
+        online_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 是否在线
+       * </pre>
+       *
+       * <code>bool online = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOnline() {
+        
+        online_ = false;
         onChanged();
         return this;
       }
@@ -27149,25 +27240,25 @@ public final class SoupMessage {
       "hangedMsg\030\n \003(\0132\033.SoupMessage.ChatMessag" +
       "eRes\022(\n\003msg\030\013 \003(\0132\033.SoupMessage.ChatMess" +
       "ageRes\022\014\n\004mcId\030\014 \001(\t\022\027\n\017leaveForPlaying\030" +
-      "\r \001(\r\"\213\001\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001(\t" +
+      "\r \001(\r\"\233\001\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001(\t" +
       "\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005in" +
       "dex\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001(\r" +
-      "\022\n\n\002mc\030\007 \001(\010\022\r\n\005leave\030\010 \001(\r\"K\n\013QuestionR" +
-      "es\022\n\n\002id\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\020\n\010questio" +
-      "n\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\"x\n\016ChatMessageR" +
-      "es\022\n\n\002id\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\022\016\n\006answe" +
-      "r\030\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007avaName\030\005 \001(\t\022\017\n" +
-      "\007avaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001(\010\"0\n\nAddNoteReq" +
-      "\022\021\n\tmessageId\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\"0\n\n" +
-      "AddNoteRes\022\"\n\004note\030\001 \001(\0132\024.SoupMessage.N" +
-      "oteRes\"\033\n\rDeleteNoteReq\022\n\n\002id\030\001 \001(\t\"\017\n\rD" +
-      "eleteNoteRes\"\032\n\013LoadNoteReq\022\013\n\003aid\030\001 \001(\t" +
-      "\"2\n\013LoadNoteRes\022#\n\005notes\030\001 \003(\0132\024.SoupMes" +
-      "sage.NoteRes\"f\n\007NoteRes\022\n\n\002id\030\001 \001(\t\022\014\n\004t" +
-      "ype\030\002 \001(\005\022\017\n\007content\030\003 \001(\t\0220\n\013chatMessag" +
-      "e\030\004 \001(\0132\033.SoupMessage.ChatMessageResB/\n!" +
-      "io.github.hdfg159.game.domain.dtoZ\n./pro" +
-      "tobufb\006proto3"
+      "\022\n\n\002mc\030\007 \001(\010\022\r\n\005leave\030\010 \001(\r\022\016\n\006online\030\t " +
+      "\001(\010\"K\n\013QuestionRes\022\n\n\002id\030\001 \001(\t\022\r\n\005title\030" +
+      "\002 \001(\t\022\020\n\010question\030\003 \001(\t\022\017\n\007content\030\004 \001(\t" +
+      "\"x\n\016ChatMessageRes\022\n\n\002id\030\001 \001(\t\022\017\n\007conten" +
+      "t\030\002 \001(\t\022\016\n\006answer\030\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007" +
+      "avaName\030\005 \001(\t\022\017\n\007avaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001" +
+      "(\010\"0\n\nAddNoteReq\022\021\n\tmessageId\030\001 \001(\t\022\017\n\007c" +
+      "ontent\030\002 \001(\t\"0\n\nAddNoteRes\022\"\n\004note\030\001 \001(\013" +
+      "2\024.SoupMessage.NoteRes\"\033\n\rDeleteNoteReq\022" +
+      "\n\n\002id\030\001 \001(\t\"\017\n\rDeleteNoteRes\"\032\n\013LoadNote" +
+      "Req\022\013\n\003aid\030\001 \001(\t\"2\n\013LoadNoteRes\022#\n\005notes" +
+      "\030\001 \003(\0132\024.SoupMessage.NoteRes\"f\n\007NoteRes\022" +
+      "\n\n\002id\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\017\n\007content\030\003 \001" +
+      "(\t\0220\n\013chatMessage\030\004 \001(\0132\033.SoupMessage.Ch" +
+      "atMessageResB/\n!io.github.hdfg159.game.d" +
+      "omain.dtoZ\n./protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -27334,7 +27425,7 @@ public final class SoupMessage {
     internal_static_SoupMessage_RoomMemberSeatRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SoupMessage_RoomMemberSeatRes_descriptor,
-        new java.lang.String[] { "Aid", "AvaName", "AvaHead", "Index", "Owner", "Status", "Mc", "Leave", });
+        new java.lang.String[] { "Aid", "AvaName", "AvaHead", "Index", "Owner", "Status", "Mc", "Leave", "Online", });
     internal_static_SoupMessage_QuestionRes_descriptor =
       getDescriptor().getMessageTypes().get(27);
     internal_static_SoupMessage_QuestionRes_fieldAccessorTable = new

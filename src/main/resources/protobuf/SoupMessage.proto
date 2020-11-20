@@ -193,6 +193,8 @@ message RoomMemberSeatRes {
   bool mc = 7;
   // 离开方式 1:主动离开 2：被动离开(被踢)
   uint32 leave = 8;
+  // 是否在线
+  bool online = 9;
 }
 
 message QuestionRes {
