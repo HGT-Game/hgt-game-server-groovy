@@ -663,6 +663,11 @@ class TurtleSoupService extends AbstractService {
 				if (m.id != room.owner) {
 					room.prepare.remove(m.id)
 				}
+				
+				// 结束时候只有在房间 && 还没掉线 ，才记录玩过问题
+				if (avatarService.isOnline(m.id)) {
+					m.addQuestion(record.questionId)
+				}
 			}
 			
 			roomPush(room.getAllMemberIds(), [], roomId, {
@@ -726,7 +731,6 @@ class TurtleSoupService extends AbstractService {
 			// 选题推送
 			record.questionId = req.id
 			room.status = RoomStatus.PLAYING.status
-			record.getRecordMemberIds().each {memberData.getById(it).addQuestion(req.id)}
 			
 			// 取消定时器
 			scheduler.cancel("${roomId}::SELECT")
@@ -1035,7 +1039,6 @@ class TurtleSoupService extends AbstractService {
 			
 			def questionId = record.selectQuestionIds.shuffled()[0]
 			record.questionId = questionId
-			record.getRecordMemberIds().each {memberData.getById(it).addQuestion(questionId)}
 			
 			// 推送房间状态和题目
 			roomPush([], [], roomId, {
