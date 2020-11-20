@@ -14,10 +14,7 @@ import io.github.hdfg159.game.service.avatar.AvatarService
 import io.github.hdfg159.game.service.log.GameLog
 import io.github.hdfg159.game.service.log.LogService
 import io.github.hdfg159.game.service.soup.config.QuestionConfig
-import io.github.hdfg159.game.service.soup.enums.AnswerType
-import io.github.hdfg159.game.service.soup.enums.LeaveEnum
-import io.github.hdfg159.game.service.soup.enums.MemberStatus
-import io.github.hdfg159.game.service.soup.enums.RoomStatus
+import io.github.hdfg159.game.service.soup.enums.*
 import io.github.hdfg159.game.util.GameUtils
 import io.github.hdfg159.scheduler.factory.Triggers
 import io.reactivex.Completable
@@ -197,15 +194,21 @@ class TurtleSoupService extends AbstractService {
 				return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, CodeEnums.SOUP_ROOM_MEMBER_NOT_EXIST)
 			}
 			
-			def memberJoinResCode = member.joinRoom(avaIndex, roomId)
+			def memberJoinResCode = member.joinRoom(avaIndex, roomId, room.status == RoomStatus.PLAYING.status)
 			if (!memberJoinResCode.success()) {
 				return GameUtils.resMsg(RES_SOUP_JOIN_ROOM, memberJoinResCode)
 			}
 			
+			if (room.status == RoomStatus.PLAYING.status) {
+				def isMc = room.getRecord().mcId == aid
+				if (isMc) {
+					// 正在游戏中且是 mc 加入房间
+					cancelChangeLeaveTrigger(memberData.getById(aid))
+				}
+			}
+			
 			publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
-			roomPush([aid], [aid], roomId, {
-				it.v1
-			})
+			roomPush([aid], [aid], roomId, {it.v1})
 			
 			def roomPush = buildRoomPush(room.getAllMemberIds(), roomId, {
 				if (room.status != RoomStatus.PLAYING.status) {
@@ -261,9 +264,7 @@ class TurtleSoupService extends AbstractService {
 			if (result.v1.success()) {
 				
 				publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(roomId).build())
-				roomPush(result.v2, [], roomId, {
-					it.v1
-				})
+				roomPush(result.v2, [], roomId, {it.v1})
 				
 				logService.log(new GameLog(
 						aid: aid,
@@ -725,9 +726,7 @@ class TurtleSoupService extends AbstractService {
 			// 选题推送
 			record.questionId = req.id
 			room.status = RoomStatus.PLAYING.status
-			record.getRecordMemberIds().each {
-				memberData.getById(it).questionIds.add(req.id)
-			}
+			record.getRecordMemberIds().each {memberData.getById(it).addQuestion(req.id)}
 			
 			// 取消定时器
 			scheduler.cancel("${roomId}::SELECT")
@@ -780,6 +779,8 @@ class TurtleSoupService extends AbstractService {
 		def aid = event.userId
 		def member = memberData.getById(aid)
 		member.offline()
+		
+		startChangeLeaveTrigger(member)
 		
 		memberData.updateForceById(aid)
 	}
@@ -975,6 +976,12 @@ class TurtleSoupService extends AbstractService {
 				.setStatus(room.status)
 				.addAllSeatsChange(seatRes)
 		
+		if (room.status == RoomStatus.PLAYING.status) {
+			// 正在游戏中
+			def leave = room.getRecord().leaveForPlaying ? LeaveForPlayingType.YES.type : LeaveForPlayingType.NO.type
+			builder.setLeaveForPlaying(leave)
+		}
+		
 		mapping.apply(Tuple.tuple(builder, room)).build()
 	}
 	
@@ -1027,9 +1034,7 @@ class TurtleSoupService extends AbstractService {
 			
 			def questionId = record.selectQuestionIds.shuffled()[0]
 			record.questionId = questionId
-			record.getRecordMemberIds().each {
-				memberData.getById(it).questionIds.add(questionId)
-			}
+			record.getRecordMemberIds().each {memberData.getById(it).addQuestion(questionId)}
 			
 			// 推送房间状态和题目
 			roomPush([], [], roomId, {
@@ -1070,5 +1075,57 @@ class TurtleSoupService extends AbstractService {
 		}
 		
 		return res.build()
+	}
+	
+	def startChangeLeaveTrigger(SoupMember member) {
+		if (!member) {
+			return
+		}
+		
+		def record = roomData.getRoom(member.roomId)?.getRecord()
+		if (!record) {
+			return
+		}
+		
+		if (member.id == record.mcId) {
+			// 启动 MC 离线定时器 倒计时
+			Triggers.once("${record.id}::MC::OFFLINE::${member.id}", LocalDateTime.now().plusMinutes(3), {
+				changeRecordLeave(member.roomId)
+			}).schedule()
+		}
+	}
+	
+	def changeRecordLeave(roomId) {
+		def room = roomData.getRoom(roomId)
+		def record = room?.getRecord()
+		if (!record) {
+			return
+		}
+		
+		synchronized (room) {
+			// 改变状态
+			record.leaveForPlaying = true
+			
+			// 推送
+			roomPush([], [], room.id, {it.v1})
+		}
+	}
+	
+	def cancelChangeLeaveTrigger(SoupMember member) {
+		if (!member) {
+			return
+		}
+		
+		def record = roomData.getRoom(member.roomId)?.getRecord()
+		if (!record) {
+			return
+		}
+		
+		if (member.id == record.mcId) {
+			// 取消 MC 离线定时器 倒计时
+			def name = "${record.id}::MC::OFFLINE::${member.id}"
+			def cancel = scheduler.cancel(name)
+			log.info("cancel change leave trigger [${name}]:${cancel}")
+		}
 	}
 }

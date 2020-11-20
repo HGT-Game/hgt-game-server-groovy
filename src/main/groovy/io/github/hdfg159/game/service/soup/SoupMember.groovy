@@ -108,7 +108,7 @@ class SoupMember implements TData<String> {
 	 * @param roomId 房间 ID
 	 * @return 加入结果
 	 */
-	def joinRoom(int seat, String roomId) {
+	def joinRoom(int seat, String roomId, boolean playing) {
 		if (status.get() != MemberStatus.FREE.status) {
 			// 非闲置状态不加入
 			return CodeEnums.SOUP_MEMBER_NOT_FREE
@@ -120,7 +120,7 @@ class SoupMember implements TData<String> {
 		}
 		
 		// 走正常逻辑
-		status.getAndSet(MemberStatus.ROOM.status)
+		status.getAndSet(playing ? MemberStatus.PLAYING.status : MemberStatus.ROOM.status)
 		this.@seat = seat
 		this.@roomId = roomId
 		
@@ -146,26 +146,38 @@ class SoupMember implements TData<String> {
 		seconds
 	}
 	
-	def leaveRoom(boolean kick) {
+	def leaveRoom(boolean kick, boolean allowLeaveForPlaying) {
 		if (!roomId) {
 			return false
 		}
 		
-		// 只有在房间状态才能退出
-		if (status.get() != MemberStatus.ROOM.status) {
+		if (status.get() == MemberStatus.PLAYING.status && allowLeaveForPlaying) {
+			// 游戏中允许退出才能退出
+			leave(kick)
+			return true
+		} else if (status.get() == MemberStatus.ROOM.status) {
+			// 在房间状态可以退出
+			leave(kick)
+			return true
+		} else {
+			// 其他都不行
 			return false
 		}
-		
+	}
+	
+	def leave(kick) {
 		this.@status.getAndSet(MemberStatus.FREE.status)
 		this.@roomId = null
 		this.@leave = kick ? LeaveEnum.PASSIVE.type : LeaveEnum.INITIATIVE.type
-		
-		true
 	}
 	
 	def resetRoomInfo() {
 		status.getAndSet(MemberStatus.FREE.status)
 		seat = null
 		roomId = null
+	}
+	
+	def addQuestion(String questionId) {
+		this.@questionIds.add(questionId)
 	}
 }

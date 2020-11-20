@@ -38,7 +38,7 @@ abstract class AbstractService extends AbstractVerticle {
 	 */
 	private static final ChannelData CHANNEL_DATA = ChannelData.instance
 	
-	protected scheduler
+	protected SchedulerManager scheduler
 	protected EventBus eventBus
 	
 	/**

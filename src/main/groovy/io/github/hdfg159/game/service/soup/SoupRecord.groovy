@@ -65,6 +65,11 @@ class SoupRecord implements TData<String> {
 	 */
 	Map<String, ConcurrentLinkedQueue<String>> memberNoteMap
 	
+	/**
+	 * 游戏过程中 是否允许离开标识
+	 */
+	boolean leaveForPlaying
+	
 	static def createRecord(SoupRoom room, List<String> selectQuestionIds) {
 		def record = new SoupRecord()
 		record.roomId = room.id

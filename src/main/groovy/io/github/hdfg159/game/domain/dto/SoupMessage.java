@@ -14272,6 +14272,16 @@ public final class SoupMessage {
      */
     com.google.protobuf.ByteString
         getMcIdBytes();
+
+    /**
+     * <pre>
+     * 游戏中是否可以离开 1:否 2:是
+     * </pre>
+     *
+     * <code>uint32 leaveForPlaying = 13;</code>
+     * @return The leaveForPlaying.
+     */
+    int getLeaveForPlaying();
   }
   /**
    * <pre>
@@ -14415,6 +14425,11 @@ public final class SoupMessage {
               java.lang.String s = input.readStringRequireUtf8();
 
               mcId_ = s;
+              break;
+            }
+            case 104: {
+
+              leaveForPlaying_ = input.readUInt32();
               break;
             }
             default: {
@@ -14937,6 +14952,21 @@ public final class SoupMessage {
       }
     }
 
+    public static final int LEAVEFORPLAYING_FIELD_NUMBER = 13;
+    private int leaveForPlaying_;
+    /**
+     * <pre>
+     * 游戏中是否可以离开 1:否 2:是
+     * </pre>
+     *
+     * <code>uint32 leaveForPlaying = 13;</code>
+     * @return The leaveForPlaying.
+     */
+    @java.lang.Override
+    public int getLeaveForPlaying() {
+      return leaveForPlaying_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -14986,6 +15016,9 @@ public final class SoupMessage {
       }
       if (!getMcIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, mcId_);
+      }
+      if (leaveForPlaying_ != 0) {
+        output.writeUInt32(13, leaveForPlaying_);
       }
       unknownFields.writeTo(output);
     }
@@ -15041,6 +15074,10 @@ public final class SoupMessage {
       if (!getMcIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, mcId_);
       }
+      if (leaveForPlaying_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(13, leaveForPlaying_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -15083,6 +15120,8 @@ public final class SoupMessage {
           .equals(other.getMsgList())) return false;
       if (!getMcId()
           .equals(other.getMcId())) return false;
+      if (getLeaveForPlaying()
+          != other.getLeaveForPlaying()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -15129,6 +15168,8 @@ public final class SoupMessage {
       }
       hash = (37 * hash) + MCID_FIELD_NUMBER;
       hash = (53 * hash) + getMcId().hashCode();
+      hash = (37 * hash) + LEAVEFORPLAYING_FIELD_NUMBER;
+      hash = (53 * hash) + getLeaveForPlaying();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -15314,6 +15355,8 @@ public final class SoupMessage {
         }
         mcId_ = "";
 
+        leaveForPlaying_ = 0;
+
         return this;
       }
 
@@ -15389,6 +15432,7 @@ public final class SoupMessage {
           result.msg_ = msgBuilder_.build();
         }
         result.mcId_ = mcId_;
+        result.leaveForPlaying_ = leaveForPlaying_;
         onBuilt();
         return result;
       }
@@ -15567,6 +15611,9 @@ public final class SoupMessage {
         if (!other.getMcId().isEmpty()) {
           mcId_ = other.mcId_;
           onChanged();
+        }
+        if (other.getLeaveForPlaying() != 0) {
+          setLeaveForPlaying(other.getLeaveForPlaying());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -17457,6 +17504,49 @@ public final class SoupMessage {
   checkByteStringIsUtf8(value);
         
         mcId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int leaveForPlaying_ ;
+      /**
+       * <pre>
+       * 游戏中是否可以离开 1:否 2:是
+       * </pre>
+       *
+       * <code>uint32 leaveForPlaying = 13;</code>
+       * @return The leaveForPlaying.
+       */
+      @java.lang.Override
+      public int getLeaveForPlaying() {
+        return leaveForPlaying_;
+      }
+      /**
+       * <pre>
+       * 游戏中是否可以离开 1:否 2:是
+       * </pre>
+       *
+       * <code>uint32 leaveForPlaying = 13;</code>
+       * @param value The leaveForPlaying to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLeaveForPlaying(int value) {
+        
+        leaveForPlaying_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 游戏中是否可以离开 1:否 2:是
+       * </pre>
+       *
+       * <code>uint32 leaveForPlaying = 13;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLeaveForPlaying() {
+        
+        leaveForPlaying_ = 0;
         onChanged();
         return this;
       }
@@ -27049,7 +27139,7 @@ public final class SoupMessage {
       "id\030\001 \001(\t\022\016\n\006answer\030\002 \001(\r\"\013\n\tAnswerRes\"\010\n" +
       "\006EndReq\"\010\n\006EndRes\"\037\n\021SelectQuestionReq\022\n" +
       "\n\002id\030\001 \001(\t\"\023\n\021SelectQuestionRes\"\n\n\010HallP" +
-      "ush\"\366\002\n\010RoomPush\022\016\n\006roomId\030\001 \001(\t\022\020\n\010room" +
+      "ush\"\217\003\n\010RoomPush\022\016\n\006roomId\030\001 \001(\t\022\020\n\010room" +
       "Name\030\002 \001(\t\022\017\n\007roomMax\030\003 \001(\r\022\025\n\rroomMembe" +
       "rNum\030\004 \001(\r\022\023\n\013hasPassword\030\005 \001(\010\0223\n\013seats" +
       "Change\030\006 \003(\0132\036.SoupMessage.RoomMemberSea" +
@@ -27058,25 +27148,26 @@ public final class SoupMessage {
       "ion\030\t \001(\0132\030.SoupMessage.QuestionRes\022/\n\nc" +
       "hangedMsg\030\n \003(\0132\033.SoupMessage.ChatMessag" +
       "eRes\022(\n\003msg\030\013 \003(\0132\033.SoupMessage.ChatMess" +
-      "ageRes\022\014\n\004mcId\030\014 \001(\t\"\213\001\n\021RoomMemberSeatR" +
-      "es\022\013\n\003aid\030\001 \001(\t\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaH" +
-      "ead\030\003 \001(\t\022\r\n\005index\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022" +
-      "\016\n\006status\030\006 \001(\r\022\n\n\002mc\030\007 \001(\010\022\r\n\005leave\030\010 \001" +
-      "(\r\"K\n\013QuestionRes\022\n\n\002id\030\001 \001(\t\022\r\n\005title\030\002" +
-      " \001(\t\022\020\n\010question\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\"" +
-      "x\n\016ChatMessageRes\022\n\n\002id\030\001 \001(\t\022\017\n\007content" +
-      "\030\002 \001(\t\022\016\n\006answer\030\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007a" +
-      "vaName\030\005 \001(\t\022\017\n\007avaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001(" +
-      "\010\"0\n\nAddNoteReq\022\021\n\tmessageId\030\001 \001(\t\022\017\n\007co" +
-      "ntent\030\002 \001(\t\"0\n\nAddNoteRes\022\"\n\004note\030\001 \001(\0132" +
-      "\024.SoupMessage.NoteRes\"\033\n\rDeleteNoteReq\022\n" +
-      "\n\002id\030\001 \001(\t\"\017\n\rDeleteNoteRes\"\032\n\013LoadNoteR" +
-      "eq\022\013\n\003aid\030\001 \001(\t\"2\n\013LoadNoteRes\022#\n\005notes\030" +
-      "\001 \003(\0132\024.SoupMessage.NoteRes\"f\n\007NoteRes\022\n" +
-      "\n\002id\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\017\n\007content\030\003 \001(" +
-      "\t\0220\n\013chatMessage\030\004 \001(\0132\033.SoupMessage.Cha" +
-      "tMessageResB/\n!io.github.hdfg159.game.do" +
-      "main.dtoZ\n./protobufb\006proto3"
+      "ageRes\022\014\n\004mcId\030\014 \001(\t\022\027\n\017leaveForPlaying\030" +
+      "\r \001(\r\"\213\001\n\021RoomMemberSeatRes\022\013\n\003aid\030\001 \001(\t" +
+      "\022\017\n\007avaName\030\002 \001(\t\022\017\n\007avaHead\030\003 \001(\t\022\r\n\005in" +
+      "dex\030\004 \001(\r\022\r\n\005owner\030\005 \001(\010\022\016\n\006status\030\006 \001(\r" +
+      "\022\n\n\002mc\030\007 \001(\010\022\r\n\005leave\030\010 \001(\r\"K\n\013QuestionR" +
+      "es\022\n\n\002id\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\020\n\010questio" +
+      "n\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\"x\n\016ChatMessageR" +
+      "es\022\n\n\002id\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\022\016\n\006answe" +
+      "r\030\003 \001(\r\022\013\n\003aid\030\004 \001(\t\022\017\n\007avaName\030\005 \001(\t\022\017\n" +
+      "\007avaHead\030\006 \001(\t\022\n\n\002mc\030\007 \001(\010\"0\n\nAddNoteReq" +
+      "\022\021\n\tmessageId\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\"0\n\n" +
+      "AddNoteRes\022\"\n\004note\030\001 \001(\0132\024.SoupMessage.N" +
+      "oteRes\"\033\n\rDeleteNoteReq\022\n\n\002id\030\001 \001(\t\"\017\n\rD" +
+      "eleteNoteRes\"\032\n\013LoadNoteReq\022\013\n\003aid\030\001 \001(\t" +
+      "\"2\n\013LoadNoteRes\022#\n\005notes\030\001 \003(\0132\024.SoupMes" +
+      "sage.NoteRes\"f\n\007NoteRes\022\n\n\002id\030\001 \001(\t\022\014\n\004t" +
+      "ype\030\002 \001(\005\022\017\n\007content\030\003 \001(\t\0220\n\013chatMessag" +
+      "e\030\004 \001(\0132\033.SoupMessage.ChatMessageResB/\n!" +
+      "io.github.hdfg159.game.domain.dtoZ\n./pro" +
+      "tobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -27237,7 +27328,7 @@ public final class SoupMessage {
     internal_static_SoupMessage_RoomPush_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SoupMessage_RoomPush_descriptor,
-        new java.lang.String[] { "RoomId", "RoomName", "RoomMax", "RoomMemberNum", "HasPassword", "SeatsChange", "Status", "SelectQuestions", "Question", "ChangedMsg", "Msg", "McId", });
+        new java.lang.String[] { "RoomId", "RoomName", "RoomMax", "RoomMemberNum", "HasPassword", "SeatsChange", "Status", "SelectQuestions", "Question", "ChangedMsg", "Msg", "McId", "LeaveForPlaying", });
     internal_static_SoupMessage_RoomMemberSeatRes_descriptor =
       getDescriptor().getMessageTypes().get(26);
     internal_static_SoupMessage_RoomMemberSeatRes_fieldAccessorTable = new

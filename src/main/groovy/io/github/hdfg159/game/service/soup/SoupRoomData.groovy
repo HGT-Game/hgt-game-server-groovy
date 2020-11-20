@@ -24,7 +24,7 @@ class SoupRoomData {
 	Tuple2<CodeEnums, SoupRoom> create(SoupMember member, String name, int max, String password) {
 		def room = SoupRoom.createRoom(member.id, name, max, password)
 		
-		def joinRoomSuc = member.joinRoom(0, room.id)
+		def joinRoomSuc = member.joinRoom(0, room.id, false)
 		if (!joinRoomSuc.success()) {
 			return Tuple.tuple(joinRoomSuc, null)
 		}
@@ -52,7 +52,11 @@ class SoupRoomData {
 	Tuple2<CodeEnums, List<String>> leaveRoom(SoupMember member, SoupRoom room) {
 		// 游戏中不能退出
 		if (room.status == RoomStatus.PLAYING.status) {
-			return Tuple.tuple(CodeEnums.SOUP_ROOM_STATUS_PLAYING, [])
+			def record = room.getRecord()
+			// 如果是不允许退出 或者 mc掉线想趁机退出，不给
+			if (!record.leaveForPlaying || member.id == record.mcId) {
+				return Tuple.tuple(CodeEnums.SOUP_ROOM_STATUS_PLAYING, [])
+			}
 		}
 		
 		// 不存在用户
@@ -81,7 +85,7 @@ class SoupRoomData {
 		}
 		
 		// 无脑离开
-		member.leaveRoom(false)
+		member.leaveRoom(false, room.getRecord()?.leaveForPlaying ?: false)
 		return Tuple.tuple(CodeEnums.SUCCESS, changeAva)
 	}
 	
@@ -112,7 +116,7 @@ class SoupRoomData {
 		// 移除准备玩家数据
 		room.prepare.remove(member.id)
 		
-		member.leaveRoom(true)
+		member.leaveRoom(true, false)
 		
 		return CodeEnums.SUCCESS
 	}
