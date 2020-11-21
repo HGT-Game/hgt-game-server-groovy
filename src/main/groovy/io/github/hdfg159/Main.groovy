@@ -54,7 +54,9 @@ class Main {
 			log.info "deploy verticle success"
 		}, {
 			log.error "deploy verticle error:${it.message}", it
-			new Thread({System.exit(0)}).start()
+			Thread.start {
+				System.exit(0)
+			}
 		})
 		
 		Runtime.addShutdownHook {
