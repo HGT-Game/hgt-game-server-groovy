@@ -209,6 +209,10 @@ enum CodeEnums {
 		code == SUCCESS.code
 	}
 	
+	boolean fail() {
+		code != SUCCESS.code
+	}
+	
 	static CodeEnums valOf(Long code) {
 		if (!code) {
 			return null

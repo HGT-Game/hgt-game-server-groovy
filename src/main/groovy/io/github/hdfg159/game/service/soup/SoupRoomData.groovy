@@ -25,7 +25,7 @@ class SoupRoomData {
 		def room = SoupRoom.createRoom(member.id, name, max, password)
 		
 		def joinRoomSuc = member.joinRoom(0, room.id, false)
-		if (!joinRoomSuc.success()) {
+		if (joinRoomSuc.fail()) {
 			return Tuple.tuple(joinRoomSuc, null)
 		}
 		
