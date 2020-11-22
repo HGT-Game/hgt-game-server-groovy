@@ -228,7 +228,7 @@ class TurtleSoupService extends AbstractService {
 				// 取最小记录数，防止越界
 				def min = Math.min(msgIds.size(), limit)
 				def chatRecords = (0..<min).collect {record.getMsg(msgIds[msgIds.size() - min + it])}
-						.findAll {it != null}
+						.grep()
 						.collect {buildMessageRes(it, record.mcId)}
 				
 				// 题目

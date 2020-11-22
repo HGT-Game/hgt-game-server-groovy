@@ -101,7 +101,7 @@ class SoupRecord implements TData<String> {
 	}
 	
 	def getRecordMemberIds() {
-		memberIds.findAll {it != null}
+		memberIds.grep()
 	}
 	
 	def getNote(String id) {
@@ -135,7 +135,7 @@ class SoupRecord implements TData<String> {
 		
 		memberNoteMap[aid]
 				.collect {getNote(it)}
-				.findAll {it != null}
+				.grep()
 				.collect {it.covertNoteRes(getMsg(it.referChatId))}
 	}
 }

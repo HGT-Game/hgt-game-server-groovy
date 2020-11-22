@@ -192,14 +192,9 @@ class AvatarData extends AbstractDataManager<Avatar> {
 	 * @return Set<Channel>
 	 */
 	def getAllOnlineChannels() {
-		this.userChannel
-				.values()
-				.collect {
-					channelData.channelMap.get(it)
-				}
-				.findAll {
-					it != null
-				}
+		this.userChannel.values()
+				.collect {channelData.channelMap.get(it)}
+				.grep()
 				.toSet()
 	}
 	
