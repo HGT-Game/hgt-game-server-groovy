@@ -1,6 +1,7 @@
 package io.github.hdfg159.game.data
 
 import com.github.benmanes.caffeine.cache.*
+import groovy.jmx.builder.JmxBuilder
 import groovy.util.logging.Slf4j
 import groovy.yaml.YamlSlurper
 import io.github.hdfg159.common.util.IdUtils
@@ -44,6 +45,10 @@ abstract class AbstractDataManager<D extends TData<String>> extends AbstractVert
 	 */
 	abstract Class<D> clazz()
 	
+	def cacheStats() {
+		cacheBuilder().stats()
+	}
+	
 	@Override
 	Completable rxStart() {
 		this.@vertx.fileSystem().rxReadFile(GameConsts.CONFIG_PATH)
@@ -55,6 +60,23 @@ abstract class AbstractDataManager<D extends TData<String>> extends AbstractVert
 					this.client
 				})
 				.ignoreElement()
+				.doOnComplete({
+					// 暴露 jmx
+					new JmxBuilder().export {
+						bean(
+								target: this,
+								name: "io.github.hdfg159.game.data.data:name=" + this.class.simpleName + "@" + this.hashCode(),
+								attributes: [],
+								operations: "*"
+						)
+						bean(
+								target: this.cacheStats(),
+								name: "io.github.hdfg159.game.data.data:name=" + this.class.simpleName + "CacheStats@" + this.hashCode(),
+								attributes: [],
+								operations: "*"
+						)
+					}
+				})
 				.doOnComplete({
 					log.info "deploy data manager complete : ${this.class.simpleName}"
 				})

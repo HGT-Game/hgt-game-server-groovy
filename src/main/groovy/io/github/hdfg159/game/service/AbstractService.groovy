@@ -2,6 +2,7 @@ package io.github.hdfg159.game.service
 
 import com.google.protobuf.Message
 import com.google.protobuf.TextFormat
+import groovy.jmx.builder.JmxBuilder
 import groovy.util.logging.Slf4j
 import io.github.hdfg159.game.domain.dto.EventMessage
 import io.github.hdfg159.game.domain.dto.GameMessage
@@ -58,6 +59,16 @@ abstract class AbstractService extends AbstractVerticle {
 		this.eventBus = this.@vertx.eventBus()
 		this.scheduler = SchedulerManager.INSTANCE
 		init().doOnComplete({
+			// 暴露 jmx
+			new JmxBuilder().export {
+				bean(
+						target: this,
+						name: "io.github.hdfg159.game.data.service:name=" + this.class.simpleName + "@" + this.hashCode(),
+						attributes: [],
+						operations: "*"
+				)
+			}
+		}).doOnComplete({
 			log.info "deploy game service complete : ${this.class.simpleName}"
 		})
 	}
