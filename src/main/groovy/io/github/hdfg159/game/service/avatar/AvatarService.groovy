@@ -9,7 +9,6 @@ import io.github.hdfg159.game.enumeration.LogEnums
 import io.github.hdfg159.game.service.AbstractService
 import io.github.hdfg159.game.service.log.GameLog
 import io.github.hdfg159.game.service.log.LogService
-import io.github.hdfg159.game.util.GameUtils
 import io.github.hdfg159.scheduler.factory.Triggers
 import io.reactivex.Completable
 import io.vertx.core.json.JsonObject
@@ -76,7 +75,7 @@ class AvatarService extends AbstractService {
 					if (avatarChannelId && avatarChannelId == channelId) {
 						// 玩家已经在线，玩家和通道一样，属于重复请求，返回错误码
 						log.info "玩家同一通道重复登录:[${id}][${username}][${avatarChannelId}]"
-						return GameUtils.resMsg(RES_LOGIN, EXIST_LOGIN)
+						return RES_LOGIN.res(EXIST_LOGIN)
 					} else {
 						// 玩家已经在线，玩家当前渠道和这个不一致，踢掉再登录
 						log.info "强制下线玩家并重新登录:[${id}][${username}][${avatarChannelId}]"
@@ -89,7 +88,7 @@ class AvatarService extends AbstractService {
 				}
 			}
 		} else {
-			return GameUtils.resMsg(RES_LOGIN, LOGIN_FAIL)
+			return RES_LOGIN.res(LOGIN_FAIL)
 		}
 	}
 	
@@ -122,11 +121,12 @@ class AvatarService extends AbstractService {
 				opt: LogEnums.AVATAR_LOGIN
 		))
 		
-		def res = GameMessage.LoginRes.newBuilder()
-				.setUsername(username)
-				.setUserId(id)
-				.build()
-		return GameUtils.sucResMsg(RES_LOGIN, res)
+		RES_LOGIN.sucRes(
+				GameMessage.LoginRes.newBuilder()
+						.setUsername(username)
+						.setUserId(id)
+						.build()
+		)
 	}
 	
 	def offline = {headers, params ->
@@ -165,7 +165,9 @@ class AvatarService extends AbstractService {
 	}
 	
 	def heartBeat = {headers, params ->
-		GameUtils.sucResMsg(RES_HEART_BEAT, GameMessage.HeartBeatRes.newBuilder().build())
+		RES_HEART_BEAT.sucRes(
+				GameMessage.HeartBeatRes.newBuilder().build()
+		)
 	}
 	
 	def onlineEvent = {headers, params ->
@@ -188,12 +190,12 @@ class AvatarService extends AbstractService {
 		def username = request.username
 		def password = request.password
 		if (!username || !password) {
-			return GameUtils.resMsg(RES_REGISTER, REGISTER_INFO_ILLEGAL)
+			return RES_REGISTER.res(REGISTER_INFO_ILLEGAL)
 		}
 		
 		def avatar = avatarData.getByUsername(username)
 		if (avatar) {
-			return GameUtils.resMsg(RES_REGISTER, REGISTER_INFO_ILLEGAL)
+			return RES_REGISTER.res(REGISTER_INFO_ILLEGAL)
 		}
 		
 		def registerAvatar = new Avatar(
@@ -210,11 +212,12 @@ class AvatarService extends AbstractService {
 				opt: LogEnums.AVATAR_REGISTER
 		))
 		
-		def res = GameMessage.RegisterRes.newBuilder()
-				.setId(registerAvatar.id)
-				.setUsername(registerAvatar.username)
-				.build()
-		return GameUtils.sucResMsg(RES_REGISTER, res)
+		RES_REGISTER.sucRes(
+				GameMessage.RegisterRes.newBuilder()
+						.setId(registerAvatar.id)
+						.setUsername(registerAvatar.username)
+						.build()
+		)
 	}
 	
 	def forceOffline(Collection<String> userIds) {
@@ -242,9 +245,8 @@ class AvatarService extends AbstractService {
 			}
 			
 			def channel = avatarData.getChannel(userId)
-			def res = GameUtils.resMsg(RES_OFFLINE, FORCE_OFFLINE)
 			if (channel && channel.isActive()) {
-				channel.writeAndFlush(res)
+				channel.writeAndFlush(RES_OFFLINE.res(FORCE_OFFLINE))
 				channel.close()
 			}
 			

@@ -4,7 +4,6 @@ import groovy.util.logging.Slf4j
 import io.github.hdfg159.game.domain.dto.GameMessage
 import io.github.hdfg159.game.enumeration.ProtocolEnums
 import io.github.hdfg159.game.service.AbstractService
-import io.github.hdfg159.game.util.GameUtils
 import io.reactivex.Completable
 
 /**
@@ -35,6 +34,7 @@ class FarmService extends AbstractService {
 		def res = GameMessage.TestRes.newBuilder()
 				.setStr("teststsadasdasdasd")
 				.build()
-		GameUtils.sucResMsg(ProtocolEnums.RES_TEST, res)
+		
+		ProtocolEnums.RES_TEST.sucRes(res)
 	}
 }

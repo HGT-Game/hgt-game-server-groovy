@@ -4,6 +4,7 @@ import com.google.protobuf.Message
 import io.github.hdfg159.game.constant.GameConsts
 import io.github.hdfg159.game.domain.dto.GameMessage
 import io.github.hdfg159.game.domain.dto.SoupMessage
+import io.github.hdfg159.game.util.GameUtils
 
 /**
  * 接口协议枚举
@@ -164,5 +165,17 @@ enum ProtocolEnums {
 		}
 		
 		return null
+	}
+	
+	GameMessage.Message sucRes(Message data) {
+		GameUtils.sucResMsg(this, data)
+	}
+	
+	GameMessage.Message res(CodeEnums codeEnums, Message data) {
+		GameUtils.resMsg(this, codeEnums, data)
+	}
+	
+	GameMessage.Message res(CodeEnums codeEnums) {
+		GameUtils.resMsg(this, codeEnums)
 	}
 }
