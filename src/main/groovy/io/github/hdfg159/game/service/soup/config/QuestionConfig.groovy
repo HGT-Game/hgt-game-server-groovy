@@ -23,10 +23,8 @@ class QuestionConfig extends AbstractConfigLoader {
         SqlTemplate.forQuery(client, "SELECT question_id AS id, title, description AS question, content FROM question WHERE status = 1")
                 .mapTo(Question.class)
                 .rxExecute([:])
-                .doOnSuccess({
-                    it.each {question ->
-                        questionMap.put(question.id, question)
-                    }
+                .doOnSuccess({rows ->
+                    questionMap = rows.collectEntries {[(it.id): it]}
                     log.info("load question config size:[{}]", questionMap.size())
                 }).ignoreElement()
     }
