@@ -38,13 +38,13 @@ class AvatarService extends AbstractService {
 	
 	@Override
 	Completable init() {
-		response(REQ_LOGIN, login)
-		response(REQ_OFFLINE, offline)
-		response(REQ_HEART_BEAT, heartBeat)
-		response(REQ_REGISTER, register)
+		REQ_LOGIN.handle(this, login)
+		REQ_OFFLINE.handle(this, offline)
+		REQ_HEART_BEAT.handle(this, heartBeat)
+		REQ_REGISTER.handle(this, register)
 		
-		handleEvent(EventEnums.ONLINE, onlineEvent)
-		handleEvent(EventEnums.OFFLINE, offlineEvent)
+		EventEnums.ONLINE.handle(this, onlineEvent)
+		EventEnums.OFFLINE.handle(this, offlineEvent)
 		
 		Completable.fromRunnable({
 			Triggers.forever(TRIGGER_NAME_AVATAR_ONLINE, 3, ChronoUnit.MINUTES, LocalDateTime.now(), {

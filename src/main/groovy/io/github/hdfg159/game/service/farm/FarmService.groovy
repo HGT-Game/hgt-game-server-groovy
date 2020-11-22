@@ -20,7 +20,7 @@ import io.reactivex.Completable
 class FarmService extends AbstractService {
 	@Override
 	Completable init() {
-		response(ProtocolEnums.REQ_TEST, test)
+		ProtocolEnums.REQ_TEST.handle(this, test)
 		return Completable.complete()
 	}
 	

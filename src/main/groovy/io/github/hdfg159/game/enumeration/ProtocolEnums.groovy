@@ -4,6 +4,7 @@ import com.google.protobuf.Message
 import io.github.hdfg159.game.constant.GameConsts
 import io.github.hdfg159.game.domain.dto.GameMessage
 import io.github.hdfg159.game.domain.dto.SoupMessage
+import io.github.hdfg159.game.service.AbstractService
 import io.github.hdfg159.game.util.GameUtils
 
 /**
@@ -177,5 +178,9 @@ enum ProtocolEnums {
 	
 	GameMessage.Message res(CodeEnums codeEnums) {
 		GameUtils.resMsg(this, codeEnums)
+	}
+	
+	void handle(AbstractService service, Closure closure) {
+		service.response(this, closure)
 	}
 }
