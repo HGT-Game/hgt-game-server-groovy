@@ -83,16 +83,18 @@ class TurtleSoupService extends AbstractService {
 		if (!room) {
 			// 房间不存在，清除掉成员的roomId
 			member.roomId = null
-			return RES_SOUP_LOAD.sucRes(SoupMessage.LoadRes.newBuilder().build())
+			return RES_SOUP_LOAD.sucRes(
+					SoupMessage.LoadRes.newBuilder().build()
+			)
 		}
 		
-		def loadRes = SoupMessage.LoadRes.newBuilder()
-				.setReconnect(true)
-				.setRoomId(room.id)
-				.setPassword(room.password)
-				.build()
-		
-		RES_SOUP_LOAD.sucRes(loadRes)
+		RES_SOUP_LOAD.sucRes(
+				SoupMessage.LoadRes.newBuilder()
+						.setReconnect(true)
+						.setRoomId(room.id)
+						.setPassword(room.password)
+						.build()
+		)
 	}
 	
 	def roomHall = {headers, params ->
@@ -109,11 +111,11 @@ class TurtleSoupService extends AbstractService {
 					})
 				}
 		
-		def hallRes = SoupMessage.RoomHallRes.newBuilder()
-				.addAllRooms(pushes)
-				.build()
-		
-		RES_SOUP_ROOM_HALL.sucRes(hallRes)
+		RES_SOUP_ROOM_HALL.sucRes(
+				SoupMessage.RoomHallRes.newBuilder()
+						.addAllRooms(pushes)
+						.build()
+		)
 	}
 	
 	def createRoom = {headers, params ->
@@ -147,8 +149,6 @@ class TurtleSoupService extends AbstractService {
 		publishEvent(EventEnums.SOUP_SEAT_CHANGE, SoupEvent.SeatChange.newBuilder().setAid(aid).setRoomId(room.id).build())
 		
 		def roomPush = buildRoomPush([aid], room.id, {it.v1})
-		def res = roomRes.setRoom(roomPush).build()
-		
 		logService.log(new GameLog(
 				aid: aid,
 				name: avatarService.getAvatarById(aid).username,
@@ -160,7 +160,9 @@ class TurtleSoupService extends AbstractService {
 				])
 		))
 		
-		RES_SOUP_CREATE_ROOM.sucRes(res)
+		RES_SOUP_CREATE_ROOM.sucRes(
+				roomRes.setRoom(roomPush).build()
+		)
 	}
 	
 	def joinRoom = {headers, params ->
@@ -246,7 +248,11 @@ class TurtleSoupService extends AbstractService {
 					])
 			))
 			
-			return RES_SOUP_JOIN_ROOM.sucRes(SoupMessage.JoinRoomRes.newBuilder().setRoom(roomPush).build())
+			return RES_SOUP_JOIN_ROOM.sucRes(
+					SoupMessage.JoinRoomRes.newBuilder()
+							.setRoom(roomPush)
+							.build()
+			)
 		}
 	}
 	
@@ -280,7 +286,9 @@ class TurtleSoupService extends AbstractService {
 					])
 			))
 			
-			return RES_SOUP_LEAVE_ROOM.sucRes(SoupMessage.LeaveRoomRes.newBuilder().build())
+			return RES_SOUP_LEAVE_ROOM.sucRes(
+					SoupMessage.LeaveRoomRes.newBuilder().build()
+			)
 		}
 	}
 	
@@ -288,7 +296,9 @@ class TurtleSoupService extends AbstractService {
 		def req = params as SoupMessage.PrepareReq
 		def aid = getHeaderAvatarId(headers)
 		
-		def sucResMsg = RES_SOUP_PREPARE.sucRes(SoupMessage.PrepareRes.newBuilder().build())
+		def sucResMsg = RES_SOUP_PREPARE.sucRes(
+				SoupMessage.PrepareRes.newBuilder().build()
+		)
 		def errRes = RES_SOUP_PREPARE.res(CodeEnums.SOUP_PREPARE_FAIL)
 		
 		def member = memberData.getById(aid)
@@ -451,7 +461,9 @@ class TurtleSoupService extends AbstractService {
 					])
 			))
 			
-			return RES_SOUP_KICK.sucRes(SoupMessage.KickRes.newBuilder().build())
+			return RES_SOUP_KICK.sucRes(
+					SoupMessage.KickRes.newBuilder().build()
+			)
 		}
 	}
 	
@@ -492,7 +504,9 @@ class TurtleSoupService extends AbstractService {
 					])
 			))
 			
-			return RES_SOUP_EXCHANGE_SEAT.sucRes(SoupMessage.ExchangeSeatRes.newBuilder().build())
+			return RES_SOUP_EXCHANGE_SEAT.sucRes(
+					SoupMessage.ExchangeSeatRes.newBuilder().build()
+			)
 		}
 	}
 	
@@ -608,7 +622,9 @@ class TurtleSoupService extends AbstractService {
 			it.v1
 		})
 		
-		RES_SOUP_ANSWER.sucRes(SoupMessage.AnswerRes.newBuilder().build())
+		RES_SOUP_ANSWER.sucRes(
+				SoupMessage.AnswerRes.newBuilder().build()
+		)
 	}
 	
 	def end = {headers, params ->
@@ -683,7 +699,9 @@ class TurtleSoupService extends AbstractService {
 					])
 			))
 			
-			return RES_SOUP_END.sucRes(SoupMessage.EndRes.newBuilder().build())
+			return RES_SOUP_END.sucRes(
+					SoupMessage.EndRes.newBuilder().build()
+			)
 		}
 	}
 	
@@ -744,7 +762,9 @@ class TurtleSoupService extends AbstractService {
 					])
 			))
 			
-			return RES_SOUP_SELECT_QUESTION.sucRes(SoupMessage.SelectQuestionRes.newBuilder().build())
+			return RES_SOUP_SELECT_QUESTION.sucRes(
+					SoupMessage.SelectQuestionRes.newBuilder().build()
+			)
 		}
 	}
 	
@@ -838,7 +858,11 @@ class TurtleSoupService extends AbstractService {
 			
 			def note = SoupNote.createChatNote(aid, messageId)
 			record.addNote(note)
-			return RES_SOUP_ADD_NOTE.sucRes(SoupMessage.AddNoteRes.newBuilder().setNote(note.covertNoteRes(msg)).build())
+			return RES_SOUP_ADD_NOTE.sucRes(
+					SoupMessage.AddNoteRes.newBuilder()
+							.setNote(note.covertNoteRes(msg))
+							.build()
+			)
 		}
 		
 		if (!messageId && content) {
@@ -847,7 +871,11 @@ class TurtleSoupService extends AbstractService {
 			} else {
 				def note = SoupNote.createCustomNote(aid, content)
 				record.addNote(note)
-				return RES_SOUP_ADD_NOTE.sucRes(SoupMessage.AddNoteRes.newBuilder().setNote(note.covertNoteRes(null)).build())
+				return RES_SOUP_ADD_NOTE.sucRes(
+						SoupMessage.AddNoteRes.newBuilder()
+								.setNote(note.covertNoteRes(null))
+								.build()
+				)
 			}
 		}
 		
@@ -871,11 +899,11 @@ class TurtleSoupService extends AbstractService {
 			return RES_SOUP_LOAD_NOTE.res(CodeEnums.SOUP_RECORD_NOT_EXIST)
 		}
 		
-		def res = SoupMessage.LoadNoteRes.newBuilder()
-				.addAllNotes(record.getAidAllNoteRes(loadAid))
-				.build()
-		
-		RES_SOUP_LOAD_NOTE.sucRes(res)
+		RES_SOUP_LOAD_NOTE.sucRes(
+				SoupMessage.LoadNoteRes.newBuilder()
+						.addAllNotes(record.getAidAllNoteRes(loadAid))
+						.build()
+		)
 	}
 	
 	def deleteNote = {headers, params ->
@@ -911,7 +939,9 @@ class TurtleSoupService extends AbstractService {
 		
 		record.deleteNote(note)
 		
-		RES_SOUP_DELETE_NOTE.sucRes(SoupMessage.DeleteNoteRes.newBuilder().build())
+		RES_SOUP_DELETE_NOTE.sucRes(
+				SoupMessage.DeleteNoteRes.newBuilder().build()
+		)
 	}
 	
 	// Private

@@ -1,6 +1,7 @@
 package io.github.hdfg159.game.service.farm
 
 import groovy.util.logging.Slf4j
+import io.github.hdfg159.common.util.IdUtils
 import io.github.hdfg159.game.domain.dto.GameMessage
 import io.github.hdfg159.game.enumeration.ProtocolEnums
 import io.github.hdfg159.game.service.AbstractService
@@ -31,10 +32,10 @@ class FarmService extends AbstractService {
 	
 	def test = {headers, params ->
 		// throw new RuntimeException("error test========================")
-		def res = GameMessage.TestRes.newBuilder()
-				.setStr("teststsadasdasdasd")
-				.build()
-		
-		ProtocolEnums.RES_TEST.sucRes(res)
+		ProtocolEnums.RES_TEST.sucRes(
+				GameMessage.TestRes.newBuilder()
+						.setStr(IdUtils.idStr)
+						.build()
+		)
 	}
 }
