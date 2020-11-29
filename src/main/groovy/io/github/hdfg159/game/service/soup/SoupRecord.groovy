@@ -9,6 +9,8 @@ import java.util.concurrent.ConcurrentLinkedQueue
 
 /**
  * 海龟汤 场次记录
+ *
+ * @author zhangzhenyu
  */
 @Canonical
 class SoupRecord implements TData<String> {
