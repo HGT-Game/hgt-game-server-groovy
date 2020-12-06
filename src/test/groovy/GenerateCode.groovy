@@ -4,9 +4,9 @@ import io.github.hdfg159.game.enumeration.ProtocolEnums
 import java.time.LocalDateTime
 
 /**
- * Project:hgt-game-server
- * Package:
- * Created by hdfg159 on 2020/11/28 23:49.
+ * 业务代码生成工具
+ *
+ * @author zhangzhenyu
  */
 class GenerateCode {
     static main(args) {
@@ -127,7 +127,7 @@ class ${dataManagerName} extends AbstractDataManager<${dataName}> {
             }
             def protocolMethodName = protocolNames.join("")
 
-            declareProtocol += """    ProtocolEnums.${protocol.name().toUpperCase()}.handle(this, ${protocolMethodName})
+            declareProtocol += """        ProtocolEnums.${protocol.name().toUpperCase()}.handle(this, ${protocolMethodName})
 """
             declareRequestClosure += """
     def ${protocolMethodName} = {headers, params ->
@@ -148,7 +148,7 @@ class ${dataManagerName} extends AbstractDataManager<${dataName}> {
             }
             def eventMethodName = "${eventNames.join("")}Event"
 
-            declareEvent += """    EventEnums.${event.name()}.handle(this, ${eventMethodName})
+            declareEvent += """        EventEnums.${event.name()}.handle(this, ${eventMethodName})
 """
             declareEventClosure += """
     def ${eventMethodName} = {headers, params ->
