@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit
  * @author zhangzhenyu
  */
 class GameClientChannelInitializer extends ChannelInitializer<Channel> {
-	
+
 	@Override
 	protected void initChannel(Channel ch) throws Exception {
 		def handShaker = WebSocketClientHandshakerFactory.newHandshaker(
@@ -40,27 +40,27 @@ class GameClientChannelInitializer extends ChannelInitializer<Channel> {
 				true,
 				new DefaultHttpHeaders()
 		)
-		
+
 		def sslHandler = SslContextBuilder.forClient().trustManager(InsecureTrustManagerFactory.INSTANCE).build()
 				.newHandler(ch.alloc())
-		
+
 		ch.pipeline()
 		// .addFirst(sslHandler)
 				.addLast(new IdleStateHandler(0, 0, 180, TimeUnit.SECONDS))
-				
+
 				.addLast(new HttpClientCodec())
 				.addLast(new HttpObjectAggregator(65536))
-				
+
 				.addLast(new WebSocketClientProtocolHandler(handShaker))
 				.addLast(new WebSocketBinaryMessageInHandler())
 				.addLast(new WebSocketBinaryMessageOutHandler())
-				
+
 				.addLast(new ProtobufDecoder(GameMessage.Message.getDefaultInstance()))
-				
+
 				.addLast(new ProtobufEncoder())
-				
+
 				.addLast(new LogHandler())
-				
+
 				.addLast(new HeartbeatHandler())
 	}
 }

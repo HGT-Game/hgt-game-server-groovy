@@ -20,180 +20,180 @@ import static io.reactivex.schedulers.Schedulers.io
  */
 @Slf4j
 abstract class AbstractDataManager<D extends TData<String>> extends AbstractVerticle {
-	MongoClient client
-	LoadingCache<String, D> cache = cacheBuilder()
-	
-	/**
-	 * mongodb 集合名称
-	 * @return 集合名称
-	 */
-	String collectionName() {
-		clazz().simpleName
-	}
-	
-	/**
-	 * 构建缓存
-	 * @return
-	 */
-	LoadingCache<String, D> cacheBuilder() {
-		defaultCacheBuilder()
-	}
-	
-	/**
-	 * 数据所属类
-	 * @return
-	 */
-	abstract Class<D> clazz()
-	
-	def cacheStats() {
-		cacheBuilder().stats()
-	}
-	
-	@Override
-	Completable rxStart() {
-		this.@vertx.fileSystem().rxReadFile(GameConsts.CONFIG_PATH)
-				.map({buffer ->
-					// 创建共享 mongodb 客户端
-					def config = new JsonObject(new YamlSlurper().parseText(buffer.toString()).database.game)
-					this.client = MongoClient.createShared(this.@vertx, config, MONGO_DATA_SOURCE)
-					log.info "create mongo client,config:${config},client:${client}"
-					this.client
-				})
-				.ignoreElement()
-				.doOnComplete({
-					// 暴露 jmx
-					new JmxBuilder().export {
-						bean(
-								target: this,
-								name: "io.github.hdfg159.game.data.data:name=" + this.class.simpleName + "@" + this.hashCode(),
-								attributes: [],
-								operations: "*"
-						)
-						bean(
-								target: this.cacheStats(),
-								name: "io.github.hdfg159.game.data.data:name=" + this.class.simpleName + "CacheStats@" + this.hashCode(),
-								attributes: [],
-								operations: "*"
-						)
-					}
-				})
-				.doOnComplete({
-					log.info "deploy data manager complete : ${this.class.simpleName}"
-				})
-	}
-	
-	@Override
-	Completable rxStop() {
-		rxSaveAll().doOnComplete({
-			log.info "undeploy data manager complete : ${this.class.simpleName}"
-		})
-	}
-	
-	/**
-	 * 默认缓存构建
-	 * @return
-	 */
-	LoadingCache<String, D> defaultCacheBuilder() {
-		Caffeine.newBuilder()
-				.scheduler(Scheduler.systemScheduler())
-				.writer(new CacheWriter<String, D>() {
-					void write(String key, D value) {}
-					
-					void delete(String key, D value, RemovalCause cause) {
-						rxSaveDB(value)
-								.doOnSubscribe({
-									log.debug("flush [${cause}] data:[${value.hashCode()}][${key}][${value.class.name}]")
-								})
-								.blockingGet()
-					}
-				})
-				.expireAfterAccess(GameConsts.CACHE_ACCESS_TIME_OUT)
-				.recordStats()
-				.build({rxLoad(it).blockingGet()})
-	}
-	
-	/**
-	 * 更新保存
-	 * @param data 数据
-	 * @return 数据
-	 */
-	D saveCache(D data) {
-		if (data) {
-			if (data.id) {
-				cache.put(data.id, data)
-			} else {
-				def id = IdUtils.idStr
-				data.id = id
-				cache.put(id, data)
-			}
-		}
-		data
-	}
-	
-	/**
-	 * 获取数据
-	 * @param id id
-	 * @return 数据
-	 */
-	D getById(String id) {
-		id ? cache.get(id) : null
-	}
-	
-	/**
-	 * 强制更新缓存并刷写到数据库
-	 * @param data 数据
-	 * @return 数据
-	 */
-	D updateForce(D data) {
-		if (data) {
-			cache.put(data.id, data)
-			cache.invalidate(data.id)
-			cache.cleanUp()
-		}
-		data
-	}
-	
-	/**
-	 * 根据 ID 强制更新 缓存 到数据库
-	 * @param data 数据
-	 */
-	void updateForceById(String id) {
-		if (id) {
-			cache.invalidate(id)
-			cache.cleanUp()
-		}
-	}
-	
-	/**
-	 * 更新所有缓存数据到数据库
-	 */
-	Completable rxSaveAll() {
-		// 缓存设置全部过期，清除缓存刷新到数据库，增加 subscribeOn 用线程池调度
-		// invalidateAll() & cleanUp() 同步操作关联 com.github.benmanes.caffeine.cache.CacheWriter.delete
-		Completable.fromAction({
-			cache.invalidateAll()
-			cache.cleanUp()
-		}).subscribeOn(io())
-	}
-	
-	/**
-	 * id查询用户数据
-	 * @param id
-	 */
-	protected Maybe<D> rxLoad(String id) {
-		def query = new JsonObject(["_id": id])
-		client.rxFindOne(collectionName(), query, new JsonObject())
-				.map({
-					it.mapTo(clazz())
-				})
-	}
-	
-	/**
-	 * 保存数据
-	 * @param data
-	 * @return
-	 */
-	protected Maybe<String> rxSaveDB(D data) {
-		client.rxSave(collectionName(), JsonObject.mapFrom(data))
-	}
+    MongoClient client
+    LoadingCache<String, D> cache = cacheBuilder()
+
+    /**
+     * mongodb 集合名称
+     * @return 集合名称
+     */
+    String collectionName() {
+        clazz().simpleName
+    }
+
+    /**
+     * 构建缓存
+     * @return
+     */
+    LoadingCache<String, D> cacheBuilder() {
+        defaultCacheBuilder()
+    }
+
+    /**
+     * 数据所属类
+     * @return
+     */
+    abstract Class<D> clazz()
+
+    def cacheStats() {
+        cacheBuilder().stats()
+    }
+
+    @Override
+    Completable rxStart() {
+        this.@vertx.fileSystem().rxReadFile(GameConsts.CONFIG_PATH)
+                .map({buffer ->
+                    // 创建共享 mongodb 客户端
+                    def config = new JsonObject(new YamlSlurper().parseText(buffer.toString()).database.game)
+                    this.client = MongoClient.createShared(this.@vertx, config, MONGO_DATA_SOURCE)
+                    log.info "create mongo client,config:${config},client:${client}"
+                    this.client
+                })
+                .ignoreElement()
+                .doOnComplete({
+                    // 暴露 jmx
+                    new JmxBuilder().export {
+                        bean(
+                                target: this,
+                                name: "io.github.hdfg159.game.data.data:name=" + this.class.simpleName + "@" + this.hashCode(),
+                                attributes: [],
+                                operations: "*"
+                        )
+                        bean(
+                                target: this.cacheStats(),
+                                name: "io.github.hdfg159.game.data.data:name=" + this.class.simpleName + "CacheStats@" + this.hashCode(),
+                                attributes: [],
+                                operations: "*"
+                        )
+                    }
+                })
+                .doOnComplete({
+                    log.info "deploy data manager complete : ${this.class.simpleName}"
+                })
+    }
+
+    @Override
+    Completable rxStop() {
+        rxSaveAll().doOnComplete({
+            log.info "undeploy data manager complete : ${this.class.simpleName}"
+        })
+    }
+
+    /**
+     * 默认缓存构建
+     * @return
+     */
+    LoadingCache<String, D> defaultCacheBuilder() {
+        Caffeine.newBuilder()
+                .scheduler(Scheduler.systemScheduler())
+                .writer(new CacheWriter<String, D>() {
+                    void write(String key, D value) {}
+
+                    void delete(String key, D value, RemovalCause cause) {
+                        rxSaveDB(value)
+                                .doOnSubscribe({
+                                    log.debug("flush [${cause}] data:[${value.hashCode()}][${key}][${value.class.name}]")
+                                })
+                                .blockingGet()
+                    }
+                })
+                .expireAfterAccess(GameConsts.CACHE_ACCESS_TIME_OUT)
+                .recordStats()
+                .build({rxLoad(it).blockingGet()})
+    }
+
+    /**
+     * 更新保存
+     * @param data 数据
+     * @return 数据
+     */
+    D saveCache(D data) {
+        if (data) {
+            if (data.id) {
+                cache.put(data.id, data)
+            } else {
+                def id = IdUtils.idStr
+                data.id = id
+                cache.put(id, data)
+            }
+        }
+        data
+    }
+
+    /**
+     * 获取数据
+     * @param id id
+     * @return 数据
+     */
+    D getById(String id) {
+        id ? cache.get(id) : null
+    }
+
+    /**
+     * 强制更新缓存并刷写到数据库
+     * @param data 数据
+     * @return 数据
+     */
+    D updateForce(D data) {
+        if (data) {
+            cache.put(data.id, data)
+            cache.invalidate(data.id)
+            cache.cleanUp()
+        }
+        data
+    }
+
+    /**
+     * 根据 ID 强制更新 缓存 到数据库
+     * @param data 数据
+     */
+    void updateForceById(String id) {
+        if (id) {
+            cache.invalidate(id)
+            cache.cleanUp()
+        }
+    }
+
+    /**
+     * 更新所有缓存数据到数据库
+     */
+    Completable rxSaveAll() {
+        // 缓存设置全部过期，清除缓存刷新到数据库，增加 subscribeOn 用线程池调度
+        // invalidateAll() & cleanUp() 同步操作关联 com.github.benmanes.caffeine.cache.CacheWriter.delete
+        Completable.fromAction({
+            cache.invalidateAll()
+            cache.cleanUp()
+        }).subscribeOn(io())
+    }
+
+    /**
+     * id查询用户数据
+     * @param id
+     */
+    protected Maybe<D> rxLoad(String id) {
+        def query = new JsonObject(["_id": id])
+        client.rxFindOne(collectionName(), query, new JsonObject())
+                .map({
+                    it.mapTo(clazz())
+                })
+    }
+
+    /**
+     * 保存数据
+     * @param data
+     * @return
+     */
+    protected Maybe<String> rxSaveDB(D data) {
+        client.rxSave(collectionName(), JsonObject.mapFrom(data))
+    }
 }

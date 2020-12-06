@@ -23,37 +23,37 @@ import io.netty.handler.logging.LoggingHandler
 @Slf4j
 @ChannelHandler.Sharable
 class LogHandler extends LoggingHandler {
-	@Override
-	void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-		if ((msg instanceof GameMessage.Message) && logger.isEnabled(internalLevel)) {
-			logger.log(internalLevel, formatProtoBuf(ctx, "READ", (GameMessage.Message) msg))
-			ctx.fireChannelRead(msg)
-		} else {
-			super.channelRead(ctx, msg)
-		}
-	}
-	
-	@Override
-	void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
-		if ((msg instanceof GameMessage.Message) && logger.isEnabled(internalLevel)) {
-			logger.log(internalLevel, formatProtoBuf(ctx, "WRITE", (GameMessage.Message) msg))
-			ctx.write(msg, promise)
-		} else {
-			super.write(ctx, msg, promise)
-		}
-	}
-	
-	private static String formatProtoBuf(ChannelHandlerContext ctx, String eventName, GameMessage.Message msg) {
-		def protocol = ProtocolEnums.valOf(msg.protocol)
-		def code = CodeEnums.valOf(msg.code)
-		def data = msg.data
-		
-		if (data.toByteArray() && protocol && protocol.requestClass) {
-			def unpackData = protocol.requestClass.getDefaultInstance().parserForType.parseFrom(data.toByteArray())
-			return "${ctx.channel()} ${eventName} [${protocol?.name()}][${msg.protocol}] [${code?.name()}][${msg.code}]:\n${TextFormat.printer().escapingNonAscii(false).printToString(unpackData)}"
-		}
-		
-		return "${ctx.channel()} ${eventName} [${protocol?.name()}][${msg.protocol}] [${code?.name()}][${msg.code}]: not support data"
-	}
-	
+    @Override
+    void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        if ((msg instanceof GameMessage.Message) && logger.isEnabled(internalLevel)) {
+            logger.log(internalLevel, formatProtoBuf(ctx, "READ", (GameMessage.Message) msg))
+            ctx.fireChannelRead(msg)
+        } else {
+            super.channelRead(ctx, msg)
+        }
+    }
+
+    @Override
+    void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
+        if ((msg instanceof GameMessage.Message) && logger.isEnabled(internalLevel)) {
+            logger.log(internalLevel, formatProtoBuf(ctx, "WRITE", (GameMessage.Message) msg))
+            ctx.write(msg, promise)
+        } else {
+            super.write(ctx, msg, promise)
+        }
+    }
+
+    private static String formatProtoBuf(ChannelHandlerContext ctx, String eventName, GameMessage.Message msg) {
+        def protocol = ProtocolEnums.valOf(msg.protocol)
+        def code = CodeEnums.valOf(msg.code)
+        def data = msg.data
+
+        if (data.toByteArray() && protocol && protocol.requestClass) {
+            def unpackData = protocol.requestClass.getDefaultInstance().parserForType.parseFrom(data.toByteArray())
+            return "${ctx.channel()} ${eventName} [${protocol?.name()}][${msg.protocol}] [${code?.name()}][${msg.code}]:\n${TextFormat.printer().escapingNonAscii(false).printToString(unpackData)}"
+        }
+
+        return "${ctx.channel()} ${eventName} [${protocol?.name()}][${msg.protocol}] [${code?.name()}][${msg.code}]: not support data"
+    }
+
 }

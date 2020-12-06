@@ -14,9 +14,9 @@ import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame
 @Slf4j
 @ChannelHandler.Sharable
 class WebSocketBinaryMessageInHandler extends SimpleChannelInboundHandler<BinaryWebSocketFrame> {
-	@Override
-	protected void channelRead0(ChannelHandlerContext ctx, BinaryWebSocketFrame msg) throws Exception {
-		def buf = msg.content().retain()
-		super.channelRead ctx, buf
-	}
+    @Override
+    protected void channelRead0(ChannelHandlerContext ctx, BinaryWebSocketFrame msg) throws Exception {
+        def buf = msg.content().retain()
+        super.channelRead ctx, buf
+    }
 }

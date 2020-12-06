@@ -10,11 +10,11 @@ package io.github.hdfg159.web.config
  * @author zhangzhenyu
  */
 class WebServerConfig {
-	int port
-	JwtConfig jwtConfig
-	
-	static class JwtConfig {
-		String privateKey
-		String publicKey
-	}
+    int port
+    JwtConfig jwtConfig
+
+    static class JwtConfig {
+        String privateKey
+        String publicKey
+    }
 }

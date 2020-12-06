@@ -11,51 +11,51 @@ import java.time.Duration
  * Created by hdfg159 on 2020/7/14 23:16.
  */
 class GameConsts {
-	/**
-	 * 用户ID属性值
-	 */
-	static final String ATTR_NAME_AVATAR = 'ATTR_AVATAR'
-	/**
-	 * 当前通道ID
-	 */
-	static final String ATTR_NAME_CHANNEL_ID = 'ATTR_CHANNEL_ID'
-	/**
-	 * 用户ID
-	 */
-	static final AttributeKey<String> ATTR_AVATAR = AttributeKey.valueOf(ATTR_NAME_AVATAR)
-	
-	/**
-	 * 协议前缀
-	 */
-	static final String ADDRESS_PROTOCOL = 'PROTOCOL.'
-	/**
-	 * 事件前缀
-	 */
-	static final String ADDRESS_EVENT = 'EVENT.'
-	
-	/**
-	 * 缓存访问过期时间
-	 */
-	static final Duration CACHE_ACCESS_TIME_OUT = Duration.ofSeconds(60 * 10)
-	
-	/**
-	 * mongodb 共享数据源名称
-	 */
-	static final String MONGO_DATA_SOURCE = 'common'
-	/**
-	 * mongodb 共享数据源名称 日志库
-	 */
-	static final String LOG_MONGO_DATA_SOURCE = 'common-log'
-	/**
-	 * 配置文件路径
-	 */
-	static final String CONFIG_PATH = 'config/config.yml'
-	/**
-	 * 组件配置文件路径
-	 */
-	static final String COMPONENT_PATH = 'component/component.yml'
-	/**
-	 * pid 文件名
-	 */
-	static final String PID_FILE_NAME = 'game.pid'
+    /**
+     * 用户ID属性值
+     */
+    static final String ATTR_NAME_AVATAR = 'ATTR_AVATAR'
+    /**
+     * 当前通道ID
+     */
+    static final String ATTR_NAME_CHANNEL_ID = 'ATTR_CHANNEL_ID'
+    /**
+     * 用户ID
+     */
+    static final AttributeKey<String> ATTR_AVATAR = AttributeKey.valueOf(ATTR_NAME_AVATAR)
+
+    /**
+     * 协议前缀
+     */
+    static final String ADDRESS_PROTOCOL = 'PROTOCOL.'
+    /**
+     * 事件前缀
+     */
+    static final String ADDRESS_EVENT = 'EVENT.'
+
+    /**
+     * 缓存访问过期时间
+     */
+    static final Duration CACHE_ACCESS_TIME_OUT = Duration.ofSeconds(60 * 10)
+
+    /**
+     * mongodb 共享数据源名称
+     */
+    static final String MONGO_DATA_SOURCE = 'common'
+    /**
+     * mongodb 共享数据源名称 日志库
+     */
+    static final String LOG_MONGO_DATA_SOURCE = 'common-log'
+    /**
+     * 配置文件路径
+     */
+    static final String CONFIG_PATH = 'config/config.yml'
+    /**
+     * 组件配置文件路径
+     */
+    static final String COMPONENT_PATH = 'component/component.yml'
+    /**
+     * pid 文件名
+     */
+    static final String PID_FILE_NAME = 'game.pid'
 }

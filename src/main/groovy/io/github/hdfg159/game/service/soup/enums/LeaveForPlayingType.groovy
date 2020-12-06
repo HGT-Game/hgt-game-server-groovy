@@ -10,16 +10,16 @@ package io.github.hdfg159.game.service.soup.enums
  * @author zhangzhenyu
  */
 enum LeaveForPlayingType {
-	NO(1),
-	YES(2),
-	
-	private int type
-	
-	LeaveForPlayingType(int type) {
-		this.type = type
-	}
-	
-	int getType() {
-		return type
-	}
+    NO(1),
+    YES(2),
+
+    private int type
+
+    LeaveForPlayingType(int type) {
+        this.type = type
+    }
+
+    int getType() {
+        return type
+    }
 }

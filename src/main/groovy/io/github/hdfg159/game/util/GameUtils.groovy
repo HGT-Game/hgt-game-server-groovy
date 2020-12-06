@@ -21,84 +21,84 @@ import io.vertx.reactivex.core.eventbus.EventBus
  */
 @Slf4j
 abstract class GameUtils {
-	/**
-	 * 默认200码的响应数据构造
-	 * @param protocolEnums 协议枚举
-	 * @param data 消息数据主体
-	 * @return 消息
-	 */
-	static GameMessage.Message sucResMsg(ProtocolEnums protocolEnums, Message data) {
-		def builder = GameMessage.Message.newBuilder()
-		builder.setProtocol(protocolEnums.protocol)
-				.setCode(CodeEnums.SUCCESS.code)
-		if (data) {
-			builder.setData(data.toByteString())
-		}
-		builder.build()
-	}
-	
-	/**
-	 * 请求信息构造
-	 * @param protocolEnums 协议枚举
-	 * @param data 消息数据主体
-	 * @return 消息
-	 */
-	static GameMessage.Message reqMsg(ProtocolEnums protocolEnums, Message data) {
-		def builder = GameMessage.Message.newBuilder()
-		builder.setProtocol(protocolEnums.protocol)
-		if (data) {
-			builder.setData(data.toByteString())
-		}
-		builder.build()
-	}
-	
-	/**
-	 * 响应数据构造
-	 * @param protocolEnums 协议枚举
-	 * @param codeEnums 响应码枚举
-	 * @param data 消息数据主体
-	 * @return 消息
-	 */
-	static GameMessage.Message resMsg(ProtocolEnums protocolEnums, CodeEnums codeEnums, Message data) {
-		def builder = GameMessage.Message.newBuilder()
-		
-		builder.setProtocol(protocolEnums.protocol)
-				.setCode(codeEnums.code)
-		if (data) {
-			builder.setData(data.toByteString())
-		}
-		builder.build()
-	}
-	
-	/**
-	 * 响应空数据构造
-	 * @param protocolEnums 协议枚举
-	 * @param codeEnums 响应码枚举
-	 * @return 消息
-	 */
-	static GameMessage.Message resMsg(ProtocolEnums protocolEnums, CodeEnums codeEnums) {
-		GameMessage.Message.newBuilder()
-				.setProtocol(protocolEnums.protocol)
-				.setCode(codeEnums.code)
-				.build()
-	}
-	
-	/**
-	 * 发布事件
-	 * @param enums 事件枚举
-	 * @param data 事件数据
-	 */
-	static void publishEvent(EventBus eventBus, EventEnums enums, Message data) {
-		def builder = EventMessage.Event.newBuilder()
-		builder.setEvent(enums.event)
-		if (data) {
-			builder.setData(data.toByteString())
-		}
-		def event = builder.build()
-		def address = enums.address()
-		
-		log.trace("${address} publish event:${event},data:${data}")
-		
-		eventBus.publish(address, event.toByteArray())
-	}
+    /**
+     * 默认200码的响应数据构造
+     * @param protocolEnums 协议枚举
+     * @param data 消息数据主体
+     * @return 消息
+     */
+    static GameMessage.Message sucResMsg(ProtocolEnums protocolEnums, Message data) {
+        def builder = GameMessage.Message.newBuilder()
+        builder.setProtocol(protocolEnums.protocol)
+                .setCode(CodeEnums.SUCCESS.code)
+        if (data) {
+            builder.setData(data.toByteString())
+        }
+        builder.build()
+    }
+
+    /**
+     * 请求信息构造
+     * @param protocolEnums 协议枚举
+     * @param data 消息数据主体
+     * @return 消息
+     */
+    static GameMessage.Message reqMsg(ProtocolEnums protocolEnums, Message data) {
+        def builder = GameMessage.Message.newBuilder()
+        builder.setProtocol(protocolEnums.protocol)
+        if (data) {
+            builder.setData(data.toByteString())
+        }
+        builder.build()
+    }
+
+    /**
+     * 响应数据构造
+     * @param protocolEnums 协议枚举
+     * @param codeEnums 响应码枚举
+     * @param data 消息数据主体
+     * @return 消息
+     */
+    static GameMessage.Message resMsg(ProtocolEnums protocolEnums, CodeEnums codeEnums, Message data) {
+        def builder = GameMessage.Message.newBuilder()
+
+        builder.setProtocol(protocolEnums.protocol)
+                .setCode(codeEnums.code)
+        if (data) {
+            builder.setData(data.toByteString())
+        }
+        builder.build()
+    }
+
+    /**
+     * 响应空数据构造
+     * @param protocolEnums 协议枚举
+     * @param codeEnums 响应码枚举
+     * @return 消息
+     */
+    static GameMessage.Message resMsg(ProtocolEnums protocolEnums, CodeEnums codeEnums) {
+        GameMessage.Message.newBuilder()
+                .setProtocol(protocolEnums.protocol)
+                .setCode(codeEnums.code)
+                .build()
+    }
+
+    /**
+     * 发布事件
+     * @param enums 事件枚举
+     * @param data 事件数据
+     */
+    static void publishEvent(EventBus eventBus, EventEnums enums, Message data) {
+        def builder = EventMessage.Event.newBuilder()
+        builder.setEvent(enums.event)
+        if (data) {
+            builder.setData(data.toByteString())
+        }
+        def event = builder.build()
+        def address = enums.address()
+
+        log.trace("${address} publish event:${event},data:${data}")
+
+        eventBus.publish(address, event.toByteArray())
+    }
 }

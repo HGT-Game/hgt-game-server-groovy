@@ -17,47 +17,47 @@ import io.vertx.reactivex.core.AbstractVerticle
 @Slf4j
 @Singleton
 class GameVerticle extends AbstractVerticle {
-	@Override
-	Completable rxStart() {
-		this.@vertx.fileSystem()
-				.rxReadFile(GameConsts.COMPONENT_PATH)
-				.map({
-					new YamlSlurper().parseText(it.toString())
-				})
-				.flatMapCompletable(this.&createComponents)
-				.doOnComplete({
-					log.info "deploy ${this.class.simpleName} complete"
-				})
-	}
-	
-	@Override
-	Completable rxStop() {
-		Completable.fromRunnable({
-			SchedulerManager.INSTANCE.shutdown()
-			log.info "shutdown scheduler manager"
-		})
-	}
-	
-	
-	def createComponents(components) {
-		Completable.defer({
-			def dataManagersOrderMap = new TreeMap<String, List<String>>(components.'data-managers')
-			def servicesOrderMap = new TreeMap<String, List<String>>(components.services)
-			def configsOrderMap = new TreeMap<String, List<String>>(components.configs)
-			
-			def dataManagers = buildVerticleCompletes(dataManagersOrderMap)
-			def services = buildVerticleCompletes(servicesOrderMap)
-			def configs = buildVerticleCompletes(configsOrderMap)
-			
-			Completable.concatArray(configs, dataManagers, services)
-		})
-	}
-	
-	def buildVerticleCompletes(verticleOrderMap) {
-		Completable.concat(verticleOrderMap.collect {order, names ->
-			Completable.merge(names.collect {name ->
-				this.@vertx.rxDeployVerticle((("${name}" as Class).getInstance()) as Verticle).ignoreElement()
-			})
-		})
-	}
+    @Override
+    Completable rxStart() {
+        this.@vertx.fileSystem()
+                .rxReadFile(GameConsts.COMPONENT_PATH)
+                .map({
+                    new YamlSlurper().parseText(it.toString())
+                })
+                .flatMapCompletable(this.&createComponents)
+                .doOnComplete({
+                    log.info "deploy ${this.class.simpleName} complete"
+                })
+    }
+
+    @Override
+    Completable rxStop() {
+        Completable.fromRunnable({
+            SchedulerManager.INSTANCE.shutdown()
+            log.info "shutdown scheduler manager"
+        })
+    }
+
+
+    def createComponents(components) {
+        Completable.defer({
+            def dataManagersOrderMap = new TreeMap<String, List<String>>(components.'data-managers')
+            def servicesOrderMap = new TreeMap<String, List<String>>(components.services)
+            def configsOrderMap = new TreeMap<String, List<String>>(components.configs)
+
+            def dataManagers = buildVerticleCompletes(dataManagersOrderMap)
+            def services = buildVerticleCompletes(servicesOrderMap)
+            def configs = buildVerticleCompletes(configsOrderMap)
+
+            Completable.concatArray(configs, dataManagers, services)
+        })
+    }
+
+    def buildVerticleCompletes(verticleOrderMap) {
+        Completable.concat(verticleOrderMap.collect {order, names ->
+            Completable.merge(names.collect {name ->
+                this.@vertx.rxDeployVerticle((("${name}" as Class).getInstance()) as Verticle).ignoreElement()
+            })
+        })
+    }
 }

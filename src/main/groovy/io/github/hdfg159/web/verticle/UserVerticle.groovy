@@ -12,17 +12,17 @@ import io.vertx.reactivex.core.AbstractVerticle
 @Slf4j
 @Singleton
 class UserVerticle extends AbstractVerticle {
-	@Override
-	Completable rxStart() {
-		Completable.fromCallable({
-			log.info "deploy ${this.class.simpleName}"
-		})
-	}
-	
-	@Override
-	Completable rxStop() {
-		Completable.fromCallable({
-			log.info "undeploy ${this.class.simpleName}"
-		})
-	}
+    @Override
+    Completable rxStart() {
+        Completable.fromCallable({
+            log.info "deploy ${this.class.simpleName}"
+        })
+    }
+
+    @Override
+    Completable rxStop() {
+        Completable.fromCallable({
+            log.info "undeploy ${this.class.simpleName}"
+        })
+    }
 }

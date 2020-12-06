@@ -2,6 +2,6 @@ syntax = "proto3";
 option java_package = "io.github.hdfg159.game.domain.dto";
 
 message SeatChange {
-  string roomId = 1;
-  string aid = 2;
+    string roomId = 1;
+    string aid = 2;
 }

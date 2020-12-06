@@ -20,23 +20,23 @@ import io.netty.handler.timeout.IdleStateEvent
  */
 @Slf4j
 class HeartbeatHandler extends ChannelInboundHandlerAdapter {
-	@Override
-	void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-		if (!(evt instanceof IdleStateEvent)) {
-			super.userEventTriggered(ctx, evt)
-			return
-		}
-		
-		def event = evt as IdleStateEvent
-		if (event.state() == IdleState.ALL_IDLE) {
-			// 发送心跳维持
-			def message = GameUtils.reqMsg(ProtocolEnums.REQ_HEART_BEAT, null)
-			
-			ctx.channel()
-					.writeAndFlush(message)
-					.addListener(ChannelFutureListener.CLOSE_ON_FAILURE)
-		} else {
-			super.userEventTriggered(ctx, evt)
-		}
-	}
+    @Override
+    void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+        if (!(evt instanceof IdleStateEvent)) {
+            super.userEventTriggered(ctx, evt)
+            return
+        }
+
+        def event = evt as IdleStateEvent
+        if (event.state() == IdleState.ALL_IDLE) {
+            // 发送心跳维持
+            def message = GameUtils.reqMsg(ProtocolEnums.REQ_HEART_BEAT, null)
+
+            ctx.channel()
+                    .writeAndFlush(message)
+                    .addListener(ChannelFutureListener.CLOSE_ON_FAILURE)
+        } else {
+            super.userEventTriggered(ctx, evt)
+        }
+    }
 }

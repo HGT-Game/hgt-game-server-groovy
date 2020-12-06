@@ -2,16 +2,16 @@ syntax = "proto3";
 option java_package = "io.github.hdfg159.game.domain.dto";
 
 message Event {
-  int64 event = 1;
-  bytes data = 2;
+    int64 event = 1;
+    bytes data = 2;
 }
 
 message Offline {
-  string userId = 1;
-  string username = 2;
+    string userId = 1;
+    string username = 2;
 }
 
 message Online {
-  string userId = 1;
-  string username = 2;
+    string userId = 1;
+    string username = 2;
 }

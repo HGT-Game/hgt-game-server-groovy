@@ -30,280 +30,280 @@ import static io.github.hdfg159.game.enumeration.ProtocolEnums.*
 @Slf4j
 @Singleton
 class AvatarService extends AbstractService {
-	static final def TRIGGER_NAME_AVATAR_ONLINE = "avatar::online::num"
-	
-	def avatarData = AvatarData.instance
-	
-	def logService = LogService.getInstance()
-	
-	@Override
-	Completable init() {
-		REQ_LOGIN.handle(this, login)
-		REQ_OFFLINE.handle(this, offline)
-		REQ_HEART_BEAT.handle(this, heartBeat)
-		REQ_REGISTER.handle(this, register)
-		
-		EventEnums.ONLINE.handle(this, onlineEvent)
-		EventEnums.OFFLINE.handle(this, offlineEvent)
-		
-		Completable.fromRunnable({
-			Triggers.forever(TRIGGER_NAME_AVATAR_ONLINE, 3, ChronoUnit.MINUTES, LocalDateTime.now(), {
-				log.info "online avatar:[{}]", avatarData.allOnlineIds.size()
-			}).schedule()
-		})
-	}
-	
-	@Override
-	Completable destroy() {
-		return Completable.complete()
-	}
-	
-	def login = {headers, params ->
-		def channelId = (headers as MultiMap)[ATTR_NAME_CHANNEL_ID] as String
-		
-		def request = params as GameMessage.LoginReq
-		def username = request.username
-		def password = request.password
-		
-		def avatar = avatarData.getByUsername(username)
-		if (avatar && username == avatar.username && password == avatar.password) {
-			synchronized (avatar) {
-				def id = avatar.id
-				def avatarChannelId = avatarData.getChannelId(id)
-				if (avatarData.isOnline(id)) {
-					// 查询当前在线玩家的通道
-					if (avatarChannelId && avatarChannelId == channelId) {
-						// 玩家已经在线，玩家和通道一样，属于重复请求，返回错误码
-						log.info "玩家同一通道重复登录:[${id}][${username}][${avatarChannelId}]"
-						return RES_LOGIN.res(EXIST_LOGIN)
-					} else {
-						// 玩家已经在线，玩家当前渠道和这个不一致，踢掉再登录
-						log.info "强制下线玩家并重新登录:[${id}][${username}][${avatarChannelId}]"
-						forceOffline(id)
-						return loginSuccess(channelId, avatar)
-					}
-				} else {
-					log.info "玩家正常登录:[${id}][${username}][${channelId}]"
-					return loginSuccess(channelId, avatar)
-				}
-			}
-		} else {
-			return RES_LOGIN.res(LOGIN_FAIL)
-		}
-	}
-	
-	/**
-	 * 登录成功
-	 * @param channelId 通道ID
-	 * @param avatar 玩家信息
-	 * @return 返回
-	 */
-	private GameMessage.Message loginSuccess(String channelId, Avatar avatar) {
-		def id = avatar.id
-		def username = avatar.username
-		
-		avatarData.onlineChannel(id, channelId)
-		
-		// 设置通道属性，标记已经登录
-		avatarData.getChannel(id)?.attr(ATTR_AVATAR)?.set(id)
-		
-		def event = EventMessage.Online.newBuilder()
-				.setUserId(id)
-				.setUsername(username)
-				.build()
-		publishEvent(EventEnums.ONLINE, event)
-		
-		log.info("玩家登录成功:[${avatar.id}][${avatar.username}][${avatarData.getChannelId(id)}]")
-		
-		logService.log(new GameLog(
-				aid: avatar.id,
-				name: avatar.username,
-				opt: LogEnums.AVATAR_LOGIN
-		))
-		
-		RES_LOGIN.sucRes(
-				GameMessage.LoginRes.newBuilder()
-						.setUsername(username)
-						.setUserId(id)
-						.build()
-		)
-	}
-	
-	def offline = {headers, params ->
-		def request = params as GameMessage.OfflineReq
-		def userId = request.userId
-		def channelId = (headers as MultiMap)[ATTR_NAME_CHANNEL_ID]
-		
-		def avatar = avatarData.getById(userId)
-		if (avatar) {
-			synchronized (avatar) {
-				def avatarChannelId = avatarData.getChannelId(userId)
-				if (avatarData.isOnline(userId) && avatarChannelId == channelId) {
-					log.info "玩家进行正常下线请求:[${userId}][${avatarChannelId}]"
-					
-					avatarData.offlineChannel(userId)
-					
-					def event = EventMessage.Offline.newBuilder()
-							.setUsername(avatar.username)
-							.setUserId(avatar.id)
-							.build()
-					publishEvent(EventEnums.OFFLINE, event)
-					
-					logService.log(new GameLog(
-							aid: avatar.id,
-							name: avatar.username,
-							opt: LogEnums.AVATAR_OFFLINE,
-							param: new JsonObject([
-									"force": false
-							])
-					))
-				}
-			}
-		}
-		
-		return null
-	}
-	
-	def heartBeat = {headers, params ->
-		RES_HEART_BEAT.sucRes(
-				GameMessage.HeartBeatRes.newBuilder().build()
-		)
-	}
-	
-	def onlineEvent = {headers, params ->
-		def event = params as EventMessage.Online
-		def userId = event.userId
-		def username = event.username
-		def channel = avatarData.getChannel(userId)
-		log.info "[${userId}][${username}]上线,channel:${channel}"
-	}
-	
-	def offlineEvent = {headers, params ->
-		def event = params as EventMessage.Offline
-		def username = event.username
-		def userId = event.userId
-		log.info "[${userId}][${username}]下线"
-	}
-	
-	def register = {headers, params ->
-		def request = params as GameMessage.RegisterReq
-		def username = request.username
-		def password = request.password
-		if (!username || !password) {
-			return RES_REGISTER.res(REGISTER_INFO_ILLEGAL)
-		}
-		
-		def avatar = avatarData.getByUsername(username)
-		if (avatar) {
-			return RES_REGISTER.res(REGISTER_INFO_ILLEGAL)
-		}
-		
-		def registerAvatar = new Avatar(
-				username: username,
-				password: password
-		)
-		// 保存缓存，全局数据加入相关信息
-		avatarData.saveCache(registerAvatar)
-		avatarData.addGlobalCache(registerAvatar)
-		
-		logService.log(new GameLog(
-				aid: registerAvatar.id,
-				name: registerAvatar.username,
-				opt: LogEnums.AVATAR_REGISTER
-		))
-		
-		RES_REGISTER.sucRes(
-				GameMessage.RegisterRes.newBuilder()
-						.setId(registerAvatar.id)
-						.setUsername(registerAvatar.username)
-						.build()
-		)
-	}
-	
-	def forceOffline(Collection<String> userIds) {
-		userIds.each {forceOffline(it)}
-	}
-	
-	/**
-	 * 强制下线
-	 * @param userId 用户ID
-	 * @return
-	 */
-	def forceOffline(String userId) {
-		if (!userId) {
-			return
-		}
-		
-		def avatar = avatarData.getById(userId)
-		if (!avatar) {
-			return
-		}
-		
-		synchronized (avatar) {
-			if (!avatarData.isOnline(avatar.id)) {
-				return
-			}
-			
-			def channel = avatarData.getChannel(userId)
-			if (channel && channel.isActive()) {
-				channel.writeAndFlush(RES_OFFLINE.res(FORCE_OFFLINE))
-				channel.close()
-			}
-			
-			avatarData.offlineChannel(userId)
-			
-			def event = EventMessage.Offline.newBuilder()
-					.setUsername(avatar.username)
-					.setUserId(avatar.id)
-					.build()
-			publishEvent(EventEnums.OFFLINE, event)
-			
-			logService.log(new GameLog(
-					aid: avatar.id,
-					name: avatar.username,
-					opt: LogEnums.AVATAR_OFFLINE,
-					param: new JsonObject([
-							"force": true
-					])
-			))
-		}
-	}
-	
-	/**
-	 * 单条在线推送消息
-	 * @param userId 用户 ID
-	 * @param message 消息
-	 * @return
-	 */
-	def pushMsg(String userId, Message message) {
-		def channel = avatarData.getChannel(userId)
-		if (channel && channel.isActive()) {
-			channel.writeAndFlush(message)
-		}
-	}
-	
-	/**
-	 * 全部在线推送消息
-	 * @param userIds 用户 ID 列表
-	 * @param excludeUserIds 排除的用户 ID
-	 * @param message 消息
-	 */
-	def pushAllMsg(Collection<String> userIds, Collection<String> excludeUserIds, Message message) {
-		userIds.findAll {!excludeUserIds.contains(it)}
-				.collect {avatarData.getChannel(it)}
-				.findAll {it && it.isActive()}
-				.each {it.writeAndFlush(message)}
-	}
-	
-	def getAvatarById(String id) {
-		avatarData.getById(id)
-	}
-	
-	def getAvatarByName(String name) {
-		avatarData.getByUsername(name)
-	}
-	
-	def isOnline(String aid) {
-		avatarData.isOnline(aid)
-	}
+    static final def TRIGGER_NAME_AVATAR_ONLINE = "avatar::online::num"
+
+    def avatarData = AvatarData.instance
+
+    def logService = LogService.getInstance()
+
+    @Override
+    Completable init() {
+        REQ_LOGIN.handle(this, login)
+        REQ_OFFLINE.handle(this, offline)
+        REQ_HEART_BEAT.handle(this, heartBeat)
+        REQ_REGISTER.handle(this, register)
+
+        EventEnums.ONLINE.handle(this, onlineEvent)
+        EventEnums.OFFLINE.handle(this, offlineEvent)
+
+        Completable.fromRunnable({
+            Triggers.forever(TRIGGER_NAME_AVATAR_ONLINE, 3, ChronoUnit.MINUTES, LocalDateTime.now(), {
+                log.info "online avatar:[{}]", avatarData.allOnlineIds.size()
+            }).schedule()
+        })
+    }
+
+    @Override
+    Completable destroy() {
+        return Completable.complete()
+    }
+
+    def login = {headers, params ->
+        def channelId = (headers as MultiMap)[ATTR_NAME_CHANNEL_ID] as String
+
+        def request = params as GameMessage.LoginReq
+        def username = request.username
+        def password = request.password
+
+        def avatar = avatarData.getByUsername(username)
+        if (avatar && username == avatar.username && password == avatar.password) {
+            synchronized (avatar) {
+                def id = avatar.id
+                def avatarChannelId = avatarData.getChannelId(id)
+                if (avatarData.isOnline(id)) {
+                    // 查询当前在线玩家的通道
+                    if (avatarChannelId && avatarChannelId == channelId) {
+                        // 玩家已经在线，玩家和通道一样，属于重复请求，返回错误码
+                        log.info "玩家同一通道重复登录:[${id}][${username}][${avatarChannelId}]"
+                        return RES_LOGIN.res(EXIST_LOGIN)
+                    } else {
+                        // 玩家已经在线，玩家当前渠道和这个不一致，踢掉再登录
+                        log.info "强制下线玩家并重新登录:[${id}][${username}][${avatarChannelId}]"
+                        forceOffline(id)
+                        return loginSuccess(channelId, avatar)
+                    }
+                } else {
+                    log.info "玩家正常登录:[${id}][${username}][${channelId}]"
+                    return loginSuccess(channelId, avatar)
+                }
+            }
+        } else {
+            return RES_LOGIN.res(LOGIN_FAIL)
+        }
+    }
+
+    /**
+     * 登录成功
+     * @param channelId 通道ID
+     * @param avatar 玩家信息
+     * @return 返回
+     */
+    private GameMessage.Message loginSuccess(String channelId, Avatar avatar) {
+        def id = avatar.id
+        def username = avatar.username
+
+        avatarData.onlineChannel(id, channelId)
+
+        // 设置通道属性，标记已经登录
+        avatarData.getChannel(id)?.attr(ATTR_AVATAR)?.set(id)
+
+        def event = EventMessage.Online.newBuilder()
+                .setUserId(id)
+                .setUsername(username)
+                .build()
+        publishEvent(EventEnums.ONLINE, event)
+
+        log.info("玩家登录成功:[${avatar.id}][${avatar.username}][${avatarData.getChannelId(id)}]")
+
+        logService.log(new GameLog(
+                aid: avatar.id,
+                name: avatar.username,
+                opt: LogEnums.AVATAR_LOGIN
+        ))
+
+        RES_LOGIN.sucRes(
+                GameMessage.LoginRes.newBuilder()
+                        .setUsername(username)
+                        .setUserId(id)
+                        .build()
+        )
+    }
+
+    def offline = {headers, params ->
+        def request = params as GameMessage.OfflineReq
+        def userId = request.userId
+        def channelId = (headers as MultiMap)[ATTR_NAME_CHANNEL_ID]
+
+        def avatar = avatarData.getById(userId)
+        if (avatar) {
+            synchronized (avatar) {
+                def avatarChannelId = avatarData.getChannelId(userId)
+                if (avatarData.isOnline(userId) && avatarChannelId == channelId) {
+                    log.info "玩家进行正常下线请求:[${userId}][${avatarChannelId}]"
+
+                    avatarData.offlineChannel(userId)
+
+                    def event = EventMessage.Offline.newBuilder()
+                            .setUsername(avatar.username)
+                            .setUserId(avatar.id)
+                            .build()
+                    publishEvent(EventEnums.OFFLINE, event)
+
+                    logService.log(new GameLog(
+                            aid: avatar.id,
+                            name: avatar.username,
+                            opt: LogEnums.AVATAR_OFFLINE,
+                            param: new JsonObject([
+                                    "force": false
+                            ])
+                    ))
+                }
+            }
+        }
+
+        return null
+    }
+
+    def heartBeat = {headers, params ->
+        RES_HEART_BEAT.sucRes(
+                GameMessage.HeartBeatRes.newBuilder().build()
+        )
+    }
+
+    def onlineEvent = {headers, params ->
+        def event = params as EventMessage.Online
+        def userId = event.userId
+        def username = event.username
+        def channel = avatarData.getChannel(userId)
+        log.info "[${userId}][${username}]上线,channel:${channel}"
+    }
+
+    def offlineEvent = {headers, params ->
+        def event = params as EventMessage.Offline
+        def username = event.username
+        def userId = event.userId
+        log.info "[${userId}][${username}]下线"
+    }
+
+    def register = {headers, params ->
+        def request = params as GameMessage.RegisterReq
+        def username = request.username
+        def password = request.password
+        if (!username || !password) {
+            return RES_REGISTER.res(REGISTER_INFO_ILLEGAL)
+        }
+
+        def avatar = avatarData.getByUsername(username)
+        if (avatar) {
+            return RES_REGISTER.res(REGISTER_INFO_ILLEGAL)
+        }
+
+        def registerAvatar = new Avatar(
+                username: username,
+                password: password
+        )
+        // 保存缓存，全局数据加入相关信息
+        avatarData.saveCache(registerAvatar)
+        avatarData.addGlobalCache(registerAvatar)
+
+        logService.log(new GameLog(
+                aid: registerAvatar.id,
+                name: registerAvatar.username,
+                opt: LogEnums.AVATAR_REGISTER
+        ))
+
+        RES_REGISTER.sucRes(
+                GameMessage.RegisterRes.newBuilder()
+                        .setId(registerAvatar.id)
+                        .setUsername(registerAvatar.username)
+                        .build()
+        )
+    }
+
+    def forceOffline(Collection<String> userIds) {
+        userIds.each {forceOffline(it)}
+    }
+
+    /**
+     * 强制下线
+     * @param userId 用户ID
+     * @return
+     */
+    def forceOffline(String userId) {
+        if (!userId) {
+            return
+        }
+
+        def avatar = avatarData.getById(userId)
+        if (!avatar) {
+            return
+        }
+
+        synchronized (avatar) {
+            if (!avatarData.isOnline(avatar.id)) {
+                return
+            }
+
+            def channel = avatarData.getChannel(userId)
+            if (channel && channel.isActive()) {
+                channel.writeAndFlush(RES_OFFLINE.res(FORCE_OFFLINE))
+                channel.close()
+            }
+
+            avatarData.offlineChannel(userId)
+
+            def event = EventMessage.Offline.newBuilder()
+                    .setUsername(avatar.username)
+                    .setUserId(avatar.id)
+                    .build()
+            publishEvent(EventEnums.OFFLINE, event)
+
+            logService.log(new GameLog(
+                    aid: avatar.id,
+                    name: avatar.username,
+                    opt: LogEnums.AVATAR_OFFLINE,
+                    param: new JsonObject([
+                            "force": true
+                    ])
+            ))
+        }
+    }
+
+    /**
+     * 单条在线推送消息
+     * @param userId 用户 ID
+     * @param message 消息
+     * @return
+     */
+    def pushMsg(String userId, Message message) {
+        def channel = avatarData.getChannel(userId)
+        if (channel && channel.isActive()) {
+            channel.writeAndFlush(message)
+        }
+    }
+
+    /**
+     * 全部在线推送消息
+     * @param userIds 用户 ID 列表
+     * @param excludeUserIds 排除的用户 ID
+     * @param message 消息
+     */
+    def pushAllMsg(Collection<String> userIds, Collection<String> excludeUserIds, Message message) {
+        userIds.findAll {!excludeUserIds.contains(it)}
+                .collect {avatarData.getChannel(it)}
+                .findAll {it && it.isActive()}
+                .each {it.writeAndFlush(message)}
+    }
+
+    def getAvatarById(String id) {
+        avatarData.getById(id)
+    }
+
+    def getAvatarByName(String name) {
+        avatarData.getByUsername(name)
+    }
+
+    def isOnline(String aid) {
+        avatarData.isOnline(aid)
+    }
 }

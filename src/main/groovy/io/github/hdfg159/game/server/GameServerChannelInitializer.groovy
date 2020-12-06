@@ -26,34 +26,34 @@ import java.util.concurrent.TimeUnit
  * @author zhangzhenyu
  */
 class GameServerChannelInitializer extends ChannelInitializer<Channel> {
-	private Vertx vertx
-	private ServerConfig config
-	private GameMessageDispatcher dispatcher
-	
-	GameServerChannelInitializer(Vertx vertx, ServerConfig config) {
-		this.vertx = vertx
-		this.config = config
-		this.dispatcher = new GameMessageDispatcher(vertx)
-	}
-	
-	@Override
-	protected void initChannel(Channel ch) throws Exception {
-		def pipeline = ch.pipeline()
-		pipeline.addLast(new IdleStateHandler(10 * 60, 0, 0, TimeUnit.SECONDS))
-				
-				.addLast(new HttpServerCodec())
-				.addLast(new HttpObjectAggregator(65536))
-				
-				.addLast(new WebSocketServerCompressionHandler())
-				.addLast(new WebSocketServerProtocolHandler("/", null, true, 65536, true))
-				.addLast(new WebSocketBinaryMessageOutHandler())
-				.addLast(new WebSocketBinaryMessageInHandler())
-				.addLast(new ProtobufDecoder(GameMessage.Message.getDefaultInstance()))
-				.addLast(new ProtobufEncoder())
-		if (config.log) {
-			pipeline.addLast(new LogHandler())
-		}
-		pipeline.addLast(new ConnectionHandler(config.maxConnection, dispatcher))
-				.addLast(new MessageHandler(vertx, dispatcher))
-	}
+    private Vertx vertx
+    private ServerConfig config
+    private GameMessageDispatcher dispatcher
+
+    GameServerChannelInitializer(Vertx vertx, ServerConfig config) {
+        this.vertx = vertx
+        this.config = config
+        this.dispatcher = new GameMessageDispatcher(vertx)
+    }
+
+    @Override
+    protected void initChannel(Channel ch) throws Exception {
+        def pipeline = ch.pipeline()
+        pipeline.addLast(new IdleStateHandler(10 * 60, 0, 0, TimeUnit.SECONDS))
+
+                .addLast(new HttpServerCodec())
+                .addLast(new HttpObjectAggregator(65536))
+
+                .addLast(new WebSocketServerCompressionHandler())
+                .addLast(new WebSocketServerProtocolHandler("/", null, true, 65536, true))
+                .addLast(new WebSocketBinaryMessageOutHandler())
+                .addLast(new WebSocketBinaryMessageInHandler())
+                .addLast(new ProtobufDecoder(GameMessage.Message.getDefaultInstance()))
+                .addLast(new ProtobufEncoder())
+        if (config.log) {
+            pipeline.addLast(new LogHandler())
+        }
+        pipeline.addLast(new ConnectionHandler(config.maxConnection, dispatcher))
+                .addLast(new MessageHandler(vertx, dispatcher))
+    }
 }

@@ -20,28 +20,28 @@ import static io.github.hdfg159.game.constant.GameConsts.*
  */
 @Slf4j
 class GameMessageDispatcher {
-	Vertx vertx
-	EventBus eventBus
-	
-	GameMessageDispatcher(Vertx vertx) {
-		this.@vertx = vertx
-		eventBus = this.@vertx.eventBus()
-	}
-	
-	void request(Channel channel, GameMessage.Message message) {
-		def channelId = channel.id().asLongText()
-		// 事件地址
-		def address = "${ADDRESS_PROTOCOL}${message.protocol}"
-		
-		// 填充头部信息
-		def option = new DeliveryOptions()
-		def attrAvatar = channel.attr(ATTR_AVATAR)
-		def userId = attrAvatar.get()
-		if (userId) {
-			option.addHeader(ATTR_NAME_AVATAR, userId)
-		}
-		option.addHeader(ATTR_NAME_CHANNEL_ID, channelId)
-		
-		eventBus.send(address, message.data.toByteArray(), option)
-	}
+    Vertx vertx
+    EventBus eventBus
+
+    GameMessageDispatcher(Vertx vertx) {
+        this.@vertx = vertx
+        eventBus = this.@vertx.eventBus()
+    }
+
+    void request(Channel channel, GameMessage.Message message) {
+        def channelId = channel.id().asLongText()
+        // 事件地址
+        def address = "${ADDRESS_PROTOCOL}${message.protocol}"
+
+        // 填充头部信息
+        def option = new DeliveryOptions()
+        def attrAvatar = channel.attr(ATTR_AVATAR)
+        def userId = attrAvatar.get()
+        if (userId) {
+            option.addHeader(ATTR_NAME_AVATAR, userId)
+        }
+        option.addHeader(ATTR_NAME_CHANNEL_ID, channelId)
+
+        eventBus.send(address, message.data.toByteArray(), option)
+    }
 }

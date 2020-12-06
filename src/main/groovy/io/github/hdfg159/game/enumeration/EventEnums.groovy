@@ -17,37 +17,37 @@ import io.github.hdfg159.game.service.AbstractService
  * @author zhangzhenyu
  */
 enum EventEnums {
-	/**
-	 * 玩家下线时间
-	 */
-	OFFLINE(1, EventMessage.Offline.class),
-	/**
-	 * 上线
-	 */
-	ONLINE(2, EventMessage.Online.class),
-	
-	// 1001-2000 海龟汤
-	SOUP_SEAT_CHANGE(1001, SoupEvent.SeatChange.class),
-	
-	/**
-	 * 事件值
-	 */
-	long event
-	/**
-	 * 事件对应class
-	 */
-	Class<? extends Message> clazz
-	
-	EventEnums(long event, Class clazz) {
-		this.event = event
-		this.clazz = clazz
-	}
-	
-	String address() {
-		"${GameConsts.ADDRESS_EVENT}${event}"
-	}
-	
-	void handle(AbstractService service, Closure closure) {
-		service.handleEvent(this, closure)
-	}
+    /**
+     * 玩家下线时间
+     */
+    OFFLINE(1, EventMessage.Offline.class),
+    /**
+     * 上线
+     */
+    ONLINE(2, EventMessage.Online.class),
+
+    // 1001-2000 海龟汤
+    SOUP_SEAT_CHANGE(1001, SoupEvent.SeatChange.class),
+
+    /**
+     * 事件值
+     */
+    long event
+    /**
+     * 事件对应class
+     */
+    Class<? extends Message> clazz
+
+    EventEnums(long event, Class clazz) {
+        this.event = event
+        this.clazz = clazz
+    }
+
+    String address() {
+        "${GameConsts.ADDRESS_EVENT}${event}"
+    }
+
+    void handle(AbstractService service, Closure closure) {
+        service.handleEvent(this, closure)
+    }
 }

@@ -10,19 +10,19 @@ import io.reactivex.Completable
 @Slf4j
 @Singleton
 class LogService extends AbstractService {
-	def logData = GameLogData.getInstance()
-	
-	@Override
-	Completable init() {
-		Completable.complete()
-	}
-	
-	@Override
-	Completable destroy() {
-		Completable.complete()
-	}
-	
-	def log(GameLog log) {
-		logData.log(log)
-	}
+    def logData = GameLogData.getInstance()
+
+    @Override
+    Completable init() {
+        Completable.complete()
+    }
+
+    @Override
+    Completable destroy() {
+        Completable.complete()
+    }
+
+    def log(GameLog log) {
+        logData.log(log)
+    }
 }

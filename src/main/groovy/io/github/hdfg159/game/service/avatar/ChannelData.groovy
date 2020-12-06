@@ -15,38 +15,38 @@ import static io.github.hdfg159.game.constant.GameConsts.ATTR_AVATAR
 @Slf4j
 @Singleton
 class ChannelData {
-	/**
-	 * [通道ID:通道]
-	 */
-	Map<String, Channel> channelMap = new ConcurrentHashMap<>()
-	
-	/**
-	 * 添加通道
-	 * @param channel 通道
-	 * @return 通道
-	 */
-	Channel add(Channel channel) {
-		channel ? channelMap.put(channel.id().asLongText(), channel) : null
-	}
-	
-	/**
-	 * 移除通道
-	 * @param channel 通道
-	 * @return 通道
-	 */
-	Channel remove(Channel channel) {
-		// 顺带清除通道的玩家属性值
-		channel?.attr(ATTR_AVATAR)?.set(null)
-		channel ? channelMap.remove(channel.id().asLongText()) : null
-	}
-	
-	/**
-	 * 移除通道
-	 * @param channelId 通道ID
-	 * @return 通道
-	 */
-	Channel remove(String channelId) {
-		def channel = channelMap.get(channelId)
-		remove(channel)
-	}
+    /**
+     * [通道ID:通道]
+     */
+    Map<String, Channel> channelMap = new ConcurrentHashMap<>()
+
+    /**
+     * 添加通道
+     * @param channel 通道
+     * @return 通道
+     */
+    Channel add(Channel channel) {
+        channel ? channelMap.put(channel.id().asLongText(), channel) : null
+    }
+
+    /**
+     * 移除通道
+     * @param channel 通道
+     * @return 通道
+     */
+    Channel remove(Channel channel) {
+        // 顺带清除通道的玩家属性值
+        channel?.attr(ATTR_AVATAR)?.set(null)
+        channel ? channelMap.remove(channel.id().asLongText()) : null
+    }
+
+    /**
+     * 移除通道
+     * @param channelId 通道ID
+     * @return 通道
+     */
+    Channel remove(String channelId) {
+        def channel = channelMap.get(channelId)
+        remove(channel)
+    }
 }

@@ -10,8 +10,8 @@ package io.github.hdfg159.game.service.soup.config
  * @author zhangzhenyu
  */
 class Question {
-	String id
-	String title
-	String question
-	String content
+    String id
+    String title
+    String question
+    String content
 }

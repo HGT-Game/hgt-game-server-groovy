@@ -10,17 +10,17 @@ package io.github.hdfg159.game.service.soup.enums
  * @author zhangzhenyu
  */
 enum NoteType {
-	NONE(0),
-	CHAT(1),
-	CUSTOM(2),
-	
-	private int type
-	
-	NoteType(int type) {
-		this.type = type
-	}
-	
-	int getType() {
-		return type
-	}
+    NONE(0),
+    CHAT(1),
+    CUSTOM(2),
+
+    private int type
+
+    NoteType(int type) {
+        this.type = type
+    }
+
+    int getType() {
+        return type
+    }
 }

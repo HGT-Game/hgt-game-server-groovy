@@ -16,14 +16,14 @@ import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame
 @Slf4j
 @ChannelHandler.Sharable
 class WebSocketBinaryMessageOutHandler extends ChannelOutboundHandlerAdapter {
-	@Override
-	void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
-		if (msg instanceof ByteBuf) {
-			ByteBuf buf = (ByteBuf) msg
-			super.write(ctx, new BinaryWebSocketFrame(buf), promise)
-			return
-		}
-		
-		super.write(ctx, msg, promise)
-	}
+    @Override
+    void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
+        if (msg instanceof ByteBuf) {
+            ByteBuf buf = (ByteBuf) msg
+            super.write(ctx, new BinaryWebSocketFrame(buf), promise)
+            return
+        }
+
+        super.write(ctx, msg, promise)
+    }
 }

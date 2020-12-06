@@ -17,7 +17,7 @@ import io.vertx.reactivex.sqlclient.templates.SqlTemplate
 @Singleton
 class QuestionConfig extends AbstractConfigLoader {
     Map<String, Question> questionMap = [:]
-    
+
     @Override
     Completable load() {
         SqlTemplate.forQuery(client, "SELECT question_id AS id, title, description AS question, content FROM question WHERE status = 1")
@@ -28,16 +28,16 @@ class QuestionConfig extends AbstractConfigLoader {
                     log.info("load question config size:[{}]", questionMap.size())
                 }).ignoreElement()
     }
-    
+
     @Override
     Completable reload() {
         load()
     }
-    
+
     def getQuestion(String id) {
         questionMap[id]
     }
-    
+
     Set<String> getQuestionIds() {
         questionMap.keySet().asUnmodifiable()
     }

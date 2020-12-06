@@ -19,23 +19,23 @@ import io.reactivex.Completable
 @Slf4j
 @Singleton
 class FarmService extends AbstractService {
-	@Override
-	Completable init() {
-		ProtocolEnums.REQ_TEST.handle(this, test)
-		return Completable.complete()
-	}
-	
-	@Override
-	Completable destroy() {
-		return Completable.complete()
-	}
-	
-	def test = {headers, params ->
-		// throw new RuntimeException("error test========================")
-		ProtocolEnums.RES_TEST.sucRes(
-				GameMessage.TestRes.newBuilder()
-						.setStr(IdUtils.idStr)
-						.build()
-		)
-	}
+    @Override
+    Completable init() {
+        ProtocolEnums.REQ_TEST.handle(this, test)
+        return Completable.complete()
+    }
+
+    @Override
+    Completable destroy() {
+        return Completable.complete()
+    }
+
+    def test = {headers, params ->
+        // throw new RuntimeException("error test========================")
+        ProtocolEnums.RES_TEST.sucRes(
+                GameMessage.TestRes.newBuilder()
+                        .setStr(IdUtils.idStr)
+                        .build()
+        )
+    }
 }

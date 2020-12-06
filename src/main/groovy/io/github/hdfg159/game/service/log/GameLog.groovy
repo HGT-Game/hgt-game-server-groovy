@@ -12,14 +12,14 @@ import java.time.LocalDateTime
  */
 @Canonical
 class GameLog implements TData<String> {
-	// 玩家ID
-	String aid
-	// 玩家名字
-	String name
-	// 日志类型
-	LogEnums opt
-	// 日志附加参数
-	JsonObject param
-	// 创建时间
-	LocalDateTime createTime
+    // 玩家ID
+    String aid
+    // 玩家名字
+    String name
+    // 日志类型
+    LogEnums opt
+    // 日志附加参数
+    JsonObject param
+    // 创建时间
+    LocalDateTime createTime
 }

@@ -7,8 +7,8 @@ import io.github.hdfg159.game.data.AbstractDataManager
  */
 @Singleton
 class SoupMemberData extends AbstractDataManager<SoupMember> {
-	@Override
-	Class<SoupMember> clazz() {
-		SoupMember.class
-	}
+    @Override
+    Class<SoupMember> clazz() {
+        SoupMember.class
+    }
 }

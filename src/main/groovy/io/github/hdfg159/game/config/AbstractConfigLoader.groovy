@@ -17,27 +17,27 @@ import io.vertx.sqlclient.PoolOptions
  */
 @Slf4j
 abstract class AbstractConfigLoader extends AbstractVerticle {
-	MySQLPool client
-	
-	@Override
-	Completable rxStart() {
-		def createClient = this.@vertx.fileSystem()
-				.rxReadFile(GameConsts.CONFIG_PATH)
-				.map({
-					new JsonObject(new YamlSlurper().parseText(it.toString()).database.config)
-				})
-				.doOnSuccess({
-					client = MySQLPool.pool(this.@vertx, new MySQLConnectOptions(it), new PoolOptions())
-				}).ignoreElement()
-		
-		createClient.concatWith(Completable.defer({load()}))
-				.doOnComplete({
-					ConfigLoaderData.instance.addConfigLoader(this)
-					log.info "deploy config complete : ${this.class.simpleName}"
-				})
-	}
-	
-	abstract Completable load()
-	
-	abstract Completable reload()
+    MySQLPool client
+
+    @Override
+    Completable rxStart() {
+        def createClient = this.@vertx.fileSystem()
+                .rxReadFile(GameConsts.CONFIG_PATH)
+                .map({
+                    new JsonObject(new YamlSlurper().parseText(it.toString()).database.config)
+                })
+                .doOnSuccess({
+                    client = MySQLPool.pool(this.@vertx, new MySQLConnectOptions(it), new PoolOptions())
+                }).ignoreElement()
+
+        createClient.concatWith(Completable.defer({load()}))
+                .doOnComplete({
+                    ConfigLoaderData.instance.addConfigLoader(this)
+                    log.info "deploy config complete : ${this.class.simpleName}"
+                })
+    }
+
+    abstract Completable load()
+
+    abstract Completable reload()
 }
