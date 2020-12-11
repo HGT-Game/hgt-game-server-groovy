@@ -65,13 +65,13 @@ abstract class AbstractDataManager<D extends TData<String>> extends AbstractVert
                     new JmxBuilder().export {
                         bean(
                                 target: this,
-                                name: "io.github.hdfg159.game.data.data:name=" + this.class.simpleName + "@" + this.hashCode(),
+                                name: "io.github.hdfg159.game.data.data:name=${this.class.simpleName}@${this.hashCode()}",
                                 attributes: [],
                                 operations: "*"
                         )
                         bean(
                                 target: this.cacheStats(),
-                                name: "io.github.hdfg159.game.data.data:name=" + this.class.simpleName + "CacheStats@" + this.hashCode(),
+                                name: "io.github.hdfg159.game.data.data:name=${this.class.simpleName}CacheStats@${this.hashCode()}",
                                 attributes: [],
                                 operations: "*"
                         )

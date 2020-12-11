@@ -63,7 +63,7 @@ abstract class AbstractService extends AbstractVerticle {
             new JmxBuilder().export {
                 bean(
                         target: this,
-                        name: "io.github.hdfg159.game.data.service:name=" + this.class.simpleName + "@" + this.hashCode(),
+                        name: "io.github.hdfg159.game.data.service:name=${this.class.simpleName}@${this.hashCode()}",
                         attributes: [],
                         operations: "*"
                 )
