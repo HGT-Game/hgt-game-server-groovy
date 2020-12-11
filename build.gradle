@@ -27,20 +27,20 @@ application {
 }
 
 def vertxVersion = "4.0.0"
-def log4jVersion = "2.13.3"
+def log4jVersion = "2.14.0"
 def protobufVersion = "3.12.2"
-def caffeineVersion = "2.8.6"
-def jacksonVersion = "2.11.3"
+def caffeineVersion = "2.8.8"
+def jacksonVersion = "2.12.0"
 def groovyVersion = "3.0.7"
 
 dependencies {
 	implementation "io.vertx:vertx-rx-java2:$vertxVersion"
-	
+
 	implementation "io.vertx:vertx-lang-groovy:$vertxVersion"
 	implementation "org.codehaus.groovy:groovy-jmx:${groovyVersion}"
 	implementation "org.codehaus.groovy:groovy-datetime:${groovyVersion}"
 	implementation "org.codehaus.groovy:groovy-yaml:${groovyVersion}"
-	
+
 	implementation "io.vertx:vertx-web:$vertxVersion"
 	implementation "io.vertx:vertx-auth-jwt:$vertxVersion"
 	
