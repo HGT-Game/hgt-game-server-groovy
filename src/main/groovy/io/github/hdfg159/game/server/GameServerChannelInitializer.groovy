@@ -26,6 +26,17 @@ import java.util.concurrent.TimeUnit
  * @author zhangzhenyu
  */
 class GameServerChannelInitializer extends ChannelInitializer<Channel> {
+    private static final LogHandler LOG_HANDLER = new LogHandler()
+
+    private static final ProtobufEncoder PROTOBUF_ENCODER = new ProtobufEncoder()
+    private static final ProtobufDecoder PROTOBUF_DECODER = new ProtobufDecoder(GameMessage.Message.getDefaultInstance())
+
+    private static final WebSocketBinaryMessageOutHandler WEBSOCKET_BINARY_MESSAGE_OUT_HANDLER = new WebSocketBinaryMessageOutHandler()
+    private static final WebSocketBinaryMessageInHandler WEBSOCKET_BINARY_MESSAGE_IN_HANDLER = new WebSocketBinaryMessageInHandler()
+
+    private MessageHandler messageHandler
+    private ConnectionHandler connectionHandler
+
     private Vertx vertx
     private ServerConfig config
     private GameMessageDispatcher dispatcher
@@ -34,6 +45,8 @@ class GameServerChannelInitializer extends ChannelInitializer<Channel> {
         this.vertx = vertx
         this.config = config
         this.dispatcher = new GameMessageDispatcher(vertx)
+        this.messageHandler = new MessageHandler(vertx, dispatcher)
+        this.connectionHandler = new ConnectionHandler(config.maxConnection, dispatcher)
     }
 
     @Override
@@ -46,14 +59,14 @@ class GameServerChannelInitializer extends ChannelInitializer<Channel> {
 
                 .addLast(new WebSocketServerCompressionHandler())
                 .addLast(new WebSocketServerProtocolHandler("/", null, true, 65536, true))
-                .addLast(new WebSocketBinaryMessageOutHandler())
-                .addLast(new WebSocketBinaryMessageInHandler())
-                .addLast(new ProtobufDecoder(GameMessage.Message.getDefaultInstance()))
-                .addLast(new ProtobufEncoder())
+                .addLast(WEBSOCKET_BINARY_MESSAGE_OUT_HANDLER)
+                .addLast(WEBSOCKET_BINARY_MESSAGE_IN_HANDLER)
+                .addLast(PROTOBUF_DECODER)
+                .addLast(PROTOBUF_ENCODER)
         if (config.log) {
-            pipeline.addLast(new LogHandler())
+            pipeline.addLast(LOG_HANDLER)
         }
-        pipeline.addLast(new ConnectionHandler(config.maxConnection, dispatcher))
-                .addLast(new MessageHandler(vertx, dispatcher))
+
+        pipeline.addLast(connectionHandler).addLast(messageHandler)
     }
 }
