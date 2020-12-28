@@ -34,12 +34,12 @@ class GameServerChannelInitializer extends ChannelInitializer<Channel> {
     private static final WebSocketBinaryMessageOutHandler WEBSOCKET_BINARY_MESSAGE_OUT_HANDLER = new WebSocketBinaryMessageOutHandler()
     private static final WebSocketBinaryMessageInHandler WEBSOCKET_BINARY_MESSAGE_IN_HANDLER = new WebSocketBinaryMessageInHandler()
 
-    private MessageHandler messageHandler
-    private ConnectionHandler connectionHandler
+    private final MessageHandler messageHandler
+    private final ConnectionHandler connectionHandler
 
-    private Vertx vertx
-    private ServerConfig config
-    private GameMessageDispatcher dispatcher
+    private final Vertx vertx
+    private final ServerConfig config
+    private final GameMessageDispatcher dispatcher
 
     GameServerChannelInitializer(Vertx vertx, ServerConfig config) {
         this.vertx = vertx
