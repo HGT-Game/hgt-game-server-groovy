@@ -4,6 +4,7 @@ import groovy.util.logging.Slf4j
 import io.github.hdfg159.game.enumeration.ProtocolEnums
 import io.github.hdfg159.game.util.GameUtils
 import io.netty.channel.ChannelFutureListener
+import io.netty.channel.ChannelHandler
 import io.netty.channel.ChannelHandlerContext
 import io.netty.channel.ChannelInboundHandlerAdapter
 import io.netty.handler.timeout.IdleState
@@ -19,6 +20,7 @@ import io.netty.handler.timeout.IdleStateEvent
  * @author zhangzhenyu
  */
 @Slf4j
+@ChannelHandler.Sharable
 class HeartbeatHandler extends ChannelInboundHandlerAdapter {
     @Override
     void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {

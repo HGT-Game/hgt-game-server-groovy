@@ -30,6 +30,14 @@ import java.util.concurrent.TimeUnit
  * @author zhangzhenyu
  */
 class GameClientChannelInitializer extends ChannelInitializer<Channel> {
+	private static final LogHandler LOG_HANDLER = new LogHandler()
+	private static final HeartbeatHandler HEARTBEAT_HANDLER = new HeartbeatHandler()
+
+	private static final ProtobufEncoder PROTOBUF_ENCODER = new ProtobufEncoder()
+	private static final ProtobufDecoder PROTOBUF_DECODER = new ProtobufDecoder(GameMessage.Message.getDefaultInstance())
+
+	private static final WebSocketBinaryMessageOutHandler WEBSOCKET_BINARY_MESSAGE_OUT_HANDLER = new WebSocketBinaryMessageOutHandler()
+	private static final WebSocketBinaryMessageInHandler WEBSOCKET_BINARY_MESSAGE_IN_HANDLER = new WebSocketBinaryMessageInHandler()
 
 	@Override
 	protected void initChannel(Channel ch) throws Exception {
@@ -52,15 +60,15 @@ class GameClientChannelInitializer extends ChannelInitializer<Channel> {
 				.addLast(new HttpObjectAggregator(65536))
 
 				.addLast(new WebSocketClientProtocolHandler(handShaker))
-				.addLast(new WebSocketBinaryMessageInHandler())
-				.addLast(new WebSocketBinaryMessageOutHandler())
+				.addLast(WEBSOCKET_BINARY_MESSAGE_IN_HANDLER)
+				.addLast(WEBSOCKET_BINARY_MESSAGE_OUT_HANDLER)
 
-				.addLast(new ProtobufDecoder(GameMessage.Message.getDefaultInstance()))
+				.addLast(PROTOBUF_DECODER)
 
-				.addLast(new ProtobufEncoder())
+				.addLast(PROTOBUF_ENCODER)
 
-				.addLast(new LogHandler())
+				.addLast(LOG_HANDLER)
 
-				.addLast(new HeartbeatHandler())
+				.addLast(HEARTBEAT_HANDLER)
 	}
 }
